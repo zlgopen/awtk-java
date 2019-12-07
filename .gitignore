@@ -26,6 +26,7 @@ hs_err_pid*
 *.exe
 *.jar
 *.class
+*.dylib
 
 native
 classes
