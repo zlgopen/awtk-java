@@ -1,4 +1,4 @@
-# Compiled class file
+#b/awtk-jni. Compiled class file
 *.class
 
 # Log file
@@ -30,3 +30,5 @@ hs_err_pid*
 
 native
 classes
+lib/awtk-jni.*
+lib/libawtk-jni.*

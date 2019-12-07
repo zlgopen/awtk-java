@@ -2,19 +2,19 @@
 
 AWTK 之前支持了 LUA 和 JS 的绑定，JS 又支持了 JerryScript、QuickJS 和 NodeJS 几种不同的运行环境。AWTK 支持脚本语言算是经过验证了，要增加新的脚本语言应该是很容易的事了。
 
-JAVA 的绑定则是第一次支持静态类型的语言绑定，在支持 JS 绑定时用了 TypeScript，但是 TypeScript 的类型要求并不严格，有些类型转换的问题就绕过去了，而 JAVA 是一门类型要求严格语言，加上对 JAVA 不熟悉，在实现 JAVA 的绑定过程中遇到不少问题。这里做个备忘：
+JAVA 的绑定则是第一次支持静态类型的语言绑定，虽然在支持 JS 绑定时用了 TypeScript，但是 TypeScript 的类型要求并不严格，有些类型转换的问题就绕过去了，而 JAVA 是一门类型要求严格语言，加上对 JAVA 不熟悉，在实现 JAVA 的绑定过程中遇到不少问题。这里做个备忘：
 
 ## 一、为什么要支持 JAVA
 
-JAVA 运行环境体积很大，而且有强大的 GUI 系统。支持 AWTK 支持 JAVA 貌似没有什么必要，最终选择支持 JAVA 绑定，主要出于几个原因：
+JAVA 运行环境体积很大，而且自己有强大的 GUI 系统。AWTK 为什么要支持 JAVA 的绑定呢：
 
 * 首先这是一件很好玩的事情。
 
-* 相对于 C#/Go/Rust 而言，JAVA 稍微熟悉一点，以前写个 JNI 代码。
+* 相对于 C#/Go/Rust 而言，我对 JAVA 稍微熟悉一点。
 
 * JAVA 是一个典型的静态类型语言，希望支持 JAVA 绑定后，再支持 C#/Go/Rust 应该不难了。
 
-* JAVA 是从嵌入式来的，嵌入式 Linux 系统用 J2ME + AWTK 或 minijvm + AWTK 也是有趣的尝试。
+* JAVA 是从嵌入式开发来的。嵌入式 Linux 系统用 J2ME + AWTK 或 minijvm + AWTK 也是有趣的尝试。
 
 ## 二、JAVA 命令行编译
 
@@ -33,6 +33,8 @@ javac -d classes/demos  demos/*.java -classpath classes/awtk
 jar cfm ./bin/DemoButton.jar demos/DemoButton.MF -C classes/awtk . -C classes/demos DemoButton.class
 ```
 
+> 本来打算把绑定代码编译成独立的文件 awtk.jar, 但是编译 demos 时出现问题，以后再研究吧。
+
 ## 三、编译 JNI
 
 JNI 仍然采用 scons。
@@ -45,13 +47,13 @@ java -Djava.library.path=lib/  -classpath . -jar bin/DemoButton.jar
 
 ## 五、JNI 函数原型
 
-JNI 中 C 函数的函数原型可以用 javah 生成，或者再 dlsync 函数设置断点，观察加载函数的名称。
+JNI 中 C 函数的函数原型可以用 javah 生成，或者在 dlsync 函数设置断点，观察加载函数的名称。
 
 ```
 javah -d native -classpath classes/awtk/ awtk.Widget
 ```
 
-> 有点奇怪的是函数名单词前要加个 1:(。
+> 有点奇怪的是函数名单词前要加个 1。
 
 如：
 ```
@@ -92,17 +94,15 @@ public class Widget {
  }
  ```
 
+JAVA 中的枚举类型是强类型，不像 C 语言中直接和 int 进行转换，而在 JNI 中去把 C 的枚举转换成 JAVA 的枚举很麻烦，所以在定义枚举时，就提供相应的转换函数。如：
 
-JAVA 中的枚举类型是强类型，不像 C 语言中直接和 int 进行转换，而在JNI中去把C的枚举转换成JAVA的枚举很麻烦，所以在定义枚举时，就提供相应的转换函数。如：
-
-value 把JAVA的枚举转换成C语言枚举对应的值，而from负责把C枚举的值转换成JAVA枚举的值。
+value 把 JAVA 的枚举转换成 C 语言枚举对应的值，而 from 负责把 C 枚举的值转换成 JAVA 枚举的值。
 
 ```
 public enum AppType {
   MOBILE (APP_MOBILE()),
   SIMULATOR (APP_SIMULATOR()),
   DESKTOP (APP_DESKTOP());
-
 
   private int value;
   AppType(int value) {
@@ -129,6 +129,8 @@ public enum AppType {
 }
 ```
 
+使用时，用 from/value 在 C 和 JAVA 之间进行转换。
+
 ```
 public class AWTK {
   static public Ret init(int w, int h, AppType appType) {
@@ -138,5 +140,50 @@ public class AWTK {
   static public native int init(int w, int h, int appType);
 
   static public native Ret run();
+}
+```
+
+## 七、JNI 中 异步调用 JAVA 编写的事件处理函数
+
+由于是异步调用，所以需要把 env 和 java 对象保存起来，并且增加 java 对象的引用计数：
+
+```
+static async_callback_info_t* async_callback_info_create(JNIEnv* env, jobject obj,
+                                                         const char* name) {
+  async_callback_info_t* info = TKMEM_ZALLOC(async_callback_info_t);
+  return_value_if_fail(info != NULL, NULL);
+
+  info->env = env;
+  info->obj = (*env)->NewGlobalRef(env, obj);
+  tk_strncpy(info->func, name, TK_NAME_LEN);
+
+  return info;
+}
+```
+
+调用 JAVA 实现的事件处理函数。
+
+```
+static int async_callback_info_call(async_callback_info_t* info, void* data) {
+  JNIEnv* env = info->env;
+  jclass cls = (*env)->GetObjectClass(env, info->obj);
+  jmethodID mid = (*env)->GetMethodID(env, cls, info->func, "(J)Lawtk/Ret;");
+  return_value_if_fail(cls != NULL && mid != NULL, RET_BAD_PARAMS);
+
+  return (*env)->CallIntMethod(env, info->obj, mid, data);
+}
+```
+
+在注销的时候，减少 java 对象的引用计数。
+
+```
+static ret_t async_callback_info_destroy(async_callback_info_t* info) {
+  return_value_if_fail(info != NULL, RET_BAD_PARAMS);
+
+  (*(info->env))->DeleteGlobalRef(info->env, info->obj);
+
+  TKMEM_FREE(info);
+
+  return RET_OK;
 }
 ```
