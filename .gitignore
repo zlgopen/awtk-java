@@ -33,4 +33,4 @@ classes
 lib/awtk-jni.*
 lib/libawtk-jni.*
 .sconsign.dblite
-
+*.os
