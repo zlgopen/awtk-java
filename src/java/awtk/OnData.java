@@ -1,6 +1,6 @@
 package awtk;
 
 public interface OnData {
-  public Ret onData(long data);
+  public int onData(long data);
 };
 
