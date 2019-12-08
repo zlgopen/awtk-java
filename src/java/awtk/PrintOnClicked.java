@@ -1,7 +1,7 @@
 package awtk;
 
-public class PrintOnClicked implements OnEvent {
-   public Ret onEvent(long evt) {
+public class PrintOnClicked extends OnEvent {
+   public Ret onEvent(Event evt) {
       PointerEvent e = PointerEvent.cast(evt);
       Widget widget = Widget.cast(e.getTarget());
 

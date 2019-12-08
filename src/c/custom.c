@@ -38,7 +38,7 @@ static async_callback_info_t* async_callback_info_create(JNIEnv* env, jobject ob
 static int async_callback_info_call(async_callback_info_t* info, void* data) {
   JNIEnv* env = info->env;
   jclass cls = (*env)->GetObjectClass(env, info->obj);
-  jmethodID mid = (*env)->GetMethodID(env, cls, info->func, "(J)Lawtk/Ret;");
+  jmethodID mid = (*env)->GetMethodID(env, cls, info->func, "(J)I");
   return_value_if_fail(cls != NULL && mid != NULL, RET_BAD_PARAMS);
 
   return (*env)->CallIntMethod(env, info->obj, mid, data);

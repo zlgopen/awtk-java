@@ -32,3 +32,5 @@ native
 classes
 lib/awtk-jni.*
 lib/libawtk-jni.*
+.sconsign.dblite
+

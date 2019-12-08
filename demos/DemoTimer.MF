@@ -1,0 +1,4 @@
+Manifest-Version: 1.0  
+Created-By: Li Xianjing <xianjimli@hotmail.com>
+Class-Path: .  
+Main-Class: DemoTimer
