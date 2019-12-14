@@ -33,7 +33,9 @@ public enum StyleId {
   _ID_SELECTED_BG_COLOR (STYLE_ID_SELECTED_BG_COLOR()),
   _ID_SELECTED_FG_COLOR (STYLE_ID_SELECTED_FG_COLOR()),
   _ID_SELECTED_TEXT_COLOR (STYLE_ID_SELECTED_TEXT_COLOR()),
-  _ID_ROUND_RADIUS (STYLE_ID_ROUND_RADIUS());
+  _ID_ROUND_RADIUS (STYLE_ID_ROUND_RADIUS()),
+  _ID_CHILDREN_LAYOUT (STYLE_ID_CHILDREN_LAYOUT()),
+  _ID_SELF_LAYOUT (STYLE_ID_SELF_LAYOUT());
  
    
   private String value;
@@ -86,5 +88,7 @@ public enum StyleId {
   static private native String STYLE_ID_SELECTED_FG_COLOR();
   static private native String STYLE_ID_SELECTED_TEXT_COLOR();
   static private native String STYLE_ID_ROUND_RADIUS();
+  static private native String STYLE_ID_CHILDREN_LAYOUT();
+  static private native String STYLE_ID_SELF_LAYOUT();
 
 }

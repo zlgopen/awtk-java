@@ -1,6 +1,48 @@
 package awtk;
 
+
+/**
+ * 进度圆环控件。
+ * 
+ *  progress\_circle\_t是[widget\_t](widget_t.md)的子类控件，widget\_t的函数均适用于progress\_circle\_t控件。
+ * 
+ *  在xml中使用"progress\_circle"标签创建进度圆环控件。如：
+ * 
+ *  ```xml
+ *   <progress_circle max="360" show_text="true" start_angle="90" />
+ *  ```
+ * 
+ * 更多用法请参考：
+ *  [progress_circle.xml](https://github.com/zlgopen/awtk/blob/master/demos/assets/default/raw/ui/progress_circle.xml)
+ * 
+ *  在c代码中使用函数progress\_circle\_create创建进度圆环控件。如：
+ * 
+ *  ```c
+ *   progress_circle = progress_circle_create(win, 10, 10, 200, 200);
+ *   progress_circle_set_max(progress_circle, 360);
+ *   widget_set_value(progress_circle, 128);
+ *  ```
+ * 
+ * 完整示例请参考：
+ *  [progress_circle
+ *  demo](https://github.com/zlgopen/awtk-c-demos/blob/master/demos/progress_circle.c)
+ * 
+ *  可用通过style来设置控件的显示风格，如字体的大小和颜色等等。如：
+ * 
+ *  ```xml
+ *  <style name="default">
+ *    <normal text_color="green" fg_color="black" />
+ *  </style>
+ *  ```
+ * 
+ * 更多用法请参考：
+ *  [theme
+ *  default](https://github.com/zlgopen/awtk/blob/master/demos/assets/default/raw/styles/default.xml#L467)
+ *
+ */
 public class ProgressCircle extends Widget {
+ public long nativeObj;
+
  public ProgressCircle(long nativeObj) {
    super(nativeObj);
  }
@@ -9,40 +51,123 @@ public class ProgressCircle extends Widget {
    return new ProgressCircle(nativeObj);
  }
 
+
+/**
+ * 创建progress_circle对象
+ * 
+ * @param parent 父控件
+ * @param x x坐标
+ * @param y y坐标
+ * @param w 宽度
+ * @param h 高度
+ *
+ * @returns 对象。
+ */
  public  static Widget create(Widget parent, int x, int y, int w, int h)  {
    return new ProgressCircle(progress_circle_create(parent != null ? (parent.nativeObj) : 0, x, y, w, h));
  }
 
- public  static Widget cast(Widget widget)  {
+
+/**
+ * 转换为progress_circle对象(供脚本语言使用)。
+ * 
+ * @param widget progress_circle对象。
+ *
+ * @returns progress_circle对象。
+ */
+ public  static ProgressCircle cast(Widget widget)  {
    return new ProgressCircle(progress_circle_cast(widget != null ? (widget.nativeObj) : 0));
  }
 
+
+/**
+ * 设置值。
+ * 
+ * @param widget 控件对象。
+ * @param value 值。
+ *
+ * @returns 返回RET_OK表示成功，否则表示失败。
+ */
  public  Ret setValue(double value)  {
-   return Ret.from(progress_circle_set_value(this.nativeObj, value));
+   return Ret.from(progress_circle_set_value(this != null ? (this.nativeObj) : 0, value));
  }
 
+
+/**
+ * 设置最大值。
+ * 
+ * @param widget 控件对象。
+ * @param max 最大值。
+ *
+ * @returns 返回RET_OK表示成功，否则表示失败。
+ */
  public  Ret setMax(int max)  {
-   return Ret.from(progress_circle_set_max(this.nativeObj, max));
+   return Ret.from(progress_circle_set_max(this != null ? (this.nativeObj) : 0, max));
  }
 
+
+/**
+ * 设置环线的厚度。
+ * 
+ * @param widget 控件对象。
+ * @param line_width 环线的厚度。
+ *
+ * @returns 返回RET_OK表示成功，否则表示失败。
+ */
  public  Ret setLineWidth(int line_width)  {
-   return Ret.from(progress_circle_set_line_width(this.nativeObj, line_width));
+   return Ret.from(progress_circle_set_line_width(this != null ? (this.nativeObj) : 0, line_width));
  }
 
+
+/**
+ * 设置起始角度。
+ * 
+ * @param widget 控件对象。
+ * @param start_angle 起始角度。
+ *
+ * @returns 返回RET_OK表示成功，否则表示失败。
+ */
  public  Ret setStartAngle(int start_angle)  {
-   return Ret.from(progress_circle_set_start_angle(this.nativeObj, start_angle));
+   return Ret.from(progress_circle_set_start_angle(this != null ? (this.nativeObj) : 0, start_angle));
  }
 
+
+/**
+ * 设置单位。
+ * 
+ * @param widget 控件对象。
+ * @param unit 单位。
+ *
+ * @returns 返回RET_OK表示成功，否则表示失败。
+ */
  public  Ret setUnit(String unit)  {
-   return Ret.from(progress_circle_set_unit(this.nativeObj, unit));
+   return Ret.from(progress_circle_set_unit(this != null ? (this.nativeObj) : 0, unit));
  }
 
+
+/**
+ * 设置是否显示文本。
+ * 
+ * @param widget 控件对象。
+ * @param show_text 是否显示文本。
+ *
+ * @returns 返回RET_OK表示成功，否则表示失败。
+ */
  public  Ret setShowText(boolean show_text)  {
-   return Ret.from(progress_circle_set_show_text(this.nativeObj, show_text));
+   return Ret.from(progress_circle_set_show_text(this != null ? (this.nativeObj) : 0, show_text));
  }
 
+
+/**
+ * 设置是否为逆时针方向。
+ * 
+ * @param widget 控件对象。
+ * @param counter_clock_wise 是否为逆时针方向。
+ *
+ * @returns 返回RET_OK表示成功，否则表示失败。
+ */
  public  Ret setCounterClockWise(boolean counter_clock_wise)  {
-   return Ret.from(progress_circle_set_counter_clock_wise(this.nativeObj, counter_clock_wise));
+   return Ret.from(progress_circle_set_counter_clock_wise(this != null ? (this.nativeObj) : 0, counter_clock_wise));
  }
 
  public int getMax() {

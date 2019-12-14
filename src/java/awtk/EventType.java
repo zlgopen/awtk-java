@@ -43,6 +43,7 @@ public enum EventType {
   ANIM_ONCE (EVT_ANIM_ONCE()),
   ANIM_END (EVT_ANIM_END()),
   WINDOW_LOAD (EVT_WINDOW_LOAD()),
+  WIDGET_LOAD (EVT_WIDGET_LOAD()),
   WINDOW_WILL_OPEN (EVT_WINDOW_WILL_OPEN()),
   WINDOW_OPEN (EVT_WINDOW_OPEN()),
   WINDOW_TO_BACKGROUND (EVT_WINDOW_TO_BACKGROUND()),
@@ -136,6 +137,7 @@ public enum EventType {
   static private native int EVT_ANIM_ONCE();
   static private native int EVT_ANIM_END();
   static private native int EVT_WINDOW_LOAD();
+  static private native int EVT_WIDGET_LOAD();
   static private native int EVT_WINDOW_WILL_OPEN();
   static private native int EVT_WINDOW_OPEN();
   static private native int EVT_WINDOW_TO_BACKGROUND();

@@ -26,12 +26,23 @@ cd awtk; scons; cd -
 
 2. 获取 awtk-java 并编译
 
+* 编译 JNI
+
 ```
 git clone https://github.com/zlgopen/awtk-java.git
 cd awtk-java
 scons
+```
 
+* 编译 AWTK-JAVA
+
+```
 ./build.sh
+```
+
+* 编译 AWTK-DEMO
+
+```
 ./build_demo.sh
 ```
 

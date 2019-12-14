@@ -49,6 +49,7 @@ public enum WidgetType {
   COLOR_PICKER (WIDGET_TYPE_COLOR_PICKER()),
   COLOR_COMPONENT (WIDGET_TYPE_COLOR_COMPONENT()),
   COLOR_TILE (WIDGET_TYPE_COLOR_TILE()),
+  CLIP_VIEW (WIDGET_TYPE_CLIP_VIEW()),
   RICH_TEXT (WIDGET_TYPE_RICH_TEXT()),
   APP_BAR (WIDGET_TYPE_APP_BAR()),
   GRID (WIDGET_TYPE_GRID()),
@@ -123,6 +124,7 @@ public enum WidgetType {
   static private native String WIDGET_TYPE_COLOR_PICKER();
   static private native String WIDGET_TYPE_COLOR_COMPONENT();
   static private native String WIDGET_TYPE_COLOR_TILE();
+  static private native String WIDGET_TYPE_CLIP_VIEW();
   static private native String WIDGET_TYPE_RICH_TEXT();
   static private native String WIDGET_TYPE_APP_BAR();
   static private native String WIDGET_TYPE_GRID();

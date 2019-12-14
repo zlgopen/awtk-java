@@ -1,6 +1,13 @@
 package awtk;
 
+
+/**
+ * 指针事件。
+ *
+ */
 public class PointerEvent extends Event {
+ public long nativeObj;
+
  public PointerEvent(long nativeObj) {
    super(nativeObj);
  }
@@ -9,6 +16,14 @@ public class PointerEvent extends Event {
    return new PointerEvent(nativeObj);
  }
 
+
+/**
+ * 把event对象转pointer_event_t对象，主要给脚本语言使用。
+ * 
+ * @param event event对象。
+ *
+ * @returns event对象。
+ */
  public  static PointerEvent cast(Event event)  {
    return new PointerEvent(pointer_event_cast(event != null ? (event.nativeObj) : 0));
  }

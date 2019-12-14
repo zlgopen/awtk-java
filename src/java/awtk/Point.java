@@ -1,5 +1,10 @@
 package awtk;
 
+
+/**
+ * 点。包括一个x坐标和一个y坐标。
+ *
+ */
 public class Point {
  public long nativeObj;
 

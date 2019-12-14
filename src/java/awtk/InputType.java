@@ -11,7 +11,8 @@ public enum InputType {
   EMAIL (INPUT_EMAIL()),
   PASSWORD (INPUT_PASSWORD()),
   PHONE (INPUT_PHONE()),
-  CUSTOM (INPUT_CUSTOM());
+  CUSTOM (INPUT_CUSTOM()),
+  CUSTOM_PASSWORD (INPUT_CUSTOM_PASSWORD());
  
    
   private int value;
@@ -42,5 +43,6 @@ public enum InputType {
   static private native int INPUT_PASSWORD();
   static private native int INPUT_PHONE();
   static private native int INPUT_CUSTOM();
+  static private native int INPUT_CUSTOM_PASSWORD();
 
 }

@@ -1,6 +1,13 @@
 package awtk;
 
+
+/**
+ * 绘制事件。
+ *
+ */
 public class PaintEvent extends Event {
+ public long nativeObj;
+
  public PaintEvent(long nativeObj) {
    super(nativeObj);
  }
@@ -9,6 +16,14 @@ public class PaintEvent extends Event {
    return new PaintEvent(nativeObj);
  }
 
+
+/**
+ * 把event对象转paint_event_t对象。主要给脚本语言使用。
+ * 
+ * @param event event对象。
+ *
+ * @returns event 对象。
+ */
  public  static PaintEvent cast(Event event)  {
    return new PaintEvent(paint_event_cast(event != null ? (event.nativeObj) : 0));
  }

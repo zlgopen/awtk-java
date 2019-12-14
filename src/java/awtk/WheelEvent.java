@@ -1,6 +1,13 @@
 package awtk;
 
+
+/**
+ * 滚轮事件。
+ *
+ */
 public class WheelEvent extends Event {
+ public long nativeObj;
+
  public WheelEvent(long nativeObj) {
    super(nativeObj);
  }
@@ -9,6 +16,14 @@ public class WheelEvent extends Event {
    return new WheelEvent(nativeObj);
  }
 
+
+/**
+ * 把event对象转wheel_event_t对象，主要给脚本语言使用。
+ * 
+ * @param event event对象。
+ *
+ * @returns event对象。
+ */
  public  static WheelEvent cast(Event event)  {
    return new WheelEvent(wheel_event_cast(event != null ? (event.nativeObj) : 0));
  }

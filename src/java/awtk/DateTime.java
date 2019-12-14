@@ -1,5 +1,10 @@
 package awtk;
 
+
+/**
+ * 日期时间。> 在嵌入式平台中，在系统初始时，需要调用date\_time\_global\_init设置实际获取/设置系统时间的函数。
+ *
+ */
 public class DateTime {
  public long nativeObj;
 
@@ -11,16 +16,39 @@ public class DateTime {
    return new DateTime(nativeObj);
  }
 
+
+/**
+ * 创建date_time对象，并初始为当前日期和时间(一般供脚本语言中使用)。
+ * 
+ *
+ * @returns 返回date_time对象。
+ */
  public  static DateTime create()  {
    return new DateTime(date_time_create());
  }
 
+
+/**
+ * 设置当前时间。
+ * 
+ * @param dt date_time对象。
+ *
+ * @returns 返回RET_OK表示成功，否则表示失败。
+ */
  public  Ret set()  {
-   return Ret.from(date_time_set(this.nativeObj));
+   return Ret.from(date_time_set(this != null ? (this.nativeObj) : 0));
  }
 
+
+/**
+ * 销毁date_time对象(一般供脚本语言中使用)。
+ * 
+ * @param dt date_time对象。
+ *
+ * @returns 返回RET_OK表示成功，否则表示失败。
+ */
  public  Ret destroy()  {
-   return Ret.from(date_time_destroy(this.nativeObj));
+   return Ret.from(date_time_destroy(this != null ? (this.nativeObj) : 0));
  }
 
  public int getSecond() {
