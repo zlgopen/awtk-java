@@ -2,21 +2,23 @@ import awtk.*;
 
 class DemoButton {
  public static void main(String[] args) {
-   AWTK.init(320, 480, AppType.SIMULATOR);
+   AWTK.init(320, 480, TAppType.SIMULATOR);
 
-   Widget win = Window.create(null, 0, 0, 0, 0);
-   Widget button = Button.create(win, 10, 0, 0, 0);
+   TWidget win = TWindow.createDefault();
+   TWidget button = TButton.create(win, 10, 0, 0, 0);
    
    button.setName("OK");
    button.setText("OK");
    button.setSelfLayout("default(x=c,y=m,w=200,h=40)");
-   button.on(EventType.CLICK, new PrintOnClicked(), 0);
+   button.on(TEventType.CLICK, new TPrintOnClicked(), 0);
 
    AWTK.run();
  }
 
  static {
-   System.loadLibrary("awtk-jni");
+  System.out.println("loadLibrary:");
+  System.loadLibrary("awtk-jni");
+  System.out.println("loadLibrary done");
  }
  
 }

@@ -19,16 +19,17 @@ TK_JS_ROOT  = os.path.normpath(os.getcwd())
 JAVA_HOME = os.environ['JAVA_HOME']
 JAVA_JNI_PATH = os.environ['JAVA_JNI_PATH']
 JAVA_JNI_OS_PATH = os.environ['JAVA_JNI_OS_PATH']
+JAVA_LIB_PATH=os.environ['JAVA_LIB_PATH'];
 
 os.environ['APP_ROOT'] = APP_ROOT;
 os.environ['BIN_DIR'] = APP_BIN_DIR;
 os.environ['LIB_DIR'] = APP_LIB_DIR;
 
 
-APP_LIBS = ['assets']
-APP_LIBPATH = [APP_LIB_DIR]
+APP_LIBS = ['assets', 'jvm']
+APP_LIBPATH = [APP_LIB_DIR, JAVA_LIB_PATH]
 APP_CPPPATH = [JAVA_JNI_PATH, JAVA_JNI_OS_PATH]
-APP_CFLAGS = '-DRES_ROOT=\"\\\"'+RES_ROOT+'\\\"\" -DPATH_MAX=256 -fPIC '
+APP_CFLAGS = ' -DPATH_MAX=256 -fPIC '
 APP_CCFLAGS = APP_CFLAGS
 
 if hasattr(awtk, 'CC'):

@@ -4,7 +4,7 @@ extern ret_t assets_init(void);
 
 JNIEXPORT jint JNICALL Java_awtk_AWTK_init(JNIEnv* env, jclass ajc, jint w, jint h,
                                            jint app_type) { /*func*/
-  tk_init(w, h, APP_SIMULATOR, NULL, RES_ROOT);
+  tk_init(w, h, APP_SIMULATOR, "AWTK-JAVA", NULL);
 
   assets_init();
 
@@ -94,7 +94,7 @@ static ret_t call_on_data(void* ctx, const void* data) {
   return (ret_t)async_callback_info_call((async_callback_info_t*)(ctx), (void*)data);
 }
 
-JNIEXPORT jint JNICALL Java_awtk_Idle_idle_1add(JNIEnv* env, jclass ajc, jobject on_idle,
+JNIEXPORT jint JNICALL Java_awtk_TIdle_idle_1add(JNIEnv* env, jclass ajc, jobject on_idle,
                                                 jlong ctx) { /*func*/
   async_callback_info_t* info = async_callback_info_create(env, on_idle, "onIdle");
 
@@ -108,7 +108,7 @@ JNIEXPORT jint JNICALL Java_awtk_Idle_idle_1add(JNIEnv* env, jclass ajc, jobject
   return id;
 }
 
-JNIEXPORT jint JNICALL Java_awtk_Timer_timer_1add(JNIEnv* env, jclass ajc, jobject on_timer,
+JNIEXPORT jint JNICALL Java_awtk_TTimer_timer_1add(JNIEnv* env, jclass ajc, jobject on_timer,
                                                   jlong ctx, jint duration) { /*func*/
   async_callback_info_t* info = async_callback_info_create(env, on_timer, "onTimer");
 
@@ -122,7 +122,7 @@ JNIEXPORT jint JNICALL Java_awtk_Timer_timer_1add(JNIEnv* env, jclass ajc, jobje
   return id;
 }
 
-JNIEXPORT jint JNICALL Java_awtk_Widget_widget_1on(JNIEnv* env, jclass ajc, jlong jwidget,
+JNIEXPORT jint JNICALL Java_awtk_TWidget_widget_1on(JNIEnv* env, jclass ajc, jlong jwidget,
                                                    jint type, jobject on_event,
                                                    jlong ctx) { /*func*/
   widget_t* widget = WIDGET(jwidget);
@@ -139,7 +139,7 @@ JNIEXPORT jint JNICALL Java_awtk_Widget_widget_1on(JNIEnv* env, jclass ajc, jlon
   return id;
 }
 
-JNIEXPORT jint JNICALL Java_awtk_Emitter_emitter_1on(JNIEnv* env, jclass ajc, jlong jemitter,
+JNIEXPORT jint JNICALL Java_awtk_TEmitter_emitter_1on(JNIEnv* env, jclass ajc, jlong jemitter,
                                                      jint type, jobject on_event,
                                                      jlong ctx) { /*func*/
   emitter_t* emitter = EMITTER(jemitter);
@@ -156,7 +156,7 @@ JNIEXPORT jint JNICALL Java_awtk_Emitter_emitter_1on(JNIEnv* env, jclass ajc, jl
   return id;
 }
 
-JNIEXPORT jint JNICALL Java_awtk_Widget_widget_1foreach(JNIEnv* env, jclass ajc, jlong jwidget,
+JNIEXPORT jint JNICALL Java_awtk_TWidget_widget_1foreach(JNIEnv* env, jclass ajc, jlong jwidget,
                                                         jobject visit, jlong ctx) { /*func*/
   widget_t* widget = WIDGET(jwidget);
 
