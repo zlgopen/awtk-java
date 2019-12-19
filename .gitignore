@@ -34,3 +34,5 @@ lib/awtk-jni.*
 lib/libawtk-jni.*
 .sconsign.dblite
 *.os
+bin/awtkRun
+
