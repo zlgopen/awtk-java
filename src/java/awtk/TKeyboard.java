@@ -46,8 +46,6 @@ public class TKeyboard extends TWindowBase {
 /**
  * 原生对象。
  */
- public long nativeObj;
-
 
 /**
  * 通过nativeObj构造Java对象。
