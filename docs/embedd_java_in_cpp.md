@@ -1,4 +1,4 @@
-# 如何在C++中嵌入JAVA
+# 如何在 C++中嵌入 JAVA
 
 最近在为 [AWTK](https://github.com/zlgopen/awtk) 增加 JAVA 绑定，在 Windows 和 Linux 下工作正常，但是在 MACOS 上运行起来遇到下列问题：
 
@@ -20,17 +20,16 @@ java[5714:260503] WARNING: NSWindow drag regions should only be invalidated on t
 )
 ```
 
-看起来大概是说，AWTK没有在UI线程运行，所以无法初始化SDL。找了半天也没有找到解决方法，转念一想，能不能把像处理脚本语言一样，把JAVA嵌入到C/C++中来呢？ 
+看起来大概是说，AWTK 没有在 UI 线程运行，所以无法初始化 SDL。找了半天也没有找到解决方法，转念一想，能不能把像处理脚本语言一样，把 JAVA 嵌入到 C/C++中来呢？ 
 
 在网上搜了一下，可能这种用法太奇葩，只找到少量例子，而且没有一个可以直接运行的，花了不少时间去调整。这里做个笔记，供有需要的朋友参考。
-
 
 ## 一、启动虚拟机的参数
 
 基本参数需要两个：
 
-* JNI 动态库的路径通过java.library.path设置。
-* 程序jar文件通过java.class.path设置。
+* JNI 动态库的路径通过 java.library.path 设置。
+* 程序 jar 文件通过 java.class.path 设置。
     
 ```c
 static string toClassPath(const string& program) {
@@ -43,9 +42,9 @@ jvmopt[0].optionString = (char*)"-Djava.library.path=./lib";
 jvmopt[1].optionString = (char*)classPath.c_str()
 ```
 
-## 二、调用main函数
+## 二、调用 main 函数
 
-这里我需要把宽度和高度两个参数，通过main函数传递给java程序。
+这里我需要把宽度和高度两个参数，通过 main 函数传递给 java 程序。
 
 ```c
 static jobjectArray prepareProgramArgs(JNIEnv* env, const char* w, const char* h) {
@@ -103,7 +102,6 @@ static string toClassName(const string& program) {
 static string toClassPath(const string& program) {
   return string("-Djava.class.path=") + program;
 }
-
 
 static jobjectArray prepareProgramArgs(JNIEnv* env, const char* w, const char* h) {
     jobjectArray ret= (jobjectArray)env->NewObjectArray(2,
@@ -215,17 +213,14 @@ $JAVA_HOME/jre/lib/server
 
 * 运行时库的路径  
 
-
 ```
 export DYLD_LIBRARY_PATH="$JAVA_HOME/jre/lib/server"
 ```
 
-
 ## 五、命令函数参数
 
-> 编译通过，以为大功告成，运行时却提示找不到JRE。原来安装了JDK还不行，还需另外在安装JRE，安装之后AWTK显示正常。
+> 编译通过，以为大功告成，运行时却提示找不到 JRE。原来安装了 JDK 还不行，还需另外在安装 JRE，安装之后 AWTK 显示正常。
 
 ```
 ./bin/awtkRun bin/DemoButton.jar
 ```
-
