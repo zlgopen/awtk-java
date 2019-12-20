@@ -8,10 +8,6 @@ package awtk;
 public class TProgressEvent extends TEvent { 
 
 /**
- * 原生对象。
- */
-
-/**
  * 通过nativeObj构造Java对象。
  *
  * @param nativeObj 原生对象。
