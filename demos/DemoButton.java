@@ -2,7 +2,18 @@ import awtk.*;
 
 class DemoButton {
  public static void main(String[] args) {
-   AWTK.init(320, 480, TAppType.SIMULATOR);
+   int w = 320;
+   int h = 480;
+
+   if(args.length > 0) {
+     w = Integer.parseInt(args[0]);
+   }
+   
+   if(args.length > 1) {
+     h = Integer.parseInt(args[1]);
+   }
+
+   AWTK.init(w, h, TAppType.SIMULATOR);
 
    TWidget win = TWindow.createDefault();
    TWidget button = TButton.create(win, 10, 0, 0, 0);

@@ -25,19 +25,41 @@ static string toClassPath(const string& program) {
   return string("-Djava.class.path=") + program;
 }
 
+
+static jobjectArray prepareProgramArgs(JNIEnv* env, const char* w, const char* h) {
+    jobjectArray ret= (jobjectArray)env->NewObjectArray(2,
+          env->FindClass("java/lang/String"),
+          env->NewStringUTF(""));
+
+    env->SetObjectArrayElement(ret,0, env->NewStringUTF(w));
+    env->SetObjectArrayElement(ret,1, env->NewStringUTF(h));
+
+    return ret;
+}
+
 int main(int argc, char** argv) {
   JavaVM* javaVM;
   JNIEnv* jniEnv;
   string program;
   string classPath;
   string className;
+  const char* w = "320";
+  const char* h = "480";
   JavaVMInitArgs vmArgs;
   JavaVMOption jvmopt[2];
 
-  if(argc != 2) {
-    printf("Usage: %s jar\n", argv[0]);
+  if(argc < 2) {
+    printf("Usage: %s jar [w] [h]\n", argv[0]);
 
     return 0;
+  }
+
+  if(argc > 2) {
+    w = argv[2];
+  }
+  
+  if(argc > 3) {
+    h = argv[3];
   }
 
   program = argv[1];
@@ -68,8 +90,10 @@ int main(int argc, char** argv) {
   if (jcls != NULL) {
     jmethodID methodId = env->GetStaticMethodID(jcls, "main", "([Ljava/lang/String;)V");
     if (methodId != NULL) {
-      jstring str = env->NewStringUTF("10");
-      env->CallStaticVoidMethod(jcls, methodId, str);
+      jobjectArray args = prepareProgramArgs(env, w, h);
+
+      env->CallStaticVoidMethod(jcls, methodId, args);
+
       if (env->ExceptionCheck()) {
         env->ExceptionDescribe();
         env->ExceptionClear();
