@@ -74,6 +74,26 @@ scons
 
 > 在非 bash 终端（如 Windows 平台的 cmd.exe)，需要根据 sync.sh 的内容手工执行相应的命令。
 
+## 代码示例
+
+```java
+    TWidget win = TWindow.createDefault();
+    TWidget button = TButton.create(win, 10, 0, 0, 0);
+
+    button.setName("quit");
+    button.setText("Quit");
+    button.setSelfLayout("default(x=c,y=m,w=200,h=40)");
+
+    button.on(TEventType.CLICK, new TOnEvent() {
+      @Override
+      public TRet onEvent(TEvent evt) {
+        System.out.println("OnClick");
+        TGlobal.quit();
+        return TRet.OK;
+      }
+    }, 0)
+```
+
 ## 文档
 
 [AWTK 脚本绑定原理](https://github.com/zlgopen/awtk/blob/master/docs/script_binding.md)
