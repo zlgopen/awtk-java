@@ -78,7 +78,7 @@ scons
 
 ```java
     TWidget win = TWindow.createDefault();
-    TWidget button = TButton.create(win, 10, 0, 0, 0);
+    TWidget button = TButton.create(win, 0, 0, 0, 0);
 
     button.setName("quit");
     button.setText("Quit");
