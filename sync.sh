@@ -8,3 +8,5 @@ cp -vf ../awtk-binding/tools/code_gen/java/output/*.java src/java/awtk
 cp -vf ../awtk-binding/share/java/*.c src/c
 cp -vf ../awtk-binding/share/java/*.java src/java/awtk
 
+cp -vf ../awtk-binding/demos/java/* demos
+

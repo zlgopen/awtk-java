@@ -100,6 +100,7 @@
 #include "tkc/object_default.h"
 #include "widgets/image.h"
 #include "combo_box_ex/combo_box_ex.h"
+#include "widgets/calibration_win.h"
 #include "widgets/popup.h"
 #include "svg_image/svg_image.h"
 #include "tkc/timer_info.h"
@@ -4722,6 +4723,38 @@ JNIEXPORT jint JNICALL Java_awtk_TWidget_widget_1unref(JNIEnv* env,  jclass ajc,
   ret = (ret_t)widget_unref(widget);
 
   return (jint)(ret);
+}
+
+JNIEXPORT jboolean JNICALL Java_awtk_TWidget_widget_1is_1system_1bar(JNIEnv* env,  jclass ajc, jlong jwidget) { /*func*/
+  bool_t ret;
+  widget_t* widget = (widget_t*)jwidget;
+  ret = (bool_t)widget_is_system_bar(widget);
+
+  return (jboolean)(ret);
+}
+
+JNIEXPORT jboolean JNICALL Java_awtk_TWidget_widget_1is_1normal_1window(JNIEnv* env,  jclass ajc, jlong jwidget) { /*func*/
+  bool_t ret;
+  widget_t* widget = (widget_t*)jwidget;
+  ret = (bool_t)widget_is_normal_window(widget);
+
+  return (jboolean)(ret);
+}
+
+JNIEXPORT jboolean JNICALL Java_awtk_TWidget_widget_1is_1dialog(JNIEnv* env,  jclass ajc, jlong jwidget) { /*func*/
+  bool_t ret;
+  widget_t* widget = (widget_t*)jwidget;
+  ret = (bool_t)widget_is_dialog(widget);
+
+  return (jboolean)(ret);
+}
+
+JNIEXPORT jboolean JNICALL Java_awtk_TWidget_widget_1is_1popup(JNIEnv* env,  jclass ajc, jlong jwidget) { /*func*/
+  bool_t ret;
+  widget_t* widget = (widget_t*)jwidget;
+  ret = (bool_t)widget_is_popup(widget);
+
+  return (jboolean)(ret);
 }
 
 JNIEXPORT jint JNICALL Java_awtk_TWidget_widget_1layout(JNIEnv* env,  jclass ajc, jlong jwidget) { /*func*/
@@ -10241,6 +10274,14 @@ JNIEXPORT jlong JNICALL Java_awtk_TComboBoxEx_combo_1box_1ex_1create(JNIEnv* env
   return (jlong)(ret);
 }
 
+JNIEXPORT jlong JNICALL Java_awtk_TCalibrationWin_calibration_1win_1cast(JNIEnv* env,  jclass ajc, jlong jwidget) { /*func*/
+  widget_t* ret;
+  widget_t* widget = (widget_t*)jwidget;
+  ret = (widget_t*)calibration_win_cast(widget);
+
+  return (jlong)(ret);
+}
+
 JNIEXPORT jlong JNICALL Java_awtk_TPopup_popup_1create(JNIEnv* env,  jclass ajc, jlong jparent, jint x, jint y, jint w, jint h) { /*func*/
   widget_t* ret;
   widget_t* parent = (widget_t*)jparent;
@@ -10394,7 +10435,7 @@ JNIEXPORT jint JNICALL Java_awtk_TWindow_window_1set_1fullscreen(JNIEnv* env,  j
 
 JNIEXPORT jlong JNICALL Java_awtk_TWindow_window_1open(JNIEnv* env,  jclass ajc, jstring jname) { /*func*/
   widget_t* ret;
-  char* name = (char*)(*env)->GetStringUTFChars(env, jname, 0);
+  const char* name = (char*)(*env)->GetStringUTFChars(env, jname, 0);
   ret = (widget_t*)window_open(name);
   (*env)->ReleaseStringUTFChars(env, jname, name);
 
@@ -10403,7 +10444,7 @@ JNIEXPORT jlong JNICALL Java_awtk_TWindow_window_1open(JNIEnv* env,  jclass ajc,
 
 JNIEXPORT jlong JNICALL Java_awtk_TWindow_window_1open_1and_1close(JNIEnv* env,  jclass ajc, jstring jname, jlong jto_close) { /*func*/
   widget_t* ret;
-  char* name = (char*)(*env)->GetStringUTFChars(env, jname, 0);
+  const char* name = (char*)(*env)->GetStringUTFChars(env, jname, 0);
   widget_t* to_close = (widget_t*)jto_close;
   ret = (widget_t*)window_open_and_close(name, to_close);
   (*env)->ReleaseStringUTFChars(env, jname, name);
