@@ -7,6 +7,7 @@ JNIEXPORT jint JNICALL Java_awtk_AWTK_init(JNIEnv* env, jclass ajc, jint w, jint
   tk_init(w, h, APP_SIMULATOR, "AWTK-JAVA", NULL);
   tk_ext_widgets_init();
   assets_init();
+  tk_ext_widgets_init();
 
   return RET_OK;
 }
