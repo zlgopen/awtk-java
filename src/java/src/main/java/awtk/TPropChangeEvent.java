@@ -31,22 +31,22 @@ public class TPropChangeEvent extends TEvent {
  }
 
 
-/**
- * 把event对象转prop_change_event_t对象，主要给脚本语言使用。
- * 
- * @param event event对象。
- 
- * @return 返回event对象。
- */
+  /**
+   * 把event对象转prop_change_event_t对象，主要给脚本语言使用。
+   * 
+   * @param event event对象。
+   *
+   * @return 返回event对象。
+   */
  public  static TPropChangeEvent cast(TEvent event)  {
     return new TPropChangeEvent(prop_change_event_cast(event != null ? (event.nativeObj) : 0));
  }
 
 
-/**
- * 属性的名称。
- *
- */
+  /**
+   * 属性的名称。
+   *
+   */
  public String getName() {
    return prop_change_event_t_get_prop_name(this.nativeObj);
  }

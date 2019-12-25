@@ -98,213 +98,213 @@ public class TDialog extends TWindowBase {
  }
 
 
-/**
- * 创建dialog对象。
- * 
- * @param parent 父控件
- * @param x x坐标
- * @param y y坐标
- * @param w 宽度
- * @param h 高度
- 
- * @return dialog对象。
- */
+  /**
+   * 创建dialog对象。
+   * 
+   * @param parent 父控件
+   * @param x x坐标
+   * @param y y坐标
+   * @param w 宽度
+   * @param h 高度
+   *
+   * @return dialog对象。
+   */
  public  static TWidget create(TWidget parent, int x, int y, int w, int h)  {
     return new TDialog(dialog_create(parent != null ? (parent.nativeObj) : 0, x, y, w, h));
  }
 
 
-/**
- * 创建dialog对象，同时创建title/client。
- * 
- * @param parent 父控件
- * @param x x坐标
- * @param y y坐标
- * @param w 宽度
- * @param h 高度
- 
- * @return dialog对象。
- */
+  /**
+   * 创建dialog对象，同时创建title/client。
+   * 
+   * @param parent 父控件
+   * @param x x坐标
+   * @param y y坐标
+   * @param w 宽度
+   * @param h 高度
+   *
+   * @return dialog对象。
+   */
  public  static TWidget createSimple(TWidget parent, int x, int y, int w, int h)  {
     return new TDialog(dialog_create_simple(parent != null ? (parent.nativeObj) : 0, x, y, w, h));
  }
 
 
-/**
- * 转换dialog对象(供脚本语言使用)。
- * 
- * @param widget dialog对象。
- 
- * @return dialog对象。
- */
+  /**
+   * 转换dialog对象(供脚本语言使用)。
+   * 
+   * @param widget dialog对象。
+   *
+   * @return dialog对象。
+   */
  public  static TDialog cast(TWidget widget)  {
     return new TDialog(dialog_cast(widget != null ? (widget.nativeObj) : 0));
  }
 
 
-/**
- * 获取title控件。
- * 
- 
- * @return title对象。
- */
+  /**
+   * 获取title控件。
+   * 
+   *
+   * @return title对象。
+   */
  public  TWidget getTitle()  {
     return new TWidget(dialog_get_title(this != null ? (this.nativeObj) : 0));
  }
 
 
-/**
- * 获取client控件。
- * 
- 
- * @return client对象。
- */
+  /**
+   * 获取client控件。
+   * 
+   *
+   * @return client对象。
+   */
  public  TWidget getClient()  {
     return new TWidget(dialog_get_client(this != null ? (this.nativeObj) : 0));
  }
 
 
-/**
- * 从资源文件中加载并创建Dialog对象。
- *
- *本函数在ui\_loader/ui\_builder_default里实现。
- * 
- * @param name dialog的名称。
- 
- * @return 对象。
- */
+  /**
+   * 从资源文件中加载并创建Dialog对象。
+   *
+   *本函数在ui\_loader/ui\_builder_default里实现。
+   * 
+   * @param name dialog的名称。
+   *
+   * @return 对象。
+   */
  public  static TWidget open(String name)  {
     return new TDialog(dialog_open(name));
  }
 
 
-/**
- * 设置对话框的标题文本。
- * 
- * @param title 标题。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置对话框的标题文本。
+   * 
+   * @param title 标题。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setTitle(String title)  {
    return TRet.from(dialog_set_title(this != null ? (this.nativeObj) : 0, title));
  }
 
 
-/**
- * 模态显示对话框。
- *dialog_modal返回后，dialog对象将在下一个idle函数中回收。
- *也就是在dialog_modal调用完成后仍然可以访问dialog中控件，直到本次事件结束。
- * 
- 
- * @return 返回退出吗。
- */
+  /**
+   * 模态显示对话框。
+   *dialog_modal返回后，dialog对象将在下一个idle函数中回收。
+   *也就是在dialog_modal调用完成后仍然可以访问dialog中控件，直到本次事件结束。
+   * 
+   *
+   * @return 返回退出吗。
+   */
  public  TDialogQuitCode modal()  {
    return TDialogQuitCode.from(dialog_modal(this != null ? (this.nativeObj) : 0));
  }
 
 
-/**
- * 退出模态显示，关闭对话框。
- *
- *> 比如，在对话框中关闭按钮的事件处理函数中，调用本函数关闭对话框。
- * 
- * @param code 退出码，作为dialog_modal的返回值(参考：[dialog_quit_code_t](dialog_quit_code_t.md))。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 退出模态显示，关闭对话框。
+   *
+   *> 比如，在对话框中关闭按钮的事件处理函数中，调用本函数关闭对话框。
+   * 
+   * @param code 退出码，作为dialog_modal的返回值(参考：[dialog_quit_code_t](dialog_quit_code_t.md))。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet quit(int code)  {
    return TRet.from(dialog_quit(this != null ? (this.nativeObj) : 0, code));
  }
 
 
-/**
- * 检查对话框是否已经退出模态。
- * 
- 
- * @return 返回TRUE表示已经退出，否则表示没有。
- */
+  /**
+   * 检查对话框是否已经退出模态。
+   * 
+   *
+   * @return 返回TRUE表示已经退出，否则表示没有。
+   */
  public  boolean isQuited()  {
     return dialog_is_quited(this != null ? (this.nativeObj) : 0);
  }
 
 
-/**
- * 检查对话框是否为模态对话框。
- * 
- 
- * @return 返回TRUE表示是模态对话框，否则表示不是。
- */
+  /**
+   * 检查对话框是否为模态对话框。
+   * 
+   *
+   * @return 返回TRUE表示是模态对话框，否则表示不是。
+   */
  public  boolean isModal()  {
     return dialog_is_modal(this != null ? (this.nativeObj) : 0);
  }
 
 
-/**
- * 显示『短暂提示信息』对话框。
- *
- *主题由dialog_toast.xml文件决定。
- * 
- * @param text 文本内容。
- * @param duration 显示时间(单位为毫秒)。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 显示『短暂提示信息』对话框。
+   *
+   *主题由dialog_toast.xml文件决定。
+   * 
+   * @param text 文本内容。
+   * @param duration 显示时间(单位为毫秒)。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  static TRet toast(String text, int duration)  {
    return TRet.from(dialog_toast(text, duration));
  }
 
 
-/**
- * 显示『提示信息』对话框。
- *
- *主题由dialog_info.xml文件决定。
- * 
- * @param title 标题。
- * @param text 文本内容。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 显示『提示信息』对话框。
+   *
+   *主题由dialog_info.xml文件决定。
+   * 
+   * @param title 标题。
+   * @param text 文本内容。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  static TRet info(String title, String text)  {
    return TRet.from(dialog_info(title, text));
  }
 
 
-/**
- * 显示『警告』对话框。
- *
- *主题由dialog_warn.xml文件决定。
- * 
- * @param title 标题。
- * @param text 文本内容。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 显示『警告』对话框。
+   *
+   *主题由dialog_warn.xml文件决定。
+   * 
+   * @param title 标题。
+   * @param text 文本内容。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  static TRet warn(String title, String text)  {
    return TRet.from(dialog_warn(title, text));
  }
 
 
-/**
- * 显示『确认』对话框。
- *
- *主题由dialog_confirm.xml文件决定。
- * 
- * @param title 标题。
- * @param text 文本内容。
- 
- * @return 返回RET_OK表示确认，否则表示取消。
- */
+  /**
+   * 显示『确认』对话框。
+   *
+   *主题由dialog_confirm.xml文件决定。
+   * 
+   * @param title 标题。
+   * @param text 文本内容。
+   *
+   * @return 返回RET_OK表示确认，否则表示取消。
+   */
  public  static TRet confirm(String title, String text)  {
    return TRet.from(dialog_confirm(title, text));
  }
 
 
-/**
- * 对话框高亮策略。
- *
- *> 请参考 [对话框高亮策略](https://github.com/zlgopen/awtk/blob/master/docs/dialog_highlight.md)
- *
- */
+  /**
+   * 对话框高亮策略。
+   *
+   *> 请参考 [对话框高亮策略](https://github.com/zlgopen/awtk/blob/master/docs/dialog_highlight.md)
+   *
+   */
  public String getHighlight() {
    return dialog_t_get_prop_highlight(this.nativeObj);
  }

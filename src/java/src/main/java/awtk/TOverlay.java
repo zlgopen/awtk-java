@@ -65,29 +65,29 @@ public class TOverlay extends TWidget {
  }
 
 
-/**
- * 创建overlay对象
- * 
- * @param parent 父控件
- * @param x x坐标
- * @param y y坐标
- * @param w 宽度
- * @param h 高度
- 
- * @return 对象。
- */
+  /**
+   * 创建overlay对象
+   * 
+   * @param parent 父控件
+   * @param x x坐标
+   * @param y y坐标
+   * @param w 宽度
+   * @param h 高度
+   *
+   * @return 对象。
+   */
  public  static TWidget create(TWidget parent, int x, int y, int w, int h)  {
     return new TOverlay(overlay_create(parent != null ? (parent.nativeObj) : 0, x, y, w, h));
  }
 
 
-/**
- * 转换为overlay对象(供脚本语言使用)。
- * 
- * @param widget overlay对象。
- 
- * @return overlay对象。
- */
+  /**
+   * 转换为overlay对象(供脚本语言使用)。
+   * 
+   * @param widget overlay对象。
+   *
+   * @return overlay对象。
+   */
  public  static TOverlay cast(TWidget widget)  {
     return new TOverlay(overlay_cast(widget != null ? (widget.nativeObj) : 0));
  }

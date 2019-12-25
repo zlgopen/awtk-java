@@ -9,23 +9,23 @@ package awtk;
  */
 public class TTimeNow { 
 
-/**
- * 获取当前时间(秒)。
- * 
- 
- * @return 返回当前时间(秒)。
- */
+  /**
+   * 获取当前时间(秒)。
+   * 
+   *
+   * @return 返回当前时间(秒)。
+   */
  public  static long s()  {
     return time_now_s();
  }
 
 
-/**
- * 获取当前时间(毫秒)。
- * 
- 
- * @return 返回当前时间(毫秒)。
- */
+  /**
+   * 获取当前时间(毫秒)。
+   * 
+   *
+   * @return 返回当前时间(毫秒)。
+   */
  public  static long ms()  {
     return time_now_ms();
  }

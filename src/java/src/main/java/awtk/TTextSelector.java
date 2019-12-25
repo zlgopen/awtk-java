@@ -61,189 +61,189 @@ public class TTextSelector extends TWidget {
  }
 
 
-/**
- * 创建text_selector对象
- * 
- * @param parent 父控件
- * @param x x坐标
- * @param y y坐标
- * @param w 宽度
- * @param h 高度
- 
- * @return 对象。
- */
+  /**
+   * 创建text_selector对象
+   * 
+   * @param parent 父控件
+   * @param x x坐标
+   * @param y y坐标
+   * @param w 宽度
+   * @param h 高度
+   *
+   * @return 对象。
+   */
  public  static TWidget create(TWidget parent, int x, int y, int w, int h)  {
     return new TTextSelector(text_selector_create(parent != null ? (parent.nativeObj) : 0, x, y, w, h));
  }
 
 
-/**
- * 转换text_selector对象(供脚本语言使用)。
- * 
- * @param widget text_selector对象。
- 
- * @return text_selector对象。
- */
+  /**
+   * 转换text_selector对象(供脚本语言使用)。
+   * 
+   * @param widget text_selector对象。
+   *
+   * @return text_selector对象。
+   */
  public  static TTextSelector cast(TWidget widget)  {
     return new TTextSelector(text_selector_cast(widget != null ? (widget.nativeObj) : 0));
  }
 
 
-/**
- * 重置所有选项。
- * 
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 重置所有选项。
+   * 
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet resetOptions()  {
    return TRet.from(text_selector_reset_options(this != null ? (this.nativeObj) : 0));
  }
 
 
-/**
- * 获取选项个数。
- * 
- 
- * @return 返回选项个数。
- */
+  /**
+   * 获取选项个数。
+   * 
+   *
+   * @return 返回选项个数。
+   */
  public  int countOptions()  {
     return text_selector_count_options(this != null ? (this.nativeObj) : 0);
  }
 
 
-/**
- * 追加一个选项。
- * 
- * @param value 值。
- * @param text 文本。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 追加一个选项。
+   * 
+   * @param value 值。
+   * @param text 文本。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet appendOption(int value, String text)  {
    return TRet.from(text_selector_append_option(this != null ? (this.nativeObj) : 0, value, text));
  }
 
 
-/**
- * 设置选项。
- * 
- * @param options 选项。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置选项。
+   * 
+   * @param options 选项。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setOptions(String options)  {
    return TRet.from(text_selector_set_options(this != null ? (this.nativeObj) : 0, options));
  }
 
 
-/**
- * 设置一系列的整数选项。
- * 
- * @param start 起始值。
- * @param nr 个数。
- * @param step 步长。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置一系列的整数选项。
+   * 
+   * @param start 起始值。
+   * @param nr 个数。
+   * @param step 步长。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setRangeOptions(int start, int nr, int step)  {
    return TRet.from(text_selector_set_range_options(this != null ? (this.nativeObj) : 0, start, nr, step));
  }
 
 
-/**
- * 获取text_selector的值。
- * 
- 
- * @return 返回值。
- */
+  /**
+   * 获取text_selector的值。
+   * 
+   *
+   * @return 返回值。
+   */
  public  int getValue()  {
     return text_selector_get_value(this != null ? (this.nativeObj) : 0);
  }
 
 
-/**
- * 设置text_selector的值。
- * 
- * @param value 值。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置text_selector的值。
+   * 
+   * @param value 值。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setValue(int value)  {
    return TRet.from(text_selector_set_value(this != null ? (this.nativeObj) : 0, value));
  }
 
 
-/**
- * 获取text_selector的文本。
- * 
- 
- * @return 返回文本。
- */
+  /**
+   * 获取text_selector的文本。
+   * 
+   *
+   * @return 返回文本。
+   */
  public  String getTextValue()  {
     return text_selector_get_text(this != null ? (this.nativeObj) : 0);
  }
 
 
-/**
- * 设置text_selector的文本。
- * 
- * @param text 文本。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置text_selector的文本。
+   * 
+   * @param text 文本。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setText(String text)  {
    return TRet.from(text_selector_set_text(this != null ? (this.nativeObj) : 0, text));
  }
 
 
-/**
- * 设置第index个选项为当前选中的选项。
- * 
- * @param index 选项的索引。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置第index个选项为当前选中的选项。
+   * 
+   * @param index 选项的索引。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setSelectedIndex(int index)  {
    return TRet.from(text_selector_set_selected_index(this != null ? (this.nativeObj) : 0, index));
  }
 
 
-/**
- * 设置可见的选项数。
- * 
- * @param visible_nr 选项数。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置可见的选项数。
+   * 
+   * @param visible_nr 选项数。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setVisibleNr(int visible_nr)  {
    return TRet.from(text_selector_set_visible_nr(this != null ? (this.nativeObj) : 0, visible_nr));
  }
 
 
-/**
- * 可见的选项数量(只能是3或者5，缺省为5)。
- *
- */
+  /**
+   * 可见的选项数量(只能是3或者5，缺省为5)。
+   *
+   */
  public int getVisibleNr() {
    return text_selector_t_get_prop_visible_nr(this.nativeObj);
  }
 
 
-/**
- * 当前选中的选项。
- *
- */
+  /**
+   * 当前选中的选项。
+   *
+   */
  public int getSelectedIndex() {
    return text_selector_t_get_prop_selected_index(this.nativeObj);
  }
 
 
-/**
- * 设置可选项(冒号分隔值和文本，分号分隔选项，如:1:red;2:green;3:blue)。
- *对于数值选项，也可以指定一个范围，用『-』分隔起始值、结束值和格式。
- *如："1-7-%02d"表示1到7，格式为『02d』，格式为可选，缺省为『%d』。
- *
- */
+  /**
+   * 设置可选项(冒号分隔值和文本，分号分隔选项，如:1:red;2:green;3:blue)。
+   *对于数值选项，也可以指定一个范围，用『-』分隔起始值、结束值和格式。
+   *如："1-7-%02d"表示1到7，格式为『02d』，格式为可选，缺省为『%d』。
+   *
+   */
  public String getOptions() {
    return text_selector_t_get_prop_options(this.nativeObj);
  }

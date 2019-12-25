@@ -74,57 +74,57 @@ public class TCheckButton extends TWidget {
  }
 
 
-/**
- * 创建多选按钮对象
- * 
- * @param parent 父控件
- * @param x x坐标
- * @param y y坐标
- * @param w 宽度
- * @param h 高度
- 
- * @return 对象。
- */
+  /**
+   * 创建多选按钮对象
+   * 
+   * @param parent 父控件
+   * @param x x坐标
+   * @param y y坐标
+   * @param w 宽度
+   * @param h 高度
+   *
+   * @return 对象。
+   */
  public  static TWidget create(TWidget parent, int x, int y, int w, int h)  {
     return new TCheckButton(check_button_create(parent != null ? (parent.nativeObj) : 0, x, y, w, h));
  }
 
 
-/**
- * 创建单选按钮对象
- * 
- * @param parent 父控件
- * @param x x坐标
- * @param y y坐标
- * @param w 宽度
- * @param h 高度
- 
- * @return 对象。
- */
+  /**
+   * 创建单选按钮对象
+   * 
+   * @param parent 父控件
+   * @param x x坐标
+   * @param y y坐标
+   * @param w 宽度
+   * @param h 高度
+   *
+   * @return 对象。
+   */
  public  static TWidget createRadio(TWidget parent, int x, int y, int w, int h)  {
     return new TCheckButton(check_button_create_radio(parent != null ? (parent.nativeObj) : 0, x, y, w, h));
  }
 
 
-/**
- * 设置控件的值。
- * 
- * @param value 值
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置控件的值。
+   * 
+   * @param value 值
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setValue(boolean value)  {
    return TRet.from(check_button_set_value(this != null ? (this.nativeObj) : 0, value));
  }
 
 
-/**
- * 转换check_button对象(供脚本语言使用)。
- * 
- * @param widget check_button对象。
- 
- * @return check_button对象。
- */
+  /**
+   * 转换check_button对象(供脚本语言使用)。
+   * 
+   * @param widget check_button对象。
+   *
+   * @return check_button对象。
+   */
  public  static TCheckButton cast(TWidget widget)  {
     return new TCheckButton(check_button_cast(widget != null ? (widget.nativeObj) : 0));
  }

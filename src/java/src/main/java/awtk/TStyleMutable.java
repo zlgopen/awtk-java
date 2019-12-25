@@ -33,63 +33,63 @@ public class TStyleMutable extends TStyle {
  }
 
 
-/**
- * 设置style的名称。
- * 
- * @param name 名称。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置style的名称。
+   * 
+   * @param name 名称。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setName(String name)  {
    return TRet.from(style_mutable_set_name(this != null ? (this.nativeObj) : 0, name));
  }
 
 
-/**
- * 设置指定名称整数格式的值。
- * 
- * @param state 控件状态。
- * @param name 属性名。
- * @param val 值。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置指定名称整数格式的值。
+   * 
+   * @param state 控件状态。
+   * @param name 属性名。
+   * @param val 值。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setInt(String state, String name, int val)  {
    return TRet.from(style_mutable_set_int(this != null ? (this.nativeObj) : 0, state, name, val));
  }
 
 
-/**
- * 转换为style_mutable对象。
- * 
- * @param s style对象。
- 
- * @return style对象。
- */
+  /**
+   * 转换为style_mutable对象。
+   * 
+   * @param s style对象。
+   *
+   * @return style对象。
+   */
  public  static TStyleMutable cast(TStyle s)  {
     return new TStyleMutable(style_mutable_cast(s != null ? (s.nativeObj) : 0));
  }
 
 
-/**
- * 创建style\_mutable对象。
- *
- *> 除了测试程序外不需要直接调用，widget会通过style\_factory\_create创建。
- * 
- * @param widget 控件
- * @param default_style 缺省的style。
- 
- * @return style对象。
- */
+  /**
+   * 创建style\_mutable对象。
+   *
+   *> 除了测试程序外不需要直接调用，widget会通过style\_factory\_create创建。
+   * 
+   * @param widget 控件
+   * @param default_style 缺省的style。
+   *
+   * @return style对象。
+   */
  public  static TStyle create(TWidget widget, TStyle default_style)  {
     return new TStyleMutable(style_mutable_create(widget != null ? (widget.nativeObj) : 0, default_style != null ? (default_style.nativeObj) : 0));
  }
 
 
-/**
- * 名称。
- *
- */
+  /**
+   * 名称。
+   *
+   */
  public String getName() {
    return style_mutable_t_get_prop_name(this.nativeObj);
  }

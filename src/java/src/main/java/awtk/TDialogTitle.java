@@ -52,29 +52,29 @@ public class TDialogTitle extends TWidget {
  }
 
 
-/**
- * 创建dialog对象。
- * 
- * @param parent 父控件
- * @param x x坐标
- * @param y y坐标
- * @param w 宽度
- * @param h 高度
- 
- * @return dialog对象。
- */
+  /**
+   * 创建dialog对象。
+   * 
+   * @param parent 父控件
+   * @param x x坐标
+   * @param y y坐标
+   * @param w 宽度
+   * @param h 高度
+   *
+   * @return dialog对象。
+   */
  public  static TWidget create(TWidget parent, int x, int y, int w, int h)  {
     return new TDialogTitle(dialog_title_create(parent != null ? (parent.nativeObj) : 0, x, y, w, h));
  }
 
 
-/**
- * 转换为dialog_title对象(供脚本语言使用)。
- * 
- * @param widget dialog_title对象。
- 
- * @return dialog_title对象。
- */
+  /**
+   * 转换为dialog_title对象(供脚本语言使用)。
+   * 
+   * @param widget dialog_title对象。
+   *
+   * @return dialog_title对象。
+   */
  public  static TDialogTitle cast(TWidget widget)  {
     return new TDialogTitle(dialog_title_cast(widget != null ? (widget.nativeObj) : 0));
  }

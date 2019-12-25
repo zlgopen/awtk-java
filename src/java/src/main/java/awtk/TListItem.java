@@ -72,29 +72,29 @@ public class TListItem extends TWidget {
  }
 
 
-/**
- * 创建list_item对象
- * 
- * @param parent 父控件
- * @param x x坐标
- * @param y y坐标
- * @param w 宽度
- * @param h 高度
- 
- * @return 对象。
- */
+  /**
+   * 创建list_item对象
+   * 
+   * @param parent 父控件
+   * @param x x坐标
+   * @param y y坐标
+   * @param w 宽度
+   * @param h 高度
+   *
+   * @return 对象。
+   */
  public  static TWidget create(TWidget parent, int x, int y, int w, int h)  {
     return new TListItem(list_item_create(parent != null ? (parent.nativeObj) : 0, x, y, w, h));
  }
 
 
-/**
- * 转换为list_item对象(供脚本语言使用)。
- * 
- * @param widget list_item对象。
- 
- * @return list_item对象。
- */
+  /**
+   * 转换为list_item对象(供脚本语言使用)。
+   * 
+   * @param widget list_item对象。
+   *
+   * @return list_item对象。
+   */
  public  static TListItem cast(TWidget widget)  {
     return new TListItem(list_item_cast(widget != null ? (widget.nativeObj) : 0));
  }

@@ -9,31 +9,31 @@ package awtk;
 
 public enum TAlignV {
   
-/**
- * 无效对齐方式。
- *
- */
+  /**
+   * 无效对齐方式。
+   *
+   */
  
   NONE (ALIGN_V_NONE()),
   
-/**
- * 居中对齐。
- *
- */
+  /**
+   * 居中对齐。
+   *
+   */
  
   MIDDLE (ALIGN_V_MIDDLE()),
   
-/**
- * 顶部对齐。
- *
- */
+  /**
+   * 顶部对齐。
+   *
+   */
  
   TOP (ALIGN_V_TOP()),
   
-/**
- * 底部对齐。
- *
- */
+  /**
+   * 底部对齐。
+   *
+   */
  
   BOTTOM (ALIGN_V_BOTTOM());
  

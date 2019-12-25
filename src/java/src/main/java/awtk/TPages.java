@@ -53,62 +53,62 @@ public class TPages extends TWidget {
  }
 
 
-/**
- * 创建pages对象
- * 
- * @param parent 父控件
- * @param x x坐标
- * @param y y坐标
- * @param w 宽度
- * @param h 高度
- 
- * @return 对象。
- */
+  /**
+   * 创建pages对象
+   * 
+   * @param parent 父控件
+   * @param x x坐标
+   * @param y y坐标
+   * @param w 宽度
+   * @param h 高度
+   *
+   * @return 对象。
+   */
  public  static TWidget create(TWidget parent, int x, int y, int w, int h)  {
     return new TPages(pages_create(parent != null ? (parent.nativeObj) : 0, x, y, w, h));
  }
 
 
-/**
- * 转换为pages对象(供脚本语言使用)。
- * 
- * @param widget pages对象。
- 
- * @return pages对象。
- */
+  /**
+   * 转换为pages对象(供脚本语言使用)。
+   * 
+   * @param widget pages对象。
+   *
+   * @return pages对象。
+   */
  public  static TPages cast(TWidget widget)  {
     return new TPages(pages_cast(widget != null ? (widget.nativeObj) : 0));
  }
 
 
-/**
- * 设置当前的Page。
- * 
- * @param index 当前Page的序号。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置当前的Page。
+   * 
+   * @param index 当前Page的序号。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setActive(int index)  {
    return TRet.from(pages_set_active(this != null ? (this.nativeObj) : 0, index));
  }
 
 
-/**
- * 通过页面的名字设置当前的Page。
- * 
- * @param name 当前Page的名字。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 通过页面的名字设置当前的Page。
+   * 
+   * @param name 当前Page的名字。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setActiveByName(String name)  {
    return TRet.from(pages_set_active_by_name(this != null ? (this.nativeObj) : 0, name));
  }
 
 
-/**
- * 当前活跃的page。
- *
- */
+  /**
+   * 当前活跃的page。
+   *
+   */
  public int getActive() {
    return pages_t_get_prop_active(this.nativeObj);
  }

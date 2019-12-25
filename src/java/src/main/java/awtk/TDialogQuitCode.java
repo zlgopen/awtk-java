@@ -11,45 +11,45 @@ package awtk;
 
 public enum TDialogQuitCode {
   
-/**
- * 对话框被强行关闭或不关心关闭原因。
- *
- */
+  /**
+   * 对话框被强行关闭或不关心关闭原因。
+   *
+   */
  
   NONE (DIALOG_QUIT_NONE()),
   
-/**
- * 点击“OK”按钮关闭。
- *
- */
+  /**
+   * 点击“OK”按钮关闭。
+   *
+   */
  
   OK (DIALOG_QUIT_OK()),
   
-/**
- * 点击“YES”按钮关闭。
- *
- */
+  /**
+   * 点击“YES”按钮关闭。
+   *
+   */
  
   YES (DIALOG_QUIT_YES()),
   
-/**
- * 点击“CANCEL”按钮关闭。
- *
- */
+  /**
+   * 点击“CANCEL”按钮关闭。
+   *
+   */
  
   CANCEL (DIALOG_QUIT_CANCEL()),
   
-/**
- * 点击“NO”按钮关闭。
- *
- */
+  /**
+   * 点击“NO”按钮关闭。
+   *
+   */
  
   NO (DIALOG_QUIT_NO()),
   
-/**
- * 点击其它按钮关闭。
- *
- */
+  /**
+   * 点击其它按钮关闭。
+   *
+   */
  
   OTHER (DIALOG_QUIT_OTHER());
  

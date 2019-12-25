@@ -55,228 +55,228 @@ public class THscrollLabel extends TWidget {
  }
 
 
-/**
- * 创建hscroll_label对象
- * 
- * @param parent 父控件
- * @param x x坐标
- * @param y y坐标
- * @param w 宽度
- * @param h 高度
- 
- * @return 对象。
- */
+  /**
+   * 创建hscroll_label对象
+   * 
+   * @param parent 父控件
+   * @param x x坐标
+   * @param y y坐标
+   * @param w 宽度
+   * @param h 高度
+   *
+   * @return 对象。
+   */
  public  static TWidget create(TWidget parent, int x, int y, int w, int h)  {
     return new THscrollLabel(hscroll_label_create(parent != null ? (parent.nativeObj) : 0, x, y, w, h));
  }
 
 
-/**
- * 设置lull。
- * 
- * @param lull 间歇时间(ms)。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置lull。
+   * 
+   * @param lull 间歇时间(ms)。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setLull(int lull)  {
    return TRet.from(hscroll_label_set_lull(this != null ? (this.nativeObj) : 0, lull));
  }
 
 
-/**
- * 设置duration。
- * 
- * @param duration 滚动时间(ms)。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置duration。
+   * 
+   * @param duration 滚动时间(ms)。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setDuration(int duration)  {
    return TRet.from(hscroll_label_set_duration(this != null ? (this.nativeObj) : 0, duration));
  }
 
 
-/**
- * 设置only_focus。
- * 
- * @param only_focus 是否只有处于focus时才滚动。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置only_focus。
+   * 
+   * @param only_focus 是否只有处于focus时才滚动。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setOnlyFocus(boolean only_focus)  {
    return TRet.from(hscroll_label_set_only_focus(this != null ? (this.nativeObj) : 0, only_focus));
  }
 
 
-/**
- * 设置only_parent_focus。
- * 
- * @param only_parent_focus 是否只有处于focus时才滚动。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置only_parent_focus。
+   * 
+   * @param only_parent_focus 是否只有处于focus时才滚动。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setOnlyParentFocus(boolean only_parent_focus)  {
    return TRet.from(hscroll_label_set_only_parent_focus(this != null ? (this.nativeObj) : 0, only_parent_focus));
  }
 
 
-/**
- * 设置loop。
- * 
- * @param loop 是否循环滚动。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置loop。
+   * 
+   * @param loop 是否循环滚动。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setLoop(boolean loop)  {
    return TRet.from(hscroll_label_set_loop(this != null ? (this.nativeObj) : 0, loop));
  }
 
 
-/**
- * 设置yoyo。
- * 
- * @param yoyo 是否往返滚动。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置yoyo。
+   * 
+   * @param yoyo 是否往返滚动。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setYoyo(boolean yoyo)  {
    return TRet.from(hscroll_label_set_yoyo(this != null ? (this.nativeObj) : 0, yoyo));
  }
 
 
-/**
- * 设置ellipses。
- * 
- * @param ellipses 是否在文本超长时在行尾显示"..."。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置ellipses。
+   * 
+   * @param ellipses 是否在文本超长时在行尾显示"..."。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setEllipses(boolean ellipses)  {
    return TRet.from(hscroll_label_set_ellipses(this != null ? (this.nativeObj) : 0, ellipses));
  }
 
 
-/**
- * 设置x偏移(一般无需用户调用)。。
- * 
- * @param xoffset x偏移。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置x偏移(一般无需用户调用)。。
+   * 
+   * @param xoffset x偏移。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setXoffset(int xoffset)  {
    return TRet.from(hscroll_label_set_xoffset(this != null ? (this.nativeObj) : 0, xoffset));
  }
 
 
-/**
- * 启动(一般无需用户调用)。
- * 
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 启动(一般无需用户调用)。
+   * 
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet start()  {
    return TRet.from(hscroll_label_start(this != null ? (this.nativeObj) : 0));
  }
 
 
-/**
- * 停止(一般无需用户调用)。
- * 
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 停止(一般无需用户调用)。
+   * 
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet stop()  {
    return TRet.from(hscroll_label_stop(this != null ? (this.nativeObj) : 0));
  }
 
 
-/**
- * 转换为hscroll_label对象(供脚本语言使用)。
- * 
- * @param widget hscroll_label对象。
- 
- * @return hscroll_label对象。
- */
+  /**
+   * 转换为hscroll_label对象(供脚本语言使用)。
+   * 
+   * @param widget hscroll_label对象。
+   *
+   * @return hscroll_label对象。
+   */
  public  static THscrollLabel cast(TWidget widget)  {
     return new THscrollLabel(hscroll_label_cast(widget != null ? (widget.nativeObj) : 0));
  }
 
 
-/**
- * 只有处于focus时才滚动(缺省否)。
- *
- */
+  /**
+   * 只有处于focus时才滚动(缺省否)。
+   *
+   */
  public boolean getOnlyFocus() {
    return hscroll_label_t_get_prop_only_focus(this.nativeObj);
  }
 
 
-/**
- * 只有父控件处于focus时才滚动(缺省否)。
- *
- */
+  /**
+   * 只有父控件处于focus时才滚动(缺省否)。
+   *
+   */
  public boolean getOnlyParentFocus() {
    return hscroll_label_t_get_prop_only_parent_focus(this.nativeObj);
  }
 
 
-/**
- * loop是否循环滚动(缺省FALSE)。
- *
- */
+  /**
+   * loop是否循环滚动(缺省FALSE)。
+   *
+   */
  public boolean getLoop() {
    return hscroll_label_t_get_prop_loop(this.nativeObj);
  }
 
 
-/**
- * 是否往返滚动(缺省FALSE)。
- *
- */
+  /**
+   * 是否往返滚动(缺省FALSE)。
+   *
+   */
  public boolean getYoyo() {
    return hscroll_label_t_get_prop_yoyo(this.nativeObj);
  }
 
 
-/**
- * 文本显示不下时，在行尾显示省略号(缺省FALSE)。
- *
- */
+  /**
+   * 文本显示不下时，在行尾显示省略号(缺省FALSE)。
+   *
+   */
  public boolean getEllipses() {
    return hscroll_label_t_get_prop_ellipses(this.nativeObj);
  }
 
 
-/**
- * 滚动之间的间歇时间(ms)，缺省3000ms。
- *
- */
+  /**
+   * 滚动之间的间歇时间(ms)，缺省3000ms。
+   *
+   */
  public int getLull() {
    return hscroll_label_t_get_prop_lull(this.nativeObj);
  }
 
 
-/**
- * 完整的滚动一次需要的时间(ms)，缺省5000ms。
- *
- */
+  /**
+   * 完整的滚动一次需要的时间(ms)，缺省5000ms。
+   *
+   */
  public int getDuration() {
    return hscroll_label_t_get_prop_duration(this.nativeObj);
  }
 
 
-/**
- * 偏移量。
- *
- */
+  /**
+   * 偏移量。
+   *
+   */
  public int getXoffset() {
    return hscroll_label_t_get_prop_xoffset(this.nativeObj);
  }
 
 
-/**
- * 文本的宽度。
- *
- */
+  /**
+   * 文本的宽度。
+   *
+   */
  public int getTextW() {
    return hscroll_label_t_get_prop_text_w(this.nativeObj);
  }

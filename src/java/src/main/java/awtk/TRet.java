@@ -9,150 +9,150 @@ package awtk;
 
 public enum TRet {
   
-/**
- * 成功。
- *
- */
+  /**
+   * 成功。
+   *
+   */
  
   OK (RET_OK()),
   
-/**
- * Out of memory。
- *
- */
+  /**
+   * Out of memory。
+   *
+   */
  
   OOM (RET_OOM()),
   
-/**
- * 失败。
- *
- */
+  /**
+   * 失败。
+   *
+   */
  
   FAIL (RET_FAIL()),
   
-/**
- * 没有实现/不支持。
- *
- */
+  /**
+   * 没有实现/不支持。
+   *
+   */
  
   NOT_IMPL (RET_NOT_IMPL()),
   
-/**
- * 退出。通常用于主循环。
- *
- */
+  /**
+   * 退出。通常用于主循环。
+   *
+   */
  
   QUIT (RET_QUIT()),
   
-/**
- * 找到。
- *
- */
+  /**
+   * 找到。
+   *
+   */
  
   FOUND (RET_FOUND()),
   
-/**
- * 对象忙。
- *
- */
+  /**
+   * 对象忙。
+   *
+   */
  
   BUSY (RET_BUSY()),
   
-/**
- * 移出。通常用于定时器。
- *
- */
+  /**
+   * 移出。通常用于定时器。
+   *
+   */
  
   REMOVE (RET_REMOVE()),
   
-/**
- * 重复。通常用于定时器。
- *
- */
+  /**
+   * 重复。通常用于定时器。
+   *
+   */
  
   REPEAT (RET_REPEAT()),
   
-/**
- * 没找到。
- *
- */
+  /**
+   * 没找到。
+   *
+   */
  
   NOT_FOUND (RET_NOT_FOUND()),
   
-/**
- * 操作完成。
- *
- */
+  /**
+   * 操作完成。
+   *
+   */
  
   DONE (RET_DONE()),
   
-/**
- * 停止后续操作。
- *
- */
+  /**
+   * 停止后续操作。
+   *
+   */
  
   STOP (RET_STOP()),
   
-/**
- * 跳过当前项。
- *
- */
+  /**
+   * 跳过当前项。
+   *
+   */
  
   SKIP (RET_SKIP()),
   
-/**
- * 继续后续操作。
- *
- */
+  /**
+   * 继续后续操作。
+   *
+   */
  
   CONTINUE (RET_CONTINUE()),
   
-/**
- * 对象属性变化。
- *
- */
+  /**
+   * 对象属性变化。
+   *
+   */
  
   OBJECT_CHANGED (RET_OBJECT_CHANGED()),
   
-/**
- * 集合数目变化。
- *
- */
+  /**
+   * 集合数目变化。
+   *
+   */
  
   ITEMS_CHANGED (RET_ITEMS_CHANGED()),
   
-/**
- * 无效参数。
- *
- */
+  /**
+   * 无效参数。
+   *
+   */
  
   BAD_PARAMS (RET_BAD_PARAMS()),
   
-/**
- * 超时。
- *
- */
+  /**
+   * 超时。
+   *
+   */
  
   TIMEOUT (RET_TIMEOUT()),
   
-/**
- * CRC错误。
- *
- */
+  /**
+   * CRC错误。
+   *
+   */
  
   CRC (RET_CRC()),
   
-/**
- * IO错误。
- *
- */
+  /**
+   * IO错误。
+   *
+   */
  
   IO (RET_IO()),
   
-/**
- * End of Stream
- *
- */
+  /**
+   * End of Stream
+   *
+   */
  
   EOS (RET_EOS());
  

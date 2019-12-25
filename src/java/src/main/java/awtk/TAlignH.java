@@ -9,31 +9,31 @@ package awtk;
 
 public enum TAlignH {
   
-/**
- * 无效对齐方式。
- *
- */
+  /**
+   * 无效对齐方式。
+   *
+   */
  
   NONE (ALIGN_H_NONE()),
   
-/**
- * 居中对齐。
- *
- */
+  /**
+   * 居中对齐。
+   *
+   */
  
   CENTER (ALIGN_H_CENTER()),
   
-/**
- * 左边对齐。
- *
- */
+  /**
+   * 左边对齐。
+   *
+   */
  
   LEFT (ALIGN_H_LEFT()),
   
-/**
- * 右边对齐。
- *
- */
+  /**
+   * 右边对齐。
+   *
+   */
  
   RIGHT (ALIGN_H_RIGHT());
  

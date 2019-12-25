@@ -31,33 +31,33 @@ public class TIdleInfo extends TObject {
  }
 
 
-/**
- * 转换为idle_info对象(供脚本语言使用)。
- * 
- * @param idle idle_info对象。
- 
- * @return idle_info对象。
- */
+  /**
+   * 转换为idle_info对象(供脚本语言使用)。
+   * 
+   * @param idle idle_info对象。
+   *
+   * @return idle_info对象。
+   */
  public  static TIdleInfo cast(TIdleInfo idle)  {
     return new TIdleInfo(idle_info_cast(idle != null ? (idle.nativeObj) : 0));
  }
 
 
-/**
- * idle回调函数上下文。
- *
- */
+  /**
+   * idle回调函数上下文。
+   *
+   */
  public long getCtx() {
    return idle_info_t_get_prop_ctx(this.nativeObj);
  }
 
 
-/**
- * idle的ID
- *
- *> 为TK\_INVALID\_ID时表示无效idle。
- *
- */
+  /**
+   * idle的ID
+   *
+   *> 为TK\_INVALID\_ID时表示无效idle。
+   *
+   */
  public int getId() {
    return idle_info_t_get_prop_id(this.nativeObj);
  }

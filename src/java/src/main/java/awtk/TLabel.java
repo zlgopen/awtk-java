@@ -66,66 +66,66 @@ public class TLabel extends TWidget {
  }
 
 
-/**
- * 创建label对象
- * 
- * @param parent 父控件
- * @param x x坐标
- * @param y y坐标
- * @param w 宽度
- * @param h 高度
- 
- * @return 对象。
- */
+  /**
+   * 创建label对象
+   * 
+   * @param parent 父控件
+   * @param x x坐标
+   * @param y y坐标
+   * @param w 宽度
+   * @param h 高度
+   *
+   * @return 对象。
+   */
  public  static TWidget create(TWidget parent, int x, int y, int w, int h)  {
     return new TLabel(label_create(parent != null ? (parent.nativeObj) : 0, x, y, w, h));
  }
 
 
-/**
- * 设置显示字符的个数(小余0时全部显示)。。
- * 
- * @param length 最大可显示字符个数。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置显示字符的个数(小余0时全部显示)。。
+   * 
+   * @param length 最大可显示字符个数。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setLength(int length)  {
    return TRet.from(label_set_length(this != null ? (this.nativeObj) : 0, length));
  }
 
 
-/**
- * 根据文本内容调节控件大小。
- * 
- * @param min_w 最小宽度。
- * @param max_w 最大宽度。
- * @param min_h 最小高度。
- * @param max_h 最大高度。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 根据文本内容调节控件大小。
+   * 
+   * @param min_w 最小宽度。
+   * @param max_w 最大宽度。
+   * @param min_h 最小高度。
+   * @param max_h 最大高度。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet resizeToContent(int min_w, int max_w, int min_h, int max_h)  {
    return TRet.from(label_resize_to_content(this != null ? (this.nativeObj) : 0, min_w, max_w, min_h, max_h));
  }
 
 
-/**
- * 转换为label对象(供脚本语言使用)。
- * 
- * @param widget label对象。
- 
- * @return label对象。
- */
+  /**
+   * 转换为label对象(供脚本语言使用)。
+   * 
+   * @param widget label对象。
+   *
+   * @return label对象。
+   */
  public  static TLabel cast(TWidget widget)  {
     return new TLabel(label_cast(widget != null ? (widget.nativeObj) : 0));
  }
 
 
-/**
- * 显示字符的个数(小余0时全部显示)。
- *主要用于动态改变显示字符的个数，来实现类似[拨号中...]的动画效果。
- *
- */
+  /**
+   * 显示字符的个数(小余0时全部显示)。
+   *主要用于动态改变显示字符的个数，来实现类似[拨号中...]的动画效果。
+   *
+   */
  public int getLength() {
    return label_t_get_prop_length(this.nativeObj);
  }

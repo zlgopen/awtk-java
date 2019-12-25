@@ -9,17 +9,17 @@ package awtk;
 
 public enum TClipBoardDataType {
   
-/**
- * 无数据。
- *
- */
+  /**
+   * 无数据。
+   *
+   */
  
   NONE (CLIP_BOARD_DATA_TYPE_NONE()),
   
-/**
- * UTF8文本。
- *
- */
+  /**
+   * UTF8文本。
+   *
+   */
  
   TEXT (CLIP_BOARD_DATA_TYPE_TEXT());
  

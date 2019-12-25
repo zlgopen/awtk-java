@@ -8,6 +8,7 @@ JNIEXPORT jint JNICALL Java_awtk_AWTK_init(JNIEnv* env, jclass ajc, jint w, jint
   tk_ext_widgets_init();
   assets_init();
   tk_ext_widgets_init();
+  system_info_set_default_font(system_info(), "default_full");
 
   return RET_OK;
 }

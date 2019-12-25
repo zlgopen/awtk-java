@@ -69,76 +69,76 @@ public class TButton extends TWidget {
  }
 
 
-/**
- * 创建button对象
- * 
- * @param parent 父控件
- * @param x x坐标
- * @param y y坐标
- * @param w 宽度
- * @param h 高度
- 
- * @return 对象。
- */
+  /**
+   * 创建button对象
+   * 
+   * @param parent 父控件
+   * @param x x坐标
+   * @param y y坐标
+   * @param w 宽度
+   * @param h 高度
+   *
+   * @return 对象。
+   */
  public  static TWidget create(TWidget parent, int x, int y, int w, int h)  {
     return new TButton(button_create(parent != null ? (parent.nativeObj) : 0, x, y, w, h));
  }
 
 
-/**
- * 转换为button对象(供脚本语言使用)。
- * 
- * @param widget button对象。
- 
- * @return button对象。
- */
+  /**
+   * 转换为button对象(供脚本语言使用)。
+   * 
+   * @param widget button对象。
+   *
+   * @return button对象。
+   */
  public  static TButton cast(TWidget widget)  {
     return new TButton(button_cast(widget != null ? (widget.nativeObj) : 0));
  }
 
 
-/**
- * 设置触发EVT\_CLICK事件的时间间隔。为0则不重复触发EVT\_CLICK事件。
- * 
- * @param repeat 触发EVT_CLICK事件的时间间隔(毫秒)。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置触发EVT\_CLICK事件的时间间隔。为0则不重复触发EVT\_CLICK事件。
+   * 
+   * @param repeat 触发EVT_CLICK事件的时间间隔(毫秒)。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setRepeat(int repeat)  {
    return TRet.from(button_set_repeat(this != null ? (this.nativeObj) : 0, repeat));
  }
 
 
-/**
- * 设置是否启用长按事件。
- * 
- * @param enable_long_press 是否启用长按事件。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置是否启用长按事件。
+   * 
+   * @param enable_long_press 是否启用长按事件。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setEnableLongPress(boolean enable_long_press)  {
    return TRet.from(button_set_enable_long_press(this != null ? (this.nativeObj) : 0, enable_long_press));
  }
 
 
-/**
- * 重复触发EVT\_CLICK事件的时间间隔。
- *
- *为0则不重复触发EVT\_CLICK事件。
- *
- */
+  /**
+   * 重复触发EVT\_CLICK事件的时间间隔。
+   *
+   *为0则不重复触发EVT\_CLICK事件。
+   *
+   */
  public int getRepeat() {
    return button_t_get_prop_repeat(this.nativeObj);
  }
 
 
-/**
- * 是否启用长按事件，为true时才触发长按事件。
- *
- *触发长按事件后不再触发点击事件。
- *缺省不启用。
- *
- */
+  /**
+   * 是否启用长按事件，为true时才触发长按事件。
+   *
+   *触发长按事件后不再触发点击事件。
+   *缺省不启用。
+   *
+   */
  public boolean getEnableLongPress() {
    return button_t_get_prop_enable_long_press(this.nativeObj);
  }

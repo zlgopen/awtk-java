@@ -76,29 +76,29 @@ public class TSystemBar extends TWindowBase {
  }
 
 
-/**
- * 创建system_bar对象。
- * 
- * @param parent 父控件
- * @param x x坐标
- * @param y y坐标
- * @param w 宽度
- * @param h 高度
- 
- * @return system_bar对象。
- */
+  /**
+   * 创建system_bar对象。
+   * 
+   * @param parent 父控件
+   * @param x x坐标
+   * @param y y坐标
+   * @param w 宽度
+   * @param h 高度
+   *
+   * @return system_bar对象。
+   */
  public  static TWidget create(TWidget parent, int x, int y, int w, int h)  {
     return new TSystemBar(system_bar_create(parent != null ? (parent.nativeObj) : 0, x, y, w, h));
  }
 
 
-/**
- * 转换为system_bar对象(供脚本语言使用)。
- * 
- * @param widget system_bar对象。
- 
- * @return system_bar对象。
- */
+  /**
+   * 转换为system_bar对象(供脚本语言使用)。
+   * 
+   * @param widget system_bar对象。
+   *
+   * @return system_bar对象。
+   */
  public  static TSystemBar cast(TWidget widget)  {
     return new TSystemBar(system_bar_cast(widget != null ? (widget.nativeObj) : 0));
  }

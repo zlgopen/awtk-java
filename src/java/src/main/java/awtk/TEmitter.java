@@ -37,125 +37,125 @@ public class TEmitter {
  }
 
 
-/**
- * 创建emitter对象。
- * 
- 
- * @return 对象。
- */
+  /**
+   * 创建emitter对象。
+   * 
+   *
+   * @return 对象。
+   */
  public  static TEmitter create()  {
     return new TEmitter(emitter_create());
  }
 
 
-/**
- * 分发事件。如果当前分发的回调函数返回RET_REMOVE，该回调函数将被移出。
- *禁用状态下，本函数不做任何事情。
- * 
- * @param e 事件对象。
- 
- * @return 如果当前分发的回调函数返回RET_STOP，dispatch中断分发，并返回RET_STOP，否则返回RET_OK。
- */
+  /**
+   * 分发事件。如果当前分发的回调函数返回RET_REMOVE，该回调函数将被移出。
+   *禁用状态下，本函数不做任何事情。
+   * 
+   * @param e 事件对象。
+   *
+   * @return 如果当前分发的回调函数返回RET_STOP，dispatch中断分发，并返回RET_STOP，否则返回RET_OK。
+   */
  public  TRet dispatch(TEvent e)  {
    return TRet.from(emitter_dispatch(this != null ? (this.nativeObj) : 0, e != null ? (e.nativeObj) : 0));
  }
 
 
-/**
- * 分发事件。
- *> 对emitter_dispatch的包装，分发一个简单的事件。
- *如果当前分发的回调函数返回RET_STOP，dispatch中断分发，并返回RET_STOP，否则返回RET_OK。
- * 
- * @param type 事件类型。
- 
- * @return 
- */
+  /**
+   * 分发事件。
+   *> 对emitter_dispatch的包装，分发一个简单的事件。
+   *如果当前分发的回调函数返回RET_STOP，dispatch中断分发，并返回RET_STOP，否则返回RET_OK。
+   * 
+   * @param type 事件类型。
+   *
+   * @return 
+   */
  public  TRet dispatchSimpleEvent(TEventType type)  {
    return TRet.from(emitter_dispatch_simple_event(this != null ? (this.nativeObj) : 0, type.value()));
  }
 
 
-/**
- * 注册指定事件的处理函数。
- * 
- * @param type 事件类型。
- * @param on_event 事件处理函数。
- * @param ctx 事件处理函数上下文。
- 
- * @return 返回id，用于emitter_off。
- */
+  /**
+   * 注册指定事件的处理函数。
+   * 
+   * @param type 事件类型。
+   * @param on_event 事件处理函数。
+   * @param ctx 事件处理函数上下文。
+   *
+   * @return 返回id，用于emitter_off。
+   */
  public  int on(TEventType type, TOnEvent on_event, long ctx)  {
     return emitter_on(this != null ? (this.nativeObj) : 0, type.value(), on_event, ctx);
  }
 
 
-/**
- * 注销指定事件的处理函数。
- * 
- * @param id emitter_on返回的ID。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 注销指定事件的处理函数。
+   * 
+   * @param id emitter_on返回的ID。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet off(int id)  {
    return TRet.from(emitter_off(this != null ? (this.nativeObj) : 0, id));
  }
 
 
-/**
- * 启用。
- * 
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 启用。
+   * 
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet enable()  {
    return TRet.from(emitter_enable(this != null ? (this.nativeObj) : 0));
  }
 
 
-/**
- * 禁用。
- *
- *禁用后emitter_dispatch无效，但可以注册和注销。
- * 
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 禁用。
+   *
+   *禁用后emitter_dispatch无效，但可以注册和注销。
+   * 
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet disable()  {
    return TRet.from(emitter_disable(this != null ? (this.nativeObj) : 0));
  }
 
 
-/**
- * 获取注册的回调函数个数，主要用于辅助测试。
- * 
- 
- * @return 回调函数个数。
- */
+  /**
+   * 获取注册的回调函数个数，主要用于辅助测试。
+   * 
+   *
+   * @return 回调函数个数。
+   */
  public  int size()  {
     return emitter_size(this != null ? (this.nativeObj) : 0);
  }
 
 
-/**
- * 销毁。
- * 
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 销毁。
+   * 
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet destroy()  {
    return TRet.from(emitter_destroy(this != null ? (this.nativeObj) : 0));
  }
 
 
-/**
- * 转换为emitter对象(供脚本语言使用)。
- *
- *主要给脚本语言使用。
- * 
- * @param emitter emitter对象。
- 
- * @return 对象。
- */
+  /**
+   * 转换为emitter对象(供脚本语言使用)。
+   *
+   *主要给脚本语言使用。
+   * 
+   * @param emitter emitter对象。
+   *
+   * @return 对象。
+   */
  public  static TEmitter cast(TEmitter emitter)  {
     return new TEmitter(emitter_cast(emitter != null ? (emitter.nativeObj) : 0));
  }

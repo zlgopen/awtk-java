@@ -9,80 +9,80 @@ package awtk;
 
 public enum TInputType {
   
-/**
- * 文本。
- *
- */
+  /**
+   * 文本。
+   *
+   */
  
   TEXT (INPUT_TEXT()),
   
-/**
- * 整数。
- *
- */
+  /**
+   * 整数。
+   *
+   */
  
   INT (INPUT_INT()),
   
-/**
- * 非负整数。
- *
- */
+  /**
+   * 非负整数。
+   *
+   */
  
   UINT (INPUT_UINT()),
   
-/**
- * 16进制整数。
- *
- */
+  /**
+   * 16进制整数。
+   *
+   */
  
   HEX (INPUT_HEX()),
   
-/**
- * 浮点数。
- *
- */
+  /**
+   * 浮点数。
+   *
+   */
  
   FLOAT (INPUT_FLOAT()),
   
-/**
- * 非负浮点数。
- *
- */
+  /**
+   * 非负浮点数。
+   *
+   */
  
   UFLOAT (INPUT_UFLOAT()),
   
-/**
- * 邮件地址。
- *
- */
+  /**
+   * 邮件地址。
+   *
+   */
  
   EMAIL (INPUT_EMAIL()),
   
-/**
- * 密码。
- *
- */
+  /**
+   * 密码。
+   *
+   */
  
   PASSWORD (INPUT_PASSWORD()),
   
-/**
- * 电话号码。
- *
- */
+  /**
+   * 电话号码。
+   *
+   */
  
   PHONE (INPUT_PHONE()),
   
-/**
- * 使用自定义的软键盘(如计算器等应用不希望弹出系统软键盘)。
- *
- */
+  /**
+   * 使用自定义的软键盘(如计算器等应用不希望弹出系统软键盘)。
+   *
+   */
  
   CUSTOM (INPUT_CUSTOM()),
   
-/**
- * 使用自定义的密码软键盘。
- *
- */
+  /**
+   * 使用自定义的密码软键盘。
+   *
+   */
  
   CUSTOM_PASSWORD (INPUT_CUSTOM_PASSWORD());
  

@@ -56,29 +56,29 @@ public class TButtonGroup extends TWidget {
  }
 
 
-/**
- * 创建button_group对象
- * 
- * @param parent 父控件
- * @param x x坐标
- * @param y y坐标
- * @param w 宽度
- * @param h 高度
- 
- * @return 对象。
- */
+  /**
+   * 创建button_group对象
+   * 
+   * @param parent 父控件
+   * @param x x坐标
+   * @param y y坐标
+   * @param w 宽度
+   * @param h 高度
+   *
+   * @return 对象。
+   */
  public  static TWidget create(TWidget parent, int x, int y, int w, int h)  {
     return new TButtonGroup(button_group_create(parent != null ? (parent.nativeObj) : 0, x, y, w, h));
  }
 
 
-/**
- * 转换为button_group对象(供脚本语言使用)。
- * 
- * @param widget button_group对象。
- 
- * @return button_group对象。
- */
+  /**
+   * 转换为button_group对象(供脚本语言使用)。
+   * 
+   * @param widget button_group对象。
+   *
+   * @return button_group对象。
+   */
  public  static TButtonGroup cast(TWidget widget)  {
     return new TButtonGroup(button_group_cast(widget != null ? (widget.nativeObj) : 0));
  }

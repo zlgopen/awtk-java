@@ -52,29 +52,29 @@ public class TView extends TWidget {
  }
 
 
-/**
- * 创建view对象
- * 
- * @param parent 父控件
- * @param x x坐标
- * @param y y坐标
- * @param w 宽度
- * @param h 高度
- 
- * @return 对象。
- */
+  /**
+   * 创建view对象
+   * 
+   * @param parent 父控件
+   * @param x x坐标
+   * @param y y坐标
+   * @param w 宽度
+   * @param h 高度
+   *
+   * @return 对象。
+   */
  public  static TWidget create(TWidget parent, int x, int y, int w, int h)  {
     return new TView(view_create(parent != null ? (parent.nativeObj) : 0, x, y, w, h));
  }
 
 
-/**
- * 转换为view对象(供脚本语言使用)。
- * 
- * @param widget view对象。
- 
- * @return view对象。
- */
+  /**
+   * 转换为view对象(供脚本语言使用)。
+   * 
+   * @param widget view对象。
+   *
+   * @return view对象。
+   */
  public  static TView cast(TWidget widget)  {
     return new TView(view_cast(widget != null ? (widget.nativeObj) : 0));
  }

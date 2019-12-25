@@ -59,203 +59,203 @@ public class TScrollView extends TWidget {
  }
 
 
-/**
- * 创建scroll_view对象
- * 
- * @param parent 父控件
- * @param x x坐标
- * @param y y坐标
- * @param w 宽度
- * @param h 高度
- 
- * @return 对象。
- */
+  /**
+   * 创建scroll_view对象
+   * 
+   * @param parent 父控件
+   * @param x x坐标
+   * @param y y坐标
+   * @param w 宽度
+   * @param h 高度
+   *
+   * @return 对象。
+   */
  public  static TWidget create(TWidget parent, int x, int y, int w, int h)  {
     return new TScrollView(scroll_view_create(parent != null ? (parent.nativeObj) : 0, x, y, w, h));
  }
 
 
-/**
- * 转换为scroll_view对象(供脚本语言使用)。
- * 
- * @param widget scroll_view对象。
- 
- * @return scroll_view对象。
- */
+  /**
+   * 转换为scroll_view对象(供脚本语言使用)。
+   * 
+   * @param widget scroll_view对象。
+   *
+   * @return scroll_view对象。
+   */
  public  static TScrollView cast(TWidget widget)  {
     return new TScrollView(scroll_view_cast(widget != null ? (widget.nativeObj) : 0));
  }
 
 
-/**
- * 设置虚拟宽度。
- * 
- * @param w 虚拟宽度。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置虚拟宽度。
+   * 
+   * @param w 虚拟宽度。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setVirtualW(int w)  {
    return TRet.from(scroll_view_set_virtual_w(this != null ? (this.nativeObj) : 0, w));
  }
 
 
-/**
- * 设置虚拟高度。
- * 
- * @param h 虚拟高度。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置虚拟高度。
+   * 
+   * @param h 虚拟高度。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setVirtualH(int h)  {
    return TRet.from(scroll_view_set_virtual_h(this != null ? (this.nativeObj) : 0, h));
  }
 
 
-/**
- * 设置是否允许x方向滑动。
- * 
- * @param xslidable 是否允许滑动。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置是否允许x方向滑动。
+   * 
+   * @param xslidable 是否允许滑动。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setXslidable(boolean xslidable)  {
    return TRet.from(scroll_view_set_xslidable(this != null ? (this.nativeObj) : 0, xslidable));
  }
 
 
-/**
- * 设置是否允许y方向滑动。
- * 
- * @param yslidable 是否允许滑动。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置是否允许y方向滑动。
+   * 
+   * @param yslidable 是否允许滑动。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setYslidable(boolean yslidable)  {
    return TRet.from(scroll_view_set_yslidable(this != null ? (this.nativeObj) : 0, yslidable));
  }
 
 
-/**
- * 设置偏移量。
- * 
- * @param xoffset x偏移量。
- * @param yoffset y偏移量。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置偏移量。
+   * 
+   * @param xoffset x偏移量。
+   * @param yoffset y偏移量。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setOffset(int xoffset, int yoffset)  {
    return TRet.from(scroll_view_set_offset(this != null ? (this.nativeObj) : 0, xoffset, yoffset));
  }
 
 
-/**
- * 设置偏移速度比例。
- * 
- * @param xspeed_scale x偏移速度比例。。
- * @param yspeed_scale y偏移速度比例。。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置偏移速度比例。
+   * 
+   * @param xspeed_scale x偏移速度比例。。
+   * @param yspeed_scale y偏移速度比例。。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setSpeedScale(double xspeed_scale, double yspeed_scale)  {
    return TRet.from(scroll_view_set_speed_scale(this != null ? (this.nativeObj) : 0, xspeed_scale, yspeed_scale));
  }
 
 
-/**
- * 滚动到指定的偏移量。
- * 
- * @param xoffset_end x偏移量。
- * @param yoffset_end y偏移量。
- * @param duration 时间。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 滚动到指定的偏移量。
+   * 
+   * @param xoffset_end x偏移量。
+   * @param yoffset_end y偏移量。
+   * @param duration 时间。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet scrollTo(int xoffset_end, int yoffset_end, int duration)  {
    return TRet.from(scroll_view_scroll_to(this != null ? (this.nativeObj) : 0, xoffset_end, yoffset_end, duration));
  }
 
 
-/**
- * 滚动到指定的偏移量。
- * 
- * @param xoffset_delta x偏移量。
- * @param yoffset_delta y偏移量。
- * @param duration 时间。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 滚动到指定的偏移量。
+   * 
+   * @param xoffset_delta x偏移量。
+   * @param yoffset_delta y偏移量。
+   * @param duration 时间。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet scrollDeltaTo(int xoffset_delta, int yoffset_delta, int duration)  {
    return TRet.from(scroll_view_scroll_delta_to(this != null ? (this.nativeObj) : 0, xoffset_delta, yoffset_delta, duration));
  }
 
 
-/**
- * 虚拟宽度。
- *
- */
+  /**
+   * 虚拟宽度。
+   *
+   */
  public int getVirtualW() {
    return scroll_view_t_get_prop_virtual_w(this.nativeObj);
  }
 
 
-/**
- * 虚拟高度。
- *
- */
+  /**
+   * 虚拟高度。
+   *
+   */
  public int getVirtualH() {
    return scroll_view_t_get_prop_virtual_h(this.nativeObj);
  }
 
 
-/**
- * x偏移量。
- *
- */
+  /**
+   * x偏移量。
+   *
+   */
  public int getXoffset() {
    return scroll_view_t_get_prop_xoffset(this.nativeObj);
  }
 
 
-/**
- * y偏移量。
- *
- */
+  /**
+   * y偏移量。
+   *
+   */
  public int getYoffset() {
    return scroll_view_t_get_prop_yoffset(this.nativeObj);
  }
 
 
-/**
- * x偏移速度比例。
- *
- */
+  /**
+   * x偏移速度比例。
+   *
+   */
  public double getXspeedScale() {
    return scroll_view_t_get_prop_xspeed_scale(this.nativeObj);
  }
 
 
-/**
- * y偏移速度比例。
- *
- */
+  /**
+   * y偏移速度比例。
+   *
+   */
  public double getYspeedScale() {
    return scroll_view_t_get_prop_yspeed_scale(this.nativeObj);
  }
 
 
-/**
- * 是否允许x方向滑动。
- *
- */
+  /**
+   * 是否允许x方向滑动。
+   *
+   */
  public boolean getXslidable() {
    return scroll_view_t_get_prop_xslidable(this.nativeObj);
  }
 
 
-/**
- * 是否允许y方向滑动。
- *
- */
+  /**
+   * 是否允许y方向滑动。
+   *
+   */
  public boolean getYslidable() {
    return scroll_view_t_get_prop_yslidable(this.nativeObj);
  }

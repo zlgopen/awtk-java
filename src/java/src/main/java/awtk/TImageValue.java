@@ -58,83 +58,83 @@ public class TImageValue extends TWidget {
  }
 
 
-/**
- * 创建image_value对象
- * 
- * @param parent 父控件
- * @param x x坐标
- * @param y y坐标
- * @param w 宽度
- * @param h 高度
- 
- * @return 对象。
- */
+  /**
+   * 创建image_value对象
+   * 
+   * @param parent 父控件
+   * @param x x坐标
+   * @param y y坐标
+   * @param w 宽度
+   * @param h 高度
+   *
+   * @return 对象。
+   */
  public  static TWidget create(TWidget parent, int x, int y, int w, int h)  {
     return new TImageValue(image_value_create(parent != null ? (parent.nativeObj) : 0, x, y, w, h));
  }
 
 
-/**
- * 设置图片前缀。
- * 
- * @param image 图片前缀。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置图片前缀。
+   * 
+   * @param image 图片前缀。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setImage(String image)  {
    return TRet.from(image_value_set_image(this != null ? (this.nativeObj) : 0, image));
  }
 
 
-/**
- * 设置格式。
- * 
- * @param format 格式。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置格式。
+   * 
+   * @param format 格式。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setFormat(String format)  {
    return TRet.from(image_value_set_format(this != null ? (this.nativeObj) : 0, format));
  }
 
 
-/**
- * 设置值。
- * 
- * @param value 值。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置值。
+   * 
+   * @param value 值。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setValue(double value)  {
    return TRet.from(image_value_set_value(this != null ? (this.nativeObj) : 0, value));
  }
 
 
-/**
- * 转换为image_value对象(供脚本语言使用)。
- * 
- * @param widget image_value对象。
- 
- * @return image_value对象。
- */
+  /**
+   * 转换为image_value对象(供脚本语言使用)。
+   * 
+   * @param widget image_value对象。
+   *
+   * @return image_value对象。
+   */
  public  static TImageValue cast(TWidget widget)  {
     return new TImageValue(image_value_cast(widget != null ? (widget.nativeObj) : 0));
  }
 
 
-/**
- * 图片名称的前缀。
- *
- */
+  /**
+   * 图片名称的前缀。
+   *
+   */
  public String getImage() {
    return image_value_t_get_prop_image(this.nativeObj);
  }
 
 
-/**
- * 数值到字符串转换时的格式，缺省为"%d"。
- *
- */
+  /**
+   * 数值到字符串转换时的格式，缺省为"%d"。
+   *
+   */
  public String getFormat() {
    return image_value_t_get_prop_format(this.nativeObj);
  }

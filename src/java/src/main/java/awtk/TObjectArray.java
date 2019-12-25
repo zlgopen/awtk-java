@@ -36,43 +36,43 @@ public class TObjectArray extends TObject {
  }
 
 
-/**
- * 创建对象。
- * 
- 
- * @return 返回object对象。
- */
+  /**
+   * 创建对象。
+   * 
+   *
+   * @return 返回object对象。
+   */
  public  static TObject create()  {
     return new TObjectArray(object_array_create());
  }
 
 
-/**
- * for script gc
- * 
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * for script gc
+   * 
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet unref()  {
    return TRet.from(object_array_unref(this != null ? (this.nativeObj) : 0));
  }
 
 
-/**
- * 清除全部属性。
- * 
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 清除全部属性。
+   * 
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet clearProps()  {
    return TRet.from(object_array_clear_props(this != null ? (this.nativeObj) : 0));
  }
 
 
-/**
- * 属性个数。
- *
- */
+  /**
+   * 属性个数。
+   *
+   */
  public int getPropsSize() {
    return object_array_t_get_prop_props_size(this.nativeObj);
  }

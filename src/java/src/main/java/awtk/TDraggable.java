@@ -57,177 +57,177 @@ public class TDraggable extends TWidget {
  }
 
 
-/**
- * 创建draggable对象
- * 
- * @param parent 父控件
- * @param x x坐标
- * @param y y坐标
- * @param w 宽度
- * @param h 高度
- 
- * @return 对象。
- */
+  /**
+   * 创建draggable对象
+   * 
+   * @param parent 父控件
+   * @param x x坐标
+   * @param y y坐标
+   * @param w 宽度
+   * @param h 高度
+   *
+   * @return 对象。
+   */
  public  static TWidget create(TWidget parent, int x, int y, int w, int h)  {
     return new TDraggable(draggable_create(parent != null ? (parent.nativeObj) : 0, x, y, w, h));
  }
 
 
-/**
- * 转换为draggable对象(供脚本语言使用)。
- * 
- * @param widget draggable对象。
- 
- * @return draggable对象。
- */
+  /**
+   * 转换为draggable对象(供脚本语言使用)。
+   * 
+   * @param widget draggable对象。
+   *
+   * @return draggable对象。
+   */
  public  static TDraggable cast(TWidget widget)  {
     return new TDraggable(draggable_cast(widget != null ? (widget.nativeObj) : 0));
  }
 
 
-/**
- * 设置top。
- * 
- * @param top 拖动范围的顶部限制。缺省为父控件的顶部。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置top。
+   * 
+   * @param top 拖动范围的顶部限制。缺省为父控件的顶部。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setTop(int top)  {
    return TRet.from(draggable_set_top(this != null ? (this.nativeObj) : 0, top));
  }
 
 
-/**
- * 设置bottom。
- * 
- * @param bottom 拖动范围的底部限制。缺省为父控件的底部。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置bottom。
+   * 
+   * @param bottom 拖动范围的底部限制。缺省为父控件的底部。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setBottom(int bottom)  {
    return TRet.from(draggable_set_bottom(this != null ? (this.nativeObj) : 0, bottom));
  }
 
 
-/**
- * 设置left。
- * 
- * @param left 拖动范围的左边限制。缺省为父控件的左边。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置left。
+   * 
+   * @param left 拖动范围的左边限制。缺省为父控件的左边。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setLeft(int left)  {
    return TRet.from(draggable_set_left(this != null ? (this.nativeObj) : 0, left));
  }
 
 
-/**
- * 设置right。
- * 
- * @param right 拖动范围的右边限制。缺省为父控件的右边边。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置right。
+   * 
+   * @param right 拖动范围的右边限制。缺省为父控件的右边边。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setRight(int right)  {
    return TRet.from(draggable_set_right(this != null ? (this.nativeObj) : 0, right));
  }
 
 
-/**
- * 设置vertical_only。
- * 
- * @param vertical_only 只允许垂直拖动。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置vertical_only。
+   * 
+   * @param vertical_only 只允许垂直拖动。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setVerticalOnly(boolean vertical_only)  {
    return TRet.from(draggable_set_vertical_only(this != null ? (this.nativeObj) : 0, vertical_only));
  }
 
 
-/**
- * 设置horizontal_only。
- * 
- * @param horizontal_only 只允许水平拖动。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置horizontal_only。
+   * 
+   * @param horizontal_only 只允许水平拖动。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setHorizontalOnly(boolean horizontal_only)  {
    return TRet.from(draggable_set_horizontal_only(this != null ? (this.nativeObj) : 0, horizontal_only));
  }
 
 
-/**
- * 设置drag_window。
- *拖动窗口而不是父控件。比如放在对话框的titlebar上，拖动titlebar其实是希望拖动对话框。
- * 
- * @param drag_window drag_window
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置drag_window。
+   *拖动窗口而不是父控件。比如放在对话框的titlebar上，拖动titlebar其实是希望拖动对话框。
+   * 
+   * @param drag_window drag_window
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setDragWindow(boolean drag_window)  {
    return TRet.from(draggable_set_drag_window(this != null ? (this.nativeObj) : 0, drag_window));
  }
 
 
-/**
- * 拖动范围的顶部限制。缺省为父控件的顶部。
- *
- */
+  /**
+   * 拖动范围的顶部限制。缺省为父控件的顶部。
+   *
+   */
  public int getTop() {
    return draggable_t_get_prop_top(this.nativeObj);
  }
 
 
-/**
- * 拖动范围的底部限制。缺省为父控件的底部。
- *
- */
+  /**
+   * 拖动范围的底部限制。缺省为父控件的底部。
+   *
+   */
  public int getBottom() {
    return draggable_t_get_prop_bottom(this.nativeObj);
  }
 
 
-/**
- * 拖动范围的左边限制。缺省为父控件的左边。
- *
- */
+  /**
+   * 拖动范围的左边限制。缺省为父控件的左边。
+   *
+   */
  public int getLeft() {
    return draggable_t_get_prop_left(this.nativeObj);
  }
 
 
-/**
- * 拖动范围的右边限制。缺省为父控件的右边边。
- *
- */
+  /**
+   * 拖动范围的右边限制。缺省为父控件的右边边。
+   *
+   */
  public int getRight() {
    return draggable_t_get_prop_right(this.nativeObj);
  }
 
 
-/**
- * 只允许垂直拖动。
- *
- */
+  /**
+   * 只允许垂直拖动。
+   *
+   */
  public boolean getVerticalOnly() {
    return draggable_t_get_prop_vertical_only(this.nativeObj);
  }
 
 
-/**
- * 只允许水平拖动。
- *
- */
+  /**
+   * 只允许水平拖动。
+   *
+   */
  public boolean getHorizontalOnly() {
    return draggable_t_get_prop_horizontal_only(this.nativeObj);
  }
 
 
-/**
- * 拖动窗口而不是父控件。比如放在对话框的titlebar上，拖动titlebar其实是希望拖动对话框。
- *
- */
+  /**
+   * 拖动窗口而不是父控件。比如放在对话框的titlebar上，拖动titlebar其实是希望拖动对话框。
+   *
+   */
  public boolean getDragWindow() {
    return draggable_t_get_prop_drag_window(this.nativeObj);
  }

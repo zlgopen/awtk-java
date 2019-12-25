@@ -39,12 +39,12 @@ public class TTheme {
  }
 
 
-/**
- * 获取缺省的主题对象。
- * 
- 
- * @return 返回主题对象。
- */
+  /**
+   * 获取缺省的主题对象。
+   * 
+   *
+   * @return 返回主题对象。
+   */
  public  static TTheme instance()  {
     return new TTheme(theme());
  }

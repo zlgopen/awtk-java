@@ -59,41 +59,41 @@ public class TColorPicker extends TWidget {
  }
 
 
-/**
- * 创建color_picker对象
- * 
- * @param parent 父控件
- * @param x x坐标
- * @param y y坐标
- * @param w 宽度
- * @param h 高度
- 
- * @return 对象。
- */
+  /**
+   * 创建color_picker对象
+   * 
+   * @param parent 父控件
+   * @param x x坐标
+   * @param y y坐标
+   * @param w 宽度
+   * @param h 高度
+   *
+   * @return 对象。
+   */
  public  static TWidget create(TWidget parent, int x, int y, int w, int h)  {
     return new TColorPicker(color_picker_create(parent != null ? (parent.nativeObj) : 0, x, y, w, h));
  }
 
 
-/**
- * 设置颜色。
- * 
- * @param color 颜色。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置颜色。
+   * 
+   * @param color 颜色。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setColor(String color)  {
    return TRet.from(color_picker_set_color(this != null ? (this.nativeObj) : 0, color));
  }
 
 
-/**
- * 转换为color_picker对象(供脚本语言使用)。
- * 
- * @param widget color_picker对象。
- 
- * @return color_picker对象。
- */
+  /**
+   * 转换为color_picker对象(供脚本语言使用)。
+   * 
+   * @param widget color_picker对象。
+   *
+   * @return color_picker对象。
+   */
  public  static TColorPicker cast(TWidget widget)  {
     return new TColorPicker(color_picker_cast(widget != null ? (widget.nativeObj) : 0));
  }

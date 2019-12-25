@@ -33,62 +33,62 @@ public class TComboBoxItem extends TWidget {
  }
 
 
-/**
- * 创建combo_box_item对象
- * 
- * @param parent 父控件
- * @param x x坐标
- * @param y y坐标
- * @param w 宽度
- * @param h 高度
- 
- * @return 对象。
- */
+  /**
+   * 创建combo_box_item对象
+   * 
+   * @param parent 父控件
+   * @param x x坐标
+   * @param y y坐标
+   * @param w 宽度
+   * @param h 高度
+   *
+   * @return 对象。
+   */
  public  static TWidget create(TWidget parent, int x, int y, int w, int h)  {
     return new TComboBoxItem(combo_box_item_create(parent != null ? (parent.nativeObj) : 0, x, y, w, h));
  }
 
 
-/**
- * 转换combo_box_item对象(供脚本语言使用)。
- * 
- * @param widget combo_box_item对象。
- 
- * @return combo_box_item对象。
- */
+  /**
+   * 转换combo_box_item对象(供脚本语言使用)。
+   * 
+   * @param widget combo_box_item对象。
+   *
+   * @return combo_box_item对象。
+   */
  public  static TComboBoxItem cast(TWidget widget)  {
     return new TComboBoxItem(combo_box_item_cast(widget != null ? (widget.nativeObj) : 0));
  }
 
 
-/**
- * 设置控件是否被选中。
- * 
- * @param checked 是否被选中。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置控件是否被选中。
+   * 
+   * @param checked 是否被选中。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setChecked(boolean checked)  {
    return TRet.from(combo_box_item_set_checked(this != null ? (this.nativeObj) : 0, checked));
  }
 
 
-/**
- * 设置控件的值。
- * 
- * @param value 值
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置控件的值。
+   * 
+   * @param value 值
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setValue(int value)  {
    return TRet.from(combo_box_item_set_value(this != null ? (this.nativeObj) : 0, value));
  }
 
 
-/**
- * 是否被选中。
- *
- */
+  /**
+   * 是否被选中。
+   *
+   */
  public boolean getChecked() {
    return combo_box_item_t_get_prop_checked(this.nativeObj);
  }

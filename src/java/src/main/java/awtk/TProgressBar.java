@@ -63,117 +63,117 @@ public class TProgressBar extends TWidget {
  }
 
 
-/**
- * 创建progress_bar对象
- * 
- * @param parent 父控件
- * @param x x坐标
- * @param y y坐标
- * @param w 宽度
- * @param h 高度
- 
- * @return 对象。
- */
+  /**
+   * 创建progress_bar对象
+   * 
+   * @param parent 父控件
+   * @param x x坐标
+   * @param y y坐标
+   * @param w 宽度
+   * @param h 高度
+   *
+   * @return 对象。
+   */
  public  static TWidget create(TWidget parent, int x, int y, int w, int h)  {
     return new TProgressBar(progress_bar_create(parent != null ? (parent.nativeObj) : 0, x, y, w, h));
  }
 
 
-/**
- * 转换为progress_bar对象(供脚本语言使用)。
- * 
- * @param widget progress_bar对象。
- 
- * @return progress_bar对象。
- */
+  /**
+   * 转换为progress_bar对象(供脚本语言使用)。
+   * 
+   * @param widget progress_bar对象。
+   *
+   * @return progress_bar对象。
+   */
  public  static TProgressBar cast(TWidget widget)  {
     return new TProgressBar(progress_bar_cast(widget != null ? (widget.nativeObj) : 0));
  }
 
 
-/**
- * 设置进度条的进度。
- * 
- * @param value 进度
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置进度条的进度。
+   * 
+   * @param value 进度
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setValue(double value)  {
    return TRet.from(progress_bar_set_value(this != null ? (this.nativeObj) : 0, value));
  }
 
 
-/**
- * 设置最大值。
- * 
- * @param max 最大值。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置最大值。
+   * 
+   * @param max 最大值。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setMax(int max)  {
    return TRet.from(progress_bar_set_max(this != null ? (this.nativeObj) : 0, max));
  }
 
 
-/**
- * 设置进度条的方向。
- * 
- * @param vertical 是否为垂直方向。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置进度条的方向。
+   * 
+   * @param vertical 是否为垂直方向。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setVertical(boolean vertical)  {
    return TRet.from(progress_bar_set_vertical(this != null ? (this.nativeObj) : 0, vertical));
  }
 
 
-/**
- * 设置进度条的是否显示文本。
- * 
- * @param show_text 是否显示文本。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置进度条的是否显示文本。
+   * 
+   * @param show_text 是否显示文本。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setShowText(boolean show_text)  {
    return TRet.from(progress_bar_set_show_text(this != null ? (this.nativeObj) : 0, show_text));
  }
 
 
-/**
- * 获取进度百分比。
- *
- *> 当max为100时，percent和value取整后一致。
- * 
- 
- * @return 返回百分比。
- */
+  /**
+   * 获取进度百分比。
+   *
+   *> 当max为100时，percent和value取整后一致。
+   * 
+   *
+   * @return 返回百分比。
+   */
  public  int getPercent()  {
     return progress_bar_get_percent(this != null ? (this.nativeObj) : 0);
  }
 
 
-/**
- * 最大值(缺省为100)。
- *
- */
+  /**
+   * 最大值(缺省为100)。
+   *
+   */
  public double getMax() {
    return progress_bar_t_get_prop_max(this.nativeObj);
  }
 
 
-/**
- * 进度条的是否为垂直方向。
- *
- */
+  /**
+   * 进度条的是否为垂直方向。
+   *
+   */
  public boolean getVertical() {
    return progress_bar_t_get_prop_vertical(this.nativeObj);
  }
 
 
-/**
- * 是否显示文本。
- *
- */
+  /**
+   * 是否显示文本。
+   *
+   */
  public boolean getShowText() {
    return progress_bar_t_get_prop_show_text(this.nativeObj);
  }

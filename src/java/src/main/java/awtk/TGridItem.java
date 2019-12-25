@@ -65,29 +65,29 @@ public class TGridItem extends TWidget {
  }
 
 
-/**
- * 创建grid_item对象
- * 
- * @param parent 父控件
- * @param x x坐标
- * @param y y坐标
- * @param w 宽度
- * @param h 高度
- 
- * @return 对象。
- */
+  /**
+   * 创建grid_item对象
+   * 
+   * @param parent 父控件
+   * @param x x坐标
+   * @param y y坐标
+   * @param w 宽度
+   * @param h 高度
+   *
+   * @return 对象。
+   */
  public  static TWidget create(TWidget parent, int x, int y, int w, int h)  {
     return new TGridItem(grid_item_create(parent != null ? (parent.nativeObj) : 0, x, y, w, h));
  }
 
 
-/**
- * 转换为grid_item对象(供脚本语言使用)。
- * 
- * @param widget grid_item对象。
- 
- * @return grid_item对象。
- */
+  /**
+   * 转换为grid_item对象(供脚本语言使用)。
+   * 
+   * @param widget grid_item对象。
+   *
+   * @return grid_item对象。
+   */
  public  static TGridItem cast(TWidget widget)  {
     return new TGridItem(grid_item_cast(widget != null ? (widget.nativeObj) : 0));
  }

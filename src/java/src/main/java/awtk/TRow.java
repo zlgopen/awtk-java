@@ -56,29 +56,29 @@ public class TRow extends TWidget {
  }
 
 
-/**
- * 创建row对象
- * 
- * @param parent 父控件
- * @param x x坐标
- * @param y y坐标
- * @param w 宽度
- * @param h 高度
- 
- * @return 对象。
- */
+  /**
+   * 创建row对象
+   * 
+   * @param parent 父控件
+   * @param x x坐标
+   * @param y y坐标
+   * @param w 宽度
+   * @param h 高度
+   *
+   * @return 对象。
+   */
  public  static TWidget create(TWidget parent, int x, int y, int w, int h)  {
     return new TRow(row_create(parent != null ? (parent.nativeObj) : 0, x, y, w, h));
  }
 
 
-/**
- * 转换为row对象(供脚本语言使用)。
- * 
- * @param widget row对象。
- 
- * @return row对象。
- */
+  /**
+   * 转换为row对象(供脚本语言使用)。
+   * 
+   * @param widget row对象。
+   *
+   * @return row对象。
+   */
  public  static TRow cast(TWidget widget)  {
     return new TRow(row_cast(widget != null ? (widget.nativeObj) : 0));
  }

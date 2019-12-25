@@ -14,26 +14,26 @@ package awtk;
  */
 public class TIdle { 
 
-/**
- * 增加一个idle。
- * 
- * @param on_idle idle回调函数，回调函数返回RET_REPEAT，则下次继续执行，否则自动移出。
- * @param ctx idle回调函数的上下文。
- 
- * @return 返回idle的ID，0表示失败。
- */
+  /**
+   * 增加一个idle。
+   * 
+   * @param on_idle idle回调函数，回调函数返回RET_REPEAT，则下次继续执行，否则自动移出。
+   * @param ctx idle回调函数的上下文。
+   *
+   * @return 返回idle的ID，0表示失败。
+   */
  public  static int add(TOnIdle on_idle, long ctx)  {
     return idle_add(on_idle, ctx);
  }
 
 
-/**
- * 删除指定的idle。
- * 
- * @param idle_id idleID。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 删除指定的idle。
+   * 
+   * @param idle_id idleID。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  static TRet remove(int idle_id)  {
    return TRet.from(idle_remove(idle_id));
  }

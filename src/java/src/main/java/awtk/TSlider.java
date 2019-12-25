@@ -64,173 +64,173 @@ public class TSlider extends TWidget {
  }
 
 
-/**
- * 创建slider对象
- * 
- * @param parent 父控件
- * @param x x坐标
- * @param y y坐标
- * @param w 宽度
- * @param h 高度
- 
- * @return 对象。
- */
+  /**
+   * 创建slider对象
+   * 
+   * @param parent 父控件
+   * @param x x坐标
+   * @param y y坐标
+   * @param w 宽度
+   * @param h 高度
+   *
+   * @return 对象。
+   */
  public  static TWidget create(TWidget parent, int x, int y, int w, int h)  {
     return new TSlider(slider_create(parent != null ? (parent.nativeObj) : 0, x, y, w, h));
  }
 
 
-/**
- * 转换为slider对象(供脚本语言使用)。
- * 
- * @param widget slider对象。
- 
- * @return slider对象。
- */
+  /**
+   * 转换为slider对象(供脚本语言使用)。
+   * 
+   * @param widget slider对象。
+   *
+   * @return slider对象。
+   */
  public  static TSlider cast(TWidget widget)  {
     return new TSlider(slider_cast(widget != null ? (widget.nativeObj) : 0));
  }
 
 
-/**
- * 设置滑块的值。
- * 
- * @param value 值
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置滑块的值。
+   * 
+   * @param value 值
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setValue(double value)  {
    return TRet.from(slider_set_value(this != null ? (this.nativeObj) : 0, value));
  }
 
 
-/**
- * 设置滑块的最小值。
- * 
- * @param min 最小值
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置滑块的最小值。
+   * 
+   * @param min 最小值
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setMin(double min)  {
    return TRet.from(slider_set_min(this != null ? (this.nativeObj) : 0, min));
  }
 
 
-/**
- * 设置滑块的最大值。
- * 
- * @param max 最大值
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置滑块的最大值。
+   * 
+   * @param max 最大值
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setMax(double max)  {
    return TRet.from(slider_set_max(this != null ? (this.nativeObj) : 0, max));
  }
 
 
-/**
- * 设置滑块的拖动的最小单位。
- * 
- * @param step 拖动的最小单位。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置滑块的拖动的最小单位。
+   * 
+   * @param step 拖动的最小单位。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setStep(double step)  {
    return TRet.from(slider_set_step(this != null ? (this.nativeObj) : 0, step));
  }
 
 
-/**
- * 设置bar的宽度或高度。
- * 
- * @param bar_size bar的宽度或高度。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置bar的宽度或高度。
+   * 
+   * @param bar_size bar的宽度或高度。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setBarSize(int bar_size)  {
    return TRet.from(slider_set_bar_size(this != null ? (this.nativeObj) : 0, bar_size));
  }
 
 
-/**
- * 设置滑块的方向。
- * 
- * @param vertical 是否为垂直方向。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置滑块的方向。
+   * 
+   * @param vertical 是否为垂直方向。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setVertical(boolean vertical)  {
    return TRet.from(slider_set_vertical(this != null ? (this.nativeObj) : 0, vertical));
  }
 
 
-/**
- * 最小值。
- *
- */
+  /**
+   * 最小值。
+   *
+   */
  public double getMin() {
    return slider_t_get_prop_min(this.nativeObj);
  }
 
 
-/**
- * 最大值。
- *
- */
+  /**
+   * 最大值。
+   *
+   */
  public double getMax() {
    return slider_t_get_prop_max(this.nativeObj);
  }
 
 
-/**
- * 拖动的最小单位。
- *
- */
+  /**
+   * 拖动的最小单位。
+   *
+   */
  public double getStep() {
    return slider_t_get_prop_step(this.nativeObj);
  }
 
 
-/**
- * 滑块的是否为垂直方向。
- *
- */
+  /**
+   * 滑块的是否为垂直方向。
+   *
+   */
  public boolean getVertical() {
    return slider_t_get_prop_vertical(this.nativeObj);
  }
 
 
-/**
- * 轴的宽度或高度（单位：像素），为0表示为控件的宽度或高度的一半，缺省为0。
- *
- */
+  /**
+   * 轴的宽度或高度（单位：像素），为0表示为控件的宽度或高度的一半，缺省为0。
+   *
+   */
  public int getBarSize() {
    return slider_t_get_prop_bar_size(this.nativeObj);
  }
 
 
-/**
- * 滑块的宽度或高度（单位：像素），缺省为10。
- *
- */
+  /**
+   * 滑块的宽度或高度（单位：像素），缺省为10。
+   *
+   */
  public int getDraggerSize() {
    return slider_t_get_prop_dragger_size(this.nativeObj);
  }
 
 
-/**
- * 滑块的宽度或高度是否与icon适应，缺省为true。
- *
- */
+  /**
+   * 滑块的宽度或高度是否与icon适应，缺省为true。
+   *
+   */
  public boolean getDraggerAdaptToIcon() {
    return slider_t_get_prop_dragger_adapt_to_icon(this.nativeObj);
  }
 
 
-/**
- * 是否允许在轴上滑动来改变滑块位置，缺省为FALSE。
- *
- */
+  /**
+   * 是否允许在轴上滑动来改变滑块位置，缺省为FALSE。
+   *
+   */
  public boolean getSlideWithBar() {
    return slider_t_get_prop_slide_with_bar(this.nativeObj);
  }

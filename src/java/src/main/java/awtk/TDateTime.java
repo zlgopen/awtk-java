@@ -39,97 +39,97 @@ public class TDateTime {
  }
 
 
-/**
- * 创建date_time对象，并初始为当前日期和时间(一般供脚本语言中使用)。
- * 
- 
- * @return 返回date_time对象。
- */
+  /**
+   * 创建date_time对象，并初始为当前日期和时间(一般供脚本语言中使用)。
+   * 
+   *
+   * @return 返回date_time对象。
+   */
  public  static TDateTime create()  {
     return new TDateTime(date_time_create());
  }
 
 
-/**
- * 设置当前时间。
- * 
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置当前时间。
+   * 
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet set()  {
    return TRet.from(date_time_set(this != null ? (this.nativeObj) : 0));
  }
 
 
-/**
- * 销毁date_time对象(一般供脚本语言中使用)。
- * 
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 销毁date_time对象(一般供脚本语言中使用)。
+   * 
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet destroy()  {
    return TRet.from(date_time_destroy(this != null ? (this.nativeObj) : 0));
  }
 
 
-/**
- * 秒(0 - 59)。
- *
- */
+  /**
+   * 秒(0 - 59)。
+   *
+   */
  public int getSecond() {
    return date_time_t_get_prop_second(this.nativeObj);
  }
 
 
-/**
- * 分(0 - 59)。
- *
- */
+  /**
+   * 分(0 - 59)。
+   *
+   */
  public int getMinute() {
    return date_time_t_get_prop_minute(this.nativeObj);
  }
 
 
-/**
- * 时(0 - 23)。
- *
- */
+  /**
+   * 时(0 - 23)。
+   *
+   */
  public int getHour() {
    return date_time_t_get_prop_hour(this.nativeObj);
  }
 
 
-/**
- * 日(1-31)。
- *
- */
+  /**
+   * 日(1-31)。
+   *
+   */
  public int getDay() {
    return date_time_t_get_prop_day(this.nativeObj);
  }
 
 
-/**
- * 星期几(0-6, Sunday = 0)。
- *
- */
+  /**
+   * 星期几(0-6, Sunday = 0)。
+   *
+   */
  public int getWday() {
    return date_time_t_get_prop_wday(this.nativeObj);
  }
 
 
-/**
- * 月(1-12)。
- *
- */
+  /**
+   * 月(1-12)。
+   *
+   */
  public int getMonth() {
    return date_time_t_get_prop_month(this.nativeObj);
  }
 
 
-/**
- * 年。
- *
- */
+  /**
+   * 年。
+   *
+   */
  public int getYear() {
    return date_time_t_get_prop_year(this.nativeObj);
  }

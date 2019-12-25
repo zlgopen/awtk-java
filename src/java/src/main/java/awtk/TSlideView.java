@@ -71,139 +71,139 @@ public class TSlideView extends TWidget {
  }
 
 
-/**
- * 创建slide_view对象
- * 
- * @param parent 父控件
- * @param x x坐标
- * @param y y坐标
- * @param w 宽度
- * @param h 高度
- 
- * @return 对象。
- */
+  /**
+   * 创建slide_view对象
+   * 
+   * @param parent 父控件
+   * @param x x坐标
+   * @param y y坐标
+   * @param w 宽度
+   * @param h 高度
+   *
+   * @return 对象。
+   */
  public  static TWidget create(TWidget parent, int x, int y, int w, int h)  {
     return new TSlideView(slide_view_create(parent != null ? (parent.nativeObj) : 0, x, y, w, h));
  }
 
 
-/**
- * 转换为slide_view对象(供脚本语言使用)。
- * 
- * @param widget slide_view对象。
- 
- * @return slide_view对象。
- */
+  /**
+   * 转换为slide_view对象(供脚本语言使用)。
+   * 
+   * @param widget slide_view对象。
+   *
+   * @return slide_view对象。
+   */
  public  static TSlideView cast(TWidget widget)  {
     return new TSlideView(slide_view_cast(widget != null ? (widget.nativeObj) : 0));
  }
 
 
-/**
- * 设置为自动播放模式。
- * 
- * @param auto_play 0表示禁止自动播放，非0表示自动播放时每一页播放的时间。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置为自动播放模式。
+   * 
+   * @param auto_play 0表示禁止自动播放，非0表示自动播放时每一页播放的时间。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setAutoPlay(int auto_play)  {
    return TRet.from(slide_view_set_auto_play(this != null ? (this.nativeObj) : 0, auto_play));
  }
 
 
-/**
- * 设置当前页的序号。
- * 
- * @param index 当前页的序号。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置当前页的序号。
+   * 
+   * @param index 当前页的序号。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setActive(int index)  {
    return TRet.from(slide_view_set_active(this != null ? (this.nativeObj) : 0, index));
  }
 
 
-/**
- * 设置为上下滑动(缺省为左右滑动)。
- * 
- * @param vertical TRUE表示上下滑动，FALSE表示左右滑动。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置为上下滑动(缺省为左右滑动)。
+   * 
+   * @param vertical TRUE表示上下滑动，FALSE表示左右滑动。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setVertical(boolean vertical)  {
    return TRet.from(slide_view_set_vertical(this != null ? (this.nativeObj) : 0, vertical));
  }
 
 
-/**
- * 设置页面切换动画。
- *
- *anim_hint取值如下：
- *
- ** "translate"：平移。
- ** "overlap"：覆盖。
- ** "overlap\_with\_alpha"：覆盖并改变透明度。
- *
- *> 使用"overlap"或"overlap\_with\_alpha"动画时，背景图片最好指定到page上。
- *>
- *> 使用"overlap\_with\_alpha"动画时，slideview的背景设置为黑色，
- *> 或slideview的背景设置为透明，窗口的背景设置为黑色，以获得更好的视觉效果和性能。
- * 
- * @param anim_hint 页面切换动画。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置页面切换动画。
+   *
+   *anim_hint取值如下：
+   *
+   ** "translate"：平移。
+   ** "overlap"：覆盖。
+   ** "overlap\_with\_alpha"：覆盖并改变透明度。
+   *
+   *> 使用"overlap"或"overlap\_with\_alpha"动画时，背景图片最好指定到page上。
+   *>
+   *> 使用"overlap\_with\_alpha"动画时，slideview的背景设置为黑色，
+   *> 或slideview的背景设置为透明，窗口的背景设置为黑色，以获得更好的视觉效果和性能。
+   * 
+   * @param anim_hint 页面切换动画。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setAnimHint(String anim_hint)  {
    return TRet.from(slide_view_set_anim_hint(this != null ? (this.nativeObj) : 0, anim_hint));
  }
 
 
-/**
- * 设置循环切换模式。
- * 
- * @param loop 是否启用循环切换模式。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置循环切换模式。
+   * 
+   * @param loop 是否启用循环切换模式。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setLoop(boolean loop)  {
    return TRet.from(slide_view_set_loop(this != null ? (this.nativeObj) : 0, loop));
  }
 
 
-/**
- * 是否为上下滑动模式。
- *
- */
+  /**
+   * 是否为上下滑动模式。
+   *
+   */
  public boolean getVertical() {
    return slide_view_t_get_prop_vertical(this.nativeObj);
  }
 
 
-/**
- * 自动播放。0表示禁止自动播放，非0表示自动播放时每一页播放的时间。
- *
- */
+  /**
+   * 自动播放。0表示禁止自动播放，非0表示自动播放时每一页播放的时间。
+   *
+   */
  public int getAutoPlay() {
    return slide_view_t_get_prop_auto_play(this.nativeObj);
  }
 
 
-/**
- * 循环切换模式。
- *
- *向后切换：切换到最后一页时，再往后切换就到第一页。
- *向前切换：切换到第一页时，再往前切换就到最后一页。
- *
- */
+  /**
+   * 循环切换模式。
+   *
+   *向后切换：切换到最后一页时，再往后切换就到第一页。
+   *向前切换：切换到第一页时，再往前切换就到最后一页。
+   *
+   */
  public boolean getLoop() {
    return slide_view_t_get_prop_loop(this.nativeObj);
  }
 
 
-/**
- * 页面切换效果。
- *
- */
+  /**
+   * 页面切换效果。
+   *
+   */
  public String getAnimHint() {
    return slide_view_t_get_prop_anim_hint(this.nativeObj);
  }

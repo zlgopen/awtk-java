@@ -73,84 +73,84 @@ public class TSlideMenu extends TWidget {
  }
 
 
-/**
- * 创建slide_menu对象
- * 
- * @param parent 父控件
- * @param x x坐标
- * @param y y坐标
- * @param w 宽度
- * @param h 高度
- 
- * @return 对象。
- */
+  /**
+   * 创建slide_menu对象
+   * 
+   * @param parent 父控件
+   * @param x x坐标
+   * @param y y坐标
+   * @param w 宽度
+   * @param h 高度
+   *
+   * @return 对象。
+   */
  public  static TWidget create(TWidget parent, int x, int y, int w, int h)  {
     return new TSlideMenu(slide_menu_create(parent != null ? (parent.nativeObj) : 0, x, y, w, h));
  }
 
 
-/**
- * 转换slide_menu对象(供脚本语言使用)。
- * 
- * @param widget slide_menu对象。
- 
- * @return slide_menu对象。
- */
+  /**
+   * 转换slide_menu对象(供脚本语言使用)。
+   * 
+   * @param widget slide_menu对象。
+   *
+   * @return slide_menu对象。
+   */
  public  static TSlideMenu cast(TWidget widget)  {
     return new TSlideMenu(slide_menu_cast(widget != null ? (widget.nativeObj) : 0));
  }
 
 
-/**
- * 设置当前项。
- * 
- * @param value 当前项的索引。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置当前项。
+   * 
+   * @param value 当前项的索引。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setValue(int value)  {
    return TRet.from(slide_menu_set_value(this != null ? (this.nativeObj) : 0, value));
  }
 
 
-/**
- * 设置垂直对齐方式。
- * 
- * @param align_v 对齐方式。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置垂直对齐方式。
+   * 
+   * @param align_v 对齐方式。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setAlignV(TAlignV align_v)  {
    return TRet.from(slide_menu_set_align_v(this != null ? (this.nativeObj) : 0, align_v.value()));
  }
 
 
-/**
- * 设置最小缩放比例。
- * 
- * @param min_scale 最小缩放比例，范围[0.5-1]。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置最小缩放比例。
+   * 
+   * @param min_scale 最小缩放比例，范围[0.5-1]。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setMinScale(double min_scale)  {
    return TRet.from(slide_menu_set_min_scale(this != null ? (this.nativeObj) : 0, min_scale));
  }
 
 
-/**
- * 垂直对齐方式。
- *
- */
+  /**
+   * 垂直对齐方式。
+   *
+   */
  public TAlignV getAlignV() {
    return TAlignV.from(slide_menu_t_get_prop_align_v(this.nativeObj));
 
  }
 
 
-/**
- * 最小缩放比例。
- *
- */
+  /**
+   * 最小缩放比例。
+   *
+   */
  public double getMinScale() {
    return slide_menu_t_get_prop_min_scale(this.nativeObj);
  }

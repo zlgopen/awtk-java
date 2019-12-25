@@ -61,167 +61,167 @@ public class TProgressCircle extends TWidget {
  }
 
 
-/**
- * 创建progress_circle对象
- * 
- * @param parent 父控件
- * @param x x坐标
- * @param y y坐标
- * @param w 宽度
- * @param h 高度
- 
- * @return 对象。
- */
+  /**
+   * 创建progress_circle对象
+   * 
+   * @param parent 父控件
+   * @param x x坐标
+   * @param y y坐标
+   * @param w 宽度
+   * @param h 高度
+   *
+   * @return 对象。
+   */
  public  static TWidget create(TWidget parent, int x, int y, int w, int h)  {
     return new TProgressCircle(progress_circle_create(parent != null ? (parent.nativeObj) : 0, x, y, w, h));
  }
 
 
-/**
- * 转换为progress_circle对象(供脚本语言使用)。
- * 
- * @param widget progress_circle对象。
- 
- * @return progress_circle对象。
- */
+  /**
+   * 转换为progress_circle对象(供脚本语言使用)。
+   * 
+   * @param widget progress_circle对象。
+   *
+   * @return progress_circle对象。
+   */
  public  static TProgressCircle cast(TWidget widget)  {
     return new TProgressCircle(progress_circle_cast(widget != null ? (widget.nativeObj) : 0));
  }
 
 
-/**
- * 设置值。
- * 
- * @param value 值。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置值。
+   * 
+   * @param value 值。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setValue(double value)  {
    return TRet.from(progress_circle_set_value(this != null ? (this.nativeObj) : 0, value));
  }
 
 
-/**
- * 设置最大值。
- * 
- * @param max 最大值。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置最大值。
+   * 
+   * @param max 最大值。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setMax(int max)  {
    return TRet.from(progress_circle_set_max(this != null ? (this.nativeObj) : 0, max));
  }
 
 
-/**
- * 设置环线的厚度。
- * 
- * @param line_width 环线的厚度。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置环线的厚度。
+   * 
+   * @param line_width 环线的厚度。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setLineWidth(int line_width)  {
    return TRet.from(progress_circle_set_line_width(this != null ? (this.nativeObj) : 0, line_width));
  }
 
 
-/**
- * 设置起始角度。
- * 
- * @param start_angle 起始角度。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置起始角度。
+   * 
+   * @param start_angle 起始角度。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setStartAngle(int start_angle)  {
    return TRet.from(progress_circle_set_start_angle(this != null ? (this.nativeObj) : 0, start_angle));
  }
 
 
-/**
- * 设置单位。
- * 
- * @param unit 单位。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置单位。
+   * 
+   * @param unit 单位。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setUnit(String unit)  {
    return TRet.from(progress_circle_set_unit(this != null ? (this.nativeObj) : 0, unit));
  }
 
 
-/**
- * 设置是否显示文本。
- * 
- * @param show_text 是否显示文本。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置是否显示文本。
+   * 
+   * @param show_text 是否显示文本。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setShowText(boolean show_text)  {
    return TRet.from(progress_circle_set_show_text(this != null ? (this.nativeObj) : 0, show_text));
  }
 
 
-/**
- * 设置是否为逆时针方向。
- * 
- * @param counter_clock_wise 是否为逆时针方向。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置是否为逆时针方向。
+   * 
+   * @param counter_clock_wise 是否为逆时针方向。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setCounterClockWise(boolean counter_clock_wise)  {
    return TRet.from(progress_circle_set_counter_clock_wise(this != null ? (this.nativeObj) : 0, counter_clock_wise));
  }
 
 
-/**
- * 最大值(缺省为100)。
- *
- */
+  /**
+   * 最大值(缺省为100)。
+   *
+   */
  public int getMax() {
    return progress_circle_t_get_prop_max(this.nativeObj);
  }
 
 
-/**
- * 起始角度(单位为度，缺省-90)。
- *
- */
+  /**
+   * 起始角度(单位为度，缺省-90)。
+   *
+   */
  public int getStartAngle() {
    return progress_circle_t_get_prop_start_angle(this.nativeObj);
  }
 
 
-/**
- * 环线的厚度(缺省为8)。
- *
- */
+  /**
+   * 环线的厚度(缺省为8)。
+   *
+   */
  public int getLineWidth() {
    return progress_circle_t_get_prop_line_width(this.nativeObj);
  }
 
 
-/**
- * 单元(缺省无)。
- *
- */
+  /**
+   * 单元(缺省无)。
+   *
+   */
  public String getUnit() {
    return progress_circle_t_get_prop_unit(this.nativeObj);
  }
 
 
-/**
- * 是否为逆时针方向(缺省为FALSE)。
- *
- */
+  /**
+   * 是否为逆时针方向(缺省为FALSE)。
+   *
+   */
  public boolean getCounterClockWise() {
    return progress_circle_t_get_prop_counter_clock_wise(this.nativeObj);
  }
 
 
-/**
- * 是否显示文本(缺省为TRUE)。
- *
- */
+  /**
+   * 是否显示文本(缺省为TRUE)。
+   *
+   */
  public boolean getShowText() {
    return progress_circle_t_get_prop_show_text(this.nativeObj);
  }

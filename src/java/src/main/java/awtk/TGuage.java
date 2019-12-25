@@ -61,74 +61,74 @@ public class TGuage extends TWidget {
  }
 
 
-/**
- * 创建guage对象
- * 
- * @param parent 父控件
- * @param x x坐标
- * @param y y坐标
- * @param w 宽度
- * @param h 高度
- 
- * @return 对象。
- */
+  /**
+   * 创建guage对象
+   * 
+   * @param parent 父控件
+   * @param x x坐标
+   * @param y y坐标
+   * @param w 宽度
+   * @param h 高度
+   *
+   * @return 对象。
+   */
  public  static TWidget create(TWidget parent, int x, int y, int w, int h)  {
     return new TGuage(guage_create(parent != null ? (parent.nativeObj) : 0, x, y, w, h));
  }
 
 
-/**
- * 转换为guage对象(供脚本语言使用)。
- * 
- * @param widget guage对象。
- 
- * @return guage对象。
- */
+  /**
+   * 转换为guage对象(供脚本语言使用)。
+   * 
+   * @param widget guage对象。
+   *
+   * @return guage对象。
+   */
  public  static TGuage cast(TWidget widget)  {
     return new TGuage(guage_cast(widget != null ? (widget.nativeObj) : 0));
  }
 
 
-/**
- * 设置背景图片的名称。
- * 
- * @param name 图片名称，该图片必须存在于资源管理器。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置背景图片的名称。
+   * 
+   * @param name 图片名称，该图片必须存在于资源管理器。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setImage(String name)  {
    return TRet.from(guage_set_image(this != null ? (this.nativeObj) : 0, name));
  }
 
 
-/**
- * 设置图片的显示方式。
- *
- *> 绘制方式的属性值和枚举值:
- *[image\_draw\_type\_name\_value](https://github.com/zlgopen/awtk/blob/master/src/base/enums.c#L98)
- * 
- * @param draw_type 显示方式。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置图片的显示方式。
+   *
+   *> 绘制方式的属性值和枚举值:
+   *[image\_draw\_type\_name\_value](https://github.com/zlgopen/awtk/blob/master/src/base/enums.c#L98)
+   * 
+   * @param draw_type 显示方式。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setDrawType(TImageDrawType draw_type)  {
    return TRet.from(guage_set_draw_type(this != null ? (this.nativeObj) : 0, draw_type.value()));
  }
 
 
-/**
- * 背景图片。
- *
- */
+  /**
+   * 背景图片。
+   *
+   */
  public String getImage() {
    return guage_t_get_prop_image(this.nativeObj);
  }
 
 
-/**
- * 图片的绘制方式。
- *
- */
+  /**
+   * 图片的绘制方式。
+   *
+   */
  public TImageDrawType getDrawType() {
    return TImageDrawType.from(guage_t_get_prop_draw_type(this.nativeObj));
 

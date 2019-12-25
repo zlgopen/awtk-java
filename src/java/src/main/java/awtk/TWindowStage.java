@@ -9,31 +9,31 @@ package awtk;
 
 public enum TWindowStage {
   
-/**
- * 初始状态。
- *
- */
+  /**
+   * 初始状态。
+   *
+   */
  
   NONE (WINDOW_STAGE_NONE()),
   
-/**
- * 创建完成。
- *
- */
+  /**
+   * 创建完成。
+   *
+   */
  
   CREATED (WINDOW_STAGE_CREATED()),
   
-/**
- * 窗口已经打开(窗口打开动画完成后，处于该状态，直到窗口被关闭)
- *
- */
+  /**
+   * 窗口已经打开(窗口打开动画完成后，处于该状态，直到窗口被关闭)
+   *
+   */
  
   OPENED (WINDOW_STAGE_OPENED()),
   
-/**
- * 窗口已关闭。
- *
- */
+  /**
+   * 窗口已关闭。
+   *
+   */
  
   CLOSED (WINDOW_STAGE_CLOSED());
  

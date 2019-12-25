@@ -11,143 +11,143 @@ package awtk;
 
 public enum TWidgetState {
   
-/**
- * 无效状态。
- *
- */
+  /**
+   * 无效状态。
+   *
+   */
  
   STATE_NONE (WIDGET_STATE_NONE()),
   
-/**
- * 正常状态。
- *
- */
+  /**
+   * 正常状态。
+   *
+   */
  
   STATE_NORMAL (WIDGET_STATE_NORMAL()),
   
-/**
- * 指针按下状态。
- *
- */
+  /**
+   * 指针按下状态。
+   *
+   */
  
   STATE_PRESSED (WIDGET_STATE_PRESSED()),
   
-/**
- * 指针悬浮状态。
- *
- */
+  /**
+   * 指针悬浮状态。
+   *
+   */
  
   STATE_OVER (WIDGET_STATE_OVER()),
   
-/**
- * 禁用状态。
- *
- */
+  /**
+   * 禁用状态。
+   *
+   */
  
   STATE_DISABLE (WIDGET_STATE_DISABLE()),
   
-/**
- * 聚焦状态。
- *
- */
+  /**
+   * 聚焦状态。
+   *
+   */
  
   STATE_FOCUSED (WIDGET_STATE_FOCUSED()),
   
-/**
- * 勾选状态。
- *
- */
+  /**
+   * 勾选状态。
+   *
+   */
  
   STATE_CHECKED (WIDGET_STATE_CHECKED()),
   
-/**
- * 没勾选状态。
- *
- */
+  /**
+   * 没勾选状态。
+   *
+   */
  
   STATE_UNCHECKED (WIDGET_STATE_UNCHECKED()),
   
-/**
- * 编辑器无内容状态。
- *
- */
+  /**
+   * 编辑器无内容状态。
+   *
+   */
  
   STATE_EMPTY (WIDGET_STATE_EMPTY()),
   
-/**
- * 编辑器无内容同时聚焦的状态。
- *
- */
+  /**
+   * 编辑器无内容同时聚焦的状态。
+   *
+   */
  
   STATE_EMPTY_FOCUS (WIDGET_STATE_EMPTY_FOCUS()),
   
-/**
- * 输入错误状态。
- *
- */
+  /**
+   * 输入错误状态。
+   *
+   */
  
   STATE_ERROR (WIDGET_STATE_ERROR()),
   
-/**
- * 选中状态。
- *
- */
+  /**
+   * 选中状态。
+   *
+   */
  
   STATE_SELECTED (WIDGET_STATE_SELECTED()),
   
-/**
- * 正常状态(选中项)。
- *
- */
+  /**
+   * 正常状态(选中项)。
+   *
+   */
  
   STATE_NORMAL_OF_CHECKED (WIDGET_STATE_NORMAL_OF_CHECKED()),
   
-/**
- * 指针按下状态(选中项)。
- *
- */
+  /**
+   * 指针按下状态(选中项)。
+   *
+   */
  
   STATE_PRESSED_OF_CHECKED (WIDGET_STATE_PRESSED_OF_CHECKED()),
   
-/**
- * 指针悬浮状态(选中项)。
- *
- */
+  /**
+   * 指针悬浮状态(选中项)。
+   *
+   */
  
   STATE_OVER_OF_CHECKED (WIDGET_STATE_OVER_OF_CHECKED()),
   
-/**
- * 焦点状态(选中项)。
- *
- */
+  /**
+   * 焦点状态(选中项)。
+   *
+   */
  
   STATE_FOCUSED_OF_CHECKED (WIDGET_STATE_FOCUSED_OF_CHECKED()),
   
-/**
- * 正常状态(当前项)。
- *
- */
+  /**
+   * 正常状态(当前项)。
+   *
+   */
  
   STATE_NORMAL_OF_ACTIVE (WIDGET_STATE_NORMAL_OF_ACTIVE()),
   
-/**
- * 指针按下状态(当前项)。
- *
- */
+  /**
+   * 指针按下状态(当前项)。
+   *
+   */
  
   STATE_PRESSED_OF_ACTIVE (WIDGET_STATE_PRESSED_OF_ACTIVE()),
   
-/**
- * 指针悬浮状态(当前项)。
- *
- */
+  /**
+   * 指针悬浮状态(当前项)。
+   *
+   */
  
   STATE_OVER_OF_ACTIVE (WIDGET_STATE_OVER_OF_ACTIVE()),
   
-/**
- * 焦点状态(当前项)。
- *
- */
+  /**
+   * 焦点状态(当前项)。
+   *
+   */
  
   STATE_FOCUSED_OF_ACTIVE (WIDGET_STATE_FOCUSED_OF_ACTIVE());
  

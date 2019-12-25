@@ -31,22 +31,22 @@ public class TWindowEvent extends TEvent {
  }
 
 
-/**
- * 把event对象转window_event_t对象。主要给脚本语言使用。
- * 
- * @param event event对象。
- 
- * @return 对象。
- */
+  /**
+   * 把event对象转window_event_t对象。主要给脚本语言使用。
+   * 
+   * @param event event对象。
+   *
+   * @return 对象。
+   */
  public  static TWindowEvent cast(TEvent event)  {
     return new TWindowEvent(window_event_cast(event != null ? (event.nativeObj) : 0));
  }
 
 
-/**
- * canvas。
- *
- */
+  /**
+   * canvas。
+   *
+   */
  public TWidget getWindow() {
    return new TWidget(window_event_t_get_prop_window(this.nativeObj));
  }

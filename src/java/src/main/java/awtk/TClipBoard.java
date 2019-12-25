@@ -37,24 +37,24 @@ public class TClipBoard {
  }
 
 
-/**
- * 设置文本(UTF8)数据到剪切板。
- * 
- * @param text 文本。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置文本(UTF8)数据到剪切板。
+   * 
+   * @param text 文本。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  static TRet setText(String text)  {
    return TRet.from(clip_board_set_text(text));
  }
 
 
-/**
- * 从剪切板中获取文本(UTF8)数据。
- * 
- 
- * @return 返回文本数据。
- */
+  /**
+   * 从剪切板中获取文本(UTF8)数据。
+   * 
+   *
+   * @return 返回文本数据。
+   */
  public  static String getText()  {
     return clip_board_get_text();
  }

@@ -49,13 +49,13 @@ public class TCalibrationWin extends TWindowBase {
  }
 
 
-/**
- * 转换为calibration_win对象(供脚本语言使用)。
- * 
- * @param widget calibration_win对象。
- 
- * @return calibration_win对象。
- */
+  /**
+   * 转换为calibration_win对象(供脚本语言使用)。
+   * 
+   * @param widget calibration_win对象。
+   *
+   * @return calibration_win对象。
+   */
  public  static TCalibrationWin cast(TWidget widget)  {
     return new TCalibrationWin(calibration_win_cast(widget != null ? (widget.nativeObj) : 0));
  }

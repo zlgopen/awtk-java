@@ -51,104 +51,104 @@ public class TGuagePointer extends TWidget {
  }
 
 
-/**
- * 创建guage_pointer对象
- * 
- * @param parent 父控件
- * @param x x坐标
- * @param y y坐标
- * @param w 宽度
- * @param h 高度
- 
- * @return 对象。
- */
+  /**
+   * 创建guage_pointer对象
+   * 
+   * @param parent 父控件
+   * @param x x坐标
+   * @param y y坐标
+   * @param w 宽度
+   * @param h 高度
+   *
+   * @return 对象。
+   */
  public  static TWidget create(TWidget parent, int x, int y, int w, int h)  {
     return new TGuagePointer(guage_pointer_create(parent != null ? (parent.nativeObj) : 0, x, y, w, h));
  }
 
 
-/**
- * 转换为guage_pointer对象(供脚本语言使用)。
- * 
- * @param widget guage_pointer对象。
- 
- * @return guage_pointer对象。
- */
+  /**
+   * 转换为guage_pointer对象(供脚本语言使用)。
+   * 
+   * @param widget guage_pointer对象。
+   *
+   * @return guage_pointer对象。
+   */
  public  static TGuagePointer cast(TWidget widget)  {
     return new TGuagePointer(guage_pointer_cast(widget != null ? (widget.nativeObj) : 0));
  }
 
 
-/**
- * 设置指针角度。12点钟方向为0度，顺时钟方向为正，单位为度。
- * 
- * @param angle 指针角度。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置指针角度。12点钟方向为0度，顺时钟方向为正，单位为度。
+   * 
+   * @param angle 指针角度。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setAngle(int angle)  {
    return TRet.from(guage_pointer_set_angle(this != null ? (this.nativeObj) : 0, angle));
  }
 
 
-/**
- * 设置指针的图片。
- * 
- * @param image 指针的图片。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置指针的图片。
+   * 
+   * @param image 指针的图片。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setImage(String image)  {
    return TRet.from(guage_pointer_set_image(this != null ? (this.nativeObj) : 0, image));
  }
 
 
-/**
- * 设置指针的旋转锚点。
- * 
- * @param anchor_x 指针的锚点坐标x。(后面加上px为像素点，不加px为相对百分比坐标)
- * @param anchor_y 指针的锚点坐标y。(后面加上px为像素点，不加px为相对百分比坐标)
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置指针的旋转锚点。
+   * 
+   * @param anchor_x 指针的锚点坐标x。(后面加上px为像素点，不加px为相对百分比坐标)
+   * @param anchor_y 指针的锚点坐标y。(后面加上px为像素点，不加px为相对百分比坐标)
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setAnchor(String anchor_x, String anchor_y)  {
    return TRet.from(guage_pointer_set_anchor(this != null ? (this.nativeObj) : 0, anchor_x, anchor_y));
  }
 
 
-/**
- * 指针角度。12点钟方向为0度，顺时钟方向为正，单位为度。
- *
- */
+  /**
+   * 指针角度。12点钟方向为0度，顺时钟方向为正，单位为度。
+   *
+   */
  public int getAngle() {
    return guage_pointer_t_get_prop_angle(this.nativeObj);
  }
 
 
-/**
- * 指针图片。
- *
- *图片须垂直向上，图片的中心点为旋转方向。
- *
- */
+  /**
+   * 指针图片。
+   *
+   *图片须垂直向上，图片的中心点为旋转方向。
+   *
+   */
  public String getImage() {
    return guage_pointer_t_get_prop_image(this.nativeObj);
  }
 
 
-/**
- * 旋转锚点x坐标。
- *
- */
+  /**
+   * 旋转锚点x坐标。
+   *
+   */
  public double getAnchorX() {
    return guage_pointer_t_get_prop_anchor_x(this.nativeObj);
  }
 
 
-/**
- * 旋转锚点y坐标。
- *
- */
+  /**
+   * 旋转锚点y坐标。
+   *
+   */
  public double getAnchorY() {
    return guage_pointer_t_get_prop_anchor_y(this.nativeObj);
  }

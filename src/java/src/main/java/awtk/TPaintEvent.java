@@ -31,22 +31,22 @@ public class TPaintEvent extends TEvent {
  }
 
 
-/**
- * 把event对象转paint_event_t对象。主要给脚本语言使用。
- * 
- * @param event event对象。
- 
- * @return event 对象。
- */
+  /**
+   * 把event对象转paint_event_t对象。主要给脚本语言使用。
+   * 
+   * @param event event对象。
+   *
+   * @return event 对象。
+   */
  public  static TPaintEvent cast(TEvent event)  {
     return new TPaintEvent(paint_event_cast(event != null ? (event.nativeObj) : 0));
  }
 
 
-/**
- * canvas。
- *
- */
+  /**
+   * canvas。
+   *
+   */
  public TCanvas getC() {
    return new TCanvas(paint_event_t_get_prop_c(this.nativeObj));
  }

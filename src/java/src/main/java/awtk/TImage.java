@@ -83,50 +83,50 @@ public class TImage extends TImageBase {
  }
 
 
-/**
- * 创建image对象
- * 
- * @param parent 父控件
- * @param x x坐标
- * @param y y坐标
- * @param w 宽度
- * @param h 高度
- 
- * @return 对象。
- */
+  /**
+   * 创建image对象
+   * 
+   * @param parent 父控件
+   * @param x x坐标
+   * @param y y坐标
+   * @param w 宽度
+   * @param h 高度
+   *
+   * @return 对象。
+   */
  public  static TWidget create(TWidget parent, int x, int y, int w, int h)  {
     return new TImage(image_create(parent != null ? (parent.nativeObj) : 0, x, y, w, h));
  }
 
 
-/**
- * 设置图片的绘制方式。
- * 
- * @param draw_type 绘制方式(仅在没有旋转和缩放时生效)。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置图片的绘制方式。
+   * 
+   * @param draw_type 绘制方式(仅在没有旋转和缩放时生效)。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setDrawType(TImageDrawType draw_type)  {
    return TRet.from(image_set_draw_type(this != null ? (this.nativeObj) : 0, draw_type.value()));
  }
 
 
-/**
- * 转换为image对象(供脚本语言使用)。
- * 
- * @param widget image对象。
- 
- * @return image对象。
- */
+  /**
+   * 转换为image对象(供脚本语言使用)。
+   * 
+   * @param widget image对象。
+   *
+   * @return image对象。
+   */
  public  static TImage cast(TWidget widget)  {
     return new TImage(image_cast(widget != null ? (widget.nativeObj) : 0));
  }
 
 
-/**
- * 图片的绘制方式(仅在没有旋转和缩放时生效)。
- *
- */
+  /**
+   * 图片的绘制方式(仅在没有旋转和缩放时生效)。
+   *
+   */
  public TImageDrawType getDrawType() {
    return TImageDrawType.from(image_t_get_prop_draw_type(this.nativeObj));
 

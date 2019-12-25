@@ -9,24 +9,24 @@ package awtk;
 
 public enum TWindowClosable {
   
-/**
- * 窗口可关闭。
- *
- */
+  /**
+   * 窗口可关闭。
+   *
+   */
  
   YES (WINDOW_CLOSABLE_YES()),
   
-/**
- * 窗口不可关闭。
- *
- */
+  /**
+   * 窗口不可关闭。
+   *
+   */
  
   NO (WINDOW_CLOSABLE_NO()),
   
-/**
- * 窗口需要确认后才能关闭。
- *
- */
+  /**
+   * 窗口需要确认后才能关闭。
+   *
+   */
  
   CONFIRM (WINDOW_CLOSABLE_CONFIRM());
  

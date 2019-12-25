@@ -50,59 +50,59 @@ public class TColorTile extends TWidget {
  }
 
 
-/**
- * 创建color_tile对象
- * 
- * @param parent 父控件
- * @param x x坐标
- * @param y y坐标
- * @param w 宽度
- * @param h 高度
- 
- * @return 对象。
- */
+  /**
+   * 创建color_tile对象
+   * 
+   * @param parent 父控件
+   * @param x x坐标
+   * @param y y坐标
+   * @param w 宽度
+   * @param h 高度
+   *
+   * @return 对象。
+   */
  public  static TWidget create(TWidget parent, int x, int y, int w, int h)  {
     return new TColorTile(color_tile_create(parent != null ? (parent.nativeObj) : 0, x, y, w, h));
  }
 
 
-/**
- * 转换为color_tile对象(供脚本语言使用)。
- * 
- * @param widget color_tile对象。
- 
- * @return color_tile对象。
- */
+  /**
+   * 转换为color_tile对象(供脚本语言使用)。
+   * 
+   * @param widget color_tile对象。
+   *
+   * @return color_tile对象。
+   */
  public  static TColorTile cast(TWidget widget)  {
     return new TColorTile(color_tile_cast(widget != null ? (widget.nativeObj) : 0));
  }
 
 
-/**
- * 设置背景颜色。
- * 
- * @param color 背景颜色。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置背景颜色。
+   * 
+   * @param color 背景颜色。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setBgColor(String color)  {
    return TRet.from(color_tile_set_bg_color(this != null ? (this.nativeObj) : 0, color));
  }
 
 
-/**
- * 背景颜色。
- *
- */
+  /**
+   * 背景颜色。
+   *
+   */
  public String getBgColor() {
    return color_tile_t_get_prop_bg_color(this.nativeObj);
  }
 
 
-/**
- * 边框颜色。
- *
- */
+  /**
+   * 边框颜色。
+   *
+   */
  public String getBorderColor() {
    return color_tile_t_get_prop_border_color(this.nativeObj);
  }

@@ -63,175 +63,175 @@ public class TScrollBar extends TWidget {
  }
 
 
-/**
- * 创建scroll_bar对象
- *
- *> 根据宏WITH_DESKTOP_STYLE决定创建desktop风格还是mobile风格的滚动条
- * 
- * @param parent 父控件
- * @param x x坐标
- * @param y y坐标
- * @param w 宽度
- * @param h 高度
- 
- * @return 对象。
- */
+  /**
+   * 创建scroll_bar对象
+   *
+   *> 根据宏WITH_DESKTOP_STYLE决定创建desktop风格还是mobile风格的滚动条
+   * 
+   * @param parent 父控件
+   * @param x x坐标
+   * @param y y坐标
+   * @param w 宽度
+   * @param h 高度
+   *
+   * @return 对象。
+   */
  public  static TWidget create(TWidget parent, int x, int y, int w, int h)  {
     return new TScrollBar(scroll_bar_create(parent != null ? (parent.nativeObj) : 0, x, y, w, h));
  }
 
 
-/**
- * 转换为scroll_bar对象(供脚本语言使用)。
- * 
- * @param widget scroll_bar对象。
- 
- * @return scroll_bar对象。
- */
+  /**
+   * 转换为scroll_bar对象(供脚本语言使用)。
+   * 
+   * @param widget scroll_bar对象。
+   *
+   * @return scroll_bar对象。
+   */
  public  static TScrollBar cast(TWidget widget)  {
     return new TScrollBar(scroll_bar_cast(widget != null ? (widget.nativeObj) : 0));
  }
 
 
-/**
- * 创建mobile风格的scroll_bar对象
- * 
- * @param parent 父控件
- * @param x x坐标
- * @param y y坐标
- * @param w 宽度
- * @param h 高度
- 
- * @return 对象。
- */
+  /**
+   * 创建mobile风格的scroll_bar对象
+   * 
+   * @param parent 父控件
+   * @param x x坐标
+   * @param y y坐标
+   * @param w 宽度
+   * @param h 高度
+   *
+   * @return 对象。
+   */
  public  static TWidget createMobile(TWidget parent, int x, int y, int w, int h)  {
     return new TScrollBar(scroll_bar_create_mobile(parent != null ? (parent.nativeObj) : 0, x, y, w, h));
  }
 
 
-/**
- * 创建desktop风格的scroll_bar对象
- * 
- * @param parent 父控件
- * @param x x坐标
- * @param y y坐标
- * @param w 宽度
- * @param h 高度
- 
- * @return 对象。
- */
+  /**
+   * 创建desktop风格的scroll_bar对象
+   * 
+   * @param parent 父控件
+   * @param x x坐标
+   * @param y y坐标
+   * @param w 宽度
+   * @param h 高度
+   *
+   * @return 对象。
+   */
  public  static TWidget createDesktop(TWidget parent, int x, int y, int w, int h)  {
     return new TScrollBar(scroll_bar_create_desktop(parent != null ? (parent.nativeObj) : 0, x, y, w, h));
  }
 
 
-/**
- * 设置参数。
- * 
- * @param virtual_size 虚拟高度。
- * @param row 每一行的高度。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置参数。
+   * 
+   * @param virtual_size 虚拟高度。
+   * @param row 每一行的高度。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setParams(int virtual_size, int row)  {
    return TRet.from(scroll_bar_set_params(this != null ? (this.nativeObj) : 0, virtual_size, row));
  }
 
 
-/**
- * 滚动到指定的值。
- * 
- * @param value 值。
- * @param duration 动画持续时间。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 滚动到指定的值。
+   * 
+   * @param value 值。
+   * @param duration 动画持续时间。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet scrollTo(int value, int duration)  {
    return TRet.from(scroll_bar_scroll_to(this != null ? (this.nativeObj) : 0, value, duration));
  }
 
 
-/**
- * 设置值，并触发EVT_VALUE_CHANGED事件。
- * 
- * @param value 值。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置值，并触发EVT_VALUE_CHANGED事件。
+   * 
+   * @param value 值。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setValue(int value)  {
    return TRet.from(scroll_bar_set_value(this != null ? (this.nativeObj) : 0, value));
  }
 
 
-/**
- * 在当前的值上增加一个值，并触发EVT_VALUE_CHANGED事件。
- * 
- * @param delta 值。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 在当前的值上增加一个值，并触发EVT_VALUE_CHANGED事件。
+   * 
+   * @param delta 值。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet addDelta(int delta)  {
    return TRet.from(scroll_bar_add_delta(this != null ? (this.nativeObj) : 0, delta));
  }
 
 
-/**
- * 在当前的值上增加一个值，并滚动到新的值，并触发EVT_VALUE_CHANGED事件。
- * 
- * @param delta 值。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 在当前的值上增加一个值，并滚动到新的值，并触发EVT_VALUE_CHANGED事件。
+   * 
+   * @param delta 值。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet scrollDelta(int delta)  {
    return TRet.from(scroll_bar_scroll_delta(this != null ? (this.nativeObj) : 0, delta));
  }
 
 
-/**
- * 设置值，但不触发EVT_VALUE_CHANGED事件。
- * 
- * @param value 值。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置值，但不触发EVT_VALUE_CHANGED事件。
+   * 
+   * @param value 值。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setValueOnly(int value)  {
    return TRet.from(scroll_bar_set_value_only(this != null ? (this.nativeObj) : 0, value));
  }
 
 
-/**
- * 判断是否是mobile风格的滚动条。
- * 
- 
- * @return 返回TRUE表示是mobile风格的，否则表示不是mobile风格的。
- */
+  /**
+   * 判断是否是mobile风格的滚动条。
+   * 
+   *
+   * @return 返回TRUE表示是mobile风格的，否则表示不是mobile风格的。
+   */
  public  boolean isMobile()  {
     return scroll_bar_is_mobile(this != null ? (this.nativeObj) : 0);
  }
 
 
-/**
- * 虚拟宽度或高度。
- *
- */
+  /**
+   * 虚拟宽度或高度。
+   *
+   */
  public int getVirtualSize() {
    return scroll_bar_t_get_prop_virtual_size(this.nativeObj);
  }
 
 
-/**
- * 行的高度。
- *
- */
+  /**
+   * 行的高度。
+   *
+   */
  public int getRow() {
    return scroll_bar_t_get_prop_row(this.nativeObj);
  }
 
 
-/**
- * 滚动时是否启用动画。
- *
- */
+  /**
+   * 滚动时是否启用动画。
+   *
+   */
  public boolean getAnimatable() {
    return scroll_bar_t_get_prop_animatable(this.nativeObj);
  }

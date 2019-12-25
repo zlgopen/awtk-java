@@ -88,104 +88,104 @@ public class TTabButton extends TWidget {
  }
 
 
-/**
- * 创建tab_button对象
- * 
- * @param parent 父控件
- * @param x x坐标
- * @param y y坐标
- * @param w 宽度
- * @param h 高度
- 
- * @return 对象。
- */
+  /**
+   * 创建tab_button对象
+   * 
+   * @param parent 父控件
+   * @param x x坐标
+   * @param y y坐标
+   * @param w 宽度
+   * @param h 高度
+   *
+   * @return 对象。
+   */
  public  static TWidget create(TWidget parent, int x, int y, int w, int h)  {
     return new TTabButton(tab_button_create(parent != null ? (parent.nativeObj) : 0, x, y, w, h));
  }
 
 
-/**
- * 转换tab_button对象(供脚本语言使用)。
- * 
- * @param widget tab_button对象。
- 
- * @return tab_button对象。
- */
+  /**
+   * 转换tab_button对象(供脚本语言使用)。
+   * 
+   * @param widget tab_button对象。
+   *
+   * @return tab_button对象。
+   */
  public  static TTabButton cast(TWidget widget)  {
     return new TTabButton(tab_button_cast(widget != null ? (widget.nativeObj) : 0));
  }
 
 
-/**
- * 设置为当前标签。
- * 
- * @param value 是否为当前标签。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置为当前标签。
+   * 
+   * @param value 是否为当前标签。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setValue(int value)  {
    return TRet.from(tab_button_set_value(this != null ? (this.nativeObj) : 0, value));
  }
 
 
-/**
- * 设置控件的图标。
- * 
- * @param name 当前项的图标。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置控件的图标。
+   * 
+   * @param name 当前项的图标。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setIcon(String name)  {
    return TRet.from(tab_button_set_icon(this != null ? (this.nativeObj) : 0, name));
  }
 
 
-/**
- * 设置控件的active图标。
- * 
- * @param name 当前项的图标。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置控件的active图标。
+   * 
+   * @param name 当前项的图标。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setActiveIcon(String name)  {
    return TRet.from(tab_button_set_active_icon(this != null ? (this.nativeObj) : 0, name));
  }
 
 
-/**
- * 设置控件动态加载显示UI。
- * 
- * @param name 动态加载UI的资源名称。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置控件动态加载显示UI。
+   * 
+   * @param name 动态加载UI的资源名称。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setLoadUi(String name)  {
    return TRet.from(tab_button_set_load_ui(this != null ? (this.nativeObj) : 0, name));
  }
 
 
-/**
- * 激活后加载的UI名字。
- *
- */
+  /**
+   * 激活后加载的UI名字。
+   *
+   */
  public String getLoadUi() {
    return tab_button_t_get_prop_load_ui(this.nativeObj);
  }
 
 
-/**
- * 当前项的图标的名称。
- *
- */
+  /**
+   * 当前项的图标的名称。
+   *
+   */
  public String getActiveIcon() {
    return tab_button_t_get_prop_active_icon(this.nativeObj);
  }
 
 
-/**
- * 非当前项的图标的名称。
- *
- */
+  /**
+   * 非当前项的图标的名称。
+   *
+   */
  public String getIcon() {
    return tab_button_t_get_prop_icon(this.nativeObj);
  }

@@ -31,94 +31,94 @@ public class TPointerEvent extends TEvent {
  }
 
 
-/**
- * 把event对象转pointer_event_t对象，主要给脚本语言使用。
- * 
- * @param event event对象。
- 
- * @return event对象。
- */
+  /**
+   * 把event对象转pointer_event_t对象，主要给脚本语言使用。
+   * 
+   * @param event event对象。
+   *
+   * @return event对象。
+   */
  public  static TPointerEvent cast(TEvent event)  {
     return new TPointerEvent(pointer_event_cast(event != null ? (event.nativeObj) : 0));
  }
 
 
-/**
- * x坐标。
- *
- */
+  /**
+   * x坐标。
+   *
+   */
  public int getX() {
    return pointer_event_t_get_prop_x(this.nativeObj);
  }
 
 
-/**
- * y坐标。
- *
- */
+  /**
+   * y坐标。
+   *
+   */
  public int getY() {
    return pointer_event_t_get_prop_y(this.nativeObj);
  }
 
 
-/**
- * button。
- *
- */
+  /**
+   * button。
+   *
+   */
  public int getButton() {
    return pointer_event_t_get_prop_button(this.nativeObj);
  }
 
 
-/**
- * 指针是否按下。
- *
- */
+  /**
+   * 指针是否按下。
+   *
+   */
  public boolean getPressed() {
    return pointer_event_t_get_prop_pressed(this.nativeObj);
  }
 
 
-/**
- * alt键是否按下。
- *
- */
+  /**
+   * alt键是否按下。
+   *
+   */
  public boolean getAlt() {
    return pointer_event_t_get_prop_alt(this.nativeObj);
  }
 
 
-/**
- * ctrl键是否按下。
- *
- */
+  /**
+   * ctrl键是否按下。
+   *
+   */
  public boolean getCtrl() {
    return pointer_event_t_get_prop_ctrl(this.nativeObj);
  }
 
 
-/**
- * cmd键是否按下。
- *
- */
+  /**
+   * cmd键是否按下。
+   *
+   */
  public boolean getCmd() {
    return pointer_event_t_get_prop_cmd(this.nativeObj);
  }
 
 
-/**
- * menu键是否按下。
- *
- */
+  /**
+   * menu键是否按下。
+   *
+   */
  public boolean getMenu() {
    return pointer_event_t_get_prop_menu(this.nativeObj);
  }
 
 
-/**
- * shift键是否按下。
- *
- */
+  /**
+   * shift键是否按下。
+   *
+   */
  public boolean getShift() {
    return pointer_event_t_get_prop_shift(this.nativeObj);
  }

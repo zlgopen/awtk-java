@@ -133,203 +133,203 @@ public class TComboBox extends TWidget {
  }
 
 
-/**
- * 创建combo_box对象
- * 
- * @param parent 父控件
- * @param x x坐标
- * @param y y坐标
- * @param w 宽度
- * @param h 高度
- 
- * @return 对象。
- */
+  /**
+   * 创建combo_box对象
+   * 
+   * @param parent 父控件
+   * @param x x坐标
+   * @param y y坐标
+   * @param w 宽度
+   * @param h 高度
+   *
+   * @return 对象。
+   */
  public  static TWidget create(TWidget parent, int x, int y, int w, int h)  {
     return new TComboBox(combo_box_create(parent != null ? (parent.nativeObj) : 0, x, y, w, h));
  }
 
 
-/**
- * 转换combo_box对象(供脚本语言使用)。
- * 
- * @param widget combo_box对象。
- 
- * @return combo_box对象。
- */
+  /**
+   * 转换combo_box对象(供脚本语言使用)。
+   * 
+   * @param widget combo_box对象。
+   *
+   * @return combo_box对象。
+   */
  public  static TComboBox cast(TWidget widget)  {
     return new TComboBox(combo_box_cast(widget != null ? (widget.nativeObj) : 0));
  }
 
 
-/**
- * 点击按钮时可以打开popup窗口，本函数可设置窗口的名称。
- * 
- * @param open_window 弹出窗口的名称。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 点击按钮时可以打开popup窗口，本函数可设置窗口的名称。
+   * 
+   * @param open_window 弹出窗口的名称。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setOpenWindow(String open_window)  {
    return TRet.from(combo_box_set_open_window(this != null ? (this.nativeObj) : 0, open_window));
  }
 
 
-/**
- * 重置所有选项。
- * 
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 重置所有选项。
+   * 
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet resetOptions()  {
    return TRet.from(combo_box_reset_options(this != null ? (this.nativeObj) : 0));
  }
 
 
-/**
- * 获取选项个数。
- * 
- 
- * @return 返回选项个数。
- */
+  /**
+   * 获取选项个数。
+   * 
+   *
+   * @return 返回选项个数。
+   */
  public  int countOptions()  {
     return combo_box_count_options(this != null ? (this.nativeObj) : 0);
  }
 
 
-/**
- * 设置第index个选项为当前选中的选项。
- * 
- * @param index 选项的索引。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置第index个选项为当前选中的选项。
+   * 
+   * @param index 选项的索引。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setSelectedIndex(int index)  {
    return TRet.from(combo_box_set_selected_index(this != null ? (this.nativeObj) : 0, index));
  }
 
 
-/**
- * 设置是否本地化(翻译)选项。
- * 
- * @param localize_options 是否本地化(翻译)选项。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置是否本地化(翻译)选项。
+   * 
+   * @param localize_options 是否本地化(翻译)选项。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setLocalizeOptions(boolean localize_options)  {
    return TRet.from(combo_box_set_localize_options(this != null ? (this.nativeObj) : 0, localize_options));
  }
 
 
-/**
- * 设置值。
- * 
- * @param value 值。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置值。
+   * 
+   * @param value 值。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setValue(int value)  {
    return TRet.from(combo_box_set_value(this != null ? (this.nativeObj) : 0, value));
  }
 
 
-/**
- * 设置item高度。
- * 
- * @param item_height item的高度。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置item高度。
+   * 
+   * @param item_height item的高度。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setItemHeight(int item_height)  {
    return TRet.from(combo_box_set_item_height(this != null ? (this.nativeObj) : 0, item_height));
  }
 
 
-/**
- * 追加一个选项。
- * 
- * @param value 值。
- * @param text 文本。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 追加一个选项。
+   * 
+   * @param value 值。
+   * @param text 文本。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet appendOption(int value, String text)  {
    return TRet.from(combo_box_append_option(this != null ? (this.nativeObj) : 0, value, text));
  }
 
 
-/**
- * 设置选项。
- * 
- * @param options 选项。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置选项。
+   * 
+   * @param options 选项。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setOptions(String options)  {
    return TRet.from(combo_box_set_options(this != null ? (this.nativeObj) : 0, options));
  }
 
 
-/**
- * 获取combo_box的值。
- * 
- 
- * @return 返回值。
- */
+  /**
+   * 获取combo_box的值。
+   * 
+   *
+   * @return 返回值。
+   */
  public  int getValue()  {
     return combo_box_get_value(this != null ? (this.nativeObj) : 0);
  }
 
 
-/**
- * 获取combo_box的文本。
- * 
- 
- * @return 返回文本。
- */
+  /**
+   * 获取combo_box的文本。
+   * 
+   *
+   * @return 返回文本。
+   */
  public  String getTextValue()  {
     return combo_box_get_text(this != null ? (this.nativeObj) : 0);
  }
 
 
-/**
- * 为点击按钮时，要打开窗口的名称。
- *
- */
+  /**
+   * 为点击按钮时，要打开窗口的名称。
+   *
+   */
  public String getOpenWindow() {
    return combo_box_t_get_prop_open_window(this.nativeObj);
  }
 
 
-/**
- * 当前选中的选项。
- *
- */
+  /**
+   * 当前选中的选项。
+   *
+   */
  public int getSelectedIndex() {
    return combo_box_t_get_prop_selected_index(this.nativeObj);
  }
 
 
-/**
- * 是否本地化(翻译)选项(缺省为TRUE)。
- *
- */
+  /**
+   * 是否本地化(翻译)选项(缺省为TRUE)。
+   *
+   */
  public boolean getLocalizeOptions() {
    return combo_box_t_get_prop_localize_options(this.nativeObj);
  }
 
 
-/**
- * 设置可选项(冒号分隔值和文本，分号分隔选项，如:1:red;2:green;3:blue)。
- *
- */
+  /**
+   * 设置可选项(冒号分隔值和文本，分号分隔选项，如:1:red;2:green;3:blue)。
+   *
+   */
  public String getOptions() {
    return combo_box_t_get_prop_options(this.nativeObj);
  }
 
 
-/**
- * 下拉选项的高度。如果open_window为空，则使用缺省高度。
- *
- */
+  /**
+   * 下拉选项的高度。如果open_window为空，则使用缺省高度。
+   *
+   */
  public int getItemHeight() {
    return combo_box_t_get_prop_item_height(this.nativeObj);
  }

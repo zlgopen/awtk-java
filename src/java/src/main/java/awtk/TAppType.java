@@ -9,24 +9,24 @@ package awtk;
 
 public enum TAppType {
   
-/**
- * 嵌入式或移动APP
- *
- */
+  /**
+   * 嵌入式或移动APP
+   *
+   */
  
   MOBILE (APP_MOBILE()),
   
-/**
- * 模拟器。
- *
- */
+  /**
+   * 模拟器。
+   *
+   */
  
   SIMULATOR (APP_SIMULATOR()),
   
-/**
- * 桌面应用程序。
- *
- */
+  /**
+   * 桌面应用程序。
+   *
+   */
  
   DESKTOP (APP_DESKTOP());
  

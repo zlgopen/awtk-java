@@ -37,42 +37,42 @@ public class TWindowBase extends TWidget {
  }
 
 
-/**
- * 转换为window_base对象(供脚本语言使用)。
- * 
- * @param widget window_base对象。
- 
- * @return window_base对象。
- */
+  /**
+   * 转换为window_base对象(供脚本语言使用)。
+   * 
+   * @param widget window_base对象。
+   *
+   * @return window_base对象。
+   */
  public  static TWindowBase cast(TWidget widget)  {
     return new TWindowBase(window_base_cast(widget != null ? (widget.nativeObj) : 0));
  }
 
 
-/**
- * 主题资源的名称。
- *每个窗口都可以有独立的主题文件，如果没指定，则使用系统缺省的主题文件。
- *主题是一个XML文件，放在assets/raw/styles目录下。
- *请参考[主题](https://github.com/zlgopen/awtk/blob/master/docs/theme.md)
- *
- */
+  /**
+   * 主题资源的名称。
+   *每个窗口都可以有独立的主题文件，如果没指定，则使用系统缺省的主题文件。
+   *主题是一个XML文件，放在assets/raw/styles目录下。
+   *请参考[主题](https://github.com/zlgopen/awtk/blob/master/docs/theme.md)
+   *
+   */
  public String getTheme() {
    return window_base_t_get_prop_theme(this.nativeObj);
  }
 
 
-/**
- * 收到EVT_REQUEST_CLOSE_WINDOW是否自动关闭窗口。
- *
- *如果关闭窗口时，需要用户确认:
- *
- ** 1.将closable设置为WINDOW\_CLOSABLE\_CONFIRM
- *
- ** 2.处理窗口的EVT\_REQUEST\_CLOSE\_WINDOW事件
- *
- *> closable在XML中取值为：yes/no/confirm，缺省为yes。
- *
- */
+  /**
+   * 收到EVT_REQUEST_CLOSE_WINDOW是否自动关闭窗口。
+   *
+   *如果关闭窗口时，需要用户确认:
+   *
+   ** 1.将closable设置为WINDOW\_CLOSABLE\_CONFIRM
+   *
+   ** 2.处理窗口的EVT\_REQUEST\_CLOSE\_WINDOW事件
+   *
+   *> closable在XML中取值为：yes/no/confirm，缺省为yes。
+   *
+   */
  public TWindowClosable getClosable() {
    return TWindowClosable.from(window_base_t_get_prop_closable(this.nativeObj));
 

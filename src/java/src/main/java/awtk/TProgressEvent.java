@@ -31,22 +31,22 @@ public class TProgressEvent extends TEvent {
  }
 
 
-/**
- * 把event对象转progress_event_t对象，主要给脚本语言使用。
- * 
- * @param event event对象。
- 
- * @return 返回event对象。
- */
+  /**
+   * 把event对象转progress_event_t对象，主要给脚本语言使用。
+   * 
+   * @param event event对象。
+   *
+   * @return 返回event对象。
+   */
  public  static TProgressEvent cast(TEvent event)  {
     return new TProgressEvent(progress_event_cast(event != null ? (event.nativeObj) : 0));
  }
 
 
-/**
- * 进度百分比。
- *
- */
+  /**
+   * 进度百分比。
+   *
+   */
  public int getPercent() {
    return progress_event_t_get_prop_percent(this.nativeObj);
  }

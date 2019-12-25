@@ -72,71 +72,71 @@ public class TPopup extends TWindowBase {
  }
 
 
-/**
- * 创建popup对象。
- * 
- * @param parent 父控件
- * @param x x坐标
- * @param y y坐标
- * @param w 宽度
- * @param h 高度
- 
- * @return popup对象。
- */
+  /**
+   * 创建popup对象。
+   * 
+   * @param parent 父控件
+   * @param x x坐标
+   * @param y y坐标
+   * @param w 宽度
+   * @param h 高度
+   *
+   * @return popup对象。
+   */
  public  static TWidget create(TWidget parent, int x, int y, int w, int h)  {
     return new TPopup(popup_create(parent != null ? (parent.nativeObj) : 0, x, y, w, h));
  }
 
 
-/**
- * 转换为popup对象(供脚本语言使用)。
- * 
- * @param widget popup对象。
- 
- * @return popup对象。
- */
+  /**
+   * 转换为popup对象(供脚本语言使用)。
+   * 
+   * @param widget popup对象。
+   *
+   * @return popup对象。
+   */
  public  static TPopup cast(TWidget widget)  {
     return new TPopup(popup_cast(widget != null ? (widget.nativeObj) : 0));
  }
 
 
-/**
- * 设置点击时是否关闭窗口。
- * 
- * @param close_when_click 点击时是否关闭窗口。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置点击时是否关闭窗口。
+   * 
+   * @param close_when_click 点击时是否关闭窗口。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setCloseWhenClick(boolean close_when_click)  {
    return TRet.from(popup_set_close_when_click(this != null ? (this.nativeObj) : 0, close_when_click));
  }
 
 
-/**
- * 设置点击窗口外部时是否关闭窗口。
- * 
- * @param close_when_click_outside 点击窗口外部时是否关闭窗口。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置点击窗口外部时是否关闭窗口。
+   * 
+   * @param close_when_click_outside 点击窗口外部时是否关闭窗口。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setCloseWhenClickOutside(boolean close_when_click_outside)  {
    return TRet.from(popup_set_close_when_click_outside(this != null ? (this.nativeObj) : 0, close_when_click_outside));
  }
 
 
-/**
- * 点击时是否关闭窗口。
- *
- */
+  /**
+   * 点击时是否关闭窗口。
+   *
+   */
  public boolean getCloseWhenClick() {
    return popup_t_get_prop_close_when_click(this.nativeObj);
  }
 
 
-/**
- * 点击到窗口外时是否关闭窗口。
- *
- */
+  /**
+   * 点击到窗口外时是否关闭窗口。
+   *
+   */
  public boolean getCloseWhenClickOutside() {
    return popup_t_get_prop_close_when_click_outside(this.nativeObj);
  }

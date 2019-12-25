@@ -63,43 +63,43 @@ public class TSvgImage extends TImageBase {
  }
 
 
-/**
- * 创建svg_image对象
- * 
- * @param parent 父控件
- * @param x x坐标
- * @param y y坐标
- * @param w 宽度
- * @param h 高度
- 
- * @return 对象。
- */
+  /**
+   * 创建svg_image对象
+   * 
+   * @param parent 父控件
+   * @param x x坐标
+   * @param y y坐标
+   * @param w 宽度
+   * @param h 高度
+   *
+   * @return 对象。
+   */
  public  static TWidget create(TWidget parent, int x, int y, int w, int h)  {
     return new TSvgImage(svg_image_create(parent != null ? (parent.nativeObj) : 0, x, y, w, h));
  }
 
 
-/**
- * 设置控件的图片名称。
- *
- *> 如果需要显示文件系统中的图片，只需将图片名称换成实际的文件名，并加上"file://"前缀即可。
- * 
- * @param name 图片名称，该图片必须存在于资源管理器。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置控件的图片名称。
+   *
+   *> 如果需要显示文件系统中的图片，只需将图片名称换成实际的文件名，并加上"file://"前缀即可。
+   * 
+   * @param name 图片名称，该图片必须存在于资源管理器。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setImage(String name)  {
    return TRet.from(svg_image_set_image(this != null ? (this.nativeObj) : 0, name));
  }
 
 
-/**
- * 转换为svg_image对象(供脚本语言使用)。
- * 
- * @param widget svg_image对象。
- 
- * @return svg_image对象。
- */
+  /**
+   * 转换为svg_image对象(供脚本语言使用)。
+   * 
+   * @param widget svg_image对象。
+   *
+   * @return svg_image对象。
+   */
  public  static TSvgImage cast(TWidget widget)  {
     return new TSvgImage(svg_image_cast(widget != null ? (widget.nativeObj) : 0));
  }

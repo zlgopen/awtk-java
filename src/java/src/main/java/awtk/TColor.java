@@ -37,119 +37,119 @@ public class TColor {
  }
 
 
-/**
- * 创建color对象。
- *
- *> 主要供脚本语言使用。
- * 
- * @param r 红色通道。
- * @param b 蓝色通道。
- * @param g 绿色通道。
- * @param a alpha通道。
- 
- * @return color对象。
- */
+  /**
+   * 创建color对象。
+   *
+   *> 主要供脚本语言使用。
+   * 
+   * @param r 红色通道。
+   * @param b 蓝色通道。
+   * @param g 绿色通道。
+   * @param a alpha通道。
+   *
+   * @return color对象。
+   */
  public  static TColor create(int r, int b, int g, int a)  {
     return new TColor(color_create(r, b, g, a));
  }
 
 
-/**
- * 创建color对象。
- *
- *> 主要供脚本语言使用。
- * 
- * @param str css类似的颜色值。
- 
- * @return color对象。
- */
+  /**
+   * 创建color对象。
+   *
+   *> 主要供脚本语言使用。
+   * 
+   * @param str css类似的颜色值。
+   *
+   * @return color对象。
+   */
  public  TColor fromStr(String str)  {
     return new TColor(color_from_str(this != null ? (this.nativeObj) : 0, str));
  }
 
 
-/**
- * 获取红色通道的值。
- *
- *> 主要供脚本语言使用。
- * 
- 
- * @return 返回红色通道的值。
- */
+  /**
+   * 获取红色通道的值。
+   *
+   *> 主要供脚本语言使用。
+   * 
+   *
+   * @return 返回红色通道的值。
+   */
  public  int r()  {
     return color_r(this != null ? (this.nativeObj) : 0);
  }
 
 
-/**
- * 获取绿色通道的值。
- *
- *> 主要供脚本语言使用。
- * 
- 
- * @return 返回绿色通道的值。
- */
+  /**
+   * 获取绿色通道的值。
+   *
+   *> 主要供脚本语言使用。
+   * 
+   *
+   * @return 返回绿色通道的值。
+   */
  public  int g()  {
     return color_g(this != null ? (this.nativeObj) : 0);
  }
 
 
-/**
- * 获取蓝色通道的值。
- *
- *> 主要供脚本语言使用。
- * 
- 
- * @return 返回蓝色通道的值。
- */
+  /**
+   * 获取蓝色通道的值。
+   *
+   *> 主要供脚本语言使用。
+   * 
+   *
+   * @return 返回蓝色通道的值。
+   */
  public  int b()  {
     return color_b(this != null ? (this.nativeObj) : 0);
  }
 
 
-/**
- * 获取alpha通道的值。
- *
- *> 主要供脚本语言使用。
- * 
- 
- * @return 返回alpha通道的值。
- */
+  /**
+   * 获取alpha通道的值。
+   *
+   *> 主要供脚本语言使用。
+   * 
+   *
+   * @return 返回alpha通道的值。
+   */
  public  int a()  {
     return color_a(this != null ? (this.nativeObj) : 0);
  }
 
 
-/**
- * 转换为color对象。
- *
- *> 供脚本语言使用。
- * 
- * @param color color对象。
- 
- * @return color对象。
- */
+  /**
+   * 转换为color对象。
+   *
+   *> 供脚本语言使用。
+   * 
+   * @param color color对象。
+   *
+   * @return color对象。
+   */
  public  static TColor cast(TColor color)  {
     return new TColor(color_cast(color != null ? (color.nativeObj) : 0));
  }
 
 
-/**
- * 销毁color对象。
- *> 主要供脚本语言使用。
- * 
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 销毁color对象。
+   *> 主要供脚本语言使用。
+   * 
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet destroy()  {
    return TRet.from(color_destroy(this != null ? (this.nativeObj) : 0));
  }
 
 
-/**
- * 颜色的数值。
- *
- */
+  /**
+   * 颜色的数值。
+   *
+   */
  public int getColor() {
    return color_t_get_prop_color(this.nativeObj);
  }

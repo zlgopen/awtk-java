@@ -67,59 +67,59 @@ public class TRichText extends TWidget {
  }
 
 
-/**
- * 创建rich_text对象
- * 
- * @param parent 父控件
- * @param x x坐标
- * @param y y坐标
- * @param w 宽度
- * @param h 高度
- 
- * @return 对象。
- */
+  /**
+   * 创建rich_text对象
+   * 
+   * @param parent 父控件
+   * @param x x坐标
+   * @param y y坐标
+   * @param w 宽度
+   * @param h 高度
+   *
+   * @return 对象。
+   */
  public  static TWidget create(TWidget parent, int x, int y, int w, int h)  {
     return new TRichText(rich_text_create(parent != null ? (parent.nativeObj) : 0, x, y, w, h));
  }
 
 
-/**
- * 设置文本。
- * 
- * @param text 文本。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置文本。
+   * 
+   * @param text 文本。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setText(String text)  {
    return TRet.from(rich_text_set_text(this != null ? (this.nativeObj) : 0, text));
  }
 
 
-/**
- * 转换为rich_text对象(供脚本语言使用)。
- * 
- * @param widget rich_text对象。
- 
- * @return rich_text对象。
- */
+  /**
+   * 转换为rich_text对象(供脚本语言使用)。
+   * 
+   * @param widget rich_text对象。
+   *
+   * @return rich_text对象。
+   */
  public  static TRichText cast(TWidget widget)  {
     return new TRichText(rich_text_cast(widget != null ? (widget.nativeObj) : 0));
  }
 
 
-/**
- * 行间距。
- *
- */
+  /**
+   * 行间距。
+   *
+   */
  public int getLineGap() {
    return rich_text_t_get_prop_line_gap(this.nativeObj);
  }
 
 
-/**
- * 边距。
- *
- */
+  /**
+   * 边距。
+   *
+   */
  public int getMargin() {
    return rich_text_t_get_prop_margin(this.nativeObj);
  }

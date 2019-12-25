@@ -49,36 +49,36 @@ public class TInputMethod {
  }
 
 
-/**
- * 提交输入文本。
- * 
- * @param text 文本。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 提交输入文本。
+   * 
+   * @param text 文本。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet commitText(String text)  {
    return TRet.from(input_method_commit_text(this != null ? (this.nativeObj) : 0, text));
  }
 
 
-/**
- * 提交按键。
- * 
- * @param key 键值。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 提交按键。
+   * 
+   * @param key 键值。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet dispatchKey(int key)  {
    return TRet.from(input_method_dispatch_key(this != null ? (this.nativeObj) : 0, key));
  }
 
 
-/**
- * 获取全局输入法对象。
- * 
- 
- * @return 成功返回输入法对象，失败返回NULL。
- */
+  /**
+   * 获取全局输入法对象。
+   * 
+   *
+   * @return 成功返回输入法对象，失败返回NULL。
+   */
  public  static TInputMethod instance()  {
     return new TInputMethod(input_method());
  }

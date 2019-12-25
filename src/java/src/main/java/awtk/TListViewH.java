@@ -58,71 +58,71 @@ public class TListViewH extends TWidget {
  }
 
 
-/**
- * 创建list_view_h对象
- * 
- * @param parent 父控件
- * @param x x坐标
- * @param y y坐标
- * @param w 宽度
- * @param h 高度
- 
- * @return 对象。
- */
+  /**
+   * 创建list_view_h对象
+   * 
+   * @param parent 父控件
+   * @param x x坐标
+   * @param y y坐标
+   * @param w 宽度
+   * @param h 高度
+   *
+   * @return 对象。
+   */
  public  static TWidget create(TWidget parent, int x, int y, int w, int h)  {
     return new TListViewH(list_view_h_create(parent != null ? (parent.nativeObj) : 0, x, y, w, h));
  }
 
 
-/**
- * 设置列表项的宽度。
- * 
- * @param item_width 列表项的宽度。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置列表项的宽度。
+   * 
+   * @param item_width 列表项的宽度。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setItemWidth(int item_width)  {
    return TRet.from(list_view_h_set_item_width(this != null ? (this.nativeObj) : 0, item_width));
  }
 
 
-/**
- * 设置列表项的间距。
- * 
- * @param spacing 列表项的间距。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置列表项的间距。
+   * 
+   * @param spacing 列表项的间距。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setSpacing(int spacing)  {
    return TRet.from(list_view_h_set_spacing(this != null ? (this.nativeObj) : 0, spacing));
  }
 
 
-/**
- * 转换为list_view_h对象(供脚本语言使用)。
- * 
- * @param widget list_view_h对象。
- 
- * @return list_view_h对象。
- */
+  /**
+   * 转换为list_view_h对象(供脚本语言使用)。
+   * 
+   * @param widget list_view_h对象。
+   *
+   * @return list_view_h对象。
+   */
  public  static TListViewH cast(TWidget widget)  {
     return new TListViewH(list_view_h_cast(widget != null ? (widget.nativeObj) : 0));
  }
 
 
-/**
- * 列表项的宽度。
- *
- */
+  /**
+   * 列表项的宽度。
+   *
+   */
  public int getItemWidth() {
    return list_view_h_t_get_prop_item_width(this.nativeObj);
  }
 
 
-/**
- * 间距。
- *
- */
+  /**
+   * 间距。
+   *
+   */
  public int getSpacing() {
    return list_view_h_t_get_prop_spacing(this.nativeObj);
  }

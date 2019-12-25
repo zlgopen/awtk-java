@@ -31,22 +31,22 @@ public class TOrientationEvent extends TEvent {
  }
 
 
-/**
- * 把event对象转orientation_event_t对象，主要给脚本语言使用。
- * 
- * @param event event对象。
- 
- * @return event对象。
- */
+  /**
+   * 把event对象转orientation_event_t对象，主要给脚本语言使用。
+   * 
+   * @param event event对象。
+   *
+   * @return event对象。
+   */
  public  static TOrientationEvent cast(TEvent event)  {
     return new TOrientationEvent(orientation_event_cast(event != null ? (event.nativeObj) : 0));
  }
 
 
-/**
- * 屏幕方向。
- *
- */
+  /**
+   * 屏幕方向。
+   *
+   */
  public int getOrientation() {
    return orientation_event_t_get_prop_orientation(this.nativeObj);
  }

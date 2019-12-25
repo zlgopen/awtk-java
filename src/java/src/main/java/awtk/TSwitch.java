@@ -59,50 +59,50 @@ public class TSwitch extends TWidget {
  }
 
 
-/**
- * 创建switch对象
- * 
- * @param parent 父控件
- * @param x x坐标
- * @param y y坐标
- * @param w 宽度
- * @param h 高度
- 
- * @return 对象。
- */
+  /**
+   * 创建switch对象
+   * 
+   * @param parent 父控件
+   * @param x x坐标
+   * @param y y坐标
+   * @param w 宽度
+   * @param h 高度
+   *
+   * @return 对象。
+   */
  public  static TWidget create(TWidget parent, int x, int y, int w, int h)  {
     return new TSwitch(switch_create(parent != null ? (parent.nativeObj) : 0, x, y, w, h));
  }
 
 
-/**
- * 设置控件的值。
- * 
- * @param value 值
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置控件的值。
+   * 
+   * @param value 值
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setValue(boolean value)  {
    return TRet.from(switch_set_value(this != null ? (this.nativeObj) : 0, value));
  }
 
 
-/**
- * 转换switch对象(供脚本语言使用)。
- * 
- * @param widget switch对象。
- 
- * @return switch对象。
- */
+  /**
+   * 转换switch对象(供脚本语言使用)。
+   * 
+   * @param widget switch对象。
+   *
+   * @return switch对象。
+   */
  public  static TSwitch cast(TWidget widget)  {
     return new TSwitch(switch_cast(widget != null ? (widget.nativeObj) : 0));
  }
 
 
-/**
- * 当开关处于关闭时，图片偏移相对于图片宽度的比例(缺省为1/3)。
- *
- */
+  /**
+   * 当开关处于关闭时，图片偏移相对于图片宽度的比例(缺省为1/3)。
+   *
+   */
  public double getMaxXoffsetRatio() {
    return switch_t_get_prop_max_xoffset_ratio(this.nativeObj);
  }

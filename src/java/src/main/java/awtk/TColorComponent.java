@@ -34,13 +34,13 @@ public class TColorComponent extends TWidget {
  }
 
 
-/**
- * 转换为color_component对象(供脚本语言使用)。
- * 
- * @param widget color_component对象。
- 
- * @return color_component对象。
- */
+  /**
+   * 转换为color_component对象(供脚本语言使用)。
+   * 
+   * @param widget color_component对象。
+   *
+   * @return color_component对象。
+   */
  public  static TColorComponent cast(TWidget widget)  {
     return new TColorComponent(color_component_cast(widget != null ? (widget.nativeObj) : 0));
  }

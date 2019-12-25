@@ -60,77 +60,77 @@ public class TLineNumber extends TWidget {
  }
 
 
-/**
- * 创建line_number对象
- * 
- * @param parent 父控件
- * @param x x坐标
- * @param y y坐标
- * @param w 宽度
- * @param h 高度
- 
- * @return 对象。
- */
+  /**
+   * 创建line_number对象
+   * 
+   * @param parent 父控件
+   * @param x x坐标
+   * @param y y坐标
+   * @param w 宽度
+   * @param h 高度
+   *
+   * @return 对象。
+   */
  public  static TWidget create(TWidget parent, int x, int y, int w, int h)  {
     return new TLineNumber(line_number_create(parent != null ? (parent.nativeObj) : 0, x, y, w, h));
  }
 
 
-/**
- * 设置顶部边距。
- * 
- * @param top_margin 顶部边距。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置顶部边距。
+   * 
+   * @param top_margin 顶部边距。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setTopMargin(int top_margin)  {
    return TRet.from(line_number_set_top_margin(this != null ? (this.nativeObj) : 0, top_margin));
  }
 
 
-/**
- * 设置顶部边距。
- * 
- * @param bottom_margin 顶部边距。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置顶部边距。
+   * 
+   * @param bottom_margin 顶部边距。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setBottomMargin(int bottom_margin)  {
    return TRet.from(line_number_set_bottom_margin(this != null ? (this.nativeObj) : 0, bottom_margin));
  }
 
 
-/**
- * 设置行高。
- * 
- * @param line_height 行高。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置行高。
+   * 
+   * @param line_height 行高。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setLineHeight(int line_height)  {
    return TRet.from(line_number_set_line_height(this != null ? (this.nativeObj) : 0, line_height));
  }
 
 
-/**
- * 设置y偏移。
- * 
- * @param yoffset 行高。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置y偏移。
+   * 
+   * @param yoffset 行高。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setYoffset(int yoffset)  {
    return TRet.from(line_number_set_yoffset(this != null ? (this.nativeObj) : 0, yoffset));
  }
 
 
-/**
- * 转换为line_number对象(供脚本语言使用)。
- * 
- * @param widget line_number对象。
- 
- * @return line_number对象。
- */
+  /**
+   * 转换为line_number对象(供脚本语言使用)。
+   * 
+   * @param widget line_number对象。
+   *
+   * @return line_number对象。
+   */
  public  static TLineNumber cast(TWidget widget)  {
     return new TLineNumber(line_number_cast(widget != null ? (widget.nativeObj) : 0));
  }

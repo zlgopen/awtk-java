@@ -67,29 +67,29 @@ public class TKeyboard extends TWindowBase {
  }
 
 
-/**
- * 创建keyboard对象
- * 
- * @param parent 父控件
- * @param x x坐标
- * @param y y坐标
- * @param w 宽度
- * @param h 高度
- 
- * @return 对象。
- */
+  /**
+   * 创建keyboard对象
+   * 
+   * @param parent 父控件
+   * @param x x坐标
+   * @param y y坐标
+   * @param w 宽度
+   * @param h 高度
+   *
+   * @return 对象。
+   */
  public  static TWidget create(TWidget parent, int x, int y, int w, int h)  {
     return new TKeyboard(keyboard_create(parent != null ? (parent.nativeObj) : 0, x, y, w, h));
  }
 
 
-/**
- * 转换为keyboard对象(供脚本语言使用)。
- * 
- * @param widget keyboard对象。
- 
- * @return keyboard对象。
- */
+  /**
+   * 转换为keyboard对象(供脚本语言使用)。
+   * 
+   * @param widget keyboard对象。
+   *
+   * @return keyboard对象。
+   */
  public  static TKeyboard cast(TWidget widget)  {
     return new TKeyboard(keyboard_cast(widget != null ? (widget.nativeObj) : 0));
  }

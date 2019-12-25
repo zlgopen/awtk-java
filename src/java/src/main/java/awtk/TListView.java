@@ -73,92 +73,92 @@ public class TListView extends TWidget {
  }
 
 
-/**
- * 创建list_view对象
- * 
- * @param parent 父控件
- * @param x x坐标
- * @param y y坐标
- * @param w 宽度
- * @param h 高度
- 
- * @return 对象。
- */
+  /**
+   * 创建list_view对象
+   * 
+   * @param parent 父控件
+   * @param x x坐标
+   * @param y y坐标
+   * @param w 宽度
+   * @param h 高度
+   *
+   * @return 对象。
+   */
  public  static TWidget create(TWidget parent, int x, int y, int w, int h)  {
     return new TListView(list_view_create(parent != null ? (parent.nativeObj) : 0, x, y, w, h));
  }
 
 
-/**
- * 设置列表项的高度。
- * 
- * @param item_height 列表项的高度。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置列表项的高度。
+   * 
+   * @param item_height 列表项的高度。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setItemHeight(int item_height)  {
    return TRet.from(list_view_set_item_height(this != null ? (this.nativeObj) : 0, item_height));
  }
 
 
-/**
- * 设置列表项的缺省高度。
- * 
- * @param default_item_height 列表项的高度。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置列表项的缺省高度。
+   * 
+   * @param default_item_height 列表项的高度。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setDefaultItemHeight(int default_item_height)  {
    return TRet.from(list_view_set_default_item_height(this != null ? (this.nativeObj) : 0, default_item_height));
  }
 
 
-/**
- * 设置是否自动隐藏滚动条。
- * 
- * @param auto_hide_scroll_bar 是否自动隐藏滚动条。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置是否自动隐藏滚动条。
+   * 
+   * @param auto_hide_scroll_bar 是否自动隐藏滚动条。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setAutoHideScrollBar(boolean auto_hide_scroll_bar)  {
    return TRet.from(list_view_set_auto_hide_scroll_bar(this != null ? (this.nativeObj) : 0, auto_hide_scroll_bar));
  }
 
 
-/**
- * 转换为list_view对象(供脚本语言使用)。
- * 
- * @param widget list_view对象。
- 
- * @return list_view对象。
- */
+  /**
+   * 转换为list_view对象(供脚本语言使用)。
+   * 
+   * @param widget list_view对象。
+   *
+   * @return list_view对象。
+   */
  public  static TListView cast(TWidget widget)  {
     return new TListView(list_view_cast(widget != null ? (widget.nativeObj) : 0));
  }
 
 
-/**
- * 列表项的高度。如果 item_height 0，所有列表项使用固定高度，否则使用列表项自身的高度。
- *
- */
+  /**
+   * 列表项的高度。如果 item_height 0，所有列表项使用固定高度，否则使用列表项自身的高度。
+   *
+   */
  public int getItemHeight() {
    return list_view_t_get_prop_item_height(this.nativeObj);
  }
 
 
-/**
- * 列表项的缺省高度。如果item_height <= 0 而且列表项自身的高度 <= 0，则使用缺省高度。
- *
- */
+  /**
+   * 列表项的缺省高度。如果item_height <= 0 而且列表项自身的高度 <= 0，则使用缺省高度。
+   *
+   */
  public int getDefaultItemHeight() {
    return list_view_t_get_prop_default_item_height(this.nativeObj);
  }
 
 
-/**
- * 如果不需要滚动条时，自动隐藏滚动条。
- *
- */
+  /**
+   * 如果不需要滚动条时，自动隐藏滚动条。
+   *
+   */
  public boolean getAutoHideScrollBar() {
    return list_view_t_get_prop_auto_hide_scroll_bar(this.nativeObj);
  }

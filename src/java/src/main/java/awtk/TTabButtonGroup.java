@@ -59,73 +59,73 @@ public class TTabButtonGroup extends TWidget {
  }
 
 
-/**
- * 创建tab_button_group对象
- * 
- * @param parent 父控件
- * @param x x坐标
- * @param y y坐标
- * @param w 宽度
- * @param h 高度
- 
- * @return 对象。
- */
+  /**
+   * 创建tab_button_group对象
+   * 
+   * @param parent 父控件
+   * @param x x坐标
+   * @param y y坐标
+   * @param w 宽度
+   * @param h 高度
+   *
+   * @return 对象。
+   */
  public  static TWidget create(TWidget parent, int x, int y, int w, int h)  {
     return new TTabButtonGroup(tab_button_group_create(parent != null ? (parent.nativeObj) : 0, x, y, w, h));
  }
 
 
-/**
- * 设置compact。
- * 
- * @param compact 是否使用紧凑布局(缺省FALSE)。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置compact。
+   * 
+   * @param compact 是否使用紧凑布局(缺省FALSE)。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setCompact(boolean compact)  {
    return TRet.from(tab_button_group_set_compact(this != null ? (this.nativeObj) : 0, compact));
  }
 
 
-/**
- * 设置scrollable。
- * 
- * @param scrollable 是否允许滚动(缺省FALSE)。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置scrollable。
+   * 
+   * @param scrollable 是否允许滚动(缺省FALSE)。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setScrollable(boolean scrollable)  {
    return TRet.from(tab_button_group_set_scrollable(this != null ? (this.nativeObj) : 0, scrollable));
  }
 
 
-/**
- * 转换tab_button_group对象(供脚本语言使用)。
- * 
- * @param widget tab_button_group对象。
- 
- * @return tab_button_group对象。
- */
+  /**
+   * 转换tab_button_group对象(供脚本语言使用)。
+   * 
+   * @param widget tab_button_group对象。
+   *
+   * @return tab_button_group对象。
+   */
  public  static TTabButtonGroup cast(TWidget widget)  {
     return new TTabButtonGroup(tab_button_group_cast(widget != null ? (widget.nativeObj) : 0));
  }
 
 
-/**
- * 紧凑型排版子控件(缺省FALSE)。
- *
- */
+  /**
+   * 紧凑型排版子控件(缺省FALSE)。
+   *
+   */
  public boolean getCompact() {
    return tab_button_group_t_get_prop_compact(this.nativeObj);
  }
 
 
-/**
- * 是否支持滚动(缺省FALSE)。
- *
- *> 紧凑型排版子控件时才支持滚动。
- *
- */
+  /**
+   * 是否支持滚动(缺省FALSE)。
+   *
+   *> 紧凑型排版子控件时才支持滚动。
+   *
+   */
  public boolean getScrollable() {
    return tab_button_group_t_get_prop_scrollable(this.nativeObj);
  }

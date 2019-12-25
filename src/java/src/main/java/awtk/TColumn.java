@@ -56,29 +56,29 @@ public class TColumn extends TWidget {
  }
 
 
-/**
- * 创建column对象
- * 
- * @param parent 父控件
- * @param x x坐标
- * @param y y坐标
- * @param w 宽度
- * @param h 高度
- 
- * @return 对象。
- */
+  /**
+   * 创建column对象
+   * 
+   * @param parent 父控件
+   * @param x x坐标
+   * @param y y坐标
+   * @param w 宽度
+   * @param h 高度
+   *
+   * @return 对象。
+   */
  public  static TWidget create(TWidget parent, int x, int y, int w, int h)  {
     return new TColumn(column_create(parent != null ? (parent.nativeObj) : 0, x, y, w, h));
  }
 
 
-/**
- * 转换为column对象(供脚本语言使用)。
- * 
- * @param widget column对象。
- 
- * @return column对象。
- */
+  /**
+   * 转换为column对象(供脚本语言使用)。
+   * 
+   * @param widget column对象。
+   *
+   * @return column对象。
+   */
  public  static TColumn cast(TWidget widget)  {
     return new TColumn(column_cast(widget != null ? (widget.nativeObj) : 0));
  }

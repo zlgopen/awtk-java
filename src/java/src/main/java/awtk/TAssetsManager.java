@@ -65,37 +65,37 @@ public class TAssetsManager {
  }
 
 
-/**
- * 获取缺省资源管理器。
- * 
- 
- * @return 返回asset manager对象。
- */
+  /**
+   * 获取缺省资源管理器。
+   * 
+   *
+   * @return 返回asset manager对象。
+   */
  public  static TAssetsManager instance()  {
     return new TAssetsManager(assets_manager());
  }
 
 
-/**
- * 在资源管理器的缓存中查找指定的资源并引用它，如果缓存中不存在，尝试加载该资源。
- * 
- * @param type 资源的类型。
- * @param name 资源的名称。
- 
- * @return 返回资源。
- */
+  /**
+   * 在资源管理器的缓存中查找指定的资源并引用它，如果缓存中不存在，尝试加载该资源。
+   * 
+   * @param type 资源的类型。
+   * @param name 资源的名称。
+   *
+   * @return 返回资源。
+   */
  public  TAssetInfo ref(TAssetType type, String name)  {
     return new TAssetInfo(assets_manager_ref(this != null ? (this.nativeObj) : 0, type.value(), name));
  }
 
 
-/**
- * 释放指定的资源。
- * 
- * @param info 资源。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 释放指定的资源。
+   * 
+   * @param info 资源。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet unref(TAssetInfo info)  {
    return TRet.from(assets_manager_unref(this != null ? (this.nativeObj) : 0, info != null ? (info.nativeObj) : 0));
  }

@@ -38,25 +38,25 @@ public class TFontManager {
  }
 
 
-/**
- * 卸载指定的字体。
- * 
- * @param name 字体名，为NULL时使用缺省字体。
- * @param size 字体的大小(矢量字体指定为0即可)。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 卸载指定的字体。
+   * 
+   * @param name 字体名，为NULL时使用缺省字体。
+   * @param size 字体的大小(矢量字体指定为0即可)。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet unloadFont(String name, int size)  {
    return TRet.from(font_manager_unload_font(this != null ? (this.nativeObj) : 0, name, size));
  }
 
 
-/**
- * 卸载全部字体。
- * 
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 卸载全部字体。
+   * 
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet unloadAll()  {
    return TRet.from(font_manager_unload_all(this != null ? (this.nativeObj) : 0));
  }

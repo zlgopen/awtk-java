@@ -37,56 +37,56 @@ public class TAssetInfo {
  }
 
 
-/**
- * 类型。
- *
- */
+  /**
+   * 类型。
+   *
+   */
  public int getType() {
    return asset_info_t_get_prop_type(this.nativeObj);
  }
 
 
-/**
- * 子类型。
- *
- */
+  /**
+   * 子类型。
+   *
+   */
  public int getSubtype() {
    return asset_info_t_get_prop_subtype(this.nativeObj);
  }
 
 
-/**
- * 资源是否在ROM中。
- *
- */
+  /**
+   * 资源是否在ROM中。
+   *
+   */
  public int getIsInRom() {
    return asset_info_t_get_prop_is_in_rom(this.nativeObj);
  }
 
 
-/**
- * 大小。
- *
- */
+  /**
+   * 大小。
+   *
+   */
  public int getSize() {
    return asset_info_t_get_prop_size(this.nativeObj);
  }
 
 
-/**
- * 引用计数。
- *is\_in\_rom == FALSE时才有效。
- *
- */
+  /**
+   * 引用计数。
+   *is\_in\_rom == FALSE时才有效。
+   *
+   */
  public int getRefcount() {
    return asset_info_t_get_prop_refcount(this.nativeObj);
  }
 
 
-/**
- * 名称。
- *
- */
+  /**
+   * 名称。
+   *
+   */
  public String getName() {
    return asset_info_t_get_prop_name(this.nativeObj);
  }

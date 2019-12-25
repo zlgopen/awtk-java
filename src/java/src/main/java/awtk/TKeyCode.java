@@ -9,920 +9,920 @@ package awtk;
 
 public enum TKeyCode {
   
-/**
- * TK_KEY_RETURN
- *
- */
+  /**
+   * TK_KEY_RETURN
+   *
+   */
  
   KEY_RETURN (TK_KEY_RETURN()),
   
-/**
- * TK_KEY_ESCAPE
- *
- */
+  /**
+   * TK_KEY_ESCAPE
+   *
+   */
  
   KEY_ESCAPE (TK_KEY_ESCAPE()),
   
-/**
- * TK_KEY_BACKSPACE
- *
- */
+  /**
+   * TK_KEY_BACKSPACE
+   *
+   */
  
   KEY_BACKSPACE (TK_KEY_BACKSPACE()),
   
-/**
- * TK_KEY_TAB
- *
- */
+  /**
+   * TK_KEY_TAB
+   *
+   */
  
   KEY_TAB (TK_KEY_TAB()),
   
-/**
- * TK_KEY_SPACE
- *
- */
+  /**
+   * TK_KEY_SPACE
+   *
+   */
  
   KEY_SPACE (TK_KEY_SPACE()),
   
-/**
- * TK_KEY_EXCLAIM
- *
- */
+  /**
+   * TK_KEY_EXCLAIM
+   *
+   */
  
   KEY_EXCLAIM (TK_KEY_EXCLAIM()),
   
-/**
- * TK_KEY_QUOTEDBL
- *
- */
+  /**
+   * TK_KEY_QUOTEDBL
+   *
+   */
  
   KEY_QUOTEDBL (TK_KEY_QUOTEDBL()),
   
-/**
- * TK_KEY_HASH
- *
- */
+  /**
+   * TK_KEY_HASH
+   *
+   */
  
   KEY_HASH (TK_KEY_HASH()),
   
-/**
- * TK_KEY_PERCENT
- *
- */
+  /**
+   * TK_KEY_PERCENT
+   *
+   */
  
   KEY_PERCENT (TK_KEY_PERCENT()),
   
-/**
- * TK_KEY_DOLLAR
- *
- */
+  /**
+   * TK_KEY_DOLLAR
+   *
+   */
  
   KEY_DOLLAR (TK_KEY_DOLLAR()),
   
-/**
- * TK_KEY_AMPERSAND
- *
- */
+  /**
+   * TK_KEY_AMPERSAND
+   *
+   */
  
   KEY_AMPERSAND (TK_KEY_AMPERSAND()),
   
-/**
- * TK_KEY_QUOTE
- *
- */
+  /**
+   * TK_KEY_QUOTE
+   *
+   */
  
   KEY_QUOTE (TK_KEY_QUOTE()),
   
-/**
- * TK_KEY_LEFTPAREN
- *
- */
+  /**
+   * TK_KEY_LEFTPAREN
+   *
+   */
  
   KEY_LEFTPAREN (TK_KEY_LEFTPAREN()),
   
-/**
- * TK_KEY_RIGHTPAREN
- *
- */
+  /**
+   * TK_KEY_RIGHTPAREN
+   *
+   */
  
   KEY_RIGHTPAREN (TK_KEY_RIGHTPAREN()),
   
-/**
- * TK_KEY_ASTERISK
- *
- */
+  /**
+   * TK_KEY_ASTERISK
+   *
+   */
  
   KEY_ASTERISK (TK_KEY_ASTERISK()),
   
-/**
- * TK_KEY_PLUS
- *
- */
+  /**
+   * TK_KEY_PLUS
+   *
+   */
  
   KEY_PLUS (TK_KEY_PLUS()),
   
-/**
- * TK_KEY_COMMA
- *
- */
+  /**
+   * TK_KEY_COMMA
+   *
+   */
  
   KEY_COMMA (TK_KEY_COMMA()),
   
-/**
- * TK_KEY_MINUS
- *
- */
+  /**
+   * TK_KEY_MINUS
+   *
+   */
  
   KEY_MINUS (TK_KEY_MINUS()),
   
-/**
- * TK_KEY_PERIOD
- *
- */
+  /**
+   * TK_KEY_PERIOD
+   *
+   */
  
   KEY_PERIOD (TK_KEY_PERIOD()),
   
-/**
- * TK_KEY_SLASH
- *
- */
+  /**
+   * TK_KEY_SLASH
+   *
+   */
  
   KEY_SLASH (TK_KEY_SLASH()),
   
-/**
- * TK_KEY_0
- *
- */
+  /**
+   * TK_KEY_0
+   *
+   */
  
   KEY_0 (TK_KEY_0()),
   
-/**
- * TK_KEY_1
- *
- */
+  /**
+   * TK_KEY_1
+   *
+   */
  
   KEY_1 (TK_KEY_1()),
   
-/**
- * TK_KEY_2
- *
- */
+  /**
+   * TK_KEY_2
+   *
+   */
  
   KEY_2 (TK_KEY_2()),
   
-/**
- * TK_KEY_3
- *
- */
+  /**
+   * TK_KEY_3
+   *
+   */
  
   KEY_3 (TK_KEY_3()),
   
-/**
- * TK_KEY_4
- *
- */
+  /**
+   * TK_KEY_4
+   *
+   */
  
   KEY_4 (TK_KEY_4()),
   
-/**
- * TK_KEY_5
- *
- */
+  /**
+   * TK_KEY_5
+   *
+   */
  
   KEY_5 (TK_KEY_5()),
   
-/**
- * TK_KEY_6
- *
- */
+  /**
+   * TK_KEY_6
+   *
+   */
  
   KEY_6 (TK_KEY_6()),
   
-/**
- * TK_KEY_7
- *
- */
+  /**
+   * TK_KEY_7
+   *
+   */
  
   KEY_7 (TK_KEY_7()),
   
-/**
- * TK_KEY_8
- *
- */
+  /**
+   * TK_KEY_8
+   *
+   */
  
   KEY_8 (TK_KEY_8()),
   
-/**
- * TK_KEY_9
- *
- */
+  /**
+   * TK_KEY_9
+   *
+   */
  
   KEY_9 (TK_KEY_9()),
   
-/**
- * TK_KEY_COLON
- *
- */
+  /**
+   * TK_KEY_COLON
+   *
+   */
  
   KEY_COLON (TK_KEY_COLON()),
   
-/**
- * TK_KEY_SEMICOLON
- *
- */
+  /**
+   * TK_KEY_SEMICOLON
+   *
+   */
  
   KEY_SEMICOLON (TK_KEY_SEMICOLON()),
   
-/**
- * TK_KEY_LESS
- *
- */
+  /**
+   * TK_KEY_LESS
+   *
+   */
  
   KEY_LESS (TK_KEY_LESS()),
   
-/**
- * TK_KEY_EQUAL
- *
- */
+  /**
+   * TK_KEY_EQUAL
+   *
+   */
  
   KEY_EQUAL (TK_KEY_EQUAL()),
   
-/**
- * TK_KEY_GREATER
- *
- */
+  /**
+   * TK_KEY_GREATER
+   *
+   */
  
   KEY_GREATER (TK_KEY_GREATER()),
   
-/**
- * TK_KEY_QUESTION
- *
- */
+  /**
+   * TK_KEY_QUESTION
+   *
+   */
  
   KEY_QUESTION (TK_KEY_QUESTION()),
   
-/**
- * TK_KEY_AT
- *
- */
+  /**
+   * TK_KEY_AT
+   *
+   */
  
   KEY_AT (TK_KEY_AT()),
   
-/**
- * TK_KEY_LEFTBRACKET
- *
- */
+  /**
+   * TK_KEY_LEFTBRACKET
+   *
+   */
  
   KEY_LEFTBRACKET (TK_KEY_LEFTBRACKET()),
   
-/**
- * TK_KEY_BACKSLASH
- *
- */
+  /**
+   * TK_KEY_BACKSLASH
+   *
+   */
  
   KEY_BACKSLASH (TK_KEY_BACKSLASH()),
   
-/**
- * TK_KEY_RIGHTBRACKET
- *
- */
+  /**
+   * TK_KEY_RIGHTBRACKET
+   *
+   */
  
   KEY_RIGHTBRACKET (TK_KEY_RIGHTBRACKET()),
   
-/**
- * TK_KEY_CARET
- *
- */
+  /**
+   * TK_KEY_CARET
+   *
+   */
  
   KEY_CARET (TK_KEY_CARET()),
   
-/**
- * TK_KEY_UNDERSCORE
- *
- */
+  /**
+   * TK_KEY_UNDERSCORE
+   *
+   */
  
   KEY_UNDERSCORE (TK_KEY_UNDERSCORE()),
   
-/**
- * TK_KEY_BACKQUOTE
- *
- */
+  /**
+   * TK_KEY_BACKQUOTE
+   *
+   */
  
   KEY_BACKQUOTE (TK_KEY_BACKQUOTE()),
   
-/**
- * TK_KEY_a
- *
- */
+  /**
+   * TK_KEY_a
+   *
+   */
  
   KEY_a (TK_KEY_a()),
   
-/**
- * TK_KEY_b
- *
- */
+  /**
+   * TK_KEY_b
+   *
+   */
  
   KEY_b (TK_KEY_b()),
   
-/**
- * TK_KEY_c
- *
- */
+  /**
+   * TK_KEY_c
+   *
+   */
  
   KEY_c (TK_KEY_c()),
   
-/**
- * TK_KEY_d
- *
- */
+  /**
+   * TK_KEY_d
+   *
+   */
  
   KEY_d (TK_KEY_d()),
   
-/**
- * TK_KEY_e
- *
- */
+  /**
+   * TK_KEY_e
+   *
+   */
  
   KEY_e (TK_KEY_e()),
   
-/**
- * TK_KEY_f
- *
- */
+  /**
+   * TK_KEY_f
+   *
+   */
  
   KEY_f (TK_KEY_f()),
   
-/**
- * TK_KEY_g
- *
- */
+  /**
+   * TK_KEY_g
+   *
+   */
  
   KEY_g (TK_KEY_g()),
   
-/**
- * TK_KEY_h
- *
- */
+  /**
+   * TK_KEY_h
+   *
+   */
  
   KEY_h (TK_KEY_h()),
   
-/**
- * TK_KEY_i
- *
- */
+  /**
+   * TK_KEY_i
+   *
+   */
  
   KEY_i (TK_KEY_i()),
   
-/**
- * TK_KEY_j
- *
- */
+  /**
+   * TK_KEY_j
+   *
+   */
  
   KEY_j (TK_KEY_j()),
   
-/**
- * TK_KEY_k
- *
- */
+  /**
+   * TK_KEY_k
+   *
+   */
  
   KEY_k (TK_KEY_k()),
   
-/**
- * TK_KEY_l
- *
- */
+  /**
+   * TK_KEY_l
+   *
+   */
  
   KEY_l (TK_KEY_l()),
   
-/**
- * TK_KEY_m
- *
- */
+  /**
+   * TK_KEY_m
+   *
+   */
  
   KEY_m (TK_KEY_m()),
   
-/**
- * TK_KEY_n
- *
- */
+  /**
+   * TK_KEY_n
+   *
+   */
  
   KEY_n (TK_KEY_n()),
   
-/**
- * TK_KEY_o
- *
- */
+  /**
+   * TK_KEY_o
+   *
+   */
  
   KEY_o (TK_KEY_o()),
   
-/**
- * TK_KEY_p
- *
- */
+  /**
+   * TK_KEY_p
+   *
+   */
  
   KEY_p (TK_KEY_p()),
   
-/**
- * TK_KEY_q
- *
- */
+  /**
+   * TK_KEY_q
+   *
+   */
  
   KEY_q (TK_KEY_q()),
   
-/**
- * TK_KEY_r
- *
- */
+  /**
+   * TK_KEY_r
+   *
+   */
  
   KEY_r (TK_KEY_r()),
   
-/**
- * TK_KEY_s
- *
- */
+  /**
+   * TK_KEY_s
+   *
+   */
  
   KEY_s (TK_KEY_s()),
   
-/**
- * TK_KEY_t
- *
- */
+  /**
+   * TK_KEY_t
+   *
+   */
  
   KEY_t (TK_KEY_t()),
   
-/**
- * TK_KEY_u
- *
- */
+  /**
+   * TK_KEY_u
+   *
+   */
  
   KEY_u (TK_KEY_u()),
   
-/**
- * TK_KEY_v
- *
- */
+  /**
+   * TK_KEY_v
+   *
+   */
  
   KEY_v (TK_KEY_v()),
   
-/**
- * TK_KEY_w
- *
- */
+  /**
+   * TK_KEY_w
+   *
+   */
  
   KEY_w (TK_KEY_w()),
   
-/**
- * TK_KEY_x
- *
- */
+  /**
+   * TK_KEY_x
+   *
+   */
  
   KEY_x (TK_KEY_x()),
   
-/**
- * TK_KEY_y
- *
- */
+  /**
+   * TK_KEY_y
+   *
+   */
  
   KEY_y (TK_KEY_y()),
   
-/**
- * TK_KEY_z
- *
- */
+  /**
+   * TK_KEY_z
+   *
+   */
  
   KEY_z (TK_KEY_z()),
   
-/**
- * TK_KEY_A
- *
- */
+  /**
+   * TK_KEY_A
+   *
+   */
  
   KEY_A (TK_KEY_A()),
   
-/**
- * TK_KEY_B
- *
- */
+  /**
+   * TK_KEY_B
+   *
+   */
  
   KEY_B (TK_KEY_B()),
   
-/**
- * TK_KEY_C
- *
- */
+  /**
+   * TK_KEY_C
+   *
+   */
  
   KEY_C (TK_KEY_C()),
   
-/**
- * TK_KEY_D
- *
- */
+  /**
+   * TK_KEY_D
+   *
+   */
  
   KEY_D (TK_KEY_D()),
   
-/**
- * TK_KEY_E
- *
- */
+  /**
+   * TK_KEY_E
+   *
+   */
  
   KEY_E (TK_KEY_E()),
   
-/**
- * TK_KEY_F
- *
- */
+  /**
+   * TK_KEY_F
+   *
+   */
  
   KEY_F (TK_KEY_F()),
   
-/**
- * TK_KEY_G
- *
- */
+  /**
+   * TK_KEY_G
+   *
+   */
  
   KEY_G (TK_KEY_G()),
   
-/**
- * TK_KEY_H
- *
- */
+  /**
+   * TK_KEY_H
+   *
+   */
  
   KEY_H (TK_KEY_H()),
   
-/**
- * TK_KEY_I
- *
- */
+  /**
+   * TK_KEY_I
+   *
+   */
  
   KEY_I (TK_KEY_I()),
   
-/**
- * TK_KEY_J
- *
- */
+  /**
+   * TK_KEY_J
+   *
+   */
  
   KEY_J (TK_KEY_J()),
   
-/**
- * TK_KEY_K
- *
- */
+  /**
+   * TK_KEY_K
+   *
+   */
  
   KEY_K (TK_KEY_K()),
   
-/**
- * TK_KEY_L
- *
- */
+  /**
+   * TK_KEY_L
+   *
+   */
  
   KEY_L (TK_KEY_L()),
   
-/**
- * TK_KEY_M
- *
- */
+  /**
+   * TK_KEY_M
+   *
+   */
  
   KEY_M (TK_KEY_M()),
   
-/**
- * TK_KEY_N
- *
- */
+  /**
+   * TK_KEY_N
+   *
+   */
  
   KEY_N (TK_KEY_N()),
   
-/**
- * TK_KEY_O
- *
- */
+  /**
+   * TK_KEY_O
+   *
+   */
  
   KEY_O (TK_KEY_O()),
   
-/**
- * TK_KEY_P
- *
- */
+  /**
+   * TK_KEY_P
+   *
+   */
  
   KEY_P (TK_KEY_P()),
   
-/**
- * TK_KEY_Q
- *
- */
+  /**
+   * TK_KEY_Q
+   *
+   */
  
   KEY_Q (TK_KEY_Q()),
   
-/**
- * TK_KEY_R
- *
- */
+  /**
+   * TK_KEY_R
+   *
+   */
  
   KEY_R (TK_KEY_R()),
   
-/**
- * TK_KEY_S
- *
- */
+  /**
+   * TK_KEY_S
+   *
+   */
  
   KEY_S (TK_KEY_S()),
   
-/**
- * TK_KEY_T
- *
- */
+  /**
+   * TK_KEY_T
+   *
+   */
  
   KEY_T (TK_KEY_T()),
   
-/**
- * TK_KEY_U
- *
- */
+  /**
+   * TK_KEY_U
+   *
+   */
  
   KEY_U (TK_KEY_U()),
   
-/**
- * TK_KEY_V
- *
- */
+  /**
+   * TK_KEY_V
+   *
+   */
  
   KEY_V (TK_KEY_V()),
   
-/**
- * TK_KEY_W
- *
- */
+  /**
+   * TK_KEY_W
+   *
+   */
  
   KEY_W (TK_KEY_W()),
   
-/**
- * TK_KEY_X
- *
- */
+  /**
+   * TK_KEY_X
+   *
+   */
  
   KEY_X (TK_KEY_X()),
   
-/**
- * TK_KEY_Y
- *
- */
+  /**
+   * TK_KEY_Y
+   *
+   */
  
   KEY_Y (TK_KEY_Y()),
   
-/**
- * TK_KEY_Z
- *
- */
+  /**
+   * TK_KEY_Z
+   *
+   */
  
   KEY_Z (TK_KEY_Z()),
   
-/**
- * TK_KEY_DOT
- *
- */
+  /**
+   * TK_KEY_DOT
+   *
+   */
  
   KEY_DOT (TK_KEY_DOT()),
   
-/**
- * TK_KEY_DELETE
- *
- */
+  /**
+   * TK_KEY_DELETE
+   *
+   */
  
   KEY_DELETE (TK_KEY_DELETE()),
   
-/**
- * TK_KEY_LEFTBRACE
- *
- */
+  /**
+   * TK_KEY_LEFTBRACE
+   *
+   */
  
   KEY_LEFTBRACE (TK_KEY_LEFTBRACE()),
   
-/**
- * TK_KEY_RIGHTBRACE
- *
- */
+  /**
+   * TK_KEY_RIGHTBRACE
+   *
+   */
  
   KEY_RIGHTBRACE (TK_KEY_RIGHTBRACE()),
   
-/**
- * TK_KEY_LSHIFT
- *
- */
+  /**
+   * TK_KEY_LSHIFT
+   *
+   */
  
   KEY_LSHIFT (TK_KEY_LSHIFT()),
   
-/**
- * TK_KEY_RSHIFT
- *
- */
+  /**
+   * TK_KEY_RSHIFT
+   *
+   */
  
   KEY_RSHIFT (TK_KEY_RSHIFT()),
   
-/**
- * TK_KEY_LCTRL
- *
- */
+  /**
+   * TK_KEY_LCTRL
+   *
+   */
  
   KEY_LCTRL (TK_KEY_LCTRL()),
   
-/**
- * TK_KEY_RCTRL
- *
- */
+  /**
+   * TK_KEY_RCTRL
+   *
+   */
  
   KEY_RCTRL (TK_KEY_RCTRL()),
   
-/**
- * TK_KEY_LALT
- *
- */
+  /**
+   * TK_KEY_LALT
+   *
+   */
  
   KEY_LALT (TK_KEY_LALT()),
   
-/**
- * TK_KEY_RALT
- *
- */
+  /**
+   * TK_KEY_RALT
+   *
+   */
  
   KEY_RALT (TK_KEY_RALT()),
   
-/**
- * TK_KEY_CAPSLOCK
- *
- */
+  /**
+   * TK_KEY_CAPSLOCK
+   *
+   */
  
   KEY_CAPSLOCK (TK_KEY_CAPSLOCK()),
   
-/**
- * TK_KEY_HOME
- *
- */
+  /**
+   * TK_KEY_HOME
+   *
+   */
  
   KEY_HOME (TK_KEY_HOME()),
   
-/**
- * TK_KEY_END
- *
- */
+  /**
+   * TK_KEY_END
+   *
+   */
  
   KEY_END (TK_KEY_END()),
   
-/**
- * TK_KEY_INSERT
- *
- */
+  /**
+   * TK_KEY_INSERT
+   *
+   */
  
   KEY_INSERT (TK_KEY_INSERT()),
   
-/**
- * TK_KEY_UP
- *
- */
+  /**
+   * TK_KEY_UP
+   *
+   */
  
   KEY_UP (TK_KEY_UP()),
   
-/**
- * TK_KEY_DOWN
- *
- */
+  /**
+   * TK_KEY_DOWN
+   *
+   */
  
   KEY_DOWN (TK_KEY_DOWN()),
   
-/**
- * TK_KEY_LEFT
- *
- */
+  /**
+   * TK_KEY_LEFT
+   *
+   */
  
   KEY_LEFT (TK_KEY_LEFT()),
   
-/**
- * TK_KEY_RIGHT
- *
- */
+  /**
+   * TK_KEY_RIGHT
+   *
+   */
  
   KEY_RIGHT (TK_KEY_RIGHT()),
   
-/**
- * TK_KEY_PAGEUP
- *
- */
+  /**
+   * TK_KEY_PAGEUP
+   *
+   */
  
   KEY_PAGEUP (TK_KEY_PAGEUP()),
   
-/**
- * TK_KEY_PAGEDOWN
- *
- */
+  /**
+   * TK_KEY_PAGEDOWN
+   *
+   */
  
   KEY_PAGEDOWN (TK_KEY_PAGEDOWN()),
   
-/**
- * TK_KEY_F1
- *
- */
+  /**
+   * TK_KEY_F1
+   *
+   */
  
   KEY_F1 (TK_KEY_F1()),
   
-/**
- * TK_KEY_F2
- *
- */
+  /**
+   * TK_KEY_F2
+   *
+   */
  
   KEY_F2 (TK_KEY_F2()),
   
-/**
- * TK_KEY_F3
- *
- */
+  /**
+   * TK_KEY_F3
+   *
+   */
  
   KEY_F3 (TK_KEY_F3()),
   
-/**
- * TK_KEY_F4
- *
- */
+  /**
+   * TK_KEY_F4
+   *
+   */
  
   KEY_F4 (TK_KEY_F4()),
   
-/**
- * TK_KEY_F5
- *
- */
+  /**
+   * TK_KEY_F5
+   *
+   */
  
   KEY_F5 (TK_KEY_F5()),
   
-/**
- * TK_KEY_F6
- *
- */
+  /**
+   * TK_KEY_F6
+   *
+   */
  
   KEY_F6 (TK_KEY_F6()),
   
-/**
- * TK_KEY_F7
- *
- */
+  /**
+   * TK_KEY_F7
+   *
+   */
  
   KEY_F7 (TK_KEY_F7()),
   
-/**
- * TK_KEY_F8
- *
- */
+  /**
+   * TK_KEY_F8
+   *
+   */
  
   KEY_F8 (TK_KEY_F8()),
   
-/**
- * TK_KEY_F9
- *
- */
+  /**
+   * TK_KEY_F9
+   *
+   */
  
   KEY_F9 (TK_KEY_F9()),
   
-/**
- * TK_KEY_F10
- *
- */
+  /**
+   * TK_KEY_F10
+   *
+   */
  
   KEY_F10 (TK_KEY_F10()),
   
-/**
- * TK_KEY_F11
- *
- */
+  /**
+   * TK_KEY_F11
+   *
+   */
  
   KEY_F11 (TK_KEY_F11()),
   
-/**
- * TK_KEY_F12
- *
- */
+  /**
+   * TK_KEY_F12
+   *
+   */
  
   KEY_F12 (TK_KEY_F12()),
   
-/**
- * TK_KEY_MENU
- *
- */
+  /**
+   * TK_KEY_MENU
+   *
+   */
  
   KEY_MENU (TK_KEY_MENU()),
   
-/**
- * TK_KEY_COMMAND
- *
- */
+  /**
+   * TK_KEY_COMMAND
+   *
+   */
  
   KEY_COMMAND (TK_KEY_COMMAND()),
   
-/**
- * TK_KEY_BACK
- *
- */
+  /**
+   * TK_KEY_BACK
+   *
+   */
  
   KEY_BACK (TK_KEY_BACK()),
   
-/**
- * TK_KEY_CANCEL
- *
- */
+  /**
+   * TK_KEY_CANCEL
+   *
+   */
  
   KEY_CANCEL (TK_KEY_CANCEL());
  

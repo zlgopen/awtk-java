@@ -65,112 +65,112 @@ public class TWindow extends TWindowBase {
  }
 
 
-/**
- * 创建window对象
- * 
- * @param parent 父控件
- * @param x x坐标
- * @param y y坐标
- * @param w 宽度
- * @param h 高度
- 
- * @return 对象。
- */
+  /**
+   * 创建window对象
+   * 
+   * @param parent 父控件
+   * @param x x坐标
+   * @param y y坐标
+   * @param w 宽度
+   * @param h 高度
+   *
+   * @return 对象。
+   */
  public  static TWidget create(TWidget parent, int x, int y, int w, int h)  {
     return new TWindow(window_create(parent != null ? (parent.nativeObj) : 0, x, y, w, h));
  }
 
 
-/**
- * 以缺省的方式创建window对象。
- * 
- 
- * @return 对象。
- */
+  /**
+   * 以缺省的方式创建window对象。
+   * 
+   *
+   * @return 对象。
+   */
  public  static TWidget createDefault()  {
     return new TWindow(window_create_default());
  }
 
 
-/**
- * 设置为全屏窗口。
- *
- *>这里全屏是指与LCD相同大小，而非让SDL窗口全屏。
- * 
- * @param fullscreen 是否全屏。
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 设置为全屏窗口。
+   *
+   *>这里全屏是指与LCD相同大小，而非让SDL窗口全屏。
+   * 
+   * @param fullscreen 是否全屏。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet setFullscreen(boolean fullscreen)  {
    return TRet.from(window_set_fullscreen(this != null ? (this.nativeObj) : 0, fullscreen));
  }
 
 
-/**
- * 从资源文件中加载并创建window_base对象。本函数在ui_loader/ui_builder_default里实现。
- * 
- * @param name window的名称。
- 
- * @return 对象。
- */
+  /**
+   * 从资源文件中加载并创建window_base对象。本函数在ui_loader/ui_builder_default里实现。
+   * 
+   * @param name window的名称。
+   *
+   * @return 对象。
+   */
  public  static TWidget open(String name)  {
     return new TWindow(window_open(name));
  }
 
 
-/**
- * 从资源文件中加载并创建window对象。本函数在ui_loader/ui_builder_default里实现。
- * 
- * @param name window的名称。
- * @param to_close 关闭该窗口。
- 
- * @return 对象。
- */
+  /**
+   * 从资源文件中加载并创建window对象。本函数在ui_loader/ui_builder_default里实现。
+   * 
+   * @param name window的名称。
+   * @param to_close 关闭该窗口。
+   *
+   * @return 对象。
+   */
  public  static TWidget openAndClose(String name, TWidget to_close)  {
     return new TWindow(window_open_and_close(name, to_close != null ? (to_close.nativeObj) : 0));
  }
 
 
-/**
- * 关闭窗口。
- * 
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 关闭窗口。
+   * 
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet close()  {
    return TRet.from(window_close(this != null ? (this.nativeObj) : 0));
  }
 
 
-/**
- * 立即无条件关闭窗口(无动画)。
- * 
- 
- * @return 返回RET_OK表示成功，否则表示失败。
- */
+  /**
+   * 立即无条件关闭窗口(无动画)。
+   * 
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
  public  TRet closeForce()  {
    return TRet.from(window_close_force(this != null ? (this.nativeObj) : 0));
  }
 
 
-/**
- * 转换为window对象(供脚本语言使用)。
- * 
- * @param widget window对象。
- 
- * @return window对象。
- */
+  /**
+   * 转换为window对象(供脚本语言使用)。
+   * 
+   * @param widget window对象。
+   *
+   * @return window对象。
+   */
  public  static TWindow cast(TWidget widget)  {
     return new TWindow(window_cast(widget != null ? (widget.nativeObj) : 0));
  }
 
 
-/**
- * 是否全屏。
- *
- *>这里全屏是指与LCD相同大小，而非让SDL窗口全屏。
- *
- */
+  /**
+   * 是否全屏。
+   *
+   *>这里全屏是指与LCD相同大小，而非让SDL窗口全屏。
+   *
+   */
  public boolean getFullscreen() {
    return window_t_get_prop_fullscreen(this.nativeObj);
  }
