@@ -4,23 +4,6 @@
 
 using namespace std;
 
-static string toClassName(const string& program) {
-  string className;
-  size_t start = program.find_last_of('/');
-  size_t end = program.find_last_of('.');
-
-  if(start == std::string::npos) {
-    start = program.find_last_of('\\');
-    if(start == std::string::npos) {
-      start = -1;
-    }
-  }
-
-  className = program.substr(start+1, end - start - 1);
-
-  return className;
-}
-  
 static string toClassPath(const string& program) {
   return string("-Djava.class.path=") + program;
 }
@@ -48,22 +31,22 @@ int main(int argc, char** argv) {
   JavaVMInitArgs vmArgs;
   JavaVMOption jvmopt[2];
 
-  if(argc < 2) {
-    printf("Usage: %s jar [w] [h]\n", argv[0]);
+  if(argc < 3) {
+    printf("Usage: %s jar class [w] [h]\n", argv[0]);
 
     return 0;
   }
 
-  if(argc > 2) {
-    w = argv[2];
+  if(argc > 3) {
+    w = argv[3];
   }
   
-  if(argc > 3) {
-    h = argv[3];
+  if(argc > 4) {
+    h = argv[4];
   }
 
   program = argv[1];
-  className = toClassName(program);
+  className = argv[2];
   classPath = toClassPath(program);
   jvmopt[0].optionString = (char*)"-Djava.library.path=./lib";
   jvmopt[1].optionString = (char*)classPath.c_str();

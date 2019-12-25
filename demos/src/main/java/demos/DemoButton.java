@@ -1,22 +1,8 @@
 import awtk.*;
 
-class DemoButton {
-  public static void init(String[] args) {
-    int w = 320;
-    int h = 480;
-
-    if (args.length > 0) {
-      w = Integer.parseInt(args[0]);
-    }
-
-    if (args.length > 1) {
-      h = Integer.parseInt(args[1]);
-    }
-
-    AWTK.init(w, h, TAppType.SIMULATOR);
-  }
-
-  public static void createUI() {
+public class DemoButton extends App {
+  @Override
+  public void createUI() {
     TWidget win = TWindow.createDefault();
     TWidget button = TButton.create(win, 10, 0, 0, 0);
 
@@ -35,14 +21,6 @@ class DemoButton {
   }
 
   public static void main(String[] args) {
-    DemoButton.init(args);
-    DemoButton.createUI();
-
-    AWTK.run();
+    (new DemoButton()).start(args);
   }
-
-  static {
-    System.loadLibrary("awtk-jni");
-  }
-
 }

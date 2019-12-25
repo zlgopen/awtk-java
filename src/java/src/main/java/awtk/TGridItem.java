@@ -26,7 +26,9 @@ package awtk;
  *<grid_item>
  *<button x="c" y="m" w="80%" h="30" name="3" text="3"/>
  *</grid_item>
- *</grid>```
+ *</grid>
+ *
+ *```
  *
  *可用通过style来设置控件的显示风格，如背景颜色等。如：
  *

@@ -7,5 +7,5 @@ public class AWTK {
 
   static public native int init(int w, int h, int appType);
 
-  static public native TRet run();
+  static public native int run();
 }

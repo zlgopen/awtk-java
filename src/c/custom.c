@@ -5,7 +5,7 @@ extern ret_t assets_init(void);
 JNIEXPORT jint JNICALL Java_awtk_AWTK_init(JNIEnv* env, jclass ajc, jint w, jint h,
                                            jint app_type) { /*func*/
   tk_init(w, h, APP_SIMULATOR, "AWTK-JAVA", NULL);
-
+  tk_ext_widgets_init();
   assets_init();
 
   return RET_OK;

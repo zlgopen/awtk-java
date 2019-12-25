@@ -860,6 +860,50 @@ public class TWidget {
 
 
 /**
+ * 检查控件是否是system bar类型。
+ * 
+ 
+ * @return 返回FALSE表示不是，否则表示是。
+ */
+ public  boolean isSystemBar()  {
+    return widget_is_system_bar(this != null ? (this.nativeObj) : 0);
+ }
+
+
+/**
+ * 检查控件是否是普通窗口类型。
+ * 
+ 
+ * @return 返回FALSE表示不是，否则表示是。
+ */
+ public  boolean isNormalWindow()  {
+    return widget_is_normal_window(this != null ? (this.nativeObj) : 0);
+ }
+
+
+/**
+ * 检查控件是否是对话框类型。
+ * 
+ 
+ * @return 返回FALSE表示不是，否则表示是。
+ */
+ public  boolean isDialog()  {
+    return widget_is_dialog(this != null ? (this.nativeObj) : 0);
+ }
+
+
+/**
+ * 检查控件是否是弹出窗口类型。
+ * 
+ 
+ * @return 返回FALSE表示不是，否则表示是。
+ */
+ public  boolean isPopup()  {
+    return widget_is_popup(this != null ? (this.nativeObj) : 0);
+ }
+
+
+/**
  * 布局当前控件及子控件。
  * 
  
@@ -1156,6 +1200,10 @@ static private native boolean widget_equal(long widget, long other);
 static private native long widget_cast(long widget);
 static private native int widget_destroy(long widget);
 static private native int widget_unref(long widget);
+static private native boolean widget_is_system_bar(long widget);
+static private native boolean widget_is_normal_window(long widget);
+static private native boolean widget_is_dialog(long widget);
+static private native boolean widget_is_popup(long widget);
 static private native int widget_layout(long widget);
 static private native int widget_set_self_layout(long widget, String params);
 static private native int widget_set_children_layout(long widget, String params);

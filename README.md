@@ -45,25 +45,25 @@ scons
 * 编译 AWTK-JAVA
 
 ```
-./build.sh
+	cd src/java && mvn package
 ```
 
 * 编译 AWTK-DEMO
 
 ```
-./build_demo.sh DemoUI
+	cd demos && mvn package
 ```
 
 ## 运行
 
 ```
-./bin/awtkRun bin/xxxx.jar 
+./bin/awtkRun bin/awtk.jar:bin/awtk_demos.jar classname
 ```
 
-请把 xxxx.jar 换成具体的 jar 文件。如：
+请把 classname 换成具体的 classname。如：
 
 ```
-./bin/awtkRun bin/DemoUI.jar 
+./bin/awtkRun bin/awtk.jar:bin/awtk_demos.jar DemoBasic
 ```
 
 ## 更新绑定（由本项目的维护人员完成）
