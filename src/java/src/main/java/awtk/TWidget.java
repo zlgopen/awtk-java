@@ -75,6 +75,17 @@ public class TWidget {
 
 
   /**
+   * 关闭控件所在的窗口。
+   * 
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet closeWindow()  {
+   return TRet.from(widget_close_window(this != null ? (this.nativeObj) : 0));
+ }
+
+
+  /**
    * 移动控件。
    * 
    * @param x x坐标
@@ -1139,6 +1150,7 @@ public class TWidget {
 static private native int widget_count_children(long widget);
 static private native long widget_get_child(long widget, int index);
 static private native int widget_index_of(long widget);
+static private native int widget_close_window(long widget);
 static private native int widget_move(long widget, int x, int y);
 static private native int widget_resize(long widget, int w, int h);
 static private native int widget_move_resize(long widget, int x, int y, int w, int h);

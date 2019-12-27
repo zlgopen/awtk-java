@@ -254,6 +254,20 @@ public class TVgcanvas {
 
 
   /**
+   * 设置路径填充实心与否。
+   *
+   *>CCW(1)为实心，CW(2)为镂空，设置其他则默认根据非零环绕规则判断(nonzero)。
+   * 
+   * @param dir 填充方法。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet pathWinding(boolean dir)  {
+   return TRet.from(vgcanvas_path_winding(this != null ? (this.nativeObj) : 0, dir));
+ }
+
+
+  /**
    * 旋转。
    * 
    * @param rad 角度
@@ -761,6 +775,7 @@ static private native int vgcanvas_rect(long vg, double x, double y, double w, d
 static private native int vgcanvas_rounded_rect(long vg, double x, double y, double w, double h, double r);
 static private native int vgcanvas_ellipse(long vg, double x, double y, double rx, double ry);
 static private native int vgcanvas_close_path(long vg);
+static private native int vgcanvas_path_winding(long vg, boolean dir);
 static private native int vgcanvas_rotate(long vg, double rad);
 static private native int vgcanvas_scale(long vg, double x, double y);
 static private native int vgcanvas_translate(long vg, double x, double y);

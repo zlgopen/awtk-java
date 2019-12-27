@@ -12,7 +12,7 @@ public class DemoBasic extends App {
         String winName = name.substring(5);
         DemoBasic.openWindow(winName);
       } else if(name.equals("close")) {
-        TWindow.cast(target.getWindow()).close();
+        target.closeWindow();
       } else if(name.equals("quit")) {
         TDialog.cast(target.getWindow()).quit(0);
       } else if(name.equals("exit")) {

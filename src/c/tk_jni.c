@@ -2811,6 +2811,14 @@ JNIEXPORT jint JNICALL Java_awtk_TVgcanvas_vgcanvas_1close_1path(JNIEnv* env,  j
   return (jint)(ret);
 }
 
+JNIEXPORT jint JNICALL Java_awtk_TVgcanvas_vgcanvas_1path_1winding(JNIEnv* env,  jclass ajc, jlong jvg, jboolean dir) { /*func*/
+  ret_t ret;
+  vgcanvas_t* vg = (vgcanvas_t*)jvg;
+  ret = (ret_t)vgcanvas_path_winding(vg, dir);
+
+  return (jint)(ret);
+}
+
 JNIEXPORT jint JNICALL Java_awtk_TVgcanvas_vgcanvas_1rotate(JNIEnv* env,  jclass ajc, jlong jvg, jdouble rad) { /*func*/
   ret_t ret;
   vgcanvas_t* vg = (vgcanvas_t*)jvg;
@@ -4187,6 +4195,14 @@ JNIEXPORT jint JNICALL Java_awtk_TWidget_widget_1index_1of(JNIEnv* env,  jclass 
   int32_t ret;
   widget_t* widget = (widget_t*)jwidget;
   ret = (int32_t)widget_index_of(widget);
+
+  return (jint)(ret);
+}
+
+JNIEXPORT jint JNICALL Java_awtk_TWidget_widget_1close_1window(JNIEnv* env,  jclass ajc, jlong jwidget) { /*func*/
+  ret_t ret;
+  widget_t* widget = (widget_t*)jwidget;
+  ret = (ret_t)widget_close_window(widget);
 
   return (jint)(ret);
 }
