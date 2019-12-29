@@ -1,7 +1,7 @@
 ﻿/*XXX: GENERATED CODE, DONT EDIT IT.*/
+#include <jni.h>
 #include "tkc/utf8.h"
 #include "tkc/mem.h"
-#include <jni.h>
 #include "tkc/event.h"
 #include "tkc/rect.h"
 #include "tkc/emitter.h"
