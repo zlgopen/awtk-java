@@ -121,6 +121,17 @@ public class TWindowManager extends TWidget {
 
 
   /**
+   * 获取当前窗口动画是否正在播放。
+   * 
+   *
+   * @return 返回TRUE表示正在播放，FALSE表示没有播放。
+   */
+ public  boolean isAnimating()  {
+    return window_manager_is_animating(this != null ? (this.nativeObj) : 0);
+ }
+
+
+  /**
    * 设置是否显示FPS。
    * 
    * @param show_fps 是否显示FPS。
@@ -195,6 +206,19 @@ public class TWindowManager extends TWidget {
    return TRet.from(window_manager_back_to(this != null ? (this.nativeObj) : 0, target));
  }
 
+
+  /**
+   * 调整原生窗口的大小。
+   * 
+   * @param w 宽度
+   * @param h 高度
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet resize(int w, int h)  {
+   return TRet.from(window_manager_resize(this != null ? (this.nativeObj) : 0, w, h));
+ }
+
 static private native long window_manager();
 static private native long window_manager_cast(long widget);
 static private native long window_manager_get_top_main_window(long widget);
@@ -203,10 +227,12 @@ static private native long window_manager_get_prev_window(long widget);
 static private native int window_manager_get_pointer_x(long widget);
 static private native int window_manager_get_pointer_y(long widget);
 static private native boolean window_manager_get_pointer_pressed(long widget);
+static private native boolean window_manager_is_animating(long widget);
 static private native int window_manager_set_show_fps(long widget, boolean show_fps);
 static private native int window_manager_set_screen_saver_time(long widget, int screen_saver_time);
 static private native int window_manager_set_cursor(long widget, String cursor);
 static private native int window_manager_back(long widget);
 static private native int window_manager_back_to_home(long widget);
 static private native int window_manager_back_to(long widget, String target);
+static private native int window_manager_resize(long widget, int w, int h);
 };

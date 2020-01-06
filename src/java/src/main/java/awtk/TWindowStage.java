@@ -24,7 +24,7 @@ public enum TWindowStage {
   CREATED (WINDOW_STAGE_CREATED()),
   
   /**
-   * 窗口已经打开(窗口打开动画完成后，处于该状态，直到窗口被关闭)
+   * 窗口已经打开(窗口打开动画完成后)
    *
    */
  
@@ -35,7 +35,14 @@ public enum TWindowStage {
    *
    */
  
-  CLOSED (WINDOW_STAGE_CLOSED());
+  CLOSED (WINDOW_STAGE_CLOSED()),
+  
+  /**
+   * 窗口挂起状态。
+   *
+   */
+ 
+  SUSPEND (WINDOW_STAGE_SUSPEND());
  
  
   private TWindowStage(int value) {
@@ -74,5 +81,6 @@ public enum TWindowStage {
   static private native int WINDOW_STAGE_CREATED();
   static private native int WINDOW_STAGE_OPENED();
   static private native int WINDOW_STAGE_CLOSED();
+  static private native int WINDOW_STAGE_SUSPEND();
 
 }

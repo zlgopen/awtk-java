@@ -138,6 +138,17 @@ public class TListView extends TWidget {
 
 
   /**
+   * list_view重新初始化。
+   * 
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet reinit()  {
+   return TRet.from(list_view_reinit(this != null ? (this.nativeObj) : 0));
+ }
+
+
+  /**
    * 列表项的高度。如果 item_height 0，所有列表项使用固定高度，否则使用列表项自身的高度。
    *
    */
@@ -168,6 +179,7 @@ static private native int list_view_set_item_height(long widget, int item_height
 static private native int list_view_set_default_item_height(long widget, int default_item_height);
 static private native int list_view_set_auto_hide_scroll_bar(long widget, boolean auto_hide_scroll_bar);
 static private native long list_view_cast(long widget);
+static private native int list_view_reinit(long widget);
 static private native int list_view_t_get_prop_item_height(long nativeObj);
 static private native int list_view_t_get_prop_default_item_height(long nativeObj);
 static private native boolean list_view_t_get_prop_auto_hide_scroll_bar(long nativeObj);

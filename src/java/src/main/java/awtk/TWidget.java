@@ -467,6 +467,18 @@ public class TWidget {
 
 
   /**
+   * 设置控件脏矩形超出控件本身大小的最大范围(一般不用指定)。
+   * 
+   * @param dirty_rect_tolerance 控件脏脏矩形超出控件本身大小的最大范。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setDirtyRectTolerance(int dirty_rect_tolerance)  {
+   return TRet.from(widget_set_dirty_rect_tolerance(this != null ? (this.nativeObj) : 0, dirty_rect_tolerance));
+ }
+
+
+  /**
    * 销毁全部子控件。
    * 
    *
@@ -915,6 +927,17 @@ public class TWidget {
 
 
   /**
+   * 检查控件弹出窗口控件是否已经打开了。
+   * 
+   *
+   * @return 返回FALSE表示不是，否则表示是。
+   */
+ public  boolean isOpenedPopup()  {
+    return widget_is_opened_popup(this != null ? (this.nativeObj) : 0);
+ }
+
+
+  /**
    * 布局当前控件及子控件。
    * 
    *
@@ -1140,6 +1163,17 @@ public class TWidget {
 
 
   /**
+   * 脏矩形超出控件本身大小的最大范围(一般不用指定)。
+   *
+   *> 如果 border 太粗或 offset 太大等原因，导致脏矩形超出控件本身大小太多（大于缺省值）时，才需要指定。
+   *
+   */
+ public int getDirtyRectTolerance() {
+   return widget_t_get_prop_dirty_rect_tolerance(this.nativeObj);
+ }
+
+
+  /**
    * 父控件
    *
    */
@@ -1179,6 +1213,7 @@ static private native int widget_set_focused(long widget, boolean focused);
 static private native int widget_set_focusable(long widget, boolean focusable);
 static private native int widget_set_state(long widget, String state);
 static private native int widget_set_opacity(long widget, int opacity);
+static private native int widget_set_dirty_rect_tolerance(long widget, int dirty_rect_tolerance);
 static private native int widget_destroy_children(long widget);
 static private native int widget_add_child(long widget, long child);
 static private native int widget_remove_child(long widget, long child);
@@ -1216,6 +1251,7 @@ static private native boolean widget_is_system_bar(long widget);
 static private native boolean widget_is_normal_window(long widget);
 static private native boolean widget_is_dialog(long widget);
 static private native boolean widget_is_popup(long widget);
+static private native boolean widget_is_opened_popup(long widget);
 static private native int widget_layout(long widget);
 static private native int widget_set_self_layout(long widget, String params);
 static private native int widget_set_children_layout(long widget, String params);
@@ -1242,5 +1278,6 @@ static private native void widget_t_set_prop_focusable(long nativeObj, boolean v
 static private native boolean widget_t_get_prop_with_focus_state(long nativeObj);
 static private native void widget_t_set_prop_with_focus_state(long nativeObj, boolean value);
 static private native boolean widget_t_get_prop_floating(long nativeObj);
+static private native int widget_t_get_prop_dirty_rect_tolerance(long nativeObj);
 static private native long widget_t_get_prop_parent(long nativeObj);
 };

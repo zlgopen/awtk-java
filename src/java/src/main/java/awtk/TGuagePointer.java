@@ -137,19 +137,19 @@ public class TGuagePointer extends TWidget {
 
 
   /**
-   * 旋转锚点x坐标。
+   * 图片旋转锚点x坐标。(后面加上px为像素点，不加px为相对百分比坐标0.0f到1.0f)
    *
    */
- public double getAnchorX() {
+ public String getAnchorX() {
    return guage_pointer_t_get_prop_anchor_x(this.nativeObj);
  }
 
 
   /**
-   * 旋转锚点y坐标。
+   * 图片旋转锚点x坐标。(后面加上px为像素点，不加px为相对百分比坐标0.0f到1.0f)
    *
    */
- public double getAnchorY() {
+ public String getAnchorY() {
    return guage_pointer_t_get_prop_anchor_y(this.nativeObj);
  }
 
@@ -160,6 +160,6 @@ static private native int guage_pointer_set_image(long widget, String image);
 static private native int guage_pointer_set_anchor(long widget, String anchor_x, String anchor_y);
 static private native int guage_pointer_t_get_prop_angle(long nativeObj);
 static private native String guage_pointer_t_get_prop_image(long nativeObj);
-static private native double guage_pointer_t_get_prop_anchor_x(long nativeObj);
-static private native double guage_pointer_t_get_prop_anchor_y(long nativeObj);
+static private native String guage_pointer_t_get_prop_anchor_x(long nativeObj);
+static private native String guage_pointer_t_get_prop_anchor_y(long nativeObj);
 };

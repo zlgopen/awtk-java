@@ -45,6 +45,13 @@ public enum TWidgetProp {
   H (WIDGET_PROP_H()),
   
   /**
+   * 脏矩形超出控件本身大小的最大范围。
+   *
+   */
+ 
+  DIRTY_RECT_TOLERANCE (WIDGET_PROP_DIRTY_RECT_TOLERANCE()),
+  
+  /**
    * Canvas。
    *
    */
@@ -922,6 +929,7 @@ public enum TWidgetProp {
   static private native String WIDGET_PROP_Y();
   static private native String WIDGET_PROP_W();
   static private native String WIDGET_PROP_H();
+  static private native String WIDGET_PROP_DIRTY_RECT_TOLERANCE();
   static private native String WIDGET_PROP_CANVAS();
   static private native String WIDGET_PROP_LOCALIZE_OPTIONS();
   static private native String WIDGET_PROP_NATIVE_WINDOW();

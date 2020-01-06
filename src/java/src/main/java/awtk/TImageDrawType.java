@@ -131,7 +131,37 @@ public enum TImageDrawType {
    *
    */
  
-  PATCH3_Y_SCALE_X (IMAGE_DRAW_PATCH3_Y_SCALE_X());
+  PATCH3_Y_SCALE_X (IMAGE_DRAW_PATCH3_Y_SCALE_X()),
+  
+  /**
+   * 平铺9宫格显示。
+   *将图片分成4个角和5块平铺块，4个角按原大小显示在目标矩形的4个角，其余5块会平铺对应的目标区域。
+   *切割方法为（如下图）：
+   *如果图片宽度为奇数，则中间一块为一列数据，如果图片宽度为偶数，则中间一块为二列数据，其他数据分为左右块
+   *如果图片高度为奇数，则中间一块为一行数据，如果图片高度为偶数，则中间一块为二行数据，其他数据分为上下块
+   *中间一块数据根据上面两条规则组成4中情况，分别是一列一行数据，一列两行数据，两列一行数据和两行两列数据
+   *
+   */
+ 
+  REPEAT9 (IMAGE_DRAW_REPEAT9()),
+  
+  /**
+   * 水平方向3宫格显示，垂直方向居中显示。
+   *将图片在水平方向上分成左右相等两块和中间一块，如果图片宽度为奇数，则中间一块为一列数据，如果图片宽度为偶数，则中间一块为二列数据，其他数据分为左右块。
+   *左右两块按原大小显示在目标矩形的左右，中间一列像素点平铺显示在目标区域中间剩余部分。
+   *
+   */
+ 
+  REPEAT3_X (IMAGE_DRAW_REPEAT3_X()),
+  
+  /**
+   * 垂直方向3宫格显示，水平方向居中显示。
+   *将图片在垂直方向上分成上下相等两块和中间一块，如果图片高度为奇数，则中间一块为一行数据，如果图片高度为偶数，则中间一块为二行数据，其他数据分为上下块
+   *上下两块按原大小显示在目标矩形的上下，中间一块平铺显示在目标区域中间剩余部分。
+   *
+   */
+ 
+  REPEAT3_Y (IMAGE_DRAW_REPEAT3_Y());
  
  
   private TImageDrawType(int value) {
@@ -183,5 +213,8 @@ public enum TImageDrawType {
   static private native int IMAGE_DRAW_PATCH3_Y();
   static private native int IMAGE_DRAW_PATCH3_X_SCALE_Y();
   static private native int IMAGE_DRAW_PATCH3_Y_SCALE_X();
+  static private native int IMAGE_DRAW_REPEAT9();
+  static private native int IMAGE_DRAW_REPEAT3_X();
+  static private native int IMAGE_DRAW_REPEAT3_Y();
 
 }

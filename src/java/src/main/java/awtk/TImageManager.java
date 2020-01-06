@@ -61,6 +61,19 @@ public class TImageManager {
    return TRet.from(image_manager_get_bitmap(this != null ? (this.nativeObj) : 0, name, image != null ? (image.nativeObj) : 0));
  }
 
+
+  /**
+   * 预加载指定的图片。
+   * 
+   * @param name 图片名称。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet preload(String name)  {
+   return TRet.from(image_manager_preload(this != null ? (this.nativeObj) : 0, name));
+ }
+
 static private native long image_manager();
 static private native int image_manager_get_bitmap(long imm, String name, long image);
+static private native int image_manager_preload(long imm, String name);
 };
