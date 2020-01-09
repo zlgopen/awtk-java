@@ -35,5 +35,6 @@ lib/libawtk-jni.*
 .sconsign.dblite
 *.os
 bin/awtkRun
+bin/*
 demos/target/
 src/java/target/
