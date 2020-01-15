@@ -62,6 +62,18 @@ public class TDateTime {
 
 
   /**
+   * 从time转换而来。
+   * 
+   * @param time 时间。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet fromTime(long time)  {
+   return TRet.from(date_time_from_time(this != null ? (this.nativeObj) : 0, time));
+ }
+
+
+  /**
    * 销毁date_time对象(一般供脚本语言中使用)。
    * 
    *
@@ -136,6 +148,7 @@ public class TDateTime {
 
 static private native long date_time_create();
 static private native int date_time_set(long dt);
+static private native int date_time_from_time(long dt, long time);
 static private native int date_time_destroy(long dt);
 static private native int date_time_t_get_prop_second(long nativeObj);
 static private native int date_time_t_get_prop_minute(long nativeObj);

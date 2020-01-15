@@ -107,7 +107,7 @@ package awtk;
  *default](https://github.com/zlgopen/awtk/blob/master/demos/assets/default/raw/styles/default.xml#L422)
  *
  */
-public class TComboBox extends TWidget { 
+public class TComboBox extends TEdit { 
 
 /**
  * 通过nativeObj构造Java对象。

@@ -540,6 +540,13 @@ public enum TEventType {
   PROGRESS (EVT_PROGRESS()),
   
   /**
+   * 完成(event_t)。
+   *
+   */
+ 
+  DONE (EVT_DONE()),
+  
+  /**
    * 对象销毁事件名(event_t)。
    *
    */
@@ -654,6 +661,7 @@ public enum TEventType {
   static private native int EVT_ITEMS_CHANGED();
   static private native int EVT_PROPS_CHANGED();
   static private native int EVT_PROGRESS();
+  static private native int EVT_DONE();
   static private native int EVT_DESTROY();
 
 }

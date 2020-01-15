@@ -2,7 +2,41 @@ package awtk;
 
 
 /**
- * 文件管理/浏览/选择控件
+ * 文件管理/浏览/选择控件。
+ *
+ *file\_browser\_view\_t是[widget\_t](widget_t.md)的子类控件，widget\_t的函数均适用于file\_browser\_view\_t控件。
+ *
+ *考虑到文件浏览器界面呈现的多样性，界面呈现工作完全有子控件来完成。
+ *
+ *file\_browser\_view\_t负责关联文件/文件夹数据到子控件上，子控件需要特定的规范命名。
+ *
+ ** 名为 "cwd" 的子控件用于显示当前路径。
+ *
+ ** 名为 "selected_file" 的子控件用于显示当前选择的文件。
+ *
+ ** 名为 "file" 的子控件用于显示文件项的模板控件。
+ *
+ ** 名为 "folder" 的子控件用于显示文件夹项的模板控件。
+ *
+ ** 名为 "return_up" 的子控件用于返回上一级文件夹的模板控件。
+ *
+ ** 名为 "container" 的子控件为容器控件，通常是scrollview。
+ *
+ ** 名为 "name" 的子控件用于显示文件和文件夹的名称(放在列表项目内)。
+ *
+ ** 名为 "size" 的子控件用于显示文件和文件夹的大小(放在列表项目内)。
+ *
+ ** 名为 "mtime" 的子控件用于显示文件和文件夹的修改时间(放在列表项目内)。
+ *
+ ** 名为 "ctime" 的子控件用于显示文件和文件夹的创建时间(放在列表项目内)。
+ *
+ ** 名为 "icon" 的子控件用于显示文件和文件夹的图标(放在列表项目内)。
+ *
+ ** 类型为 "check_button" 的子控件用于选择(放在列表项目内)。
+ *
+ *完整示例请参考：
+ *
+ *https://github.com/zlgopen/awtk/blob/master/demos/assets/default/raw/ui/file_chooser_for_open.xml
  *
  */
 public class TFileBrowserView extends TWidget { 
@@ -60,9 +94,9 @@ public class TFileBrowserView extends TWidget {
 
 
   /**
-   * 设置 初始目录。
+   * 设置 初始文件夹。
    * 
-   * @param init_dir 初始目录。
+   * @param init_dir 初始文件夹。
    *
    * @return 返回RET_OK表示成功，否则表示失败。
    */
@@ -72,43 +106,92 @@ public class TFileBrowserView extends TWidget {
 
 
   /**
-   * 设置 文件项的图标。
+   * 设置 忽略隐藏文件。
    * 
-   * @param file_icon 文件项的图标。
+   * @param ignore_hidden_files 忽略隐藏文件。
    *
    * @return 返回RET_OK表示成功，否则表示失败。
    */
- public  TRet setFileIcon(String file_icon)  {
-   return TRet.from(file_browser_view_set_file_icon(this != null ? (this.nativeObj) : 0, file_icon));
+ public  TRet setIgnoreHiddenFiles(boolean ignore_hidden_files)  {
+   return TRet.from(file_browser_view_set_ignore_hidden_files(this != null ? (this.nativeObj) : 0, ignore_hidden_files));
  }
 
 
   /**
-   * 设置 目录项的图标。
+   * 设置 是否为升序排序。
    * 
-   * @param folder_icon 目录项的图标。
+   * @param sort_ascending 是否为升序排序。
    *
    * @return 返回RET_OK表示成功，否则表示失败。
    */
- public  TRet setFolderIcon(String folder_icon)  {
-   return TRet.from(file_browser_view_set_folder_icon(this != null ? (this.nativeObj) : 0, folder_icon));
+ public  TRet setSortAscending(boolean sort_ascending)  {
+   return TRet.from(file_browser_view_set_sort_ascending(this != null ? (this.nativeObj) : 0, sort_ascending));
  }
 
 
   /**
-   * 设置 返回上一级目录的图标。
+   * 设置 是否显示checkbutton。
    * 
-   * @param return_up_icon 返回上一级目录的图标。
+   * @param show_check_button 是否显示checkbutton。
    *
    * @return 返回RET_OK表示成功，否则表示失败。
    */
- public  TRet setReturnUpIcon(String return_up_icon)  {
-   return TRet.from(file_browser_view_set_return_up_icon(this != null ? (this.nativeObj) : 0, return_up_icon));
+ public  TRet setShowCheckButton(boolean show_check_button)  {
+   return TRet.from(file_browser_view_set_show_check_button(this != null ? (this.nativeObj) : 0, show_check_button));
  }
 
 
   /**
-   * 初始目录。
+   * 设置 排序方式。可选值(name, size, mtime, type)。
+   * 
+   * @param sort_by 排序方式。可选值(name, size, mtime, type)。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setSortBy(String sort_by)  {
+   return TRet.from(file_browser_view_set_sort_by(this != null ? (this.nativeObj) : 0, sort_by));
+ }
+
+
+  /**
+   * 获取当前路径。
+   * 
+   *
+   * @return 返回当前路径。
+   */
+ public  String getCwd()  {
+    return file_browser_view_get_cwd(this != null ? (this.nativeObj) : 0);
+ }
+
+
+  /**
+   * 在当前文件夹创建子文件夹。
+   * 
+   * @param name 子文件夹名。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet createDir(String name)  {
+   return TRet.from(file_browser_view_create_dir(this != null ? (this.nativeObj) : 0, name));
+ }
+
+
+  /**
+   * 在当前文件夹创建文件。
+   * 
+   * @param name 文件名。
+   * @param data 数据。
+   * @param size 数据长度。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet createFile(String name, String data, int size)  {
+   return TRet.from(file_browser_view_create_file(this != null ? (this.nativeObj) : 0, name, data, size));
+ }
+
+
+  /**
+   * 初始文件夹。
    *
    */
  public String getInitDir() {
@@ -117,39 +200,53 @@ public class TFileBrowserView extends TWidget {
 
 
   /**
-   * 文件项的图标。
+   * 是否忽略隐藏文件。
    *
    */
- public String getFileIcon() {
-   return file_browser_view_t_get_prop_file_icon(this.nativeObj);
+ public boolean getIgnoreHiddenFiles() {
+   return file_browser_view_t_get_prop_ignore_hidden_files(this.nativeObj);
  }
 
 
   /**
-   * 目录项的图标。
+   * 是否为升序排序。
    *
    */
- public String getFolderIcon() {
-   return file_browser_view_t_get_prop_folder_icon(this.nativeObj);
+ public boolean getSortAscending() {
+   return file_browser_view_t_get_prop_sort_ascending(this.nativeObj);
  }
 
 
   /**
-   * 返回上一级目录的图标。
+   * 是否显示checkbutton。
    *
    */
- public String getReturnUpIcon() {
-   return file_browser_view_t_get_prop_return_up_icon(this.nativeObj);
+ public boolean getShowCheckButton() {
+   return file_browser_view_t_get_prop_show_check_button(this.nativeObj);
+ }
+
+
+  /**
+   * 排序方式。可选值(name, size, mtime, type)。
+   *
+   */
+ public String getSortBy() {
+   return file_browser_view_t_get_prop_sort_by(this.nativeObj);
  }
 
 static private native long file_browser_view_create(long parent, int x, int y, int w, int h);
 static private native long file_browser_view_cast(long widget);
 static private native int file_browser_view_set_init_dir(long widget, String init_dir);
-static private native int file_browser_view_set_file_icon(long widget, String file_icon);
-static private native int file_browser_view_set_folder_icon(long widget, String folder_icon);
-static private native int file_browser_view_set_return_up_icon(long widget, String return_up_icon);
+static private native int file_browser_view_set_ignore_hidden_files(long widget, boolean ignore_hidden_files);
+static private native int file_browser_view_set_sort_ascending(long widget, boolean sort_ascending);
+static private native int file_browser_view_set_show_check_button(long widget, boolean show_check_button);
+static private native int file_browser_view_set_sort_by(long widget, String sort_by);
+static private native String file_browser_view_get_cwd(long widget);
+static private native int file_browser_view_create_dir(long widget, String name);
+static private native int file_browser_view_create_file(long widget, String name, String data, int size);
 static private native String file_browser_view_t_get_prop_init_dir(long nativeObj);
-static private native String file_browser_view_t_get_prop_file_icon(long nativeObj);
-static private native String file_browser_view_t_get_prop_folder_icon(long nativeObj);
-static private native String file_browser_view_t_get_prop_return_up_icon(long nativeObj);
+static private native boolean file_browser_view_t_get_prop_ignore_hidden_files(long nativeObj);
+static private native boolean file_browser_view_t_get_prop_sort_ascending(long nativeObj);
+static private native boolean file_browser_view_t_get_prop_show_check_button(long nativeObj);
+static private native String file_browser_view_t_get_prop_sort_by(long nativeObj);
 };
