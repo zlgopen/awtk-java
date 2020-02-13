@@ -34,13 +34,35 @@ public class TFileChooser extends TEmitter {
   /**
    * 创建file_chooser对象
    * 
-   * @param init_dir 初始目录
-   * @param filter 过滤规则(如".jpg.png.gif")。
    *
    * @return 对象。
    */
- public  static TFileChooser create(String init_dir, String filter)  {
-    return new TFileChooser(file_chooser_create(init_dir, filter));
+ public  static TFileChooser create()  {
+    return new TFileChooser(file_chooser_create());
+ }
+
+
+  /**
+   * 设置初始目录。
+   * 
+   * @param init_dir 初始目录
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setInitDir(String init_dir)  {
+   return TRet.from(file_chooser_set_init_dir(this != null ? (this.nativeObj) : 0, init_dir));
+ }
+
+
+  /**
+   * 设置过滤规则。
+   * 
+   * @param filter 过滤规则(如".jpg.png.gif")。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setFilter(String filter)  {
+   return TRet.from(file_chooser_set_filter(this != null ? (this.nativeObj) : 0, filter));
  }
 
 
@@ -121,7 +143,9 @@ public class TFileChooser extends TEmitter {
     return file_chooser_is_aborted(this != null ? (this.nativeObj) : 0);
  }
 
-static private native long file_chooser_create(String init_dir, String filter);
+static private native long file_chooser_create();
+static private native int file_chooser_set_init_dir(long chooser, String init_dir);
+static private native int file_chooser_set_filter(long chooser, String filter);
 static private native long file_chooser_cast(long chooser);
 static private native int file_chooser_choose_file_for_save(long chooser);
 static private native int file_chooser_choose_file_for_open(long chooser);

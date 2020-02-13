@@ -353,6 +353,42 @@ public class TEdit extends TWidget {
 
 
   /**
+   * 上边距。
+   *
+   */
+ public int getTopMargin() {
+   return edit_t_get_prop_top_margin(this.nativeObj);
+ }
+
+
+  /**
+   * 下边距。
+   *
+   */
+ public int getBottomMargin() {
+   return edit_t_get_prop_bottom_margin(this.nativeObj);
+ }
+
+
+  /**
+   * 左边距。
+   *
+   */
+ public int getLeftMargin() {
+   return edit_t_get_prop_left_margin(this.nativeObj);
+ }
+
+
+  /**
+   * 右边距。
+   *
+   */
+ public int getRightMargin() {
+   return edit_t_get_prop_right_margin(this.nativeObj);
+ }
+
+
+  /**
    * 输入提示。
    *
    */
@@ -421,6 +457,10 @@ static private native boolean edit_t_get_prop_password_visible(long nativeObj);
 static private native boolean edit_t_get_prop_auto_fix(long nativeObj);
 static private native boolean edit_t_get_prop_select_none_when_focused(long nativeObj);
 static private native boolean edit_t_get_prop_open_im_when_focused(long nativeObj);
+static private native int edit_t_get_prop_top_margin(long nativeObj);
+static private native int edit_t_get_prop_bottom_margin(long nativeObj);
+static private native int edit_t_get_prop_left_margin(long nativeObj);
+static private native int edit_t_get_prop_right_margin(long nativeObj);
 static private native String edit_t_get_prop_tips(long nativeObj);
 static private native int edit_t_get_prop_input_type(long nativeObj);
 static private native double edit_t_get_prop_min(long nativeObj);

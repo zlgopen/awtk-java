@@ -172,6 +172,42 @@ public class TMledit extends TWidget {
 
 
   /**
+   * 上边距。
+   *
+   */
+ public int getTopMargin() {
+   return mledit_t_get_prop_top_margin(this.nativeObj);
+ }
+
+
+  /**
+   * 下边距。
+   *
+   */
+ public int getBottomMargin() {
+   return mledit_t_get_prop_bottom_margin(this.nativeObj);
+ }
+
+
+  /**
+   * 左边距。
+   *
+   */
+ public int getLeftMargin() {
+   return mledit_t_get_prop_left_margin(this.nativeObj);
+ }
+
+
+  /**
+   * 右边距。
+   *
+   */
+ public int getRightMargin() {
+   return mledit_t_get_prop_right_margin(this.nativeObj);
+ }
+
+
+  /**
    * 输入提示。
    *
    */
@@ -216,6 +252,10 @@ static private native int mledit_set_cursor(long widget, int cursor);
 static private native int mledit_set_scroll_line(long widget, int scroll_line);
 static private native long mledit_cast(long widget);
 static private native boolean mledit_t_get_prop_readonly(long nativeObj);
+static private native int mledit_t_get_prop_top_margin(long nativeObj);
+static private native int mledit_t_get_prop_bottom_margin(long nativeObj);
+static private native int mledit_t_get_prop_left_margin(long nativeObj);
+static private native int mledit_t_get_prop_right_margin(long nativeObj);
 static private native String mledit_t_get_prop_tips(long nativeObj);
 static private native boolean mledit_t_get_prop_wrap_word(long nativeObj);
 static private native int mledit_t_get_prop_max_lines(long nativeObj);
