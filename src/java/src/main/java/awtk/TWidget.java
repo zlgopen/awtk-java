@@ -64,6 +64,17 @@ public class TWidget {
 
 
   /**
+   * 获取原生窗口对象。
+   * 
+   *
+   * @return 原生窗口对象。
+   */
+ public  TNativeWindow getNativeWindow()  {
+    return new TNativeWindow(widget_get_native_window(this != null ? (this.nativeObj) : 0));
+ }
+
+
+  /**
    * 获取控件在父控件中的索引编号。
    * 
    *
@@ -1183,6 +1194,7 @@ public class TWidget {
 
 static private native int widget_count_children(long widget);
 static private native long widget_get_child(long widget, int index);
+static private native long widget_get_native_window(long widget);
 static private native int widget_index_of(long widget);
 static private native int widget_close_window(long widget);
 static private native int widget_move(long widget, int x, int y);
