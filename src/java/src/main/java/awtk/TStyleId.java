@@ -59,6 +59,27 @@ public enum TStyleId {
   _ID_TEXT_COLOR (STYLE_ID_TEXT_COLOR()),
   
   /**
+   * 高亮文本的字体名称。
+   *
+   */
+ 
+  _ID_HIGHLIGHT_FONT_NAME (STYLE_ID_HIGHLIGHT_FONT_NAME()),
+  
+  /**
+   * 高亮文本的字体大小。
+   *
+   */
+ 
+  _ID_HIGHLIGHT_FONT_SIZE (STYLE_ID_HIGHLIGHT_FONT_SIZE()),
+  
+  /**
+   * 高亮文本的文本颜色。
+   *
+   */
+ 
+  _ID_HIGHLIGHT_TEXT_COLOR (STYLE_ID_HIGHLIGHT_TEXT_COLOR()),
+  
+  /**
    * 提示文本颜色。
    *
    */
@@ -287,6 +308,9 @@ public enum TStyleId {
   static private native String STYLE_ID_FONT_SIZE();
   static private native String STYLE_ID_FONT_STYLE();
   static private native String STYLE_ID_TEXT_COLOR();
+  static private native String STYLE_ID_HIGHLIGHT_FONT_NAME();
+  static private native String STYLE_ID_HIGHLIGHT_FONT_SIZE();
+  static private native String STYLE_ID_HIGHLIGHT_TEXT_COLOR();
   static private native String STYLE_ID_TIPS_TEXT_COLOR();
   static private native String STYLE_ID_TEXT_ALIGN_H();
   static private native String STYLE_ID_TEXT_ALIGN_V();

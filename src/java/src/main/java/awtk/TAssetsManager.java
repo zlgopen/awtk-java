@@ -77,6 +77,18 @@ public class TAssetsManager {
 
 
   /**
+   * 设置当前的主题。
+   * 
+   * @param theme 主题名称。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setTheme(String theme)  {
+   return TRet.from(assets_manager_set_theme(this != null ? (this.nativeObj) : 0, theme));
+ }
+
+
+  /**
    * 在资源管理器的缓存中查找指定的资源并引用它，如果缓存中不存在，尝试加载该资源。
    * 
    * @param type 资源的类型。
@@ -101,6 +113,7 @@ public class TAssetsManager {
  }
 
 static private native long assets_manager();
+static private native int assets_manager_set_theme(long am, String theme);
 static private native long assets_manager_ref(long am, int type, String name);
 static private native int assets_manager_unref(long am, long info);
 };

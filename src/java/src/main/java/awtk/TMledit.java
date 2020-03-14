@@ -238,7 +238,7 @@ public class TMledit extends TWidget {
    * 鼠标一次滚动行数。
    *
    */
- public double getScrollLine() {
+ public int getScrollLine() {
    return mledit_t_get_prop_scroll_line(this.nativeObj);
  }
 
@@ -259,5 +259,5 @@ static private native int mledit_t_get_prop_right_margin(long nativeObj);
 static private native String mledit_t_get_prop_tips(long nativeObj);
 static private native boolean mledit_t_get_prop_wrap_word(long nativeObj);
 static private native int mledit_t_get_prop_max_lines(long nativeObj);
-static private native double mledit_t_get_prop_scroll_line(long nativeObj);
+static private native int mledit_t_get_prop_scroll_line(long nativeObj);
 };

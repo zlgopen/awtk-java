@@ -25,6 +25,7 @@ package awtk;
  *
  *> 创建之后:
  *>
+ *> 需要用mutable\_image\_set\_create\_image设置创建图片的回调函数。
  *> 需要用mutable\_image\_set\_prepare\_image设置准备图片的回调函数。
  *
  *> 完整示例请参考：[mutable image demo](

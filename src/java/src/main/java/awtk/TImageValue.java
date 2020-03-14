@@ -12,6 +12,9 @@ package awtk;
  ** 2.把每个字符与image(图片文件名前缀)映射成一个图片名。
  ** 3.最后把这些图片显示出来。
  *
+ *如果设置click\_add\_delta为非0，那么点击时自动增加指定的增量，值超过最大值时回到最小值,
+ *或者值超过最小值时回到最大值。
+ *
  *image\_value\_t是[widget\_t](widget_t.md)的子类控件，widget\_t的函数均适用于image\_value\_t控件。
  *
  *在xml中使用"image\_value"标签创建图片值控件。如：
@@ -99,6 +102,18 @@ public class TImageValue extends TWidget {
 
 
   /**
+   * 设置点击时加上的增量。
+   * 
+   * @param delta 增量。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setClickAddDelta(double delta)  {
+   return TRet.from(image_value_set_click_add_delta(this != null ? (this.nativeObj) : 0, delta));
+ }
+
+
+  /**
    * 设置值。
    * 
    * @param value 值。
@@ -107,6 +122,30 @@ public class TImageValue extends TWidget {
    */
  public  TRet setValue(double value)  {
    return TRet.from(image_value_set_value(this != null ? (this.nativeObj) : 0, value));
+ }
+
+
+  /**
+   * 设置最小值。
+   * 
+   * @param min 最小值。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setMin(double min)  {
+   return TRet.from(image_value_set_min(this != null ? (this.nativeObj) : 0, min));
+ }
+
+
+  /**
+   * 设置最大值。
+   * 
+   * @param max 最大值。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setMax(double max)  {
+   return TRet.from(image_value_set_max(this != null ? (this.nativeObj) : 0, max));
  }
 
 
@@ -139,12 +178,45 @@ public class TImageValue extends TWidget {
    return image_value_t_get_prop_format(this.nativeObj);
  }
 
+
+  /**
+   * 点击时加上一个增量。
+   *
+   */
+ public double getClickAddDelta() {
+   return image_value_t_get_prop_click_add_delta(this.nativeObj);
+ }
+
+
+  /**
+   * 最小值(如果设置了click\_add\_delta，到达最小值后回到最大值)。
+   *
+   */
+ public double getMin() {
+   return image_value_t_get_prop_min(this.nativeObj);
+ }
+
+
+  /**
+   * 最大值(如果设置了click\_add\_delta，到达最大值后回到最小值)。
+   *
+   */
+ public double getMax() {
+   return image_value_t_get_prop_max(this.nativeObj);
+ }
+
 static private native long image_value_create(long parent, int x, int y, int w, int h);
 static private native int image_value_set_image(long widget, String image);
 static private native int image_value_set_format(long widget, String format);
+static private native int image_value_set_click_add_delta(long widget, double delta);
 static private native int image_value_set_value(long widget, double value);
+static private native int image_value_set_min(long widget, double min);
+static private native int image_value_set_max(long widget, double max);
 static private native long image_value_cast(long widget);
 static private native String image_value_t_get_prop_image(long nativeObj);
 static private native String image_value_t_get_prop_format(long nativeObj);
+static private native double image_value_t_get_prop_click_add_delta(long nativeObj);
 static private native double image_value_t_get_prop_value(long nativeObj);
+static private native double image_value_t_get_prop_min(long nativeObj);
+static private native double image_value_t_get_prop_max(long nativeObj);
 };
