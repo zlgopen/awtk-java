@@ -150,6 +150,18 @@ public class TProgressCircle extends TWidget {
 
 
   /**
+   * 设置线帽类型。
+   * 
+   * @param line_cap 线帽类型(round:圆头，square:方头)。。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setLineCap(String line_cap)  {
+   return TRet.from(progress_circle_set_line_cap(this != null ? (this.nativeObj) : 0, line_cap));
+ }
+
+
+  /**
    * 设置是否显示文本。
    * 
    * @param show_text 是否显示文本。
@@ -210,6 +222,15 @@ public class TProgressCircle extends TWidget {
 
 
   /**
+   * 线帽类型(round:圆头，square:方头)。
+   *
+   */
+ public String getLineCap() {
+   return progress_circle_t_get_prop_line_cap(this.nativeObj);
+ }
+
+
+  /**
    * 是否为逆时针方向(缺省为FALSE)。
    *
    */
@@ -233,6 +254,7 @@ static private native int progress_circle_set_max(long widget, int max);
 static private native int progress_circle_set_line_width(long widget, int line_width);
 static private native int progress_circle_set_start_angle(long widget, int start_angle);
 static private native int progress_circle_set_unit(long widget, String unit);
+static private native int progress_circle_set_line_cap(long widget, String line_cap);
 static private native int progress_circle_set_show_text(long widget, boolean show_text);
 static private native int progress_circle_set_counter_clock_wise(long widget, boolean counter_clock_wise);
 static private native double progress_circle_t_get_prop_value(long nativeObj);
@@ -240,6 +262,7 @@ static private native int progress_circle_t_get_prop_max(long nativeObj);
 static private native int progress_circle_t_get_prop_start_angle(long nativeObj);
 static private native int progress_circle_t_get_prop_line_width(long nativeObj);
 static private native String progress_circle_t_get_prop_unit(long nativeObj);
+static private native String progress_circle_t_get_prop_line_cap(long nativeObj);
 static private native boolean progress_circle_t_get_prop_counter_clock_wise(long nativeObj);
 static private native boolean progress_circle_t_get_prop_show_text(long nativeObj);
 };

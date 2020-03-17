@@ -45,6 +45,20 @@ public enum TWidgetProp {
   H (WIDGET_PROP_H()),
   
   /**
+   * caret x。
+   *
+   */
+ 
+  CARET_X (WIDGET_PROP_CARET_X()),
+  
+  /**
+   * caret y。
+   *
+   */
+ 
+  CARET_Y (WIDGET_PROP_CARET_Y()),
+  
+  /**
    * 脏矩形超出控件本身大小的最大范围。
    *
    */
@@ -929,6 +943,8 @@ public enum TWidgetProp {
   static private native String WIDGET_PROP_Y();
   static private native String WIDGET_PROP_W();
   static private native String WIDGET_PROP_H();
+  static private native String WIDGET_PROP_CARET_X();
+  static private native String WIDGET_PROP_CARET_Y();
   static private native String WIDGET_PROP_DIRTY_RECT_TOLERANCE();
   static private native String WIDGET_PROP_CANVAS();
   static private native String WIDGET_PROP_LOCALIZE_OPTIONS();
