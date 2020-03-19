@@ -431,7 +431,7 @@
 #include "assets/default/inc/images/arrow_left_n.data"
 #include "assets/default/inc/images/edit_clear_p.data"
 #include "assets/default/inc/images/battery_2.data"
-#endif/*WITH_STB_IMAGE*/
+#endif /*WITH_STB_IMAGE*/
 #ifdef WITH_VGCANVAS
 #include "assets/default/inc/images/pointer_4.bsvg"
 #include "assets/default/inc/images/htest.bsvg"
@@ -440,7 +440,7 @@
 #include "assets/default/inc/images/pointer_1.bsvg"
 #include "assets/default/inc/images/pointer.bsvg"
 #include "assets/default/inc/images/girl.bsvg"
-#endif/*WITH_VGCANVAS*/
+#endif /*WITH_VGCANVAS*/
 #if defined(WITH_STB_FONT) || defined(WITH_FT_FONT)
 #include "assets/default/inc/fonts/default_mini.res"
 #include "assets/default/inc/fonts/thin.res"
@@ -459,9 +459,9 @@
 #include "assets/default/inc/fonts/default_96.data"
 #include "assets/default/inc/fonts/default_32.data"
 #include "assets/default/inc/fonts/default_24.data"
-#endif/*WITH_STB_FONT or WITH_FT_FONT*/
+#endif /*WITH_STB_FONT or WITH_FT_FONT*/
 #include "assets/default/inc/scripts/dummy.res"
-#endif/*WITH_FS_RES*/
+#endif /*WITH_FS_RES*/
 
 ret_t assets_init_default(void) {
   assets_manager_t* am = assets_manager();
@@ -776,14 +776,14 @@ ret_t assets_init_default(void) {
   assets_manager_add(am, font_mono);
   assets_manager_add(am, font_light);
   assets_manager_add(am, font_led);
-#else/*WITH_STB_FONT or WITH_FT_FONT*/
+#else /*WITH_STB_FONT or WITH_FT_FONT*/
   assets_manager_add(am, font_default_20);
   assets_manager_add(am, font_default_16);
   assets_manager_add(am, font_default_18);
   assets_manager_add(am, font_default_96);
   assets_manager_add(am, font_default_32);
   assets_manager_add(am, font_default_24);
-#endif/*WITH_STB_FONT or WITH_FT_FONT*/
+#endif /*WITH_STB_FONT or WITH_FT_FONT*/
 #ifdef WITH_VGCANVAS
   assets_manager_add(am, image_pointer_4);
   assets_manager_add(am, image_htest);
@@ -792,7 +792,7 @@ ret_t assets_init_default(void) {
   assets_manager_add(am, image_pointer_1);
   assets_manager_add(am, image_pointer);
   assets_manager_add(am, image_girl);
-#endif/*WITH_VGCANVAS*/
+#endif /*WITH_VGCANVAS*/
   assets_manager_add(am, script_dummy);
 #endif
 
