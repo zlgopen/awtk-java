@@ -268,6 +268,18 @@ public class TEdit extends TWidget {
 
 
   /**
+   * 设置自定义软键盘名称。
+   * 
+   * @param keyboard 键盘名称(相应UI资源必须存在)。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setKeyboard(String keyboard)  {
+   return TRet.from(edit_set_keyboard(this != null ? (this.nativeObj) : 0, keyboard));
+ }
+
+
+  /**
    * 当编辑器输入类型为密码时，设置密码是否可见。
    * 
    * @param password_visible 密码是否可见。
@@ -398,6 +410,15 @@ public class TEdit extends TWidget {
 
 
   /**
+   * 自定义软键盘名称。
+   *
+   */
+ public String getKeyboard() {
+   return edit_t_get_prop_keyboard(this.nativeObj);
+ }
+
+
+  /**
    * 输入类型。
    *
    */
@@ -449,6 +470,7 @@ static private native int edit_set_select_none_when_focused(long widget, boolean
 static private native int edit_set_open_im_when_focused(long widget, boolean open_im_when_focused);
 static private native int edit_set_input_type(long widget, int type);
 static private native int edit_set_input_tips(long widget, String tips);
+static private native int edit_set_keyboard(long widget, String keyboard);
 static private native int edit_set_password_visible(long widget, boolean password_visible);
 static private native int edit_set_focus(long widget, boolean focus);
 static private native int edit_set_cursor(long widget, int cursor);
@@ -462,6 +484,7 @@ static private native int edit_t_get_prop_bottom_margin(long nativeObj);
 static private native int edit_t_get_prop_left_margin(long nativeObj);
 static private native int edit_t_get_prop_right_margin(long nativeObj);
 static private native String edit_t_get_prop_tips(long nativeObj);
+static private native String edit_t_get_prop_keyboard(long nativeObj);
 static private native int edit_t_get_prop_input_type(long nativeObj);
 static private native double edit_t_get_prop_min(long nativeObj);
 static private native double edit_t_get_prop_max(long nativeObj);

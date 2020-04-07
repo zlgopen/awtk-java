@@ -203,6 +203,35 @@ public class TWidget {
 
 
   /**
+   * 设置子控件的文本。
+   *只是对widget\_set\_prop的包装，文本的意义由子类控件决定。
+   * 
+   * @param name 子控件的名称。
+   * @param text 文本。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setChildText(String name, String text)  {
+   return TRet.from(widget_set_child_text_utf8(this != null ? (this.nativeObj) : 0, name, text));
+ }
+
+
+  /**
+   * 用一个浮点数去设置子控件的文本。
+   *只是对widget\_set\_prop的包装，文本的意义由子类控件决定。
+   * 
+   * @param name 子控件的名称。
+   * @param format 格式字符串(如："%2.2lf")。
+   * @param value 浮点数值。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setChildTextWithDouble(String name, String format, double value)  {
+   return TRet.from(widget_set_child_text_with_double(this != null ? (this.nativeObj) : 0, name, format, value));
+ }
+
+
+  /**
    * 获取翻译之后的文本，然后调用widget_set_text。
    * 
    * @param text 文本。
@@ -1205,6 +1234,8 @@ static private native int widget_animate_value_to(long widget, int value, int du
 static private native int widget_add_value(long widget, int delta);
 static private native int widget_use_style(long widget, String style);
 static private native int widget_set_text_utf8(long widget, String text);
+static private native int widget_set_child_text_utf8(long widget, String name, String text);
+static private native int widget_set_child_text_with_double(long widget, String name, String format, double value);
 static private native int widget_set_tr_text(long widget, String text);
 static private native int widget_get_value(long widget);
 static private native long widget_get_text(long widget);

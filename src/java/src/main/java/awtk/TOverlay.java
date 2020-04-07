@@ -39,7 +39,7 @@ package awtk;
  *default](https://github.com/zlgopen/awtk/blob/master/demos/assets/default/raw/styles/default.xml#L0)
  *
  */
-public class TOverlay extends TWidget { 
+public class TOverlay extends TWindowBase { 
 
 /**
  * 通过nativeObj构造Java对象。

@@ -127,6 +127,18 @@ public class TMledit extends TWidget {
 
 
   /**
+   * 设置自定义软键盘名称。
+   * 
+   * @param keyboard 键盘名称(相应UI资源必须存在)。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setKeyboard(String keyboard)  {
+   return TRet.from(mledit_set_keyboard(this != null ? (this.nativeObj) : 0, keyboard));
+ }
+
+
+  /**
    * 设置编辑器光标位置。
    * 
    * @param cursor 光标位置。
@@ -217,6 +229,15 @@ public class TMledit extends TWidget {
 
 
   /**
+   * 自定义软键盘名称。
+   *
+   */
+ public String getKeyboard() {
+   return mledit_t_get_prop_keyboard(this.nativeObj);
+ }
+
+
+  /**
    * 是否自动折行。
    *
    */
@@ -248,6 +269,7 @@ static private native int mledit_set_focus(long widget, boolean focus);
 static private native int mledit_set_wrap_word(long widget, boolean wrap_word);
 static private native int mledit_set_max_lines(long widget, int max_lines);
 static private native int mledit_set_input_tips(long widget, String tips);
+static private native int mledit_set_keyboard(long widget, String keyboard);
 static private native int mledit_set_cursor(long widget, int cursor);
 static private native int mledit_set_scroll_line(long widget, int scroll_line);
 static private native long mledit_cast(long widget);
@@ -257,6 +279,7 @@ static private native int mledit_t_get_prop_bottom_margin(long nativeObj);
 static private native int mledit_t_get_prop_left_margin(long nativeObj);
 static private native int mledit_t_get_prop_right_margin(long nativeObj);
 static private native String mledit_t_get_prop_tips(long nativeObj);
+static private native String mledit_t_get_prop_keyboard(long nativeObj);
 static private native boolean mledit_t_get_prop_wrap_word(long nativeObj);
 static private native int mledit_t_get_prop_max_lines(long nativeObj);
 static private native int mledit_t_get_prop_scroll_line(long nativeObj);

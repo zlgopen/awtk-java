@@ -374,6 +374,20 @@ public enum TWidgetProp {
   INPUT_TYPE (WIDGET_PROP_INPUT_TYPE()),
   
   /**
+   * 自定义软键盘资源名称。
+   *
+   */
+ 
+  KEYBOARD (WIDGET_PROP_KEYBOARD()),
+  
+  /**
+   * 缺省获得焦点的子控件(可用控件名或类型)。
+   *
+   */
+ 
+  DEFAULT_FOCUSED_CHILD (WIDGET_PROP_DEFAULT_FOCUSED_CHILD()),
+  
+  /**
    * 只读模式。
    *
    */
@@ -990,6 +1004,8 @@ public enum TWidgetProp {
   static private native String WIDGET_PROP_MIN();
   static private native String WIDGET_PROP_TIPS();
   static private native String WIDGET_PROP_INPUT_TYPE();
+  static private native String WIDGET_PROP_KEYBOARD();
+  static private native String WIDGET_PROP_DEFAULT_FOCUSED_CHILD();
   static private native String WIDGET_PROP_READONLY();
   static private native String WIDGET_PROP_PASSWORD_VISIBLE();
   static private native String WIDGET_PROP_ACTIVE();

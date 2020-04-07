@@ -69,6 +69,18 @@ public class TView extends TWidget {
 
 
   /**
+   * 设置缺省获得焦点的子控件(可用控件名或类型)。
+   * 
+   * @param default_focused_child 缺省获得焦点的子控件(可用控件名或类型)。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setDefaultFocusedChild(String default_focused_child)  {
+   return TRet.from(view_set_default_focused_child(this != null ? (this.nativeObj) : 0, default_focused_child));
+ }
+
+
+  /**
    * 转换为view对象(供脚本语言使用)。
    * 
    * @param widget view对象。
@@ -79,6 +91,21 @@ public class TView extends TWidget {
     return new TView(view_cast(widget != null ? (widget.nativeObj) : 0));
  }
 
+
+  /**
+   * 缺省获得焦点的子控件(可用控件名或类型)。
+   *
+   *> view作为pages/slideview的直接子控件才需要设置。
+   *> 正常情况下，一个窗口只能指定一个初始焦点。
+   *> 但是对于pages/slideview来说，可能希望每一个页面都有一个初始焦点，此时可用default\_focused\_child来指定。
+   *
+   */
+ public String getDefaultFocusedChild() {
+   return view_t_get_prop_default_focused_child(this.nativeObj);
+ }
+
 static private native long view_create(long parent, int x, int y, int w, int h);
+static private native int view_set_default_focused_child(long widget, String default_focused_child);
 static private native long view_cast(long widget);
+static private native String view_t_get_prop_default_focused_child(long nativeObj);
 };
