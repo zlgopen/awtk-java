@@ -364,11 +364,46 @@ public enum TEventType {
   IM_COMMIT (EVT_IM_COMMIT()),
   
   /**
+   * 进入预编辑状态(event_t)。
+   *
+   */
+ 
+  IM_PREEDIT (EVT_IM_PREEDIT()),
+  
+  /**
+   * 确认预编辑内容，退出预编辑状态(event_t)。
+   *
+   */
+ 
+  IM_PREEDIT_CONFIRM (EVT_IM_PREEDIT_CONFIRM()),
+  
+  /**
+   * 删除预编辑内容，退出预编辑状态event_t)。
+   *
+   */
+ 
+  IM_PREEDIT_ABORT (EVT_IM_PREEDIT_ABORT()),
+  
+  /**
    * 输入法请求显示候选字事件(im_candidates_event_t)。
    *
    */
  
   IM_SHOW_CANDIDATES (EVT_IM_SHOW_CANDIDATES()),
+  
+  /**
+   * 输入法请求显示预候选字事件(im_candidates_event_t)。
+   *
+   */
+ 
+  IM_SHOW_PRE_CANDIDATES (EVT_IM_SHOW_PRE_CANDIDATES()),
+  
+  /**
+   * 输入法语言改变事件(event_t)。
+   *
+   */
+ 
+  IM_LANG_CHANGED (EVT_IM_LANG_CHANGED()),
   
   /**
    * 软键盘Action点击事件(event_t)。
@@ -643,7 +678,12 @@ public enum TEventType {
   static private native int EVT_REQUEST_CLOSE_WINDOW();
   static private native int EVT_TOP_WINDOW_CHANGED();
   static private native int EVT_IM_COMMIT();
+  static private native int EVT_IM_PREEDIT();
+  static private native int EVT_IM_PREEDIT_CONFIRM();
+  static private native int EVT_IM_PREEDIT_ABORT();
   static private native int EVT_IM_SHOW_CANDIDATES();
+  static private native int EVT_IM_SHOW_PRE_CANDIDATES();
+  static private native int EVT_IM_LANG_CHANGED();
   static private native int EVT_IM_ACTION();
   static private native int EVT_IM_ACTION_INFO();
   static private native int EVT_DRAG_START();

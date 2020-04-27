@@ -62,6 +62,15 @@ public class TWindowBase extends TWidget {
 
 
   /**
+   * 禁用窗口动画。
+   *
+   */
+ public boolean getDisableAnim() {
+   return window_base_t_get_prop_disable_anim(this.nativeObj);
+ }
+
+
+  /**
    * 收到EVT_REQUEST_CLOSE_WINDOW是否自动关闭窗口。
    *
    *如果关闭窗口时，需要用户确认:
@@ -166,6 +175,7 @@ public class TWindowBase extends TWidget {
 
 static private native long window_base_cast(long widget);
 static private native String window_base_t_get_prop_theme(long nativeObj);
+static private native boolean window_base_t_get_prop_disable_anim(long nativeObj);
 static private native int window_base_t_get_prop_closable(long nativeObj);
 static private native String window_base_t_get_prop_open_anim_hint(long nativeObj);
 static private native String window_base_t_get_prop_close_anim_hint(long nativeObj);

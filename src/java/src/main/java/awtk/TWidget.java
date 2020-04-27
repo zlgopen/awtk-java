@@ -255,8 +255,12 @@ public class TWidget {
 
 
   /**
-   * 获取控件的文本。
-   *只是对widget\_get\_prop的包装，文本的意义由子类控件决定。
+   * str_t str;
+   *str_init(&str, 0);
+   *str_from_wstr(&str, widget_get_text(target));
+   *log_debug("%s: %s\n", target->name, str.str);
+   *str_reset(&str);
+   *```
    * 
    *
    * @return 返回文本。

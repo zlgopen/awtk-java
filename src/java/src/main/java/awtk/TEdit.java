@@ -262,8 +262,20 @@ public class TEdit extends TWidget {
    *
    * @return 返回RET_OK表示成功，否则表示失败。
    */
- public  TRet setInputTips(String tips)  {
-   return TRet.from(edit_set_input_tips(this != null ? (this.nativeObj) : 0, tips));
+ public  TRet setTips(String tips)  {
+   return TRet.from(edit_set_tips(this != null ? (this.nativeObj) : 0, tips));
+ }
+
+
+  /**
+   * 获取翻译之后的文本，然后调用edit_set_tips。
+   * 
+   * @param tr_tips 提示信息。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setTrTips(String tr_tips)  {
+   return TRet.from(edit_set_tr_tips(this != null ? (this.nativeObj) : 0, tr_tips));
  }
 
 
@@ -410,6 +422,15 @@ public class TEdit extends TWidget {
 
 
   /**
+   * 保存用于翻译的提示信息。
+   *
+   */
+ public String getTrTips() {
+   return edit_t_get_prop_tr_tips(this.nativeObj);
+ }
+
+
+  /**
    * 自定义软键盘名称。
    *
    */
@@ -469,7 +490,8 @@ static private native int edit_set_auto_fix(long widget, boolean auto_fix);
 static private native int edit_set_select_none_when_focused(long widget, boolean select_none_when_focused);
 static private native int edit_set_open_im_when_focused(long widget, boolean open_im_when_focused);
 static private native int edit_set_input_type(long widget, int type);
-static private native int edit_set_input_tips(long widget, String tips);
+static private native int edit_set_tips(long widget, String tips);
+static private native int edit_set_tr_tips(long widget, String tr_tips);
 static private native int edit_set_keyboard(long widget, String keyboard);
 static private native int edit_set_password_visible(long widget, boolean password_visible);
 static private native int edit_set_focus(long widget, boolean focus);
@@ -484,6 +506,7 @@ static private native int edit_t_get_prop_bottom_margin(long nativeObj);
 static private native int edit_t_get_prop_left_margin(long nativeObj);
 static private native int edit_t_get_prop_right_margin(long nativeObj);
 static private native String edit_t_get_prop_tips(long nativeObj);
+static private native String edit_t_get_prop_tr_tips(long nativeObj);
 static private native String edit_t_get_prop_keyboard(long nativeObj);
 static private native int edit_t_get_prop_input_type(long nativeObj);
 static private native double edit_t_get_prop_min(long nativeObj);

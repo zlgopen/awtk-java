@@ -339,14 +339,21 @@ public enum TWidgetProp {
   FULLSCREEN (WIDGET_PROP_FULLSCREEN()),
   
   /**
-   * 打开窗口动画。
+   * 禁用窗口动画。
+   *
+   */
+ 
+  DISABLE_ANIM (WIDGET_PROP_DISABLE_ANIM()),
+  
+  /**
+   * 打开窗口时的动画。
    *
    */
  
   OPEN_ANIM_HINT (WIDGET_PROP_OPEN_ANIM_HINT()),
   
   /**
-   * 关闭窗口动画。
+   * 关闭窗口时的动画。
    *
    */
  
@@ -365,6 +372,13 @@ public enum TWidgetProp {
    */
  
   TIPS (WIDGET_PROP_TIPS()),
+  
+  /**
+   * 需要翻译的提示信息。
+   *
+   */
+ 
+  TR_TIPS (WIDGET_PROP_TR_TIPS()),
   
   /**
    * 输入类型。
@@ -999,10 +1013,12 @@ public enum TWidgetProp {
   static private native String WIDGET_PROP_ANIMATION();
   static private native String WIDGET_PROP_ANIM_HINT();
   static private native String WIDGET_PROP_FULLSCREEN();
+  static private native String WIDGET_PROP_DISABLE_ANIM();
   static private native String WIDGET_PROP_OPEN_ANIM_HINT();
   static private native String WIDGET_PROP_CLOSE_ANIM_HINT();
   static private native String WIDGET_PROP_MIN();
   static private native String WIDGET_PROP_TIPS();
+  static private native String WIDGET_PROP_TR_TIPS();
   static private native String WIDGET_PROP_INPUT_TYPE();
   static private native String WIDGET_PROP_KEYBOARD();
   static private native String WIDGET_PROP_DEFAULT_FOCUSED_CHILD();
