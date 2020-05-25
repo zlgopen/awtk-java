@@ -196,7 +196,7 @@ public enum TWidgetProp {
    *
    */
  
-  CURSOR (WIDGET_PROP_CURSOR()),
+  POINTER_CURSOR (WIDGET_PROP_POINTER_CURSOR()),
   
   /**
    * 值。
@@ -365,6 +365,13 @@ public enum TWidgetProp {
    */
  
   MIN (WIDGET_PROP_MIN()),
+  
+  /**
+   * 软键盘上action按钮的文本。
+   *
+   */
+ 
+  ACTION_TEXT (WIDGET_PROP_ACTION_TEXT()),
   
   /**
    * 提示信息。
@@ -992,7 +999,7 @@ public enum TWidgetProp {
   static private native String WIDGET_PROP_NAME();
   static private native String WIDGET_PROP_TYPE();
   static private native String WIDGET_PROP_CLOSABLE();
-  static private native String WIDGET_PROP_CURSOR();
+  static private native String WIDGET_PROP_POINTER_CURSOR();
   static private native String WIDGET_PROP_VALUE();
   static private native String WIDGET_PROP_LENGTH();
   static private native String WIDGET_PROP_TEXT();
@@ -1017,6 +1024,7 @@ public enum TWidgetProp {
   static private native String WIDGET_PROP_OPEN_ANIM_HINT();
   static private native String WIDGET_PROP_CLOSE_ANIM_HINT();
   static private native String WIDGET_PROP_MIN();
+  static private native String WIDGET_PROP_ACTION_TEXT();
   static private native String WIDGET_PROP_TIPS();
   static private native String WIDGET_PROP_TR_TIPS();
   static private native String WIDGET_PROP_INPUT_TYPE();

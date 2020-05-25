@@ -91,7 +91,7 @@ public class TEvent {
    * 事件发生的时间。
    *
    */
- public int getTime() {
+ public long getTime() {
    return event_t_get_prop_time(this.nativeObj);
  }
 
@@ -108,6 +108,6 @@ static private native long event_cast(long event);
 static private native long event_create(int type);
 static private native int event_destroy(long event);
 static private native int event_t_get_prop_type(long nativeObj);
-static private native int event_t_get_prop_time(long nativeObj);
+static private native long event_t_get_prop_time(long nativeObj);
 static private native long event_t_get_prop_target(long nativeObj);
 };

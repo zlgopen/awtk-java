@@ -1116,6 +1116,15 @@ public class TWidget {
 
 
   /**
+   * 鼠标光标图片名称。
+   *
+   */
+ public String getPointerCursor() {
+   return widget_t_get_prop_pointer_cursor(this.nativeObj);
+ }
+
+
+  /**
    * 保存用于翻译的字符串。
    *
    */
@@ -1311,6 +1320,7 @@ static private native int widget_t_get_prop_y(long nativeObj);
 static private native int widget_t_get_prop_w(long nativeObj);
 static private native int widget_t_get_prop_h(long nativeObj);
 static private native String widget_t_get_prop_name(long nativeObj);
+static private native String widget_t_get_prop_pointer_cursor(long nativeObj);
 static private native String widget_t_get_prop_tr_text(long nativeObj);
 static private native String widget_t_get_prop_style(long nativeObj);
 static private native String widget_t_get_prop_animation(long nativeObj);

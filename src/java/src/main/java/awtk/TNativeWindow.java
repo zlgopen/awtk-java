@@ -126,6 +126,19 @@ public class TNativeWindow extends TObject {
    return TRet.from(native_window_set_fullscreen(this != null ? (this.nativeObj) : 0, fullscreen));
  }
 
+
+  /**
+   * 设置鼠标光标。
+   * 
+   * @param name 鼠标光标的名称。
+   * @param img 鼠标光标的图片。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setCursor(String name, TBitmap img)  {
+   return TRet.from(native_window_set_cursor(this != null ? (this.nativeObj) : 0, name, img != null ? (img.nativeObj) : 0));
+ }
+
 static private native int native_window_move(long win, int x, int y, boolean force);
 static private native int native_window_resize(long win, int w, int h, boolean force);
 static private native int native_window_minimize(long win);
@@ -134,4 +147,5 @@ static private native int native_window_restore(long win);
 static private native int native_window_center(long win);
 static private native int native_window_show_border(long win, boolean show);
 static private native int native_window_set_fullscreen(long win, boolean fullscreen);
+static private native int native_window_set_cursor(long win, String name, long img);
 };

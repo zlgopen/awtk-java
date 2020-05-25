@@ -256,6 +256,18 @@ public class TEdit extends TWidget {
 
 
   /**
+   * 设置软键盘上action按钮的文本。
+   * 
+   * @param action_text 软键盘上action按钮的文本。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setActionText(String action_text)  {
+   return TRet.from(edit_set_action_text(this != null ? (this.nativeObj) : 0, action_text));
+ }
+
+
+  /**
    * 设置编辑器的输入提示。
    * 
    * @param tips 输入提示。
@@ -431,6 +443,20 @@ public class TEdit extends TWidget {
 
 
   /**
+   * 软键盘上action按钮的文本。内置取值有：
+   *
+   ** next 将焦点切换到下一个控件。
+   ** done 完成，关闭软键盘。
+   *
+   *也可以使用其它文本，比如send表示发送。这个需要自己实现相应的功能，处理EVT\_IM\_ACTION事件即可。
+   *
+   */
+ public String getActionText() {
+   return edit_t_get_prop_action_text(this.nativeObj);
+ }
+
+
+  /**
    * 自定义软键盘名称。
    *
    */
@@ -490,6 +516,7 @@ static private native int edit_set_auto_fix(long widget, boolean auto_fix);
 static private native int edit_set_select_none_when_focused(long widget, boolean select_none_when_focused);
 static private native int edit_set_open_im_when_focused(long widget, boolean open_im_when_focused);
 static private native int edit_set_input_type(long widget, int type);
+static private native int edit_set_action_text(long widget, String action_text);
 static private native int edit_set_tips(long widget, String tips);
 static private native int edit_set_tr_tips(long widget, String tr_tips);
 static private native int edit_set_keyboard(long widget, String keyboard);
@@ -507,6 +534,7 @@ static private native int edit_t_get_prop_left_margin(long nativeObj);
 static private native int edit_t_get_prop_right_margin(long nativeObj);
 static private native String edit_t_get_prop_tips(long nativeObj);
 static private native String edit_t_get_prop_tr_tips(long nativeObj);
+static private native String edit_t_get_prop_action_text(long nativeObj);
 static private native String edit_t_get_prop_keyboard(long nativeObj);
 static private native int edit_t_get_prop_input_type(long nativeObj);
 static private native double edit_t_get_prop_min(long nativeObj);

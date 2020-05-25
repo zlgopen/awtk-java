@@ -117,6 +117,13 @@ public enum TWidgetState {
   STATE_OVER_OF_CHECKED (WIDGET_STATE_OVER_OF_CHECKED()),
   
   /**
+   * 禁用状态(选中项)。
+   *
+   */
+ 
+  STATE_DISABLE_OF_CHECKED (WIDGET_STATE_DISABLE_OF_CHECKED()),
+  
+  /**
    * 焦点状态(选中项)。
    *
    */
@@ -143,6 +150,13 @@ public enum TWidgetState {
    */
  
   STATE_OVER_OF_ACTIVE (WIDGET_STATE_OVER_OF_ACTIVE()),
+  
+  /**
+   * 禁用状态(当前项)。
+   *
+   */
+ 
+  STATE_DISABLE_OF_ACTIVE (WIDGET_STATE_DISABLE_OF_ACTIVE()),
   
   /**
    * 焦点状态(当前项)。
@@ -199,10 +213,12 @@ public enum TWidgetState {
   static private native String WIDGET_STATE_NORMAL_OF_CHECKED();
   static private native String WIDGET_STATE_PRESSED_OF_CHECKED();
   static private native String WIDGET_STATE_OVER_OF_CHECKED();
+  static private native String WIDGET_STATE_DISABLE_OF_CHECKED();
   static private native String WIDGET_STATE_FOCUSED_OF_CHECKED();
   static private native String WIDGET_STATE_NORMAL_OF_ACTIVE();
   static private native String WIDGET_STATE_PRESSED_OF_ACTIVE();
   static private native String WIDGET_STATE_OVER_OF_ACTIVE();
+  static private native String WIDGET_STATE_DISABLE_OF_ACTIVE();
   static private native String WIDGET_STATE_FOCUSED_OF_ACTIVE();
 
 }
