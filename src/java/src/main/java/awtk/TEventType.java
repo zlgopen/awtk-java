@@ -52,14 +52,14 @@ public enum TEventType {
   POINTER_UP_BEFORE_CHILDREN (EVT_POINTER_UP_BEFORE_CHILDREN()),
   
   /**
-   * 滚轮事件名(pointer_event_t)。
+   * 滚轮事件名(wheel_event_t)。
    *
    */
  
   WHEEL (EVT_WHEEL()),
   
   /**
-   * 鼠标滚轮事件名，在子控件处理之前触发(key_event_t)。
+   * 鼠标滚轮事件名，在子控件处理之前触发(wheel_event_t)。
    *
    */
  
