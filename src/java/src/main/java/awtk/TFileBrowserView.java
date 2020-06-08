@@ -106,6 +106,30 @@ public class TFileBrowserView extends TWidget {
 
 
   /**
+   * 设置 过滤规则。
+   *> files_only 表示只列出文件，dir_only 表示只列出目录，其它表示只列出满足扩展名文件集合(如：.jpg.png.gif)。
+   * 
+   * @param filter 过滤规则。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setFilter(String filter)  {
+   return TRet.from(file_browser_view_set_filter(this != null ? (this.nativeObj) : 0, filter));
+ }
+
+
+  /**
+   * 重新加载。
+   * 
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet reload()  {
+   return TRet.from(file_browser_view_reload(this != null ? (this.nativeObj) : 0));
+ }
+
+
+  /**
    * 设置 忽略隐藏文件。
    * 
    * @param ignore_hidden_files 忽略隐藏文件。
@@ -200,6 +224,15 @@ public class TFileBrowserView extends TWidget {
 
 
   /**
+   * 过滤规则。
+   *
+   */
+ public String getFilter() {
+   return file_browser_view_t_get_prop_filter(this.nativeObj);
+ }
+
+
+  /**
    * 是否忽略隐藏文件。
    *
    */
@@ -237,6 +270,8 @@ public class TFileBrowserView extends TWidget {
 static private native long file_browser_view_create(long parent, int x, int y, int w, int h);
 static private native long file_browser_view_cast(long widget);
 static private native int file_browser_view_set_init_dir(long widget, String init_dir);
+static private native int file_browser_view_set_filter(long widget, String filter);
+static private native int file_browser_view_reload(long widget);
 static private native int file_browser_view_set_ignore_hidden_files(long widget, boolean ignore_hidden_files);
 static private native int file_browser_view_set_sort_ascending(long widget, boolean sort_ascending);
 static private native int file_browser_view_set_show_check_button(long widget, boolean show_check_button);
@@ -245,6 +280,7 @@ static private native String file_browser_view_get_cwd(long widget);
 static private native int file_browser_view_create_dir(long widget, String name);
 static private native int file_browser_view_create_file(long widget, String name, String data, int size);
 static private native String file_browser_view_t_get_prop_init_dir(long nativeObj);
+static private native String file_browser_view_t_get_prop_filter(long nativeObj);
 static private native boolean file_browser_view_t_get_prop_ignore_hidden_files(long nativeObj);
 static private native boolean file_browser_view_t_get_prop_sort_ascending(long nativeObj);
 static private native boolean file_browser_view_t_get_prop_show_check_button(long nativeObj);

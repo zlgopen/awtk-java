@@ -56,8 +56,9 @@ public class TFileChooser extends TEmitter {
 
   /**
    * 设置过滤规则。
+   *> files_only 表示只列出文件，dir_only 表示只列出目录，其它表示只列出满足扩展名文件集合(如：.jpg.png.gif)。
    * 
-   * @param filter 过滤规则(如".jpg.png.gif")。
+   * @param filter 过滤规则。
    *
    * @return 返回RET_OK表示成功，否则表示失败。
    */

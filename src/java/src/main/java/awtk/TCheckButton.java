@@ -109,7 +109,7 @@ public class TCheckButton extends TWidget {
   /**
    * 设置控件的值。
    * 
-   * @param value 值
+   * @param value 值(勾选为TRUE，非勾选为FALSE)。
    *
    * @return 返回RET_OK表示成功，否则表示失败。
    */
