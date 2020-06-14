@@ -23,31 +23,6 @@ public class TAppConf {
 
 
   /**
-   * 注册配置变化事件。
-   * 
-   * @param on_event 事件处理函数。
-   * @param ctx 事件处理函数上下文。
-   *
-   * @return 返回id，用于app_conf_off_changed。
-   */
- public  static int onChanged(TOnEvent on_event, long ctx)  {
-    return app_conf_on_changed(on_event, ctx);
- }
-
-
-  /**
-   * 注销配置变化事件。
-   * 
-   * @param id app_conf_on_changed返回的ID。
-   *
-   * @return 返回RET_OK表示成功，否则表示失败。
-   */
- public  static TRet offChanged(int id)  {
-   return TRet.from(app_conf_off_changed(id));
- }
-
-
-  /**
    * 释放conf对象。
    * 
    *
@@ -212,8 +187,6 @@ public class TAppConf {
  }
 
 static private native int app_conf_save();
-static private native int app_conf_on_changed(TOnEvent on_event, long ctx);
-static private native int app_conf_off_changed(int id);
 static private native int app_conf_deinit();
 static private native boolean app_conf_exist(String key);
 static private native int app_conf_set_int(String key, int v);

@@ -512,6 +512,27 @@ public enum TEventType {
   WIDGET_REMOVE_CHILD (EVT_WIDGET_REMOVE_CHILD()),
   
   /**
+   * scroll view开始滚动(event_t)。
+   *
+   */
+ 
+  SCROLL_START (EVT_SCROLL_START()),
+  
+  /**
+   * scroll view滚动(event_t)。
+   *
+   */
+ 
+  SCROLL (EVT_SCROLL()),
+  
+  /**
+   * scroll view结束滚动(event_t)。
+   *
+   */
+ 
+  SCROLL_END (EVT_SCROLL_END()),
+  
+  /**
    * event queue其它请求编号起始值。
    *
    */
@@ -699,6 +720,9 @@ public enum TEventType {
   static private native int EVT_THEME_CHANGED();
   static private native int EVT_WIDGET_ADD_CHILD();
   static private native int EVT_WIDGET_REMOVE_CHILD();
+  static private native int EVT_SCROLL_START();
+  static private native int EVT_SCROLL();
+  static private native int EVT_SCROLL_END();
   static private native int EVT_REQ_START();
   static private native int EVT_USER_START();
   static private native int EVT_NONE();
