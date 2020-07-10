@@ -456,10 +456,6 @@ public class TEdit extends TWidget {
  }
 
 
-  /**
-   * 自定义软键盘名称。
-   *
-   */
  public String getKeyboard() {
    return edit_t_get_prop_keyboard(this.nativeObj);
  }

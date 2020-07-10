@@ -146,7 +146,7 @@ public class TWindowManager extends TWidget {
   /**
    * 设置屏保时间。
    * 
-   * @param screen_saver_time 屏保时间(单位毫秒)。
+   * @param screen_saver_time 屏保时间(单位毫秒), 为0关闭屏保。
    *
    * @return 返回RET_OK表示成功，否则表示失败。
    */

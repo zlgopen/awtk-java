@@ -10,77 +10,105 @@ package awtk;
 public enum TInputType {
   
   /**
-   * 文本。
+   * 文本。字符串属性值：text
    *
    */
  
   TEXT (INPUT_TEXT()),
   
   /**
-   * 整数。
+   * 整数。字符串属性值：int
    *
    */
  
   INT (INPUT_INT()),
   
   /**
-   * 非负整数。
+   * 非负整数。字符串属性值：uint
    *
    */
  
   UINT (INPUT_UINT()),
   
   /**
-   * 16进制整数。
+   * 16进制整数。字符串属性值：hex
    *
    */
  
   HEX (INPUT_HEX()),
   
   /**
-   * 浮点数。
+   * 浮点数。字符串属性值：float
    *
    */
  
   FLOAT (INPUT_FLOAT()),
   
   /**
-   * 非负浮点数。
+   * 非负浮点数。字符串属性值：ufloat
    *
    */
  
   UFLOAT (INPUT_UFLOAT()),
   
   /**
-   * 邮件地址。
+   * 邮件地址。字符串属性值：email
    *
    */
  
   EMAIL (INPUT_EMAIL()),
   
   /**
-   * 密码。
+   * 密码。字符串属性值：password
    *
    */
  
   PASSWORD (INPUT_PASSWORD()),
   
   /**
-   * 电话号码。
+   * 电话号码。字符串属性值：phone
    *
    */
  
   PHONE (INPUT_PHONE()),
   
   /**
-   * 使用自定义的软键盘(如计算器等应用不希望弹出系统软键盘)。
+   * IP Addr V4(如：192.168.1.1)。字符串属性值：ipv4
+   *
+   */
+ 
+  IPV4 (INPUT_IPV4()),
+  
+  /**
+   * 日期(如：2020/02/20)。字符串属性值：date
+   *
+   */
+ 
+  DATE (INPUT_DATE()),
+  
+  /**
+   * 时间(时分，如：12:00)。字符串属性值：time
+   *
+   */
+ 
+  TIME (INPUT_TIME()),
+  
+  /**
+   * 时间(时分秒，如：12:00:00)。字符串属性值：time_full
+   *
+   */
+ 
+  TIME_FULL (INPUT_TIME_FULL()),
+  
+  /**
+   * 使用自定义的软键盘(如计算器等应用不希望弹出系统软键盘)。字符串属性值：custom
    *
    */
  
   CUSTOM (INPUT_CUSTOM()),
   
   /**
-   * 使用自定义的密码软键盘。
+   * 使用自定义的密码软键盘。字符串属性值：custom_password
    *
    */
  
@@ -128,6 +156,10 @@ public enum TInputType {
   static private native int INPUT_EMAIL();
   static private native int INPUT_PASSWORD();
   static private native int INPUT_PHONE();
+  static private native int INPUT_IPV4();
+  static private native int INPUT_DATE();
+  static private native int INPUT_TIME();
+  static private native int INPUT_TIME_FULL();
   static private native int INPUT_CUSTOM();
   static private native int INPUT_CUSTOM_PASSWORD();
 

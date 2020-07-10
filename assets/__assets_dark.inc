@@ -37,6 +37,7 @@ extern TK_CONST_DATA_ALIGN(const unsigned char ui_radial_gradient[]);
 extern TK_CONST_DATA_ALIGN(const unsigned char ui_menu_left_bottom[]);
 extern TK_CONST_DATA_ALIGN(const unsigned char ui_auto_play_landscape[]);
 extern TK_CONST_DATA_ALIGN(const unsigned char ui_color_picker_simple[]);
+extern TK_CONST_DATA_ALIGN(const unsigned char ui_bidi[]);
 extern TK_CONST_DATA_ALIGN(const unsigned char ui_progress_circle[]);
 extern TK_CONST_DATA_ALIGN(const unsigned char ui_combo_box[]);
 extern TK_CONST_DATA_ALIGN(const unsigned char ui_kb_phone[]);
@@ -437,6 +438,7 @@ extern TK_CONST_DATA_ALIGN(const unsigned char image_pointer[]);
 extern TK_CONST_DATA_ALIGN(const unsigned char image_girl[]);
 #endif /*WITH_VGCANVAS*/
 #ifdef WITH_TRUETYPE_FONT
+extern TK_CONST_DATA_ALIGN(const unsigned char font_trado[]);
 extern TK_CONST_DATA_ALIGN(const unsigned char font_default[]);
 #else /*WITH_TRUETYPE_FONT*/
 extern TK_CONST_DATA_ALIGN(const unsigned char font_default_20[]);
@@ -490,6 +492,7 @@ ret_t assets_init_dark(void) {
   assets_manager_add(am, ui_menu_left_bottom);
   assets_manager_add(am, ui_auto_play_landscape);
   assets_manager_add(am, ui_color_picker_simple);
+  assets_manager_add(am, ui_bidi);
   assets_manager_add(am, ui_progress_circle);
   assets_manager_add(am, ui_combo_box);
   assets_manager_add(am, ui_kb_phone);
@@ -758,6 +761,7 @@ ret_t assets_init_dark(void) {
   assets_manager_add(am, image_girl);
 #endif /*WITH_VGCANVAS*/
 #ifdef WITH_TRUETYPE_FONT
+  assets_manager_add(am, font_trado);
   assets_manager_add(am, font_default);
 #else /*WITH_TRUETYPE_FONT*/
   assets_manager_add(am, font_default_20);

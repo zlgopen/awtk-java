@@ -23,6 +23,17 @@ public class TAppConf {
 
 
   /**
+   * 重新加载配置(内存中的配置丢失)。
+   * 
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  static TRet reload()  {
+   return TRet.from(app_conf_reload());
+ }
+
+
+  /**
    * 释放conf对象。
    * 
    *
@@ -187,6 +198,7 @@ public class TAppConf {
  }
 
 static private native int app_conf_save();
+static private native int app_conf_reload();
 static private native int app_conf_deinit();
 static private native boolean app_conf_exist(String key);
 static private native int app_conf_set_int(String key, int v);

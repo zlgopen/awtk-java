@@ -52,6 +52,18 @@ public class TFontManager {
 
 
   /**
+   * 清除最久没有被使用的缓冲字模。
+   * 
+   * @param cache_size 每种字体保留缓存字模的个数。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet shrinkCache(int cache_size)  {
+   return TRet.from(font_manager_shrink_cache(this != null ? (this.nativeObj) : 0, cache_size));
+ }
+
+
+  /**
    * 卸载全部字体。
    * 
    *
@@ -62,5 +74,6 @@ public class TFontManager {
  }
 
 static private native int font_manager_unload_font(long fm, String name, int size);
+static private native int font_manager_shrink_cache(long fm, int cache_size);
 static private native int font_manager_unload_all(long fm);
 };

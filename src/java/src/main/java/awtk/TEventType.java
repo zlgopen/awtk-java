@@ -568,6 +568,27 @@ public enum TEventType {
   PROP_CHANGED (EVT_PROP_CHANGED()),
   
   /**
+   * 对象即将执行命令(cmd_exec_event_t)。
+   *
+   */
+ 
+  CMD_WILL_EXEC (EVT_CMD_WILL_EXEC()),
+  
+  /**
+   * 对象完成执行命令(cmd_exec_event_t)。
+   *
+   */
+ 
+  CMD_EXECED (EVT_CMD_EXECED()),
+  
+  /**
+   * 对象命令是否能执行指定的命令(cmd_exec_event_t)。
+   *
+   */
+ 
+  CMD_CAN_EXEC (EVT_CMD_CAN_EXEC()),
+  
+  /**
    * 即将增加和删除集合中的项目(event_t)。
    *
    */
@@ -728,6 +749,9 @@ public enum TEventType {
   static private native int EVT_NONE();
   static private native int EVT_PROP_WILL_CHANGE();
   static private native int EVT_PROP_CHANGED();
+  static private native int EVT_CMD_WILL_EXEC();
+  static private native int EVT_CMD_EXECED();
+  static private native int EVT_CMD_CAN_EXEC();
   static private native int EVT_ITEMS_WILL_CHANGE();
   static private native int EVT_ITEMS_CHANGED();
   static private native int EVT_PROPS_CHANGED();
