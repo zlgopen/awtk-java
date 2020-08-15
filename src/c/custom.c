@@ -1,11 +1,11 @@
 #include "awtk.h"
 
-extern ret_t assets_init(const char* theme);
+#include "../../res/assets.inc"
 
 JNIEXPORT jint JNICALL Java_awtk_AWTK_init(JNIEnv* env, jclass ajc, jint w, jint h,
                                            jint app_type) { /*func*/
   tk_init(w, h, APP_SIMULATOR, "AWTK-JAVA", NULL);
-  assets_init("default");
+  assets_init();
   tk_ext_widgets_init();
   system_info_set_default_font(system_info(), "default_full");
 
