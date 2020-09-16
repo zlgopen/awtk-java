@@ -18,7 +18,7 @@ package awtk;
  *```
  *
  *>
- *更多用法请参考：[spin_box.xml](https://github.com/zlgopen/awtk/blob/master/demos/assets/default/raw/ui/spinbox.xml)
+ *更多用法请参考：[spin_box.xml](https://github.com/zlgopen/awtk/blob/master/design/default/ui/spinbox.xml)
  *
  *在c代码中使用函数spin_box\_create创建spinbox控件。如：
  *
@@ -45,7 +45,7 @@ package awtk;
  *```
  *
  *> 更多用法请参考：[theme
- *default](https://github.com/zlgopen/awtk/blob/master/demos/assets/default/raw/styles/default.xml#L128)
+ *default](https://github.com/zlgopen/awtk/blob/master/design/default/styles/default.xml#L128)
  *
  */
 public class TSpinBox extends TEdit { 

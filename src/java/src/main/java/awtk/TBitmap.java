@@ -86,6 +86,18 @@ public class TBitmap {
 
 
   /**
+   * 获取位图格式对应的颜色位数。
+   * 
+   * @param format 位图格式。
+   *
+   * @return 成功返回颜色位数，失败返回0。
+   */
+ public  static int getBppOfFormat(TBitmapFormat format)  {
+    return bitmap_get_bpp_of_format(format.value());
+ }
+
+
+  /**
    * 宽度。
    *
    */
@@ -142,6 +154,7 @@ static private native long bitmap_create();
 static private native long bitmap_create_ex(int w, int h, int line_length, int format);
 static private native int bitmap_get_bpp(long bitmap);
 static private native int bitmap_destroy(long bitmap);
+static private native int bitmap_get_bpp_of_format(int format);
 static private native int bitmap_t_get_prop_w(long nativeObj);
 static private native int bitmap_t_get_prop_h(long nativeObj);
 static private native int bitmap_t_get_prop_line_length(long nativeObj);

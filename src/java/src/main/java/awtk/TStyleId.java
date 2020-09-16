@@ -255,6 +255,34 @@ public enum TStyleId {
   _ID_ROUND_RADIUS (STYLE_ID_ROUND_RADIUS()),
   
   /**
+   * 左上角圆角半径(仅在WITH_VGCANVAS定义时生效)。
+   *
+   */
+ 
+  _ID_ROUND_RADIUS_TOP_LETF (STYLE_ID_ROUND_RADIUS_TOP_LETF()),
+  
+  /**
+   * 右上角圆角半径(仅在WITH_VGCANVAS定义时生效)。
+   *
+   */
+ 
+  _ID_ROUND_RADIUS_TOP_RIGHT (STYLE_ID_ROUND_RADIUS_TOP_RIGHT()),
+  
+  /**
+   * 左下角圆角半径(仅在WITH_VGCANVAS定义时生效)。
+   *
+   */
+ 
+  _ID_ROUND_RADIUS_BOTTOM_LETF (STYLE_ID_ROUND_RADIUS_BOTTOM_LETF()),
+  
+  /**
+   * 右下角圆角半径(仅在WITH_VGCANVAS定义时生效)。
+   *
+   */
+ 
+  _ID_ROUND_RADIUS_BOTTOM_RIGHT (STYLE_ID_ROUND_RADIUS_BOTTOM_RIGHT()),
+  
+  /**
    * 子控件布局参数。
    *
    */
@@ -336,6 +364,10 @@ public enum TStyleId {
   static private native String STYLE_ID_SELECTED_FG_COLOR();
   static private native String STYLE_ID_SELECTED_TEXT_COLOR();
   static private native String STYLE_ID_ROUND_RADIUS();
+  static private native String STYLE_ID_ROUND_RADIUS_TOP_LETF();
+  static private native String STYLE_ID_ROUND_RADIUS_TOP_RIGHT();
+  static private native String STYLE_ID_ROUND_RADIUS_BOTTOM_LETF();
+  static private native String STYLE_ID_ROUND_RADIUS_BOTTOM_RIGHT();
   static private native String STYLE_ID_CHILDREN_LAYOUT();
   static private native String STYLE_ID_SELF_LAYOUT();
 

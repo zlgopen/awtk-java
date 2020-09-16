@@ -31,6 +31,20 @@ public enum TBidiType {
   RTL (BIDI_TYPE_RTL()),
   
   /**
+   * Left-To-Right letter Override。
+   *
+   */
+ 
+  LRO (BIDI_TYPE_LRO()),
+  
+  /**
+   * Right-To-Left letter Override。
+   *
+   */
+ 
+  RLO (BIDI_TYPE_RLO()),
+  
+  /**
    * Weak Left To Right paragraph。
    *
    */
@@ -80,6 +94,8 @@ public enum TBidiType {
   static private native int BIDI_TYPE_AUTO();
   static private native int BIDI_TYPE_LTR();
   static private native int BIDI_TYPE_RTL();
+  static private native int BIDI_TYPE_LRO();
+  static private native int BIDI_TYPE_RLO();
   static private native int BIDI_TYPE_WLTR();
   static private native int BIDI_TYPE_WRTL();
 

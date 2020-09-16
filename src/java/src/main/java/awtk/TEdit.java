@@ -27,7 +27,7 @@ package awtk;
  *> XXX：需要在min/max/step之前设置input\_type。
  *
  *>更多用法请参考：
- *[edit.xml](https://github.com/zlgopen/awtk/blob/master/demos/assets/default/raw/ui/edit.xml)
+ *[edit.xml](https://github.com/zlgopen/awtk/blob/master/design/default/ui/edit.xml)
  *
  *在c代码中使用函数edit\_create创建编辑器控件。如：
  *
@@ -51,7 +51,7 @@ package awtk;
  *
  *> 更多用法请参考：
  *[theme
- *default](https://github.com/zlgopen/awtk/blob/master/demos/assets/default/raw/styles/default.xml#L104)
+ *default](https://github.com/zlgopen/awtk/blob/master/design/default/styles/default.xml#L104)
  *
  */
 public class TEdit extends TWidget { 
@@ -208,6 +208,18 @@ public class TEdit extends TWidget {
 
 
   /**
+   * 设置编辑器是否为可撤销修改。
+   * 
+   * @param cancelable 是否为可撤销修。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setCancelable(boolean cancelable)  {
+   return TRet.from(edit_set_cancelable(this != null ? (this.nativeObj) : 0, cancelable));
+ }
+
+
+  /**
    * 设置编辑器是否为自动改正。
    * 
    * @param auto_fix 自动改正。
@@ -233,6 +245,9 @@ public class TEdit extends TWidget {
 
   /**
    * 设置编辑器是否在获得焦点时打开输入法。
+   *
+   *> * 设置默认焦点时，打开窗口时不弹出软键盘。
+   *> * 用键盘切换焦点时，编辑器获得焦点时不弹出软键盘。
    * 
    * @param open_im_when_focused 是否在获得焦点时打开输入法。
    *
@@ -240,6 +255,18 @@ public class TEdit extends TWidget {
    */
  public  TRet setOpenImWhenFocused(boolean open_im_when_focused)  {
    return TRet.from(edit_set_open_im_when_focused(this != null ? (this.nativeObj) : 0, open_im_when_focused));
+ }
+
+
+  /**
+   * 设置编辑器是否在失去焦点时关闭输入法。
+   * 
+   * @param close_im_when_blured 是否是否在失去焦点时关闭输入法。在失去焦点时关闭输入法。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setCloseImWhenBlured(boolean close_im_when_blured)  {
+   return TRet.from(edit_set_close_im_when_blured(this != null ? (this.nativeObj) : 0, close_im_when_blured));
  }
 
 
@@ -389,6 +416,15 @@ public class TEdit extends TWidget {
 
 
   /**
+   * 是否在失去焦点时关闭输入法(默认是)。
+   *
+   */
+ public boolean getCloseImWhenBlured() {
+   return edit_t_get_prop_close_im_when_blured(this.nativeObj);
+ }
+
+
+  /**
    * 上边距。
    *
    */
@@ -456,6 +492,10 @@ public class TEdit extends TWidget {
  }
 
 
+  /**
+   * 自定义软键盘名称。
+   *
+   */
  public String getKeyboard() {
    return edit_t_get_prop_keyboard(this.nativeObj);
  }
@@ -498,6 +538,18 @@ public class TEdit extends TWidget {
    return edit_t_get_prop_step(this.nativeObj);
  }
 
+
+  /**
+   * 是否支持撤销编辑。如果为TRUE，在失去焦点之前可以撤销所有修改(恢复获得焦点之前的内容)。
+   *
+   *> * 1.一般配合keyboard的"cancel"按钮使用。
+   *> * 2.为TRUE时，如果内容有变化，会设置编辑器的状态为changed，所以此时编辑器需要支持changed状态的style。
+   *
+   */
+ public boolean getCancelable() {
+   return edit_t_get_prop_cancelable(this.nativeObj);
+ }
+
 static private native long edit_create(long parent, int x, int y, int w, int h);
 static private native long edit_cast(long widget);
 static private native int edit_get_int(long widget);
@@ -508,9 +560,11 @@ static private native int edit_set_text_limit(long widget, int min, int max);
 static private native int edit_set_int_limit(long widget, int min, int max, int step);
 static private native int edit_set_float_limit(long widget, double min, double max, double step);
 static private native int edit_set_readonly(long widget, boolean readonly);
+static private native int edit_set_cancelable(long widget, boolean cancelable);
 static private native int edit_set_auto_fix(long widget, boolean auto_fix);
 static private native int edit_set_select_none_when_focused(long widget, boolean select_none_when_focused);
 static private native int edit_set_open_im_when_focused(long widget, boolean open_im_when_focused);
+static private native int edit_set_close_im_when_blured(long widget, boolean close_im_when_blured);
 static private native int edit_set_input_type(long widget, int type);
 static private native int edit_set_action_text(long widget, String action_text);
 static private native int edit_set_tips(long widget, String tips);
@@ -524,6 +578,7 @@ static private native boolean edit_t_get_prop_password_visible(long nativeObj);
 static private native boolean edit_t_get_prop_auto_fix(long nativeObj);
 static private native boolean edit_t_get_prop_select_none_when_focused(long nativeObj);
 static private native boolean edit_t_get_prop_open_im_when_focused(long nativeObj);
+static private native boolean edit_t_get_prop_close_im_when_blured(long nativeObj);
 static private native int edit_t_get_prop_top_margin(long nativeObj);
 static private native int edit_t_get_prop_bottom_margin(long nativeObj);
 static private native int edit_t_get_prop_left_margin(long nativeObj);
@@ -536,4 +591,5 @@ static private native int edit_t_get_prop_input_type(long nativeObj);
 static private native double edit_t_get_prop_min(long nativeObj);
 static private native double edit_t_get_prop_max(long nativeObj);
 static private native double edit_t_get_prop_step(long nativeObj);
+static private native boolean edit_t_get_prop_cancelable(long nativeObj);
 };

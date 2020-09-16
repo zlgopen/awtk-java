@@ -18,7 +18,7 @@ package awtk;
  *```
  *
  *> 更多用法请参考：[slide\_view.xml](
- *https://github.com/zlgopen/awtk/blob/master/demos/assets/default/raw/ui/slide_view.xml)
+ *https://github.com/zlgopen/awtk/blob/master/design/default/ui/slide_view.xml)
  *
  *在c代码中使用函数slide\_indicator\_create创建指示器控件。如：
  *
@@ -30,7 +30,7 @@ package awtk;
  *```
  *
  *> 更多用法请参考：[theme default](
- *https://github.com/zlgopen/awtk/blob/master/demos/assets/default/raw/styles/default.xml#L350)
+ *https://github.com/zlgopen/awtk/blob/master/design/default/styles/default.xml#L350)
  *
  */
 public class TSlideIndicator extends TWidget { 

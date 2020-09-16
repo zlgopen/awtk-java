@@ -13,7 +13,7 @@ package awtk;
  *```
  *
  *> 更多用法请参考：[digit\_clock.xml](
- *https://github.com/zlgopen/awtk/blob/master/demos/assets/default/raw/ui/digit_clock.xml)
+ *https://github.com/zlgopen/awtk/blob/master/design/default/ui/digit_clock.xml)
  *
  *在c代码中使用函数digit\_clock\_create创建数字时钟控件。如：
  *
@@ -30,7 +30,7 @@ package awtk;
  *```
  *
  *> 更多用法请参考：[theme default](
- *https://github.com/zlgopen/awtk/blob/master/demos/assets/default/raw/styles/default.xml#L138)
+ *https://github.com/zlgopen/awtk/blob/master/design/default/styles/default.xml#L138)
  *
  */
 public class TDigitClock extends TWidget { 

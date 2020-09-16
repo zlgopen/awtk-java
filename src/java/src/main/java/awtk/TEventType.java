@@ -129,6 +129,13 @@ public enum TEventType {
   KEY_DOWN (EVT_KEY_DOWN()),
   
   /**
+   * 键长按事件名(key_event_t)。
+   *
+   */
+ 
+  KEY_LONG_PRESS (EVT_KEY_LONG_PRESS()),
+  
+  /**
    * 键按下事件名，在子控件处理之前触发(key_event_t)。
    *
    */
@@ -364,6 +371,20 @@ public enum TEventType {
   IM_COMMIT (EVT_IM_COMMIT()),
   
   /**
+   * 清除编辑器内容(event_t)。
+   *
+   */
+ 
+  IM_CLEAR (EVT_IM_CLEAR()),
+  
+  /**
+   * 取消编辑，恢复之前的内容(event_t)。
+   *
+   */
+ 
+  IM_CANCEL (EVT_IM_CANCEL()),
+  
+  /**
    * 进入预编辑状态(event_t)。
    *
    */
@@ -439,6 +460,13 @@ public enum TEventType {
    */
  
   DRAG_END (EVT_DRAG_END()),
+  
+  /**
+   * Reset(event_t)。
+   *
+   */
+ 
+  RESET (EVT_RESET()),
   
   /**
    * 在指定的时间内(WITH_SCREEN_SAVER_TIME)，没有用户输入事件，由窗口管理器触发。
@@ -531,6 +559,13 @@ public enum TEventType {
    */
  
   SCROLL_END (EVT_SCROLL_END()),
+  
+  /**
+   * 多点触摸手势(multi_gesture_event_t)。
+   *
+   */
+ 
+  MULTI_GESTURE (EVT_MULTI_GESTURE()),
   
   /**
    * event queue其它请求编号起始值。
@@ -687,6 +722,7 @@ public enum TEventType {
   static private native int EVT_FOCUS();
   static private native int EVT_BLUR();
   static private native int EVT_KEY_DOWN();
+  static private native int EVT_KEY_LONG_PRESS();
   static private native int EVT_KEY_DOWN_BEFORE_CHILDREN();
   static private native int EVT_KEY_REPEAT();
   static private native int EVT_KEY_UP();
@@ -720,6 +756,8 @@ public enum TEventType {
   static private native int EVT_REQUEST_CLOSE_WINDOW();
   static private native int EVT_TOP_WINDOW_CHANGED();
   static private native int EVT_IM_COMMIT();
+  static private native int EVT_IM_CLEAR();
+  static private native int EVT_IM_CANCEL();
   static private native int EVT_IM_PREEDIT();
   static private native int EVT_IM_PREEDIT_CONFIRM();
   static private native int EVT_IM_PREEDIT_ABORT();
@@ -731,6 +769,7 @@ public enum TEventType {
   static private native int EVT_DRAG_START();
   static private native int EVT_DRAG();
   static private native int EVT_DRAG_END();
+  static private native int EVT_RESET();
   static private native int EVT_SCREEN_SAVER();
   static private native int EVT_LOW_MEMORY();
   static private native int EVT_OUT_OF_MEMORY();
@@ -744,6 +783,7 @@ public enum TEventType {
   static private native int EVT_SCROLL_START();
   static private native int EVT_SCROLL();
   static private native int EVT_SCROLL_END();
+  static private native int EVT_MULTI_GESTURE();
   static private native int EVT_REQ_START();
   static private native int EVT_USER_START();
   static private native int EVT_NONE();

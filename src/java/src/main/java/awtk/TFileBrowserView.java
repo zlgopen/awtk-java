@@ -36,7 +36,7 @@ package awtk;
  *
  *完整示例请参考：
  *
- *https://github.com/zlgopen/awtk/blob/master/demos/assets/default/raw/ui/file_chooser_for_open.xml
+ *https://github.com/zlgopen/awtk/blob/master/design/default/ui/file_chooser_for_open.xml
  *
  */
 public class TFileBrowserView extends TWidget { 

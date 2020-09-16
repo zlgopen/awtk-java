@@ -13,7 +13,7 @@ package awtk;
  *```
  *
  *> 更多用法请参考：[mledit.xml](
- *https://github.com/zlgopen/awtk/blob/master/demos/assets/default/raw/ui/mledit.xml)
+ *https://github.com/zlgopen/awtk/blob/master/design/default/ui/mledit.xml)
  *
  *在c代码中使用函数mledit\_create创建多行编辑器控件。如：
  *
@@ -75,6 +75,18 @@ public class TMledit extends TWidget {
    */
  public  TRet setReadonly(boolean readonly)  {
    return TRet.from(mledit_set_readonly(this != null ? (this.nativeObj) : 0, readonly));
+ }
+
+
+  /**
+   * 设置编辑器是否为可撤销修改。
+   * 
+   * @param cancelable 是否为可撤销修。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setCancelable(boolean cancelable)  {
+   return TRet.from(mledit_set_cancelable(this != null ? (this.nativeObj) : 0, cancelable));
  }
 
 
@@ -284,8 +296,21 @@ public class TMledit extends TWidget {
    return mledit_t_get_prop_scroll_line(this.nativeObj);
  }
 
+
+  /**
+   * 是否支持撤销编辑。如果为TRUE，在失去焦点之前可以撤销所有修改(恢复获得焦点之前的内容)。
+   *
+   *> * 1.一般配合keyboard的"cancel"按钮使用。
+   *> * 2.为TRUE时，如果内容有变化，会设置编辑器的状态为changed，所以此时编辑器需要支持changed状态的style。
+   *
+   */
+ public boolean getCancelable() {
+   return mledit_t_get_prop_cancelable(this.nativeObj);
+ }
+
 static private native long mledit_create(long parent, int x, int y, int w, int h);
 static private native int mledit_set_readonly(long widget, boolean readonly);
+static private native int mledit_set_cancelable(long widget, boolean cancelable);
 static private native int mledit_set_focus(long widget, boolean focus);
 static private native int mledit_set_wrap_word(long widget, boolean wrap_word);
 static private native int mledit_set_max_lines(long widget, int max_lines);
@@ -306,4 +331,5 @@ static private native String mledit_t_get_prop_keyboard(long nativeObj);
 static private native boolean mledit_t_get_prop_wrap_word(long nativeObj);
 static private native int mledit_t_get_prop_max_lines(long nativeObj);
 static private native int mledit_t_get_prop_scroll_line(long nativeObj);
+static private native boolean mledit_t_get_prop_cancelable(long nativeObj);
 };

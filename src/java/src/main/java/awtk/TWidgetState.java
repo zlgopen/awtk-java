@@ -26,6 +26,13 @@ public enum TWidgetState {
   STATE_NORMAL (WIDGET_STATE_NORMAL()),
   
   /**
+   * 内容被修改的状态。
+   *
+   */
+ 
+  STATE_CHANGED (WIDGET_STATE_CHANGED()),
+  
+  /**
    * 指针按下状态。
    *
    */
@@ -200,6 +207,7 @@ public enum TWidgetState {
 
   static private native String WIDGET_STATE_NONE();
   static private native String WIDGET_STATE_NORMAL();
+  static private native String WIDGET_STATE_CHANGED();
   static private native String WIDGET_STATE_PRESSED();
   static private native String WIDGET_STATE_OVER();
   static private native String WIDGET_STATE_DISABLE();

@@ -99,7 +99,7 @@ public class TDateTime {
 
 
   /**
-   * 获取指定日期是周几(0-6)。
+   * 获取指定日期是周几(0-6, Sunday = 0)。。
    * 
    * @param year 年份。
    * @param montn 月份(1-12)。
@@ -109,6 +109,30 @@ public class TDateTime {
    */
  public  static int getWday(int year, int montn, int day)  {
     return date_time_get_wday(year, montn, day);
+ }
+
+
+  /**
+   * 获取指定月份的英文名称(简写)。
+   * 
+   * @param montn 月份(1-12)。
+   *
+   * @return 返回指定月份的英文名称(简写)。
+   */
+ public  static String getMonthName(int montn)  {
+    return date_time_get_month_name(montn);
+ }
+
+
+  /**
+   * 获取周几的英文名称(简写)。
+   * 
+   * @param wday 星期几(0-6, Sunday = 0)。
+   *
+   * @return 返回指定周几的英文名称(简写)。
+   */
+ public  static String getWdayName(int wday)  {
+    return date_time_get_wday_name(wday);
  }
 
 
@@ -191,6 +215,8 @@ static private native int date_time_from_time(long dt, long time);
 static private native boolean date_time_is_leap(int year);
 static private native int date_time_get_days(int year, int montn);
 static private native int date_time_get_wday(int year, int montn, int day);
+static private native String date_time_get_month_name(int montn);
+static private native String date_time_get_wday_name(int wday);
 static private native int date_time_destroy(long dt);
 static private native int date_time_t_get_prop_second(long nativeObj);
 static private native int date_time_t_get_prop_minute(long nativeObj);

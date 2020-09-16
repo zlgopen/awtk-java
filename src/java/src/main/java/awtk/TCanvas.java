@@ -335,6 +335,21 @@ public class TCanvas {
 
 
   /**
+   * 绘制图片。
+   * 
+   * @param img 图片对象。
+   * @param draw_type 绘制类型。
+   * @param src 源区域。
+   * @param dst 目的区域。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet drawImageEx2(TBitmap img, TImageDrawType draw_type, TRect src, TRect dst)  {
+   return TRet.from(canvas_draw_image_ex2(this != null ? (this.nativeObj) : 0, img != null ? (img.nativeObj) : 0, draw_type.value(), src != null ? (src.nativeObj) : 0, dst != null ? (dst.nativeObj) : 0));
+ }
+
+
+  /**
    * 获取vgcanvas对象。
    * 
    *
@@ -434,6 +449,7 @@ static private native int canvas_draw_utf8_in_rect(long c, String str, long r);
 static private native int canvas_draw_icon(long c, long img, int cx, int cy);
 static private native int canvas_draw_image(long c, long img, long src, long dst);
 static private native int canvas_draw_image_ex(long c, long img, int draw_type, long dst);
+static private native int canvas_draw_image_ex2(long c, long img, int draw_type, long src, long dst);
 static private native long canvas_get_vgcanvas(long c);
 static private native long canvas_cast(long c);
 static private native int canvas_reset(long c);

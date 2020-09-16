@@ -19,7 +19,7 @@ package awtk;
  *```
  *
  *>
- *更多用法请参考：[overlay.xml](https://github.com/zlgopen/awtk/blob/master/demos/assets/default/raw/ui/)
+ *更多用法请参考：[overlay.xml](https://github.com/zlgopen/awtk/blob/master/design/default/ui/)
  *
  *在c代码中使用函数overlay\_create创建窗口。如：
  *
@@ -36,7 +36,7 @@ package awtk;
  *```
  *
  *> 更多用法请参考：[theme
- *default](https://github.com/zlgopen/awtk/blob/master/demos/assets/default/raw/styles/default.xml#L0)
+ *default](https://github.com/zlgopen/awtk/blob/master/design/default/styles/default.xml#L0)
  *
  */
 public class TOverlay extends TWindowBase { 
@@ -82,6 +82,18 @@ public class TOverlay extends TWindowBase {
 
 
   /**
+   * 设置是否启用点击穿透。
+   * 
+   * @param click_through 是否启用点击穿透。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setClickThrough(boolean click_through)  {
+   return TRet.from(overlay_set_click_through(this != null ? (this.nativeObj) : 0, click_through));
+ }
+
+
+  /**
    * 转换为overlay对象(供脚本语言使用)。
    * 
    * @param widget overlay对象。
@@ -92,6 +104,19 @@ public class TOverlay extends TWindowBase {
     return new TOverlay(overlay_cast(widget != null ? (widget.nativeObj) : 0));
  }
 
+
+  /**
+   * 点击穿透。点击没有子控件的位置，是否穿透到底层窗口。
+   *
+   *缺省不启用。
+   *
+   */
+ public boolean getClickThrough() {
+   return overlay_t_get_prop_click_through(this.nativeObj);
+ }
+
 static private native long overlay_create(long parent, int x, int y, int w, int h);
+static private native int overlay_set_click_through(long widget, boolean click_through);
 static private native long overlay_cast(long widget);
+static private native boolean overlay_t_get_prop_click_through(long nativeObj);
 };

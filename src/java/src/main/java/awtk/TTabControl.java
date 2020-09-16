@@ -27,7 +27,7 @@ package awtk;
  *```
  *
  *> 更多用法请参考：
- *[tab control](https://github.com/zlgopen/awtk/blob/master/demos/assets/default/raw/ui/)
+ *[tab control](https://github.com/zlgopen/awtk/blob/master/design/default/ui/)
  *
  */
 public class TTabControl extends TWidget { 

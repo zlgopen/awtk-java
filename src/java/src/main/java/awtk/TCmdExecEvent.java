@@ -70,8 +70,18 @@ public class TCmdExecEvent extends TEvent {
 
  }
 
+
+  /**
+   * 执行结果(适用于CAN_EXEC)。
+   *
+   */
+ public boolean getCanExec() {
+   return cmd_exec_event_t_get_prop_can_exec(this.nativeObj);
+ }
+
 static private native long cmd_exec_event_cast(long event);
 static private native String cmd_exec_event_t_get_prop_name(long nativeObj);
 static private native String cmd_exec_event_t_get_prop_args(long nativeObj);
 static private native int cmd_exec_event_t_get_prop_result(long nativeObj);
+static private native boolean cmd_exec_event_t_get_prop_can_exec(long nativeObj);
 };

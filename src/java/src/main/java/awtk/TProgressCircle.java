@@ -13,7 +13,7 @@ package awtk;
  *```
  *
  *> 更多用法请参考：
- *[progress_circle.xml](https://github.com/zlgopen/awtk/blob/master/demos/assets/default/raw/ui/progress_circle.xml)
+ *[progress_circle.xml](https://github.com/zlgopen/awtk/blob/master/design/default/ui/progress_circle.xml)
  *
  *在c代码中使用函数progress\_circle\_create创建进度圆环控件。如：
  *
@@ -32,7 +32,7 @@ package awtk;
  *
  *> 更多用法请参考：
  *[theme
- *default](https://github.com/zlgopen/awtk/blob/master/demos/assets/default/raw/styles/default.xml#L467)
+ *default](https://github.com/zlgopen/awtk/blob/master/design/default/styles/default.xml#L467)
  *
  */
 public class TProgressCircle extends TWidget { 
