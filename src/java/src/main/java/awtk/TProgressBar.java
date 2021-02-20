@@ -140,6 +140,18 @@ public class TProgressBar extends TWidget {
 
 
   /**
+   * 设置进度条是否反向。
+   * 
+   * @param reverse 是否反向。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setReverse(boolean reverse)  {
+   return TRet.from(progress_bar_set_reverse(this != null ? (this.nativeObj) : 0, reverse));
+ }
+
+
+  /**
    * 获取进度百分比。
    *
    *> 当max为100时，percent和value取整后一致。
@@ -178,15 +190,26 @@ public class TProgressBar extends TWidget {
    return progress_bar_t_get_prop_show_text(this.nativeObj);
  }
 
+
+  /**
+   * 是否反向显示。如果为TRUE，水平方向从右向左表示增加，垂直方向从上到下表示增加。
+   *
+   */
+ public boolean getReverse() {
+   return progress_bar_t_get_prop_reverse(this.nativeObj);
+ }
+
 static private native long progress_bar_create(long parent, int x, int y, int w, int h);
 static private native long progress_bar_cast(long widget);
 static private native int progress_bar_set_value(long widget, double value);
 static private native int progress_bar_set_max(long widget, int max);
 static private native int progress_bar_set_vertical(long widget, boolean vertical);
 static private native int progress_bar_set_show_text(long widget, boolean show_text);
+static private native int progress_bar_set_reverse(long widget, boolean reverse);
 static private native int progress_bar_get_percent(long widget);
 static private native double progress_bar_t_get_prop_value(long nativeObj);
 static private native double progress_bar_t_get_prop_max(long nativeObj);
 static private native boolean progress_bar_t_get_prop_vertical(long nativeObj);
 static private native boolean progress_bar_t_get_prop_show_text(long nativeObj);
+static private native boolean progress_bar_t_get_prop_reverse(long nativeObj);
 };

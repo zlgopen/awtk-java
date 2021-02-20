@@ -88,6 +88,15 @@ public class TEvent {
 
 
   /**
+   * 结构体的大小。
+   *
+   */
+ public int getSize() {
+   return event_t_get_prop_size(this.nativeObj);
+ }
+
+
+  /**
    * 事件发生的时间。
    *
    */
@@ -108,6 +117,7 @@ static private native long event_cast(long event);
 static private native long event_create(int type);
 static private native int event_destroy(long event);
 static private native int event_t_get_prop_type(long nativeObj);
+static private native int event_t_get_prop_size(long nativeObj);
 static private native long event_t_get_prop_time(long nativeObj);
 static private native long event_t_get_prop_target(long nativeObj);
 };

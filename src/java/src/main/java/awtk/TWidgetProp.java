@@ -45,11 +45,60 @@ public enum TWidgetProp {
   H (WIDGET_PROP_H()),
   
   /**
+   * 窗口设计时宽度。
+   *
+   */
+ 
+  DESIGN_W (WIDGET_PROP_DESIGN_W()),
+  
+  /**
+   * 窗口设计时宽度。
+   *
+   */
+ 
+  DESIGN_H (WIDGET_PROP_DESIGN_H()),
+  
+  /**
+   * 窗口大小与设计时大小不同时，是否自动调整子控件的x坐标。
+   *
+   */
+ 
+  AUTO_SCALE_CHILDREN_X (WIDGET_PROP_AUTO_SCALE_CHILDREN_X()),
+  
+  /**
+   * 窗口大小与设计时大小不同时，是否自动调整子控件的y坐标。
+   *
+   */
+ 
+  AUTO_SCALE_CHILDREN_Y (WIDGET_PROP_AUTO_SCALE_CHILDREN_Y()),
+  
+  /**
+   * 窗口大小与设计时大小不同时，是否自动调整子控件的宽度。
+   *
+   */
+ 
+  AUTO_SCALE_CHILDREN_W (WIDGET_PROP_AUTO_SCALE_CHILDREN_W()),
+  
+  /**
+   * 窗口大小与设计时大小不同时，是否自动调整子控件的高度。
+   *
+   */
+ 
+  AUTO_SCALE_CHILDREN_H (WIDGET_PROP_AUTO_SCALE_CHILDREN_H()),
+  
+  /**
    * inputing。
    *
    */
  
   INPUTING (WIDGET_PROP_INPUTING()),
+  
+  /**
+   * always on top。
+   *
+   */
+ 
+  ALWAYS_ON_TOP (WIDGET_PROP_ALWAYS_ON_TOP()),
   
   /**
    * caret x。
@@ -136,6 +185,20 @@ public enum TWidgetProp {
   MAX_W (WIDGET_PROP_MAX_W()),
   
   /**
+   * 根据子控件和文本自动调整大小。
+   *
+   */
+ 
+  AUTO_ADJUST_SIZE (WIDGET_PROP_AUTO_ADJUST_SIZE()),
+  
+  /**
+   * 窗口是否保持单例。
+   *
+   */
+ 
+  SINGLE_INSTANCE (WIDGET_PROP_SINGLE_INSTANCE()),
+  
+  /**
    * 子控件布局参数。
    *
    */
@@ -220,11 +283,32 @@ public enum TWidgetProp {
   VALUE (WIDGET_PROP_VALUE()),
   
   /**
+   * 进度条反向显示。
+   *
+   */
+ 
+  REVERSE (WIDGET_PROP_REVERSE()),
+  
+  /**
    * 长度。
    *
    */
  
   LENGTH (WIDGET_PROP_LENGTH()),
+  
+  /**
+   * 自动换行。
+   *
+   */
+ 
+  LINE_WRAP (WIDGET_PROP_LINE_WRAP()),
+  
+  /**
+   * 是否允许单词中换行。
+   *
+   */
+ 
+  WORD_WRAP (WIDGET_PROP_WORD_WRAP()),
   
   /**
    * 文本。
@@ -449,6 +533,20 @@ public enum TWidgetProp {
    */
  
   ACTIVE (WIDGET_PROP_ACTIVE()),
+  
+  /**
+   * 当前页。
+   *
+   */
+ 
+  CURR_PAGE (WIDGET_PROP_CURR_PAGE()),
+  
+  /**
+   * 页面最大个数。
+   *
+   */
+ 
+  PAGE_MAX_NUMBER (WIDGET_PROP_PAGE_MAX_NUMBER()),
   
   /**
    * 是否为垂直模式。
@@ -878,6 +976,13 @@ public enum TWidgetProp {
   CLOSE_WHEN_CLICK_OUTSIDE (WIDGET_PROP_CLOSE_WHEN_CLICK_OUTSIDE()),
   
   /**
+   * 超时后关闭窗口。
+   *
+   */
+ 
+  CLOSE_WHEN_TIMEOUT (WIDGET_PROP_CLOSE_WHEN_TIMEOUT()),
+  
+  /**
    * 行间距。
    *
    */
@@ -934,7 +1039,7 @@ public enum TWidgetProp {
   FOCUSABLE (WIDGET_PROP_FOCUSABLE()),
   
   /**
-   * 是否支持焦点状态(如果希望style支持焦点状态，但有不希望焦点停留，可用本属性)。
+   * 是否支持焦点状态(如果希望style支持焦点状态，但又不希望焦点停留，可用本属性)。
    *
    */
  
@@ -1020,7 +1125,14 @@ public enum TWidgetProp {
   static private native String WIDGET_PROP_Y();
   static private native String WIDGET_PROP_W();
   static private native String WIDGET_PROP_H();
+  static private native String WIDGET_PROP_DESIGN_W();
+  static private native String WIDGET_PROP_DESIGN_H();
+  static private native String WIDGET_PROP_AUTO_SCALE_CHILDREN_X();
+  static private native String WIDGET_PROP_AUTO_SCALE_CHILDREN_Y();
+  static private native String WIDGET_PROP_AUTO_SCALE_CHILDREN_W();
+  static private native String WIDGET_PROP_AUTO_SCALE_CHILDREN_H();
   static private native String WIDGET_PROP_INPUTING();
+  static private native String WIDGET_PROP_ALWAYS_ON_TOP();
   static private native String WIDGET_PROP_CARET_X();
   static private native String WIDGET_PROP_CARET_Y();
   static private native String WIDGET_PROP_DIRTY_RECT_TOLERANCE();
@@ -1033,6 +1145,8 @@ public enum TWidgetProp {
   static private native String WIDGET_PROP_OPACITY();
   static private native String WIDGET_PROP_MIN_W();
   static private native String WIDGET_PROP_MAX_W();
+  static private native String WIDGET_PROP_AUTO_ADJUST_SIZE();
+  static private native String WIDGET_PROP_SINGLE_INSTANCE();
   static private native String WIDGET_PROP_CHILDREN_LAYOUT();
   static private native String WIDGET_PROP_LAYOUT();
   static private native String WIDGET_PROP_SELF_LAYOUT();
@@ -1045,7 +1159,10 @@ public enum TWidgetProp {
   static private native String WIDGET_PROP_CLOSABLE();
   static private native String WIDGET_PROP_POINTER_CURSOR();
   static private native String WIDGET_PROP_VALUE();
+  static private native String WIDGET_PROP_REVERSE();
   static private native String WIDGET_PROP_LENGTH();
+  static private native String WIDGET_PROP_LINE_WRAP();
+  static private native String WIDGET_PROP_WORD_WRAP();
   static private native String WIDGET_PROP_TEXT();
   static private native String WIDGET_PROP_TR_TEXT();
   static private native String WIDGET_PROP_STYLE();
@@ -1078,6 +1195,8 @@ public enum TWidgetProp {
   static private native String WIDGET_PROP_CANCELABLE();
   static private native String WIDGET_PROP_PASSWORD_VISIBLE();
   static private native String WIDGET_PROP_ACTIVE();
+  static private native String WIDGET_PROP_CURR_PAGE();
+  static private native String WIDGET_PROP_PAGE_MAX_NUMBER();
   static private native String WIDGET_PROP_VERTICAL();
   static private native String WIDGET_PROP_SHOW_TEXT();
   static private native String WIDGET_PROP_XOFFSET();
@@ -1139,6 +1258,7 @@ public enum TWidgetProp {
   static private native String WIDGET_PROP_SELECTED_INDEX();
   static private native String WIDGET_PROP_CLOSE_WHEN_CLICK();
   static private native String WIDGET_PROP_CLOSE_WHEN_CLICK_OUTSIDE();
+  static private native String WIDGET_PROP_CLOSE_WHEN_TIMEOUT();
   static private native String WIDGET_PROP_LINE_GAP();
   static private native String WIDGET_PROP_BG_COLOR();
   static private native String WIDGET_PROP_BORDER_COLOR();

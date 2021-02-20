@@ -219,6 +219,17 @@ public class TWindowManager extends TWidget {
    return TRet.from(window_manager_resize(this != null ? (this.nativeObj) : 0, w, h));
  }
 
+
+  /**
+   * 关闭全部窗口。
+   * 
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet closeAll()  {
+   return TRet.from(window_manager_close_all(this != null ? (this.nativeObj) : 0));
+ }
+
 static private native long window_manager();
 static private native long window_manager_cast(long widget);
 static private native long window_manager_get_top_main_window(long widget);
@@ -235,4 +246,5 @@ static private native int window_manager_back(long widget);
 static private native int window_manager_back_to_home(long widget);
 static private native int window_manager_back_to(long widget, String target);
 static private native int window_manager_resize(long widget, int w, int h);
+static private native int window_manager_close_all(long widget);
 };

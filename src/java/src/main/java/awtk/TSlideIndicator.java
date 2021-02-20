@@ -219,12 +219,12 @@ public class TSlideIndicator extends TWidget {
   /**
    * 设置指示器指示的目标。
    * 
-   * @param indicated_target 指示器指示的目标
+   * @param target_name 指示器指示的目标控件的名称
    *
    * @return 返回RET_OK表示成功，否则表示失败。
    */
- public  TRet setIndicatedTarget(String indicated_target)  {
-   return TRet.from(slide_indicator_set_indicated_target(this != null ? (this.nativeObj) : 0, indicated_target));
+ public  TRet setIndicatedTarget(String target_name)  {
+   return TRet.from(slide_indicator_set_indicated_target(this != null ? (this.nativeObj) : 0, target_name));
  }
 
 
@@ -302,7 +302,7 @@ public class TSlideIndicator extends TWidget {
 
 
   /**
-   * 指示器指示的目标。
+   * 指示器指示的目标控件的名称。
    *
    */
  public String getIndicatedTarget() {
@@ -321,7 +321,7 @@ static private native int slide_indicator_set_margin(long widget, int margin);
 static private native int slide_indicator_set_spacing(long widget, double spacing);
 static private native int slide_indicator_set_size(long widget, int size);
 static private native int slide_indicator_set_anchor(long widget, String anchor_x, String anchor_y);
-static private native int slide_indicator_set_indicated_target(long widget, String indicated_target);
+static private native int slide_indicator_set_indicated_target(long widget, String target_name);
 static private native int slide_indicator_t_get_prop_value(long nativeObj);
 static private native int slide_indicator_t_get_prop_max(long nativeObj);
 static private native int slide_indicator_t_get_prop_default_paint(long nativeObj);

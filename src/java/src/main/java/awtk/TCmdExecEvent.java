@@ -72,7 +72,7 @@ public class TCmdExecEvent extends TEvent {
 
 
   /**
-   * 执行结果(适用于CAN_EXEC)。
+   * 标识命令是否可以执行(适用于CAN_EXEC)。
    *
    */
  public boolean getCanExec() {

@@ -75,13 +75,13 @@ public class TBitmap {
 
 
   /**
-   * 销毁图片。
+   * 销毁图片(for script only)。
    * 
    *
    * @return 返回RET_OK表示成功，否则表示失败。
    */
  public  TRet destroy()  {
-   return TRet.from(bitmap_destroy(this != null ? (this.nativeObj) : 0));
+   return TRet.from(bitmap_destroy_with_self(this != null ? (this.nativeObj) : 0));
  }
 
 
@@ -153,7 +153,7 @@ public class TBitmap {
 static private native long bitmap_create();
 static private native long bitmap_create_ex(int w, int h, int line_length, int format);
 static private native int bitmap_get_bpp(long bitmap);
-static private native int bitmap_destroy(long bitmap);
+static private native int bitmap_destroy_with_self(long bitmap);
 static private native int bitmap_get_bpp_of_format(int format);
 static private native int bitmap_t_get_prop_w(long nativeObj);
 static private native int bitmap_t_get_prop_h(long nativeObj);

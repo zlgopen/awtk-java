@@ -79,6 +79,19 @@ public class TStyle {
 
 
   /**
+   * 获取指定name的无符号整数格式的值。
+   * 
+   * @param name 属性名。
+   * @param defval 缺省值。
+   *
+   * @return 返回无符号整数格式的值。
+   */
+ public  int getUint(String name, int defval)  {
+    return style_get_uint(this != null ? (this.nativeObj) : 0, name, defval);
+ }
+
+
+  /**
    * 获取指定name的字符串格式的值。
    * 
    * @param name 属性名。
@@ -106,6 +119,46 @@ public class TStyle {
 
 
   /**
+   * 把风格对象数据设置到风格对象中
+   * 
+   * @param data 风格对象数据
+   * @param state 风格状态
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setStyleData(int data, String state)  {
+   return TRet.from(style_set_style_data(this != null ? (this.nativeObj) : 0, data, state));
+ }
+
+
+  /**
+   * 更新风格对象的状态以及对应的数据
+   *备注：根据 widget_type 和 style_name 以及 widget_state 在 theme 对象中查找对应的数据并且更新到 style 对象中
+   * 
+   * @param theme theme对象。
+   * @param widget_type 控件的类型名。
+   * @param style_name style的名称。
+   * @param widget_state 控件的状态。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet updateState(TTheme theme, String widget_type, String style_name, String widget_state)  {
+   return TRet.from(style_update_state(this != null ? (this.nativeObj) : 0, theme != null ? (theme.nativeObj) : 0, widget_type, style_name, widget_state));
+ }
+
+
+  /**
+   * 获取风格对象的风格状态
+   * 
+   *
+   * @return 返回风格状态。
+   */
+ public  String getStyleState()  {
+    return style_get_style_state(this != null ? (this.nativeObj) : 0);
+ }
+
+
+  /**
    * 检查style是否是mutable的。
    * 
    *
@@ -115,10 +168,26 @@ public class TStyle {
     return style_is_mutable(this != null ? (this.nativeObj) : 0);
  }
 
+
+  /**
+   * 获取 style 的风格类型。
+   * 
+   *
+   * @return 返回风格类型。
+   */
+ public  String getStyleType()  {
+    return style_get_style_type(this != null ? (this.nativeObj) : 0);
+ }
+
 static private native int style_notify_widget_state_changed(long s, long widget);
 static private native boolean style_is_valid(long s);
 static private native int style_get_int(long s, String name, int defval);
+static private native int style_get_uint(long s, String name, int defval);
 static private native String style_get_str(long s, String name, String defval);
 static private native int style_set(long s, String state, String name, long value);
+static private native int style_set_style_data(long s, int data, String state);
+static private native int style_update_state(long s, long theme, String widget_type, String style_name, String widget_state);
+static private native String style_get_style_state(long s);
 static private native boolean style_is_mutable(long s);
+static private native String style_get_style_type(long s);
 };

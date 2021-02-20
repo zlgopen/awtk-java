@@ -112,7 +112,7 @@ public class TSlideView extends TWidget {
 
 
   /**
-   * 设置当前页的序号。
+   * 设置当前页的序号(默认启用动画)。
    * 
    * @param index 当前页的序号。
    *
@@ -120,6 +120,19 @@ public class TSlideView extends TWidget {
    */
  public  TRet setActive(int index)  {
    return TRet.from(slide_view_set_active(this != null ? (this.nativeObj) : 0, index));
+ }
+
+
+  /**
+   * 设置当前页的序号。
+   * 
+   * @param index 当前页的序号。
+   * @param animate 是否启用动画。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setActiveEx(int index, boolean animate)  {
+   return TRet.from(slide_view_set_active_ex(this != null ? (this.nativeObj) : 0, index, animate));
  }
 
 
@@ -212,6 +225,7 @@ static private native long slide_view_create(long parent, int x, int y, int w, i
 static private native long slide_view_cast(long widget);
 static private native int slide_view_set_auto_play(long widget, int auto_play);
 static private native int slide_view_set_active(long widget, int index);
+static private native int slide_view_set_active_ex(long widget, int index, boolean animate);
 static private native int slide_view_set_vertical(long widget, boolean vertical);
 static private native int slide_view_set_anim_hint(long widget, String anim_hint);
 static private native int slide_view_set_loop(long widget, boolean loop);

@@ -2,11 +2,8 @@ package awtk;
 
 
 /**
- * 应用程序的配置信息。
- *
- *底层实现可以是任何格式，比如INI，XML，JSON和UBJSON。
- *
- *对于树状的文档，key可以是多级的，用.分隔。如network.ip。
+ * #include "conf_io/app_conf.h"
+ *```
  *
  */
 public class TAppConf { 

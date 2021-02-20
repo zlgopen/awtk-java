@@ -205,7 +205,7 @@ public class TCanvas {
 
 
   /**
-   * 填充矩形。
+   * 绘制矩形。
    * 
    * @param x x坐标。
    * @param y y坐标。
@@ -216,6 +216,23 @@ public class TCanvas {
    */
  public  TRet fillRect(int x, int y, int w, int h)  {
    return TRet.from(canvas_fill_rect(this != null ? (this.nativeObj) : 0, x, y, w, h));
+ }
+
+
+  /**
+   * 用填充颜色填充指定矩形。
+   *
+   *> 如果lcd的颜色格式带alpha通道，连同alpha的值一起修改。
+   * 
+   * @param x x坐标。
+   * @param y y坐标。
+   * @param w 宽度。
+   * @param h 高度。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet clearRect(int x, int y, int w, int h)  {
+   return TRet.from(canvas_clear_rect(this != null ? (this.nativeObj) : 0, x, y, w, h));
  }
 
 
@@ -441,6 +458,7 @@ static private native int canvas_untranslate(long c, int dx, int dy);
 static private native int canvas_draw_vline(long c, int x, int y, int h);
 static private native int canvas_draw_hline(long c, int x, int y, int w);
 static private native int canvas_fill_rect(long c, int x, int y, int w, int h);
+static private native int canvas_clear_rect(long c, int x, int y, int w, int h);
 static private native int canvas_stroke_rect(long c, int x, int y, int w, int h);
 static private native int canvas_set_font(long c, String name, int size);
 static private native double canvas_measure_utf8(long c, String str);

@@ -367,6 +367,85 @@ public class TEdit extends TWidget {
 
 
   /**
+   * 输入提示。
+   *
+   */
+ public String getTips() {
+   return edit_t_get_prop_tips(this.nativeObj);
+ }
+
+
+  /**
+   * 保存用于翻译的提示信息。
+   *
+   */
+ public String getTrTips() {
+   return edit_t_get_prop_tr_tips(this.nativeObj);
+ }
+
+
+  /**
+   * 软键盘上action按钮的文本。内置取值有：
+   *
+   ** next 将焦点切换到下一个控件。
+   ** done 完成，关闭软键盘。
+   *
+   *也可以使用其它文本，比如send表示发送。这个需要自己实现相应的功能，处理EVT\_IM\_ACTION事件即可。
+   *
+   */
+ public String getActionText() {
+   return edit_t_get_prop_action_text(this.nativeObj);
+ }
+
+
+  /**
+   * 自定义软键盘名称。AWTK优先查找keyboard属性设置的键盘文件名（该键盘的XML文件需要在default\raw\ui目录下存在），如果keyboard为空就找input_type设置的键盘类型
+   *
+   */
+ public String getKeyboard() {
+   return edit_t_get_prop_keyboard(this.nativeObj);
+ }
+
+
+  /**
+   * 最小值或最小长度。
+   *
+   */
+ public double getMin() {
+   return edit_t_get_prop_min(this.nativeObj);
+ }
+
+
+  /**
+   * 最大值或最大长度。
+   *
+   */
+ public double getMax() {
+   return edit_t_get_prop_max(this.nativeObj);
+ }
+
+
+  /**
+   * 步长。
+   *作为数值型编辑器时，一次增加和减少时的数值。
+   *
+   */
+ public double getStep() {
+   return edit_t_get_prop_step(this.nativeObj);
+ }
+
+
+  /**
+   * 输入类型。
+   *
+   */
+ public TInputType getInputType() {
+   return TInputType.from(edit_t_get_prop_input_type(this.nativeObj));
+
+ }
+
+
+  /**
    * 编辑器是否为只读。
    *
    */
@@ -425,121 +504,6 @@ public class TEdit extends TWidget {
 
 
   /**
-   * 上边距。
-   *
-   */
- public int getTopMargin() {
-   return edit_t_get_prop_top_margin(this.nativeObj);
- }
-
-
-  /**
-   * 下边距。
-   *
-   */
- public int getBottomMargin() {
-   return edit_t_get_prop_bottom_margin(this.nativeObj);
- }
-
-
-  /**
-   * 左边距。
-   *
-   */
- public int getLeftMargin() {
-   return edit_t_get_prop_left_margin(this.nativeObj);
- }
-
-
-  /**
-   * 右边距。
-   *
-   */
- public int getRightMargin() {
-   return edit_t_get_prop_right_margin(this.nativeObj);
- }
-
-
-  /**
-   * 输入提示。
-   *
-   */
- public String getTips() {
-   return edit_t_get_prop_tips(this.nativeObj);
- }
-
-
-  /**
-   * 保存用于翻译的提示信息。
-   *
-   */
- public String getTrTips() {
-   return edit_t_get_prop_tr_tips(this.nativeObj);
- }
-
-
-  /**
-   * 软键盘上action按钮的文本。内置取值有：
-   *
-   ** next 将焦点切换到下一个控件。
-   ** done 完成，关闭软键盘。
-   *
-   *也可以使用其它文本，比如send表示发送。这个需要自己实现相应的功能，处理EVT\_IM\_ACTION事件即可。
-   *
-   */
- public String getActionText() {
-   return edit_t_get_prop_action_text(this.nativeObj);
- }
-
-
-  /**
-   * 自定义软键盘名称。
-   *
-   */
- public String getKeyboard() {
-   return edit_t_get_prop_keyboard(this.nativeObj);
- }
-
-
-  /**
-   * 输入类型。
-   *
-   */
- public TInputType getInputType() {
-   return TInputType.from(edit_t_get_prop_input_type(this.nativeObj));
-
- }
-
-
-  /**
-   * 最小值或最小长度。
-   *
-   */
- public double getMin() {
-   return edit_t_get_prop_min(this.nativeObj);
- }
-
-
-  /**
-   * 最大值或最大长度。
-   *
-   */
- public double getMax() {
-   return edit_t_get_prop_max(this.nativeObj);
- }
-
-
-  /**
-   * 步长。
-   *作为数值型编辑器时，一次增加和减少时的数值。
-   *
-   */
- public double getStep() {
-   return edit_t_get_prop_step(this.nativeObj);
- }
-
-
-  /**
    * 是否支持撤销编辑。如果为TRUE，在失去焦点之前可以撤销所有修改(恢复获得焦点之前的内容)。
    *
    *> * 1.一般配合keyboard的"cancel"按钮使用。
@@ -573,23 +537,19 @@ static private native int edit_set_keyboard(long widget, String keyboard);
 static private native int edit_set_password_visible(long widget, boolean password_visible);
 static private native int edit_set_focus(long widget, boolean focus);
 static private native int edit_set_cursor(long widget, int cursor);
+static private native String edit_t_get_prop_tips(long nativeObj);
+static private native String edit_t_get_prop_tr_tips(long nativeObj);
+static private native String edit_t_get_prop_action_text(long nativeObj);
+static private native String edit_t_get_prop_keyboard(long nativeObj);
+static private native double edit_t_get_prop_min(long nativeObj);
+static private native double edit_t_get_prop_max(long nativeObj);
+static private native double edit_t_get_prop_step(long nativeObj);
+static private native int edit_t_get_prop_input_type(long nativeObj);
 static private native boolean edit_t_get_prop_readonly(long nativeObj);
 static private native boolean edit_t_get_prop_password_visible(long nativeObj);
 static private native boolean edit_t_get_prop_auto_fix(long nativeObj);
 static private native boolean edit_t_get_prop_select_none_when_focused(long nativeObj);
 static private native boolean edit_t_get_prop_open_im_when_focused(long nativeObj);
 static private native boolean edit_t_get_prop_close_im_when_blured(long nativeObj);
-static private native int edit_t_get_prop_top_margin(long nativeObj);
-static private native int edit_t_get_prop_bottom_margin(long nativeObj);
-static private native int edit_t_get_prop_left_margin(long nativeObj);
-static private native int edit_t_get_prop_right_margin(long nativeObj);
-static private native String edit_t_get_prop_tips(long nativeObj);
-static private native String edit_t_get_prop_tr_tips(long nativeObj);
-static private native String edit_t_get_prop_action_text(long nativeObj);
-static private native String edit_t_get_prop_keyboard(long nativeObj);
-static private native int edit_t_get_prop_input_type(long nativeObj);
-static private native double edit_t_get_prop_min(long nativeObj);
-static private native double edit_t_get_prop_max(long nativeObj);
-static private native double edit_t_get_prop_step(long nativeObj);
 static private native boolean edit_t_get_prop_cancelable(long nativeObj);
 };

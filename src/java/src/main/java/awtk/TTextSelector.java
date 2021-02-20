@@ -142,6 +142,21 @@ public class TTextSelector extends TWidget {
    * @param start 起始值。
    * @param nr 个数。
    * @param step 步长。
+   * @param format 选项的格式化。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setRangeOptionsEx(int start, int nr, int step, String format)  {
+   return TRet.from(text_selector_set_range_options_ex(this != null ? (this.nativeObj) : 0, start, nr, step, format));
+ }
+
+
+  /**
+   * 设置一系列的整数选项。
+   * 
+   * @param start 起始值。
+   * @param nr 个数。
+   * @param step 步长。
    *
    * @return 返回RET_OK表示成功，否则表示失败。
    */
@@ -221,7 +236,43 @@ public class TTextSelector extends TWidget {
 
 
   /**
-   * 可见的选项数量(只能是3或者5，缺省为5)。
+   * 设置是否本地化(翻译)选项。
+   * 
+   * @param localize_options 是否本地化(翻译)选项。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setLocalizeOptions(boolean localize_options)  {
+   return TRet.from(text_selector_set_localize_options(this != null ? (this.nativeObj) : 0, localize_options));
+ }
+
+
+  /**
+   * 设置是否循环选项。
+   * 
+   * @param loop_options 是否循环选项。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setLoopOptions(boolean loop_options)  {
+   return TRet.from(text_selector_set_loop_options(this != null ? (this.nativeObj) : 0, loop_options));
+ }
+
+
+  /**
+   * 设置Y轴偏移速度比例。
+   * 
+   * @param yspeed_scale y偏移速度比例。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setYspeedScale(double yspeed_scale)  {
+   return TRet.from(text_selector_set_yspeed_scale(this != null ? (this.nativeObj) : 0, yspeed_scale));
+ }
+
+
+  /**
+   * 可见的选项数量(只能是1或者3或者5，缺省为5)。
    *
    */
  public int getVisibleNr() {
@@ -248,12 +299,40 @@ public class TTextSelector extends TWidget {
    return text_selector_t_get_prop_options(this.nativeObj);
  }
 
+
+  /**
+   * y偏移速度比例。
+   *
+   */
+ public double getYspeedScale() {
+   return text_selector_t_get_prop_yspeed_scale(this.nativeObj);
+ }
+
+
+  /**
+   * 是否本地化(翻译)选项(缺省为FALSE)。
+   *
+   */
+ public boolean getLocalizeOptions() {
+   return text_selector_t_get_prop_localize_options(this.nativeObj);
+ }
+
+
+  /**
+   * 是否循环选项(缺省为FALSE)。
+   *
+   */
+ public boolean getLoopOptions() {
+   return text_selector_t_get_prop_loop_options(this.nativeObj);
+ }
+
 static private native long text_selector_create(long parent, int x, int y, int w, int h);
 static private native long text_selector_cast(long widget);
 static private native int text_selector_reset_options(long widget);
 static private native int text_selector_count_options(long widget);
 static private native int text_selector_append_option(long widget, int value, String text);
 static private native int text_selector_set_options(long widget, String options);
+static private native int text_selector_set_range_options_ex(long widget, int start, int nr, int step, String format);
 static private native int text_selector_set_range_options(long widget, int start, int nr, int step);
 static private native int text_selector_get_value(long widget);
 static private native int text_selector_set_value(long widget, int value);
@@ -261,7 +340,13 @@ static private native String text_selector_get_text(long widget);
 static private native int text_selector_set_text(long widget, String text);
 static private native int text_selector_set_selected_index(long widget, int index);
 static private native int text_selector_set_visible_nr(long widget, int visible_nr);
+static private native int text_selector_set_localize_options(long widget, boolean localize_options);
+static private native int text_selector_set_loop_options(long widget, boolean loop_options);
+static private native int text_selector_set_yspeed_scale(long widget, double yspeed_scale);
 static private native int text_selector_t_get_prop_visible_nr(long nativeObj);
 static private native int text_selector_t_get_prop_selected_index(long nativeObj);
 static private native String text_selector_t_get_prop_options(long nativeObj);
+static private native double text_selector_t_get_prop_yspeed_scale(long nativeObj);
+static private native boolean text_selector_t_get_prop_localize_options(long nativeObj);
+static private native boolean text_selector_t_get_prop_loop_options(long nativeObj);
 };

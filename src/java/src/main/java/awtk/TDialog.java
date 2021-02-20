@@ -196,7 +196,7 @@ public class TDialog extends TWindowBase {
    *也就是在dialog_modal调用完成后仍然可以访问dialog中控件，直到本次事件结束。
    * 
    *
-   * @return 返回退出吗。
+   * @return 返回退出码。
    */
  public  TDialogQuitCode modal()  {
    return TDialogQuitCode.from(dialog_modal(this != null ? (this.nativeObj) : 0));

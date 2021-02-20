@@ -187,6 +187,33 @@ public class TMledit extends TWidget {
 
 
   /**
+   * 设置编辑器是否在获得焦点时打开输入法。
+   *
+   *> * 设置默认焦点时，打开窗口时不弹出软键盘。
+   *> * 用键盘切换焦点时，编辑器获得焦点时不弹出软键盘。
+   * 
+   * @param open_im_when_focused 是否在获得焦点时打开输入法。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setOpenImWhenFocused(boolean open_im_when_focused)  {
+   return TRet.from(mledit_set_open_im_when_focused(this != null ? (this.nativeObj) : 0, open_im_when_focused));
+ }
+
+
+  /**
+   * 设置编辑器是否在失去焦点时关闭输入法。
+   * 
+   * @param close_im_when_blured 是否是否在失去焦点时关闭输入法。在失去焦点时关闭输入法。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setCloseImWhenBlured(boolean close_im_when_blured)  {
+   return TRet.from(mledit_set_close_im_when_blured(this != null ? (this.nativeObj) : 0, close_im_when_blured));
+ }
+
+
+  /**
    * 转换为mledit对象(供脚本语言使用)。
    * 
    * @param widget mledit对象。
@@ -195,51 +222,6 @@ public class TMledit extends TWidget {
    */
  public  static TMledit cast(TWidget widget)  {
     return new TMledit(mledit_cast(widget != null ? (widget.nativeObj) : 0));
- }
-
-
-  /**
-   * 编辑器是否为只读。
-   *
-   */
- public boolean getReadonly() {
-   return mledit_t_get_prop_readonly(this.nativeObj);
- }
-
-
-  /**
-   * 上边距。
-   *
-   */
- public int getTopMargin() {
-   return mledit_t_get_prop_top_margin(this.nativeObj);
- }
-
-
-  /**
-   * 下边距。
-   *
-   */
- public int getBottomMargin() {
-   return mledit_t_get_prop_bottom_margin(this.nativeObj);
- }
-
-
-  /**
-   * 左边距。
-   *
-   */
- public int getLeftMargin() {
-   return mledit_t_get_prop_left_margin(this.nativeObj);
- }
-
-
-  /**
-   * 右边距。
-   *
-   */
- public int getRightMargin() {
-   return mledit_t_get_prop_right_margin(this.nativeObj);
  }
 
 
@@ -271,15 +253,6 @@ public class TMledit extends TWidget {
 
 
   /**
-   * 是否自动折行。
-   *
-   */
- public boolean getWrapWord() {
-   return mledit_t_get_prop_wrap_word(this.nativeObj);
- }
-
-
-  /**
    * 最大行数。
    *
    */
@@ -289,11 +262,29 @@ public class TMledit extends TWidget {
 
 
   /**
+   * 是否自动折行。
+   *
+   */
+ public boolean getWrapWord() {
+   return mledit_t_get_prop_wrap_word(this.nativeObj);
+ }
+
+
+  /**
    * 鼠标一次滚动行数。
    *
    */
  public int getScrollLine() {
    return mledit_t_get_prop_scroll_line(this.nativeObj);
+ }
+
+
+  /**
+   * 编辑器是否为只读。
+   *
+   */
+ public boolean getReadonly() {
+   return mledit_t_get_prop_readonly(this.nativeObj);
  }
 
 
@@ -308,6 +299,26 @@ public class TMledit extends TWidget {
    return mledit_t_get_prop_cancelable(this.nativeObj);
  }
 
+
+  /**
+   * 获得焦点时打开输入法。
+   *
+   *> 主要用于没有指针设备的情况，否则每次切换焦点时都打开输入法。
+   *
+   */
+ public boolean getOpenImWhenFocused() {
+   return mledit_t_get_prop_open_im_when_focused(this.nativeObj);
+ }
+
+
+  /**
+   * 是否在失去焦点时关闭输入法(默认是)。
+   *
+   */
+ public boolean getCloseImWhenBlured() {
+   return mledit_t_get_prop_close_im_when_blured(this.nativeObj);
+ }
+
 static private native long mledit_create(long parent, int x, int y, int w, int h);
 static private native int mledit_set_readonly(long widget, boolean readonly);
 static private native int mledit_set_cancelable(long widget, boolean cancelable);
@@ -319,17 +330,17 @@ static private native int mledit_set_tr_tips(long widget, String tr_tips);
 static private native int mledit_set_keyboard(long widget, String keyboard);
 static private native int mledit_set_cursor(long widget, int cursor);
 static private native int mledit_set_scroll_line(long widget, int scroll_line);
+static private native int mledit_set_open_im_when_focused(long widget, boolean open_im_when_focused);
+static private native int mledit_set_close_im_when_blured(long widget, boolean close_im_when_blured);
 static private native long mledit_cast(long widget);
-static private native boolean mledit_t_get_prop_readonly(long nativeObj);
-static private native int mledit_t_get_prop_top_margin(long nativeObj);
-static private native int mledit_t_get_prop_bottom_margin(long nativeObj);
-static private native int mledit_t_get_prop_left_margin(long nativeObj);
-static private native int mledit_t_get_prop_right_margin(long nativeObj);
 static private native String mledit_t_get_prop_tips(long nativeObj);
 static private native String mledit_t_get_prop_tr_tips(long nativeObj);
 static private native String mledit_t_get_prop_keyboard(long nativeObj);
-static private native boolean mledit_t_get_prop_wrap_word(long nativeObj);
 static private native int mledit_t_get_prop_max_lines(long nativeObj);
+static private native boolean mledit_t_get_prop_wrap_word(long nativeObj);
 static private native int mledit_t_get_prop_scroll_line(long nativeObj);
+static private native boolean mledit_t_get_prop_readonly(long nativeObj);
 static private native boolean mledit_t_get_prop_cancelable(long nativeObj);
+static private native boolean mledit_t_get_prop_open_im_when_focused(long nativeObj);
+static private native boolean mledit_t_get_prop_close_im_when_blured(long nativeObj);
 };

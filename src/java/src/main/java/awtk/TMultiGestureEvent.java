@@ -44,15 +44,6 @@ public class TMultiGestureEvent extends TEvent {
 
 
   /**
-   * touch device id。
-   *
-   */
- public long getTouchId() {
-   return multi_gesture_event_t_get_prop_touch_id(this.nativeObj);
- }
-
-
-  /**
    * 中心点x坐标。
    *
    */
@@ -71,7 +62,7 @@ public class TMultiGestureEvent extends TEvent {
 
 
   /**
-   * 旋转角度(幅度)增量。
+   * 旋转角度(幅度)增量。（单位弧度）
    *
    */
  public double getRotation() {
@@ -87,20 +78,9 @@ public class TMultiGestureEvent extends TEvent {
    return multi_gesture_event_t_get_prop_distance(this.nativeObj);
  }
 
-
-  /**
-   * 本事件用到手指数。
-   *
-   */
- public int getFingers() {
-   return multi_gesture_event_t_get_prop_fingers(this.nativeObj);
- }
-
 static private native long multi_gesture_event_cast(long event);
-static private native long multi_gesture_event_t_get_prop_touch_id(long nativeObj);
 static private native int multi_gesture_event_t_get_prop_x(long nativeObj);
 static private native int multi_gesture_event_t_get_prop_y(long nativeObj);
 static private native double multi_gesture_event_t_get_prop_rotation(long nativeObj);
 static private native double multi_gesture_event_t_get_prop_distance(long nativeObj);
-static private native int multi_gesture_event_t_get_prop_fingers(long nativeObj);
 };

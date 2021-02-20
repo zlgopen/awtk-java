@@ -94,6 +94,18 @@ public class TOverlay extends TWindowBase {
 
 
   /**
+   * 设置是否总是在最上面。
+   * 
+   * @param always_on_top 是否总是在最上面。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setAlwaysOnTop(boolean always_on_top)  {
+   return TRet.from(overlay_set_always_on_top(this != null ? (this.nativeObj) : 0, always_on_top));
+ }
+
+
+  /**
    * 转换为overlay对象(供脚本语言使用)。
    * 
    * @param widget overlay对象。
@@ -115,8 +127,21 @@ public class TOverlay extends TWindowBase {
    return overlay_t_get_prop_click_through(this.nativeObj);
  }
 
+
+  /**
+   * 是否总在最上面。
+   *
+   *缺省不启用。
+   *
+   */
+ public boolean getAlwaysOnTop() {
+   return overlay_t_get_prop_always_on_top(this.nativeObj);
+ }
+
 static private native long overlay_create(long parent, int x, int y, int w, int h);
 static private native int overlay_set_click_through(long widget, boolean click_through);
+static private native int overlay_set_always_on_top(long widget, boolean always_on_top);
 static private native long overlay_cast(long widget);
 static private native boolean overlay_t_get_prop_click_through(long nativeObj);
+static private native boolean overlay_t_get_prop_always_on_top(long nativeObj);
 };

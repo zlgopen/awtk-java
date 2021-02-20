@@ -76,13 +76,12 @@ public class TStyleMutable extends TStyle {
    *
    *> 除了测试程序外不需要直接调用，widget会通过style\_factory\_create创建。
    * 
-   * @param widget 控件
    * @param default_style 缺省的style。
    *
    * @return style对象。
    */
- public  static TStyle create(TWidget widget, TStyle default_style)  {
-    return new TStyleMutable(style_mutable_create(widget != null ? (widget.nativeObj) : 0, default_style != null ? (default_style.nativeObj) : 0));
+ public  static TStyle create(TStyle default_style)  {
+    return new TStyleMutable(style_mutable_create(default_style != null ? (default_style.nativeObj) : 0));
  }
 
 
@@ -97,6 +96,6 @@ public class TStyleMutable extends TStyle {
 static private native int style_mutable_set_name(long s, String name);
 static private native int style_mutable_set_int(long s, String state, String name, int val);
 static private native long style_mutable_cast(long s);
-static private native long style_mutable_create(long widget, long default_style);
+static private native long style_mutable_create(long default_style);
 static private native String style_mutable_t_get_prop_name(long nativeObj);
 };

@@ -66,6 +66,13 @@ public enum TAssetType {
   SCRIPT (ASSET_TYPE_SCRIPT()),
   
   /**
+   * 流图资源。
+   *
+   */
+ 
+  FLOW (ASSET_TYPE_FLOW()),
+  
+  /**
    * 其它数据资源。
    *
    */
@@ -113,6 +120,7 @@ public enum TAssetType {
   static private native int ASSET_TYPE_XML();
   static private native int ASSET_TYPE_STRINGS();
   static private native int ASSET_TYPE_SCRIPT();
+  static private native int ASSET_TYPE_FLOW();
   static private native int ASSET_TYPE_DATA();
 
 }

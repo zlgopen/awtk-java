@@ -70,15 +70,55 @@ public class TObjectArray extends TObject {
 
 
   /**
+   * 在指定位置插入一个元素。
+   * 
+   * @param index 位置。
+   * @param v 值。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet insert(int index, TValue v)  {
+   return TRet.from(object_array_insert(this != null ? (this.nativeObj) : 0, index, v != null ? (v.nativeObj) : 0));
+ }
+
+
+  /**
+   * 追加一个元素。
+   * 
+   * @param v 值。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet push(TValue v)  {
+   return TRet.from(object_array_push(this != null ? (this.nativeObj) : 0, v != null ? (v.nativeObj) : 0));
+ }
+
+
+  /**
+   * 在指定位置删除一个元素。
+   * 
+   * @param index 位置。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet remove(int index)  {
+   return TRet.from(object_array_remove(this != null ? (this.nativeObj) : 0, index));
+ }
+
+
+  /**
    * 属性个数。
    *
    */
- public int getPropsSize() {
-   return object_array_t_get_prop_props_size(this.nativeObj);
+ public int getSize() {
+   return object_array_t_get_prop_size(this.nativeObj);
  }
 
 static private native long object_array_create();
 static private native int object_array_unref(long obj);
 static private native int object_array_clear_props(long obj);
-static private native int object_array_t_get_prop_props_size(long nativeObj);
+static private native int object_array_insert(long obj, int index, long v);
+static private native int object_array_push(long obj, long v);
+static private native int object_array_remove(long obj, int index);
+static private native int object_array_t_get_prop_size(long nativeObj);
 };

@@ -247,6 +247,17 @@ public class TImageAnimation extends TWidget {
 
 
   /**
+   * 判断是否在播放。
+   * 
+   *
+   * @return 返回TRUE表示是，否则表示否。
+   */
+ public  boolean isPlaying()  {
+    return image_animation_is_playing(this != null ? (this.nativeObj) : 0);
+ }
+
+
+  /**
    * 图片名称的前缀。
    *
    */
@@ -350,6 +361,7 @@ static private native int image_animation_next(long widget);
 static private native int image_animation_set_format(long widget, String format);
 static private native int image_animation_set_unload_after_paint(long widget, boolean unload_after_paint);
 static private native long image_animation_cast(long widget);
+static private native boolean image_animation_is_playing(long widget);
 static private native String image_animation_t_get_prop_image(long nativeObj);
 static private native String image_animation_t_get_prop_sequence(long nativeObj);
 static private native int image_animation_t_get_prop_start_index(long nativeObj);

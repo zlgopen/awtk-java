@@ -206,21 +206,21 @@ public enum TEventType {
   MOVE_RESIZE (EVT_MOVE_RESIZE()),
   
   /**
-   * 控件的值即将改变的事件名(event_t)。
+   * 控件的值即将改变的事件名(value_change_event_t)。
    *
    */
  
   VALUE_WILL_CHANGE (EVT_VALUE_WILL_CHANGE()),
   
   /**
-   * 控件的值改变的事件名(event_t)。
+   * 控件的值改变的事件名(value_change_event_t)。
    *
    */
  
   VALUE_CHANGED (EVT_VALUE_CHANGED()),
   
   /**
-   * 控件的值持续改变(如编辑器正在编辑)的事件名(event_t)。
+   * 控件的值持续改变(如编辑器正在编辑)的事件名(value_change_event_t)。
    *
    */
  
@@ -362,6 +362,20 @@ public enum TEventType {
    */
  
   TOP_WINDOW_CHANGED (EVT_TOP_WINDOW_CHANGED()),
+  
+  /**
+   * 输入法启动(event_t)。
+   *
+   */
+ 
+  IM_START (EVT_IM_START()),
+  
+  /**
+   * 输入法停止(event_t)。
+   *
+   */
+ 
+  IM_STOP (EVT_IM_STOP()),
   
   /**
    * 输入法提交输入的文本事件(im_commit_event_t)。
@@ -568,6 +582,41 @@ public enum TEventType {
   MULTI_GESTURE (EVT_MULTI_GESTURE()),
   
   /**
+   * 页面改变了(event_t)。
+   *
+   */
+ 
+  PAGE_CHANGED (EVT_PAGE_CHANGED()),
+  
+  /**
+   * 资源管理加载某个资源(assets_event_t)。
+   *
+   */
+ 
+  ASSET_MANAGER_LOAD_ASSET (EVT_ASSET_MANAGER_LOAD_ASSET()),
+  
+  /**
+   * 资源管理卸载某个资源(assets_event_t)。
+   *
+   */
+ 
+  ASSET_MANAGER_UNLOAD_ASSET (EVT_ASSET_MANAGER_UNLOAD_ASSET()),
+  
+  /**
+   * 资源管理移除同种资源缓存(assets_event_t)。
+   *
+   */
+ 
+  ASSET_MANAGER_CLEAR_CACHE (EVT_ASSET_MANAGER_CLEAR_CACHE()),
+  
+  /**
+   * 定时器(event_t)。
+   *
+   */
+ 
+  TIMER (EVT_TIMER()),
+  
+  /**
    * event queue其它请求编号起始值。
    *
    */
@@ -755,6 +804,8 @@ public enum TEventType {
   static private native int EVT_WINDOW_CLOSE();
   static private native int EVT_REQUEST_CLOSE_WINDOW();
   static private native int EVT_TOP_WINDOW_CHANGED();
+  static private native int EVT_IM_START();
+  static private native int EVT_IM_STOP();
   static private native int EVT_IM_COMMIT();
   static private native int EVT_IM_CLEAR();
   static private native int EVT_IM_CANCEL();
@@ -784,6 +835,11 @@ public enum TEventType {
   static private native int EVT_SCROLL();
   static private native int EVT_SCROLL_END();
   static private native int EVT_MULTI_GESTURE();
+  static private native int EVT_PAGE_CHANGED();
+  static private native int EVT_ASSET_MANAGER_LOAD_ASSET();
+  static private native int EVT_ASSET_MANAGER_UNLOAD_ASSET();
+  static private native int EVT_ASSET_MANAGER_CLEAR_CACHE();
+  static private native int EVT_TIMER();
   static private native int EVT_REQ_START();
   static private native int EVT_USER_START();
   static private native int EVT_NONE();

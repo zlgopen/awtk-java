@@ -178,6 +178,19 @@ public class TWidget {
 
 
   /**
+   * 查询指定的style是否存在。
+   * 
+   * @param style_name style的名称（如果为 NULL，则默认为 default）。
+   * @param state_name state的名称（如果为 NULL，则默认为 normal）。
+   *
+   * @return 存在返回 TRUE，不存在返回 FALSE。
+   */
+ public  boolean isStyleExist(String style_name, String state_name)  {
+    return widget_is_style_exist(this != null ? (this.nativeObj) : 0, style_name, state_name);
+ }
+
+
+  /**
    * 启用指定的style。
    * 
    * @param style style的名称。
@@ -463,6 +476,18 @@ public class TWidget {
 
 
   /**
+   * 设置控件是否根据子控件和文本自动调整控件自身大小。
+   * 
+   * @param auto_adjust_size 是否根据子控件和文本自动调整控件自身大小。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setAutoAdjustSize(boolean auto_adjust_size)  {
+   return TRet.from(widget_set_auto_adjust_size(this != null ? (this.nativeObj) : 0, auto_adjust_size));
+ }
+
+
+  /**
    * 设置控件的floating标志。
    *> floating的控件不受父控件的子控件布局参数的影响。
    * 
@@ -639,12 +664,11 @@ public class TWidget {
    * 设置控件的可见性。
    * 
    * @param visible 是否可见。
-   * @param recursive 是否递归设置全部子控件。
    *
    * @return 返回RET_OK表示成功，否则表示失败。
    */
- public  TRet setVisible(boolean visible, boolean recursive)  {
-   return TRet.from(widget_set_visible(this != null ? (this.nativeObj) : 0, visible, recursive));
+ public  TRet setVisible(boolean visible)  {
+   return TRet.from(widget_set_visible(this != null ? (this.nativeObj) : 0, visible));
  }
 
 
@@ -736,6 +760,31 @@ public class TWidget {
    */
  public  String getPropStr(String name, String defval)  {
     return widget_get_prop_str(this != null ? (this.nativeObj) : 0, name, defval);
+ }
+
+
+  /**
+   * 设置指针格式的属性。
+   * 
+   * @param name 属性的名称。
+   * @param v 属性的值。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setPropPointer(String name, long v)  {
+   return TRet.from(widget_set_prop_pointer(this != null ? (this.nativeObj) : 0, name, v));
+ }
+
+
+  /**
+   * 获取指针格式的属性。
+   * 
+   * @param name 属性的名称。
+   *
+   * @return 返回属性的值。
+   */
+ public  long getPropPointer(String name)  {
+    return widget_get_prop_pointer(this != null ? (this.nativeObj) : 0, name);
  }
 
 
@@ -878,6 +927,28 @@ public class TWidget {
    */
  public  boolean isPopup()  {
     return widget_is_popup(this != null ? (this.nativeObj) : 0);
+ }
+
+
+  /**
+   * 检查控件是否是overlay窗口类型。
+   * 
+   *
+   * @return 返回FALSE表示不是，否则表示是。
+   */
+ public  boolean isOverlay()  {
+    return widget_is_overlay(this != null ? (this.nativeObj) : 0);
+ }
+
+
+  /**
+   * 检查控件弹出对话框控件是否已经打开了（而非挂起状态）。
+   * 
+   *
+   * @return 返回FALSE表示不是，否则表示是。
+   */
+ public  boolean isOpenedDialog()  {
+    return widget_is_opened_dialog(this != null ? (this.nativeObj) : 0);
  }
 
 
@@ -1107,6 +1178,17 @@ public class TWidget {
    */
  public  TRet dispatchToKeyTarget(TEvent e)  {
    return TRet.from(widget_dispatch_to_key_target(this != null ? (this.nativeObj) : 0, e != null ? (e.nativeObj) : 0));
+ }
+
+
+  /**
+   * 获取 widget 对应风格类型
+   * 
+   *
+   * @return 返回 widget 的对应风格类型。
+   */
+ public  String getStyleType()  {
+    return widget_get_style_type(this != null ? (this.nativeObj) : 0);
  }
 
 
@@ -1406,11 +1488,23 @@ public class TWidget {
 
   /**
    * 是否支持焦点状态。
-   *> 如果希望style支持焦点状态，但有不希望焦点停留，可用本属性。
+   *> 如果希望style支持焦点状态，但又不希望焦点停留，可用本属性。
    *
    */
  public boolean getWithFocusState() {
    return widget_t_get_prop_with_focus_state(this.nativeObj);
+ }
+
+
+  /**
+   * 是否根据子控件和文本自动调整控件自身大小。
+   *
+   *> 为true时，最好不要使用child_layout，否则可能有冲突。
+   *> 注意：只是调整控件的本身的宽高，不会修改控件本身的位置。
+   *
+   */
+ public boolean getAutoAdjustSize() {
+   return widget_t_get_prop_auto_adjust_size(this.nativeObj);
  }
 
 
@@ -1453,6 +1547,7 @@ static private native int widget_move_resize(long widget, int x, int y, int w, i
 static private native int widget_set_value(long widget, int value);
 static private native int widget_animate_value_to(long widget, int value, int duration);
 static private native int widget_add_value(long widget, int delta);
+static private native boolean widget_is_style_exist(long widget, String style_name, String state_name);
 static private native int widget_use_style(long widget, String style);
 static private native int widget_set_text_utf8(long widget, String text);
 static private native int widget_set_child_text_utf8(long widget, String name, String text);
@@ -1473,6 +1568,7 @@ static private native int widget_stop_animator(long widget, String name);
 static private native int widget_destroy_animator(long widget, String name);
 static private native int widget_set_enable(long widget, boolean enable);
 static private native int widget_set_feedback(long widget, boolean feedback);
+static private native int widget_set_auto_adjust_size(long widget, boolean auto_adjust_size);
 static private native int widget_set_floating(long widget, boolean floating);
 static private native int widget_set_focused(long widget, boolean focused);
 static private native int widget_set_focusable(long widget, boolean focusable);
@@ -1487,7 +1583,7 @@ static private native int widget_restack(long widget, int index);
 static private native long widget_child(long widget, String name);
 static private native long widget_lookup(long widget, String name, boolean recursive);
 static private native long widget_lookup_by_type(long widget, String type, boolean recursive);
-static private native int widget_set_visible(long widget, boolean visible, boolean recursive);
+static private native int widget_set_visible(long widget, boolean visible);
 static private native int widget_set_visible_only(long widget, boolean visible);
 static private native int widget_set_sensitive(long widget, boolean sensitive);
 static private native int widget_on(long widget, int type, TOnEvent on_event, long ctx);
@@ -1495,6 +1591,8 @@ static private native int widget_off(long widget, int id);
 static private native int widget_invalidate_force(long widget, long r);
 static private native int widget_set_prop_str(long widget, String name, String v);
 static private native String widget_get_prop_str(long widget, String name, String defval);
+static private native int widget_set_prop_pointer(long widget, String name, long v);
+static private native long widget_get_prop_pointer(long widget, String name);
 static private native int widget_set_prop_int(long widget, String name, int v);
 static private native int widget_get_prop_int(long widget, String name, int defval);
 static private native int widget_set_prop_bool(long widget, String name, boolean v);
@@ -1507,6 +1605,8 @@ static private native boolean widget_is_system_bar(long widget);
 static private native boolean widget_is_normal_window(long widget);
 static private native boolean widget_is_dialog(long widget);
 static private native boolean widget_is_popup(long widget);
+static private native boolean widget_is_overlay(long widget);
+static private native boolean widget_is_opened_dialog(long widget);
 static private native boolean widget_is_opened_popup(long widget);
 static private native boolean widget_is_keyboard(long widget);
 static private native boolean widget_is_designing_window(long widget);
@@ -1526,6 +1626,7 @@ static private native int widget_fill_bg_rect(long widget, long c, long r, int d
 static private native int widget_fill_fg_rect(long widget, long c, long r, int draw_type);
 static private native int widget_dispatch_to_target(long widget, long e);
 static private native int widget_dispatch_to_key_target(long widget, long e);
+static private native String widget_get_style_type(long widget);
 static private native int widget_update_style(long widget);
 static private native int widget_update_style_recursive(long widget);
 static private native int widget_set_as_key_target(long widget);
@@ -1551,13 +1652,10 @@ static private native String widget_t_get_prop_animation(long nativeObj);
 static private native boolean widget_t_get_prop_enable(long nativeObj);
 static private native boolean widget_t_get_prop_feedback(long nativeObj);
 static private native boolean widget_t_get_prop_visible(long nativeObj);
-static private native void widget_t_set_prop_visible(long nativeObj, boolean value);
 static private native boolean widget_t_get_prop_sensitive(long nativeObj);
-static private native void widget_t_set_prop_sensitive(long nativeObj, boolean value);
 static private native boolean widget_t_get_prop_focusable(long nativeObj);
-static private native void widget_t_set_prop_focusable(long nativeObj, boolean value);
 static private native boolean widget_t_get_prop_with_focus_state(long nativeObj);
-static private native void widget_t_set_prop_with_focus_state(long nativeObj, boolean value);
+static private native boolean widget_t_get_prop_auto_adjust_size(long nativeObj);
 static private native boolean widget_t_get_prop_floating(long nativeObj);
 static private native int widget_t_get_prop_dirty_rect_tolerance(long nativeObj);
 static private native long widget_t_get_prop_parent(long nativeObj);

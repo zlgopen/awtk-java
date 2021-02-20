@@ -95,7 +95,7 @@ public class TWindow extends TWindowBase {
   /**
    * 设置为全屏窗口。
    *
-   *>这里全屏是指与LCD相同大小，而非让SDL窗口全屏。
+   *>如果app_type是SIMULATOR，全屏是指与LCD相同大小，而非让SDL窗口全屏。
    * 
    * @param fullscreen 是否全屏。
    *
@@ -103,6 +103,21 @@ public class TWindow extends TWindowBase {
    */
  public  TRet setFullscreen(boolean fullscreen)  {
    return TRet.from(window_set_fullscreen(this != null ? (this.nativeObj) : 0, fullscreen));
+ }
+
+
+  /**
+   * 当设计分辨率和实际分辨率不一致时，自动调整子控件的位置和大小。
+   *
+   *> 当子控件有self_layout参数或者子控件的父控件有children_layout参数时，不会自动调整。
+   * 
+   * @param design_w 设计时宽度。
+   * @param design_h 设计时高度。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setAutoScaleChildren(int design_w, int design_h)  {
+   return TRet.from(window_set_auto_scale_children(this != null ? (this.nativeObj) : 0, design_w, design_h));
  }
 
 
@@ -178,6 +193,7 @@ public class TWindow extends TWindowBase {
 static private native long window_create(long parent, int x, int y, int w, int h);
 static private native long window_create_default();
 static private native int window_set_fullscreen(long widget, boolean fullscreen);
+static private native int window_set_auto_scale_children(long widget, int design_w, int design_h);
 static private native long window_open(String name);
 static private native long window_open_and_close(String name, long to_close);
 static private native int window_close(long widget);

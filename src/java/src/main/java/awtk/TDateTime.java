@@ -51,6 +51,78 @@ public class TDateTime {
 
 
   /**
+   * 设置年。
+   * 
+   * @param year 年。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setYear(int year)  {
+   return TRet.from(date_time_set_year(this != null ? (this.nativeObj) : 0, year));
+ }
+
+
+  /**
+   * 设置月。
+   * 
+   * @param month 月。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setMonth(int month)  {
+   return TRet.from(date_time_set_month(this != null ? (this.nativeObj) : 0, month));
+ }
+
+
+  /**
+   * 设置日。
+   * 
+   * @param day 日。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setDay(int day)  {
+   return TRet.from(date_time_set_day(this != null ? (this.nativeObj) : 0, day));
+ }
+
+
+  /**
+   * 设置小时。
+   * 
+   * @param hour 小时。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setHour(int hour)  {
+   return TRet.from(date_time_set_hour(this != null ? (this.nativeObj) : 0, hour));
+ }
+
+
+  /**
+   * 设置分钟。
+   * 
+   * @param minute 分钟。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setMinute(int minute)  {
+   return TRet.from(date_time_set_minute(this != null ? (this.nativeObj) : 0, minute));
+ }
+
+
+  /**
+   * 设置秒。
+   * 
+   * @param second 秒。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setSecond(int second)  {
+   return TRet.from(date_time_set_second(this != null ? (this.nativeObj) : 0, second));
+ }
+
+
+  /**
    * 设置当前时间。
    * 
    *
@@ -70,6 +142,29 @@ public class TDateTime {
    */
  public  TRet fromTime(long time)  {
    return TRet.from(date_time_from_time(this != null ? (this.nativeObj) : 0, time));
+ }
+
+
+  /**
+   * 转换成time。
+   * 
+   *
+   * @return 返回time。
+   */
+ public  long toTime()  {
+    return date_time_to_time(this != null ? (this.nativeObj) : 0);
+ }
+
+
+  /**
+   * 加上一个偏移量(s)。
+   * 
+   * @param delta 偏移量(s)。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet addDelta(long delta)  {
+   return TRet.from(date_time_add_delta(this != null ? (this.nativeObj) : 0, delta));
  }
 
 
@@ -210,8 +305,16 @@ public class TDateTime {
  }
 
 static private native long date_time_create();
+static private native int date_time_set_year(long dt, int year);
+static private native int date_time_set_month(long dt, int month);
+static private native int date_time_set_day(long dt, int day);
+static private native int date_time_set_hour(long dt, int hour);
+static private native int date_time_set_minute(long dt, int minute);
+static private native int date_time_set_second(long dt, int second);
 static private native int date_time_set(long dt);
 static private native int date_time_from_time(long dt, long time);
+static private native long date_time_to_time(long dt);
+static private native int date_time_add_delta(long dt, long delta);
 static private native boolean date_time_is_leap(int year);
 static private native int date_time_get_days(int year, int montn);
 static private native int date_time_get_wday(int year, int montn, int day);

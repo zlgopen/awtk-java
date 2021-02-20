@@ -16,161 +16,161 @@ public enum TWidgetState {
    *
    */
  
-  STATE_NONE (WIDGET_STATE_NONE()),
+  NONE (WIDGET_STATE_NONE()),
   
   /**
    * 正常状态。
    *
    */
  
-  STATE_NORMAL (WIDGET_STATE_NORMAL()),
+  NORMAL (WIDGET_STATE_NORMAL()),
   
   /**
    * 内容被修改的状态。
    *
    */
  
-  STATE_CHANGED (WIDGET_STATE_CHANGED()),
+  CHANGED (WIDGET_STATE_CHANGED()),
   
   /**
    * 指针按下状态。
    *
    */
  
-  STATE_PRESSED (WIDGET_STATE_PRESSED()),
+  PRESSED (WIDGET_STATE_PRESSED()),
   
   /**
    * 指针悬浮状态。
    *
    */
  
-  STATE_OVER (WIDGET_STATE_OVER()),
+  OVER (WIDGET_STATE_OVER()),
   
   /**
    * 禁用状态。
    *
    */
  
-  STATE_DISABLE (WIDGET_STATE_DISABLE()),
+  DISABLE (WIDGET_STATE_DISABLE()),
   
   /**
    * 聚焦状态。
    *
    */
  
-  STATE_FOCUSED (WIDGET_STATE_FOCUSED()),
+  FOCUSED (WIDGET_STATE_FOCUSED()),
   
   /**
    * 勾选状态。
    *
    */
  
-  STATE_CHECKED (WIDGET_STATE_CHECKED()),
+  CHECKED (WIDGET_STATE_CHECKED()),
   
   /**
    * 没勾选状态。
    *
    */
  
-  STATE_UNCHECKED (WIDGET_STATE_UNCHECKED()),
+  UNCHECKED (WIDGET_STATE_UNCHECKED()),
   
   /**
    * 编辑器无内容状态。
    *
    */
  
-  STATE_EMPTY (WIDGET_STATE_EMPTY()),
+  EMPTY (WIDGET_STATE_EMPTY()),
   
   /**
    * 编辑器无内容同时聚焦的状态。
    *
    */
  
-  STATE_EMPTY_FOCUS (WIDGET_STATE_EMPTY_FOCUS()),
+  EMPTY_FOCUS (WIDGET_STATE_EMPTY_FOCUS()),
   
   /**
    * 输入错误状态。
    *
    */
  
-  STATE_ERROR (WIDGET_STATE_ERROR()),
+  ERROR (WIDGET_STATE_ERROR()),
   
   /**
    * 选中状态。
    *
    */
  
-  STATE_SELECTED (WIDGET_STATE_SELECTED()),
+  SELECTED (WIDGET_STATE_SELECTED()),
   
   /**
    * 正常状态(选中项)。
    *
    */
  
-  STATE_NORMAL_OF_CHECKED (WIDGET_STATE_NORMAL_OF_CHECKED()),
+  NORMAL_OF_CHECKED (WIDGET_STATE_NORMAL_OF_CHECKED()),
   
   /**
    * 指针按下状态(选中项)。
    *
    */
  
-  STATE_PRESSED_OF_CHECKED (WIDGET_STATE_PRESSED_OF_CHECKED()),
+  PRESSED_OF_CHECKED (WIDGET_STATE_PRESSED_OF_CHECKED()),
   
   /**
    * 指针悬浮状态(选中项)。
    *
    */
  
-  STATE_OVER_OF_CHECKED (WIDGET_STATE_OVER_OF_CHECKED()),
+  OVER_OF_CHECKED (WIDGET_STATE_OVER_OF_CHECKED()),
   
   /**
    * 禁用状态(选中项)。
    *
    */
  
-  STATE_DISABLE_OF_CHECKED (WIDGET_STATE_DISABLE_OF_CHECKED()),
+  DISABLE_OF_CHECKED (WIDGET_STATE_DISABLE_OF_CHECKED()),
   
   /**
    * 焦点状态(选中项)。
    *
    */
  
-  STATE_FOCUSED_OF_CHECKED (WIDGET_STATE_FOCUSED_OF_CHECKED()),
+  FOCUSED_OF_CHECKED (WIDGET_STATE_FOCUSED_OF_CHECKED()),
   
   /**
    * 正常状态(当前项)。
    *
    */
  
-  STATE_NORMAL_OF_ACTIVE (WIDGET_STATE_NORMAL_OF_ACTIVE()),
+  NORMAL_OF_ACTIVE (WIDGET_STATE_NORMAL_OF_ACTIVE()),
   
   /**
    * 指针按下状态(当前项)。
    *
    */
  
-  STATE_PRESSED_OF_ACTIVE (WIDGET_STATE_PRESSED_OF_ACTIVE()),
+  PRESSED_OF_ACTIVE (WIDGET_STATE_PRESSED_OF_ACTIVE()),
   
   /**
    * 指针悬浮状态(当前项)。
    *
    */
  
-  STATE_OVER_OF_ACTIVE (WIDGET_STATE_OVER_OF_ACTIVE()),
+  OVER_OF_ACTIVE (WIDGET_STATE_OVER_OF_ACTIVE()),
   
   /**
    * 禁用状态(当前项)。
    *
    */
  
-  STATE_DISABLE_OF_ACTIVE (WIDGET_STATE_DISABLE_OF_ACTIVE()),
+  DISABLE_OF_ACTIVE (WIDGET_STATE_DISABLE_OF_ACTIVE()),
   
   /**
    * 焦点状态(当前项)。
    *
    */
  
-  STATE_FOCUSED_OF_ACTIVE (WIDGET_STATE_FOCUSED_OF_ACTIVE());
+  FOCUSED_OF_ACTIVE (WIDGET_STATE_FOCUSED_OF_ACTIVE());
  
  
   private TWidgetState(String value) {
@@ -200,7 +200,7 @@ public enum TWidgetState {
       }
     }
 
-    return STATE_NONE;
+    return NONE;
   }
   
   private String value;

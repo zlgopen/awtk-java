@@ -286,8 +286,6 @@ public class TValue {
 
   /**
    * 设置类型为字符串的值(并拷贝字符串)。
-   *
-   *> 供脚本语言使用。
    * 
    * @param value 待设置的值。
    *
@@ -306,6 +304,19 @@ public class TValue {
    */
  public  String str()  {
     return value_str(this != null ? (this.nativeObj) : 0);
+ }
+
+
+  /**
+   * 获取类型为字符串的值。
+   * 
+   * @param buff 用于格式转换的缓冲区。
+   * @param size 缓冲区大小。
+   *
+   * @return 值。
+   */
+ public  String strEx(String buff, int size)  {
+    return value_str_ex(this != null ? (this.nativeObj) : 0, buff, size);
  }
 
 
@@ -447,6 +458,7 @@ static private native long value_set_double(long v, double value);
 static private native double value_double(long v);
 static private native long value_dup_str(long v, String value);
 static private native String value_str(long v);
+static private native String value_str_ex(long v, String buff, int size);
 static private native boolean value_is_null(long value);
 static private native long value_set_int(long v, int value);
 static private native long value_set_object(long v, long value);

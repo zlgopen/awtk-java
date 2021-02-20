@@ -125,6 +125,18 @@ public class TPopup extends TWindowBase {
 
 
   /**
+   * 设置超时关闭时间(ms)。
+   * 
+   * @param close_when_timeout 大于0时，为定时器时间(ms)，超时关闭窗口。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setCloseWhenTimeout(int close_when_timeout)  {
+   return TRet.from(popup_set_close_when_timeout(this != null ? (this.nativeObj) : 0, close_when_timeout));
+ }
+
+
+  /**
    * 点击时是否关闭窗口。
    *
    */
@@ -141,10 +153,21 @@ public class TPopup extends TWindowBase {
    return popup_t_get_prop_close_when_click_outside(this.nativeObj);
  }
 
+
+  /**
+   * 超时后自动关闭窗口(ms)。
+   *
+   */
+ public int getCloseWhenTimeout() {
+   return popup_t_get_prop_close_when_timeout(this.nativeObj);
+ }
+
 static private native long popup_create(long parent, int x, int y, int w, int h);
 static private native long popup_cast(long widget);
 static private native int popup_set_close_when_click(long widget, boolean close_when_click);
 static private native int popup_set_close_when_click_outside(long widget, boolean close_when_click_outside);
+static private native int popup_set_close_when_timeout(long widget, int close_when_timeout);
 static private native boolean popup_t_get_prop_close_when_click(long nativeObj);
 static private native boolean popup_t_get_prop_close_when_click_outside(long nativeObj);
+static private native int popup_t_get_prop_close_when_timeout(long nativeObj);
 };

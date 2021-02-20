@@ -46,6 +46,14 @@ package awtk;
  *
  *可用通过style来设置控件的显示风格，如背景颜色和边框颜色等(一般情况不需要)。
  *
+ *备注：list_view 下的 scroll_view 控件不支持遍历所有子控件的效果。
+ *
+ *下面是针对 scroll_bar_d （桌面版）有效果，scroll_bar_m（移动版）没有效果。
+ *如果 floating_scroll_bar 属性为 TRUE 和 auto_hide_scroll_bar 属性为 TRUE，scroll_view 宽默认为 list_view 的 100% 宽，鼠标在 list_view 上滚动条才显示，不在的就自动隐藏，如果 scroll_view 的高比虚拟高要大的话，滚动条变成不可见，scroll_view 宽不会变。
+ *如果 floating_scroll_bar 属性为 TRUE 和 auto_hide_scroll_bar 属性为 FALSE ，scroll_view 宽默认为 list_view 的 100% 宽，滚动条不隐藏，如果 scroll_view 的高比虚拟高要大的话，滚动条变成不可见，scroll_view 宽不会变。
+ *如果 floating_scroll_bar 属性为 FALSE 和 auto_hide_scroll_bar 属性为 FALSE，如果 scroll_view 的高比虚拟高要大的话，滚动条变成不可用，scroll_view 宽不会变。
+ *如果 floating_scroll_bar 属性为 FALSE 和 auto_hide_scroll_bar 属性为 TRUE，如果 scroll_view 的高比虚拟高要大的话，滚动条变成不可见，scroll_view 宽会合并原来滚动条的宽。
+ *
  */
 public class TListView extends TWidget { 
 
@@ -126,6 +134,18 @@ public class TListView extends TWidget {
 
 
   /**
+   * 设置滚动条是否悬浮在 scroll_view 上面。
+   * 
+   * @param floating_scroll_bar 滚动条是否悬浮在 scroll_view 上面。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setFloatingScrollBar(boolean floating_scroll_bar)  {
+   return TRet.from(list_view_set_floating_scroll_bar(this != null ? (this.nativeObj) : 0, floating_scroll_bar));
+ }
+
+
+  /**
    * 转换为list_view对象(供脚本语言使用)。
    * 
    * @param widget list_view对象。
@@ -174,13 +194,24 @@ public class TListView extends TWidget {
    return list_view_t_get_prop_auto_hide_scroll_bar(this.nativeObj);
  }
 
+
+  /**
+   * 滚动条是否悬浮在 scroll_view 上面
+   *
+   */
+ public boolean getFloatingScrollBar() {
+   return list_view_t_get_prop_floating_scroll_bar(this.nativeObj);
+ }
+
 static private native long list_view_create(long parent, int x, int y, int w, int h);
 static private native int list_view_set_item_height(long widget, int item_height);
 static private native int list_view_set_default_item_height(long widget, int default_item_height);
 static private native int list_view_set_auto_hide_scroll_bar(long widget, boolean auto_hide_scroll_bar);
+static private native int list_view_set_floating_scroll_bar(long widget, boolean floating_scroll_bar);
 static private native long list_view_cast(long widget);
 static private native int list_view_reinit(long widget);
 static private native int list_view_t_get_prop_item_height(long nativeObj);
 static private native int list_view_t_get_prop_default_item_height(long nativeObj);
 static private native boolean list_view_t_get_prop_auto_hide_scroll_bar(long nativeObj);
+static private native boolean list_view_t_get_prop_floating_scroll_bar(long nativeObj);
 };

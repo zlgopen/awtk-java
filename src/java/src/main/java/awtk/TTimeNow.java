@@ -30,6 +30,18 @@ public class TTimeNow {
     return time_now_ms();
  }
 
+
+  /**
+   * 获取当前时间(微秒)。
+   * 
+   *
+   * @return 返回当前时间(微秒)。
+   */
+ public  static long us()  {
+    return time_now_us();
+ }
+
 static private native long time_now_s();
 static private native long time_now_ms();
+static private native long time_now_us();
 };

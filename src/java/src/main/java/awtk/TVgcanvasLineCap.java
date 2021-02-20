@@ -21,7 +21,14 @@ public enum TVgcanvasLineCap {
    *
    */
  
-  SQUARE (VGCANVAS_LINE_CAP_SQUARE());
+  SQUARE (VGCANVAS_LINE_CAP_SQUARE()),
+  
+  /**
+   * 平头。
+   *
+   */
+ 
+  BUTT (VGCANVAS_LINE_CAP_BUTT());
  
  
   private TVgcanvasLineCap(String value) {
@@ -58,5 +65,6 @@ public enum TVgcanvasLineCap {
 
   static private native String VGCANVAS_LINE_CAP_ROUND();
   static private native String VGCANVAS_LINE_CAP_SQUARE();
+  static private native String VGCANVAS_LINE_CAP_BUTT();
 
 }

@@ -154,7 +154,14 @@ public enum TRet {
    *
    */
  
-  EOS (RET_EOS());
+  EOS (RET_EOS()),
+  
+  /**
+   * 没有改变。
+   *
+   */
+ 
+  NOT_MODIFIED (RET_NOT_MODIFIED());
  
  
   private TRet(int value) {
@@ -210,5 +217,6 @@ public enum TRet {
   static private native int RET_CRC();
   static private native int RET_IO();
   static private native int RET_EOS();
+  static private native int RET_NOT_MODIFIED();
 
 }
