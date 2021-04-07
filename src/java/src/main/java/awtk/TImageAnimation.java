@@ -235,6 +235,30 @@ public class TImageAnimation extends TWidget {
 
 
   /**
+   * 设置是否倒序播放。
+   * 
+   * @param reverse 是否倒序播放。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setReverse(boolean reverse)  {
+   return TRet.from(image_animation_set_reverse(this != null ? (this.nativeObj) : 0, reverse));
+ }
+
+
+  /**
+   * 设置结束播放后是否保持显示最后一帧。
+   * 
+   * @param show_when_done 是否继续显示最后一帧。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setShowWhenDone(boolean show_when_done)  {
+   return TRet.from(image_animation_set_show_when_done(this != null ? (this.nativeObj) : 0, show_when_done));
+ }
+
+
+  /**
    * 转换为image_animation对象(供脚本语言使用)。
    * 
    * @param widget image_animation对象。
@@ -294,6 +318,15 @@ public class TImageAnimation extends TWidget {
 
 
   /**
+   * 是否倒序播放。
+   *
+   */
+ public boolean getReverse() {
+   return image_animation_t_get_prop_reverse(this.nativeObj);
+ }
+
+
+  /**
    * 是否循环播放。
    *
    */
@@ -346,6 +379,15 @@ public class TImageAnimation extends TWidget {
    return image_animation_t_get_prop_delay(this.nativeObj);
  }
 
+
+  /**
+   * 结束后是否继续显示最后一帧。
+   *
+   */
+ public boolean getShowWhenDone() {
+   return image_animation_t_get_prop_show_when_done(this.nativeObj);
+ }
+
 static private native long image_animation_create(long parent, int x, int y, int w, int h);
 static private native int image_animation_set_loop(long widget, boolean loop);
 static private native int image_animation_set_image(long widget, String image);
@@ -360,16 +402,20 @@ static private native int image_animation_pause(long widget);
 static private native int image_animation_next(long widget);
 static private native int image_animation_set_format(long widget, String format);
 static private native int image_animation_set_unload_after_paint(long widget, boolean unload_after_paint);
+static private native int image_animation_set_reverse(long widget, boolean reverse);
+static private native int image_animation_set_show_when_done(long widget, boolean show_when_done);
 static private native long image_animation_cast(long widget);
 static private native boolean image_animation_is_playing(long widget);
 static private native String image_animation_t_get_prop_image(long nativeObj);
 static private native String image_animation_t_get_prop_sequence(long nativeObj);
 static private native int image_animation_t_get_prop_start_index(long nativeObj);
 static private native int image_animation_t_get_prop_end_index(long nativeObj);
+static private native boolean image_animation_t_get_prop_reverse(long nativeObj);
 static private native boolean image_animation_t_get_prop_loop(long nativeObj);
 static private native boolean image_animation_t_get_prop_auto_play(long nativeObj);
 static private native boolean image_animation_t_get_prop_unload_after_paint(long nativeObj);
 static private native String image_animation_t_get_prop_format(long nativeObj);
 static private native int image_animation_t_get_prop_interval(long nativeObj);
 static private native int image_animation_t_get_prop_delay(long nativeObj);
+static private native boolean image_animation_t_get_prop_show_when_done(long nativeObj);
 };

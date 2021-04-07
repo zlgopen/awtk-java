@@ -53,6 +53,15 @@ public class TIdleInfo extends TObject {
 
 
   /**
+   * idle回调函数上下文。
+   *
+   */
+ public long getExtraCtx() {
+   return idle_info_t_get_prop_extra_ctx(this.nativeObj);
+ }
+
+
+  /**
    * idle的ID
    *
    *> 为TK\_INVALID\_ID时表示无效idle。
@@ -64,5 +73,6 @@ public class TIdleInfo extends TObject {
 
 static private native long idle_info_cast(long idle);
 static private native long idle_info_t_get_prop_ctx(long nativeObj);
+static private native long idle_info_t_get_prop_extra_ctx(long nativeObj);
 static private native int idle_info_t_get_prop_id(long nativeObj);
 };

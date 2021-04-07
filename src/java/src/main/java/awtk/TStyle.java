@@ -119,19 +119,6 @@ public class TStyle {
 
 
   /**
-   * 把风格对象数据设置到风格对象中
-   * 
-   * @param data 风格对象数据
-   * @param state 风格状态
-   *
-   * @return 返回RET_OK表示成功，否则表示失败。
-   */
- public  TRet setStyleData(int data, String state)  {
-   return TRet.from(style_set_style_data(this != null ? (this.nativeObj) : 0, data, state));
- }
-
-
-  /**
    * 更新风格对象的状态以及对应的数据
    *备注：根据 widget_type 和 style_name 以及 widget_state 在 theme 对象中查找对应的数据并且更新到 style 对象中
    * 
@@ -185,7 +172,6 @@ static private native int style_get_int(long s, String name, int defval);
 static private native int style_get_uint(long s, String name, int defval);
 static private native String style_get_str(long s, String name, String defval);
 static private native int style_set(long s, String state, String name, long value);
-static private native int style_set_style_data(long s, int data, String state);
 static private native int style_update_state(long s, long theme, String widget_type, String style_name, String widget_state);
 static private native String style_get_style_state(long s);
 static private native boolean style_is_mutable(long s);

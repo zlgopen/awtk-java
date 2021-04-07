@@ -110,8 +110,20 @@ public class TProgressBar extends TWidget {
    *
    * @return 返回RET_OK表示成功，否则表示失败。
    */
- public  TRet setMax(int max)  {
+ public  TRet setMax(double max)  {
    return TRet.from(progress_bar_set_max(this != null ? (this.nativeObj) : 0, max));
+ }
+
+
+  /**
+   * 设置格式。
+   * 
+   * @param format 格式。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setFormat(String format)  {
+   return TRet.from(progress_bar_set_format(this != null ? (this.nativeObj) : 0, format));
  }
 
 
@@ -174,6 +186,15 @@ public class TProgressBar extends TWidget {
 
 
   /**
+   * 数值到字符串转换时的格式，缺省为"%d"。
+   *
+   */
+ public String getFormat() {
+   return progress_bar_t_get_prop_format(this.nativeObj);
+ }
+
+
+  /**
    * 进度条的是否为垂直方向。
    *
    */
@@ -202,13 +223,15 @@ public class TProgressBar extends TWidget {
 static private native long progress_bar_create(long parent, int x, int y, int w, int h);
 static private native long progress_bar_cast(long widget);
 static private native int progress_bar_set_value(long widget, double value);
-static private native int progress_bar_set_max(long widget, int max);
+static private native int progress_bar_set_max(long widget, double max);
+static private native int progress_bar_set_format(long widget, String format);
 static private native int progress_bar_set_vertical(long widget, boolean vertical);
 static private native int progress_bar_set_show_text(long widget, boolean show_text);
 static private native int progress_bar_set_reverse(long widget, boolean reverse);
 static private native int progress_bar_get_percent(long widget);
 static private native double progress_bar_t_get_prop_value(long nativeObj);
 static private native double progress_bar_t_get_prop_max(long nativeObj);
+static private native String progress_bar_t_get_prop_format(long nativeObj);
 static private native boolean progress_bar_t_get_prop_vertical(long nativeObj);
 static private native boolean progress_bar_t_get_prop_show_text(long nativeObj);
 static private native boolean progress_bar_t_get_prop_reverse(long nativeObj);

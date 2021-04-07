@@ -53,6 +53,15 @@ public class TTimerInfo extends TObject {
 
 
   /**
+   * 定时器回调函数的上下文
+   *
+   */
+ public long getExtraCtx() {
+   return timer_info_t_get_prop_extra_ctx(this.nativeObj);
+ }
+
+
+  /**
    * 定时器的ID
    *
    *> 为TK\_INVALID\_ID时表示无效定时器。
@@ -73,6 +82,7 @@ public class TTimerInfo extends TObject {
 
 static private native long timer_info_cast(long timer);
 static private native long timer_info_t_get_prop_ctx(long nativeObj);
+static private native long timer_info_t_get_prop_extra_ctx(long nativeObj);
 static private native int timer_info_t_get_prop_id(long nativeObj);
 static private native long timer_info_t_get_prop_now(long nativeObj);
 };

@@ -70,8 +70,8 @@ public class TEmitter {
    *
    * @return 
    */
- public  TRet dispatchSimpleEvent(TEventType type)  {
-   return TRet.from(emitter_dispatch_simple_event(this != null ? (this.nativeObj) : 0, type.value()));
+ public  TRet dispatchSimpleEvent(int type)  {
+   return TRet.from(emitter_dispatch_simple_event(this != null ? (this.nativeObj) : 0, type));
  }
 
 

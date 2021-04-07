@@ -924,7 +924,14 @@ public enum TKeyCode {
    *
    */
  
-  KEY_CANCEL (TK_KEY_CANCEL());
+  KEY_CANCEL (TK_KEY_CANCEL()),
+  
+  /**
+   * TK_KEY_WHEEL
+   *
+   */
+ 
+  KEY_WHEEL (TK_KEY_WHEEL());
  
  
   private TKeyCode(int value) {
@@ -1090,5 +1097,6 @@ public enum TKeyCode {
   static private native int TK_KEY_COMMAND();
   static private native int TK_KEY_BACK();
   static private native int TK_KEY_CANCEL();
+  static private native int TK_KEY_WHEEL();
 
 }

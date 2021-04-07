@@ -121,6 +121,19 @@ public class TColor {
 
 
   /**
+   * 获取颜色值。
+   *
+   *> 主要供脚本语言使用。
+   * 
+   *
+   * @return 返回颜色值。
+   */
+ public  int getColor()  {
+    return color_get_color(this != null ? (this.nativeObj) : 0);
+ }
+
+
+  /**
    * 转换为color对象。
    *
    *> 供脚本语言使用。
@@ -145,21 +158,13 @@ public class TColor {
    return TRet.from(color_destroy(this != null ? (this.nativeObj) : 0));
  }
 
-
-  /**
-   * 颜色的数值。
-   *
-   */
- public int getColor() {
-   return color_t_get_prop_color(this.nativeObj);
- }
-
 static private native long color_create(int r, int b, int g, int a);
 static private native long color_from_str(long c, String str);
 static private native int color_r(long c);
 static private native int color_g(long c);
 static private native int color_b(long c);
 static private native int color_a(long c);
+static private native int color_get_color(long c);
 static private native long color_cast(long color);
 static private native int color_destroy(long c);
 static private native int color_t_get_prop_color(long nativeObj);

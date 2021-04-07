@@ -123,7 +123,7 @@ public class TTabButton extends TWidget {
    *
    * @return 返回RET_OK表示成功，否则表示失败。
    */
- public  TRet setValue(int value)  {
+ public  TRet setValue(boolean value)  {
    return TRet.from(tab_button_set_value(this != null ? (this.nativeObj) : 0, value));
  }
 
@@ -192,7 +192,7 @@ public class TTabButton extends TWidget {
 
 static private native long tab_button_create(long parent, int x, int y, int w, int h);
 static private native long tab_button_cast(long widget);
-static private native int tab_button_set_value(long widget, int value);
+static private native int tab_button_set_value(long widget, boolean value);
 static private native int tab_button_set_icon(long widget, String name);
 static private native int tab_button_set_active_icon(long widget, String name);
 static private native int tab_button_set_load_ui(long widget, String name);

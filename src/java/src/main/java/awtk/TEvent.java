@@ -52,6 +52,17 @@ public class TEvent {
 
 
   /**
+   * 获取event类型。
+   * 
+   *
+   * @return 返回event类型。
+   */
+ public  int getType()  {
+    return event_get_type(this != null ? (this.nativeObj) : 0);
+ }
+
+
+  /**
    * 创建event对象。
    *
    *主要给脚本语言使用。
@@ -75,15 +86,6 @@ public class TEvent {
    */
  public  TRet destroy()  {
    return TRet.from(event_destroy(this != null ? (this.nativeObj) : 0));
- }
-
-
-  /**
-   * 类型。
-   *
-   */
- public int getType() {
-   return event_t_get_prop_type(this.nativeObj);
  }
 
 
@@ -114,6 +116,7 @@ public class TEvent {
  }
 
 static private native long event_cast(long event);
+static private native int event_get_type(long event);
 static private native long event_create(int type);
 static private native int event_destroy(long event);
 static private native int event_t_get_prop_type(long nativeObj);

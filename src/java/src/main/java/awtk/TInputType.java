@@ -112,7 +112,14 @@ public enum TInputType {
    *
    */
  
-  CUSTOM_PASSWORD (INPUT_CUSTOM_PASSWORD());
+  CUSTOM_PASSWORD (INPUT_CUSTOM_PASSWORD()),
+  
+  /**
+   * 纯英文文本。字符串属性值：ascii
+   *
+   */
+ 
+  ASCII (INPUT_ASCII());
  
  
   private TInputType(int value) {
@@ -162,5 +169,6 @@ public enum TInputType {
   static private native int INPUT_TIME_FULL();
   static private native int INPUT_CUSTOM();
   static private native int INPUT_CUSTOM_PASSWORD();
+  static private native int INPUT_ASCII();
 
 }

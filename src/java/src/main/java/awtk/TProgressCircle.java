@@ -114,6 +114,18 @@ public class TProgressCircle extends TWidget {
 
 
   /**
+   * 设置格式。
+   * 
+   * @param format 格式。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setFormat(String format)  {
+   return TRet.from(progress_circle_set_format(this != null ? (this.nativeObj) : 0, format));
+ }
+
+
+  /**
    * 设置环线的厚度。
    * 
    * @param line_width 环线的厚度。
@@ -134,18 +146,6 @@ public class TProgressCircle extends TWidget {
    */
  public  TRet setStartAngle(int start_angle)  {
    return TRet.from(progress_circle_set_start_angle(this != null ? (this.nativeObj) : 0, start_angle));
- }
-
-
-  /**
-   * 设置单位。
-   * 
-   * @param unit 单位。
-   *
-   * @return 返回RET_OK表示成功，否则表示失败。
-   */
- public  TRet setUnit(String unit)  {
-   return TRet.from(progress_circle_set_unit(this != null ? (this.nativeObj) : 0, unit));
  }
 
 
@@ -189,8 +189,17 @@ public class TProgressCircle extends TWidget {
    * 最大值(缺省为100)。
    *
    */
- public int getMax() {
+ public double getMax() {
    return progress_circle_t_get_prop_max(this.nativeObj);
+ }
+
+
+  /**
+   * 数值到字符串转换时的格式，缺省为"%d"。
+   *
+   */
+ public String getFormat() {
+   return progress_circle_t_get_prop_format(this.nativeObj);
  }
 
 
@@ -209,15 +218,6 @@ public class TProgressCircle extends TWidget {
    */
  public int getLineWidth() {
    return progress_circle_t_get_prop_line_width(this.nativeObj);
- }
-
-
-  /**
-   * 单元(缺省无)。
-   *
-   */
- public String getUnit() {
-   return progress_circle_t_get_prop_unit(this.nativeObj);
  }
 
 
@@ -251,17 +251,17 @@ static private native long progress_circle_create(long parent, int x, int y, int
 static private native long progress_circle_cast(long widget);
 static private native int progress_circle_set_value(long widget, double value);
 static private native int progress_circle_set_max(long widget, int max);
+static private native int progress_circle_set_format(long widget, String format);
 static private native int progress_circle_set_line_width(long widget, int line_width);
 static private native int progress_circle_set_start_angle(long widget, int start_angle);
-static private native int progress_circle_set_unit(long widget, String unit);
 static private native int progress_circle_set_line_cap(long widget, String line_cap);
 static private native int progress_circle_set_show_text(long widget, boolean show_text);
 static private native int progress_circle_set_counter_clock_wise(long widget, boolean counter_clock_wise);
 static private native double progress_circle_t_get_prop_value(long nativeObj);
-static private native int progress_circle_t_get_prop_max(long nativeObj);
+static private native double progress_circle_t_get_prop_max(long nativeObj);
+static private native String progress_circle_t_get_prop_format(long nativeObj);
 static private native int progress_circle_t_get_prop_start_angle(long nativeObj);
 static private native int progress_circle_t_get_prop_line_width(long nativeObj);
-static private native String progress_circle_t_get_prop_unit(long nativeObj);
 static private native String progress_circle_t_get_prop_line_cap(long nativeObj);
 static private native boolean progress_circle_t_get_prop_counter_clock_wise(long nativeObj);
 static private native boolean progress_circle_t_get_prop_show_text(long nativeObj);

@@ -91,25 +91,31 @@ public class TColorTile extends TWidget {
 
 
   /**
-   * 背景颜色。
+   * 获取背景颜色。
+   * 
    *
+   * @return 返回背景颜色。
    */
- public String getBgColor() {
-   return color_tile_t_get_prop_bg_color(this.nativeObj);
+ public  String getBgColor()  {
+    return color_tile_get_bg_color(this != null ? (this.nativeObj) : 0);
  }
 
 
   /**
-   * 边框颜色。
+   * 获取边框颜色。
+   * 
    *
+   * @return 返回边框颜色。
    */
- public String getBorderColor() {
-   return color_tile_t_get_prop_border_color(this.nativeObj);
+ public  String getBorderColor()  {
+    return color_tile_get_border_color(this != null ? (this.nativeObj) : 0);
  }
 
 static private native long color_tile_create(long parent, int x, int y, int w, int h);
 static private native long color_tile_cast(long widget);
 static private native int color_tile_set_bg_color(long widget, String color);
+static private native String color_tile_get_bg_color(long widget);
+static private native String color_tile_get_border_color(long widget);
 static private native String color_tile_t_get_prop_bg_color(long nativeObj);
 static private native String color_tile_t_get_prop_border_color(long nativeObj);
 };

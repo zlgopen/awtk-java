@@ -279,15 +279,6 @@ public class TDateTime {
 
 
   /**
-   * 星期几(0-6, Sunday = 0)。
-   *
-   */
- public int getWday() {
-   return date_time_t_get_prop_wday(this.nativeObj);
- }
-
-
-  /**
    * 月(1-12)。
    *
    */
