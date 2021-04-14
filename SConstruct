@@ -13,6 +13,9 @@ APP_LIBS = ['jvm']
 APP_LIBPATH = [JAVA_LIB_PATH]
 APP_CPPPATH = [JAVA_JNI_PATH, JAVA_JNI_OS_PATH]
 APP_CCFLAGS = ' -DPATH_MAX=256 -fPIC '
+
+helper.add_libpath(APP_LIBPATH)
+helper.add_platform_linkflags("Darwin", " -Wl,-rpath," + os.environ['JAVA_LIB_PATH'] + " ");
 helper.add_libs(APP_LIBS).add_ccflags(APP_CCFLAGS).add_cpppath(APP_CPPPATH).call(DefaultEnvironment)
 
 SConscriptFiles = ['3rd/quickjs/SConscript', 'src/SConscript']
