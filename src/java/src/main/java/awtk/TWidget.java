@@ -64,6 +64,17 @@ public class TWidget {
 
 
   /**
+   * 获取当前窗口中的焦点控件。
+   * 
+   *
+   * @return 焦点控件。
+   */
+ public  TWidget getFocusedWidget()  {
+    return new TWidget(widget_get_focused_widget(this != null ? (this.nativeObj) : 0));
+ }
+
+
+  /**
    * 获取原生窗口对象。
    * 
    *
@@ -93,6 +104,28 @@ public class TWidget {
    */
  public  TRet closeWindow()  {
    return TRet.from(widget_close_window(this != null ? (this.nativeObj) : 0));
+ }
+
+
+  /**
+   * 请求返回到前一个窗口。
+   * 
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet back()  {
+   return TRet.from(widget_back(this != null ? (this.nativeObj) : 0));
+ }
+
+
+  /**
+   * 请求返回到home窗口。
+   * 
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet backToHome()  {
+   return TRet.from(widget_back_to_home(this != null ? (this.nativeObj) : 0));
  }
 
 
@@ -940,6 +973,17 @@ public class TWidget {
 
 
   /**
+   * 判断窗口及子控件创建或加载是否完成。
+   * 
+   *
+   * @return 返回创建或加载是否完成。
+   */
+ public  boolean isWindowCreated()  {
+    return widget_is_window_created(this != null ? (this.nativeObj) : 0);
+ }
+
+
+  /**
    * 判断当前控件是否是指定控件的父控件(包括非直系)。
    * 
    * @param child 控件对象。
@@ -1435,7 +1479,7 @@ public class TWidget {
 
 
   /**
-   * widget_set_style_color(label, "style:normal:bg_color", 0xFF332211);
+   * widget_set_style_color(label, "normal:bg_color", 0xFF332211);
    *```
    * 
    * @param state_and_name 状态和名字，用英文的冒号分隔。
@@ -1550,9 +1594,12 @@ public class TWidget {
 
 static private native int widget_count_children(long widget);
 static private native long widget_get_child(long widget, int index);
+static private native long widget_get_focused_widget(long widget);
 static private native long widget_get_native_window(long widget);
 static private native int widget_index_of(long widget);
 static private native int widget_close_window(long widget);
+static private native int widget_back(long widget);
+static private native int widget_back_to_home(long widget);
 static private native int widget_move(long widget, int x, int y);
 static private native int widget_resize(long widget, int w, int h);
 static private native int widget_move_resize(long widget, int x, int y, int w, int h);
@@ -1618,6 +1665,7 @@ static private native int widget_get_prop_int(long widget, String name, int defv
 static private native int widget_set_prop_bool(long widget, String name, boolean v);
 static private native boolean widget_get_prop_bool(long widget, String name, boolean defval);
 static private native boolean widget_is_window_opened(long widget);
+static private native boolean widget_is_window_created(long widget);
 static private native boolean widget_is_parent_of(long widget, long child);
 static private native boolean widget_is_direct_parent_of(long widget, long child);
 static private native boolean widget_is_window(long widget);

@@ -2,9 +2,9 @@ package awtk;
 
 
 /**
- * 主题。
+ * 窗体样式。
  *
- *负责管理缺省的主题数据，方便实现style\_const。
+ *负责管理缺省的窗体样式数据，方便实现style\_const。
  *
  */
 public class TTheme { 
@@ -40,10 +40,10 @@ public class TTheme {
 
 
   /**
-   * 获取缺省的主题对象。
+   * 获取缺省的窗体样式对象。
    * 
    *
-   * @return 返回主题对象。
+   * @return 返回窗体样式对象。
    */
  public  static TTheme instance()  {
     return new TTheme(theme());

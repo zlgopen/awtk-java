@@ -17,6 +17,13 @@ public enum TWindowStage {
   NONE (WINDOW_STAGE_NONE()),
   
   /**
+   * 从UI资源加载完成。
+   *
+   */
+ 
+  LOADED (WINDOW_STAGE_LOADED()),
+  
+  /**
    * 创建完成。
    *
    */
@@ -78,6 +85,7 @@ public enum TWindowStage {
   private int value;
 
   static private native int WINDOW_STAGE_NONE();
+  static private native int WINDOW_STAGE_LOADED();
   static private native int WINDOW_STAGE_CREATED();
   static private native int WINDOW_STAGE_OPENED();
   static private native int WINDOW_STAGE_CLOSED();

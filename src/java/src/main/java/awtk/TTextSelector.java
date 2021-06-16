@@ -272,6 +272,18 @@ public class TTextSelector extends TWidget {
 
 
   /**
+   * 设置滚动动画播放时间。
+   * 
+   * @param animating_time 滚动动画播放时间。(单位毫秒)
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setAnimatingTime(int animating_time)  {
+   return TRet.from(text_selector_set_animating_time(this != null ? (this.nativeObj) : 0, animating_time));
+ }
+
+
+  /**
    * 可见的选项数量(只能是1或者3或者5，缺省为5)。
    *
    */
@@ -310,6 +322,15 @@ public class TTextSelector extends TWidget {
 
 
   /**
+   * 滚动动画播放时间。(单位毫秒)
+   *
+   */
+ public int getAnimatingTime() {
+   return text_selector_t_get_prop_animating_time(this.nativeObj);
+ }
+
+
+  /**
    * 是否本地化(翻译)选项(缺省为FALSE)。
    *
    */
@@ -343,10 +364,12 @@ static private native int text_selector_set_visible_nr(long widget, int visible_
 static private native int text_selector_set_localize_options(long widget, boolean localize_options);
 static private native int text_selector_set_loop_options(long widget, boolean loop_options);
 static private native int text_selector_set_yspeed_scale(long widget, double yspeed_scale);
+static private native int text_selector_set_animating_time(long widget, int animating_time);
 static private native int text_selector_t_get_prop_visible_nr(long nativeObj);
 static private native int text_selector_t_get_prop_selected_index(long nativeObj);
 static private native String text_selector_t_get_prop_options(long nativeObj);
 static private native double text_selector_t_get_prop_yspeed_scale(long nativeObj);
+static private native int text_selector_t_get_prop_animating_time(long nativeObj);
 static private native boolean text_selector_t_get_prop_localize_options(long nativeObj);
 static private native boolean text_selector_t_get_prop_loop_options(long nativeObj);
 };

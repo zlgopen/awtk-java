@@ -86,6 +86,39 @@ public class TGifImage extends TImageBase {
 
 
   /**
+   * 播放。
+   * 
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet play()  {
+   return TRet.from(gif_image_play(this != null ? (this.nativeObj) : 0));
+ }
+
+
+  /**
+   * 停止(并重置index为-1)。
+   * 
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet stop()  {
+   return TRet.from(gif_image_stop(this != null ? (this.nativeObj) : 0));
+ }
+
+
+  /**
+   * 暂停。
+   * 
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet pause()  {
+   return TRet.from(gif_image_pause(this != null ? (this.nativeObj) : 0));
+ }
+
+
+  /**
    * 转换为gif_image对象(供脚本语言使用)。
    * 
    * @param widget gif_image对象。
@@ -97,5 +130,8 @@ public class TGifImage extends TImageBase {
  }
 
 static private native long gif_image_create(long parent, int x, int y, int w, int h);
+static private native int gif_image_play(long widget);
+static private native int gif_image_stop(long widget);
+static private native int gif_image_pause(long widget);
 static private native long gif_image_cast(long widget);
 };

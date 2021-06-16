@@ -200,6 +200,20 @@ public class TScrollBar extends TWidget {
 
 
   /**
+   * 设置auto_hide属性。
+   *
+   *>仅对mobile风格的滚动条有效
+   * 
+   * @param auto_hide 值。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setAutoHide(boolean auto_hide)  {
+   return TRet.from(scroll_bar_set_auto_hide(this != null ? (this.nativeObj) : 0, auto_hide));
+ }
+
+
+  /**
    * 判断是否是mobile风格的滚动条。
    * 
    *
@@ -236,6 +250,15 @@ public class TScrollBar extends TWidget {
    return scroll_bar_t_get_prop_animatable(this.nativeObj);
  }
 
+
+  /**
+   * 是否自动隐藏(仅对mobile风格的滚动条有效)。
+   *
+   */
+ public boolean getAutoHide() {
+   return scroll_bar_t_get_prop_auto_hide(this.nativeObj);
+ }
+
 static private native long scroll_bar_create(long parent, int x, int y, int w, int h);
 static private native long scroll_bar_cast(long widget);
 static private native long scroll_bar_create_mobile(long parent, int x, int y, int w, int h);
@@ -246,9 +269,11 @@ static private native int scroll_bar_set_value(long widget, int value);
 static private native int scroll_bar_add_delta(long widget, int delta);
 static private native int scroll_bar_scroll_delta(long widget, int delta);
 static private native int scroll_bar_set_value_only(long widget, int value);
+static private native int scroll_bar_set_auto_hide(long widget, boolean auto_hide);
 static private native boolean scroll_bar_is_mobile(long widget);
 static private native int scroll_bar_t_get_prop_virtual_size(long nativeObj);
 static private native int scroll_bar_t_get_prop_value(long nativeObj);
 static private native int scroll_bar_t_get_prop_row(long nativeObj);
 static private native boolean scroll_bar_t_get_prop_animatable(long nativeObj);
+static private native boolean scroll_bar_t_get_prop_auto_hide(long nativeObj);
 };

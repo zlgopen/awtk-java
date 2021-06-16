@@ -355,14 +355,50 @@ public class TEdit extends TWidget {
 
 
   /**
-   * 设置输入框的光标坐标。
+   * 设置输入框的光标位置。
    * 
-   * @param cursor 是否为焦点。
+   * @param cursor 光标位置。
    *
    * @return 返回RET_OK表示成功，否则表示失败。
    */
  public  TRet setCursor(int cursor)  {
    return TRet.from(edit_set_cursor(this != null ? (this.nativeObj) : 0, cursor));
+ }
+
+
+  /**
+   * 获取输入框的光标位置。
+   * 
+   *
+   * @return 返回光标位置。
+   */
+ public  int getCursor()  {
+    return edit_get_cursor(this != null ? (this.nativeObj) : 0);
+ }
+
+
+  /**
+   * 选择指定范围的文本。
+   * 
+   * @param start 起始偏移。
+   * @param end 结束偏移。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setSelect(int start, int end)  {
+   return TRet.from(edit_set_select(this != null ? (this.nativeObj) : 0, start, end));
+ }
+
+
+  /**
+   * 获取选中的文本。
+   *使用完后需调用 TKMEM_FREE() 进行释放文本占有内存。
+   * 
+   *
+   * @return 返回选中文本。
+   */
+ public  String getSelectedText()  {
+    return edit_get_selected_text(this != null ? (this.nativeObj) : 0);
  }
 
 
@@ -396,6 +432,7 @@ public class TEdit extends TWidget {
  public String getActionText() {
    return edit_t_get_prop_action_text(this.nativeObj);
  }
+
 
  public String getKeyboard() {
    return edit_t_get_prop_keyboard(this.nativeObj);
@@ -532,6 +569,9 @@ static private native int edit_set_keyboard(long widget, String keyboard);
 static private native int edit_set_password_visible(long widget, boolean password_visible);
 static private native int edit_set_focus(long widget, boolean focus);
 static private native int edit_set_cursor(long widget, int cursor);
+static private native int edit_get_cursor(long widget);
+static private native int edit_set_select(long widget, int start, int end);
+static private native String edit_get_selected_text(long widget);
 static private native String edit_t_get_prop_tips(long nativeObj);
 static private native String edit_t_get_prop_tr_tips(long nativeObj);
 static private native String edit_t_get_prop_action_text(long nativeObj);

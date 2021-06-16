@@ -86,7 +86,7 @@ public class TGaugePointer extends TWidget {
    *
    * @return 返回RET_OK表示成功，否则表示失败。
    */
- public  TRet setAngle(int angle)  {
+ public  TRet setAngle(double angle)  {
    return TRet.from(gauge_pointer_set_angle(this != null ? (this.nativeObj) : 0, angle));
  }
 
@@ -120,7 +120,7 @@ public class TGaugePointer extends TWidget {
    * 指针角度。12点钟方向为0度，顺时钟方向为正，单位为度。
    *
    */
- public int getAngle() {
+ public double getAngle() {
    return gauge_pointer_t_get_prop_angle(this.nativeObj);
  }
 
@@ -155,10 +155,10 @@ public class TGaugePointer extends TWidget {
 
 static private native long gauge_pointer_create(long parent, int x, int y, int w, int h);
 static private native long gauge_pointer_cast(long widget);
-static private native int gauge_pointer_set_angle(long widget, int angle);
+static private native int gauge_pointer_set_angle(long widget, double angle);
 static private native int gauge_pointer_set_image(long widget, String image);
 static private native int gauge_pointer_set_anchor(long widget, String anchor_x, String anchor_y);
-static private native int gauge_pointer_t_get_prop_angle(long nativeObj);
+static private native double gauge_pointer_t_get_prop_angle(long nativeObj);
 static private native String gauge_pointer_t_get_prop_image(long nativeObj);
 static private native String gauge_pointer_t_get_prop_anchor_x(long nativeObj);
 static private native String gauge_pointer_t_get_prop_anchor_y(long nativeObj);

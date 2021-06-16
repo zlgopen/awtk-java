@@ -144,6 +144,18 @@ public class TWindowManager extends TWidget {
 
 
   /**
+   * 设置是否忽略用户输入事件。
+   * 
+   * @param ignore_input_events 是否忽略用户输入事件。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setIgnoreInputEvents(boolean ignore_input_events)  {
+   return TRet.from(window_manager_set_ignore_input_events(this != null ? (this.nativeObj) : 0, ignore_input_events));
+ }
+
+
+  /**
    * 设置屏保时间。
    * 
    * @param screen_saver_time 屏保时间(单位毫秒), 为0关闭屏保。
@@ -240,6 +252,7 @@ static private native int window_manager_get_pointer_y(long widget);
 static private native boolean window_manager_get_pointer_pressed(long widget);
 static private native boolean window_manager_is_animating(long widget);
 static private native int window_manager_set_show_fps(long widget, boolean show_fps);
+static private native int window_manager_set_ignore_input_events(long widget, boolean ignore_input_events);
 static private native int window_manager_set_screen_saver_time(long widget, int screen_saver_time);
 static private native int window_manager_set_cursor(long widget, String cursor);
 static private native int window_manager_back(long widget);

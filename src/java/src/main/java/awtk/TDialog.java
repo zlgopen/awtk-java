@@ -242,7 +242,7 @@ public class TDialog extends TWindowBase {
   /**
    * 显示『短暂提示信息』对话框。
    *
-   *主题由dialog_toast.xml文件决定。
+   *窗体样式由dialog_toast.xml文件决定。
    * 
    * @param text 文本内容。
    * @param duration 显示时间(单位为毫秒)。
@@ -257,7 +257,7 @@ public class TDialog extends TWindowBase {
   /**
    * 显示『提示信息』对话框。
    *
-   *主题由dialog_info.xml文件决定。
+   *窗体样式由dialog_info.xml文件决定。
    * 
    * @param title 标题。
    * @param text 文本内容。
@@ -272,7 +272,7 @@ public class TDialog extends TWindowBase {
   /**
    * 显示『警告』对话框。
    *
-   *主题由dialog_warn.xml文件决定。
+   *窗体样式由dialog_warn.xml文件决定。
    * 
    * @param title 标题。
    * @param text 文本内容。
@@ -287,7 +287,7 @@ public class TDialog extends TWindowBase {
   /**
    * 显示『确认』对话框。
    *
-   *主题由dialog_confirm.xml文件决定。
+   *窗体样式由dialog_confirm.xml文件决定。
    * 
    * @param title 标题。
    * @param text 文本内容。

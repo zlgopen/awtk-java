@@ -294,7 +294,21 @@ public enum TStyleId {
    *
    */
  
-  SELF_LAYOUT (STYLE_ID_SELF_LAYOUT());
+  SELF_LAYOUT (STYLE_ID_SELF_LAYOUT()),
+  
+  /**
+   * 是否支持焦点停留。
+   *
+   */
+ 
+  FOCUSABLE (STYLE_ID_FOCUSABLE()),
+  
+  /**
+   * 是否启用按键音、触屏音和震动等反馈。
+   *
+   */
+ 
+  FEEDBACK (STYLE_ID_FEEDBACK());
  
  
   private TStyleId(String value) {
@@ -370,5 +384,7 @@ public enum TStyleId {
   static private native String STYLE_ID_ROUND_RADIUS_BOTTOM_RIGHT();
   static private native String STYLE_ID_CHILDREN_LAYOUT();
   static private native String STYLE_ID_SELF_LAYOUT();
+  static private native String STYLE_ID_FOCUSABLE();
+  static private native String STYLE_ID_FEEDBACK();
 
 }

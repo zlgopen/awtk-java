@@ -93,7 +93,7 @@ public class TListViewH extends TWidget {
    *
    * @return 返回RET_OK表示成功，否则表示失败。
    */
- public  TRet setSpacing(boolean spacing)  {
+ public  TRet setSpacing(int spacing)  {
    return TRet.from(list_view_h_set_spacing(this != null ? (this.nativeObj) : 0, spacing));
  }
 
@@ -129,7 +129,7 @@ public class TListViewH extends TWidget {
 
 static private native long list_view_h_create(long parent, int x, int y, int w, int h);
 static private native int list_view_h_set_item_width(long widget, int item_width);
-static private native int list_view_h_set_spacing(long widget, boolean spacing);
+static private native int list_view_h_set_spacing(long widget, int spacing);
 static private native long list_view_h_cast(long widget);
 static private native int list_view_h_t_get_prop_item_width(long nativeObj);
 static private native int list_view_h_t_get_prop_spacing(long nativeObj);

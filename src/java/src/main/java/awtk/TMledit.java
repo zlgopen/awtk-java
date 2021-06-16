@@ -127,6 +127,18 @@ public class TMledit extends TWidget {
 
 
   /**
+   * 设置编辑器的最大字符数（0 为不限制字符数）。
+   * 
+   * @param max_chars 最大字符数。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setMaxChars(int max_chars)  {
+   return TRet.from(mledit_set_max_chars(this != null ? (this.nativeObj) : 0, max_chars));
+ }
+
+
+  /**
    * 设置编辑器的输入提示。
    * 
    * @param tips 输入提示。
@@ -175,6 +187,17 @@ public class TMledit extends TWidget {
 
 
   /**
+   * 获取编辑器光标位置。
+   * 
+   *
+   * @return 返回光标位置。
+   */
+ public  int getCursor()  {
+    return mledit_get_cursor(this != null ? (this.nativeObj) : 0);
+ }
+
+
+  /**
    * 设置编辑器滚动速度。
    * 
    * @param scroll_line 滚动行数。
@@ -183,6 +206,18 @@ public class TMledit extends TWidget {
    */
  public  TRet setScrollLine(int scroll_line)  {
    return TRet.from(mledit_set_scroll_line(this != null ? (this.nativeObj) : 0, scroll_line));
+ }
+
+
+  /**
+   * 设置编辑器滚动到指定偏移位置。
+   * 
+   * @param offset 偏移位置。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet scrollToOffset(int offset)  {
+   return TRet.from(mledit_scroll_to_offset(this != null ? (this.nativeObj) : 0, offset));
  }
 
 
@@ -210,6 +245,31 @@ public class TMledit extends TWidget {
    */
  public  TRet setCloseImWhenBlured(boolean close_im_when_blured)  {
    return TRet.from(mledit_set_close_im_when_blured(this != null ? (this.nativeObj) : 0, close_im_when_blured));
+ }
+
+
+  /**
+   * 选择编辑器中指定范围的文本。
+   * 
+   * @param start 起始偏移。
+   * @param end 结束偏移。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setSelect(int start, int end)  {
+   return TRet.from(mledit_set_select(this != null ? (this.nativeObj) : 0, start, end));
+ }
+
+
+  /**
+   * 获取选中的文本。
+   *使用完后需调用 TKMEM_FREE() 进行释放文本占有内存。
+   * 
+   *
+   * @return 返回选中文本。
+   */
+ public  String getSelectedText()  {
+    return mledit_get_selected_text(this != null ? (this.nativeObj) : 0);
  }
 
 
@@ -258,6 +318,15 @@ public class TMledit extends TWidget {
    */
  public int getMaxLines() {
    return mledit_t_get_prop_max_lines(this.nativeObj);
+ }
+
+
+  /**
+   * 最大字符数。
+   *
+   */
+ public int getMaxChars() {
+   return mledit_t_get_prop_max_chars(this.nativeObj);
  }
 
 
@@ -325,18 +394,24 @@ static private native int mledit_set_cancelable(long widget, boolean cancelable)
 static private native int mledit_set_focus(long widget, boolean focus);
 static private native int mledit_set_wrap_word(long widget, boolean wrap_word);
 static private native int mledit_set_max_lines(long widget, int max_lines);
+static private native int mledit_set_max_chars(long widget, int max_chars);
 static private native int mledit_set_tips(long widget, String tips);
 static private native int mledit_set_tr_tips(long widget, String tr_tips);
 static private native int mledit_set_keyboard(long widget, String keyboard);
 static private native int mledit_set_cursor(long widget, int cursor);
+static private native int mledit_get_cursor(long widget);
 static private native int mledit_set_scroll_line(long widget, int scroll_line);
+static private native int mledit_scroll_to_offset(long widget, int offset);
 static private native int mledit_set_open_im_when_focused(long widget, boolean open_im_when_focused);
 static private native int mledit_set_close_im_when_blured(long widget, boolean close_im_when_blured);
+static private native int mledit_set_select(long widget, int start, int end);
+static private native String mledit_get_selected_text(long widget);
 static private native long mledit_cast(long widget);
 static private native String mledit_t_get_prop_tips(long nativeObj);
 static private native String mledit_t_get_prop_tr_tips(long nativeObj);
 static private native String mledit_t_get_prop_keyboard(long nativeObj);
 static private native int mledit_t_get_prop_max_lines(long nativeObj);
+static private native int mledit_t_get_prop_max_chars(long nativeObj);
 static private native boolean mledit_t_get_prop_wrap_word(long nativeObj);
 static private native int mledit_t_get_prop_scroll_line(long nativeObj);
 static private native boolean mledit_t_get_prop_readonly(long nativeObj);

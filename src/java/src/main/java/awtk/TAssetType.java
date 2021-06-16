@@ -31,7 +31,7 @@ public enum TAssetType {
   IMAGE (ASSET_TYPE_IMAGE()),
   
   /**
-   * 主题资源。
+   * 窗体样式资源。
    *
    */
  

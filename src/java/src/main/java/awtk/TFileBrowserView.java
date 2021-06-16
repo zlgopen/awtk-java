@@ -106,6 +106,18 @@ public class TFileBrowserView extends TWidget {
 
 
   /**
+   * 设置 顶层文件夹。
+   * 
+   * @param top_dir 初始文件夹。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setTopDir(String top_dir)  {
+   return TRet.from(file_browser_view_set_top_dir(this != null ? (this.nativeObj) : 0, top_dir));
+ }
+
+
+  /**
    * 设置 过滤规则。
    *> files_only 表示只列出文件，dir_only 表示只列出目录，其它表示只列出满足扩展名文件集合(如：.jpg.png.gif)。
    * 
@@ -224,6 +236,15 @@ public class TFileBrowserView extends TWidget {
 
 
   /**
+   * 最顶层目录。到达本目录后，不允许往上。
+   *
+   */
+ public String getTopDir() {
+   return file_browser_view_t_get_prop_top_dir(this.nativeObj);
+ }
+
+
+  /**
    * 过滤规则。
    *
    */
@@ -270,6 +291,7 @@ public class TFileBrowserView extends TWidget {
 static private native long file_browser_view_create(long parent, int x, int y, int w, int h);
 static private native long file_browser_view_cast(long widget);
 static private native int file_browser_view_set_init_dir(long widget, String init_dir);
+static private native int file_browser_view_set_top_dir(long widget, String top_dir);
 static private native int file_browser_view_set_filter(long widget, String filter);
 static private native int file_browser_view_reload(long widget);
 static private native int file_browser_view_set_ignore_hidden_files(long widget, boolean ignore_hidden_files);
@@ -280,6 +302,7 @@ static private native String file_browser_view_get_cwd(long widget);
 static private native int file_browser_view_create_dir(long widget, String name);
 static private native int file_browser_view_create_file(long widget, String name, String data, int size);
 static private native String file_browser_view_t_get_prop_init_dir(long nativeObj);
+static private native String file_browser_view_t_get_prop_top_dir(long nativeObj);
 static private native String file_browser_view_t_get_prop_filter(long nativeObj);
 static private native boolean file_browser_view_t_get_prop_ignore_hidden_files(long nativeObj);
 static private native boolean file_browser_view_t_get_prop_sort_ascending(long nativeObj);

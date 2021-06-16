@@ -8,7 +8,7 @@ package awtk;
  *
  *window\_t是[window\_base\_t](window_base_t.md)的子类控件，window\_base\_t的函数均适用于window\_t控件。
  *
- *在xml中使用"window"标签创建窗口。无需指定坐标和大小，可以指定主题和动画名称。如：
+ *在xml中使用"window"标签创建窗口。无需指定坐标和大小，可以指定窗体样式和动画名称。如：
  *
  *```xml
  *<window theme="basic" anim_hint="htranslate">
@@ -183,7 +183,7 @@ public class TWindow extends TWindowBase {
   /**
    * 是否全屏。
    *
-   *>这里全屏是指与LCD相同大小，而非让SDL窗口全屏。
+   *>对于模拟器，全屏是让窗口和LCD具有相同大小，而非让SDL窗口全屏。
    *
    */
  public boolean getFullscreen() {

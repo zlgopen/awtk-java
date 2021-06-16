@@ -45,6 +45,13 @@ public enum TWidgetProp {
   H (WIDGET_PROP_H()),
   
   /**
+   * 最大高度。
+   *
+   */
+ 
+  MAX_H (WIDGET_PROP_MAX_H()),
+  
+  /**
    * 窗口设计时宽度。
    *
    */
@@ -197,6 +204,13 @@ public enum TWidgetProp {
    */
  
   SINGLE_INSTANCE (WIDGET_PROP_SINGLE_INSTANCE()),
+  
+  /**
+   * 点击非focusable控件时，是否让当前焦点控件失去焦点。比如点击窗口空白区域，是否让编辑器失去焦点。
+   *
+   */
+ 
+  STRONGLY_FOCUS (WIDGET_PROP_STRONGLY_FOCUS()),
   
   /**
    * 子控件布局参数。
@@ -689,7 +703,7 @@ public enum TWidgetProp {
   STATE_FOR_STYLE (WIDGET_PROP_STATE_FOR_STYLE()),
   
   /**
-   * 窗口主题名称。
+   * 窗体样式名称。
    *
    */
  
@@ -731,14 +745,14 @@ public enum TWidgetProp {
   FONT_MANAGER (WIDGET_PROP_FONT_MANAGER()),
   
   /**
-   * 窗口的主题对象。
+   * 窗口的窗体样式对象。
    *
    */
  
   THEME_OBJ (WIDGET_PROP_THEME_OBJ()),
   
   /**
-   * 缺省的主题对象。
+   * 缺省的窗体样式对象。
    *
    */
  
@@ -813,6 +827,13 @@ public enum TWidgetProp {
    */
  
   ANIMATABLE (WIDGET_PROP_ANIMATABLE()),
+  
+  /**
+   * 是否自动隐藏。
+   *
+   */
+ 
+  AUTO_HIDE (WIDGET_PROP_AUTO_HIDE()),
   
   /**
    * 是否自动隐藏滚动条。
@@ -1125,6 +1146,7 @@ public enum TWidgetProp {
   static private native String WIDGET_PROP_Y();
   static private native String WIDGET_PROP_W();
   static private native String WIDGET_PROP_H();
+  static private native String WIDGET_PROP_MAX_H();
   static private native String WIDGET_PROP_DESIGN_W();
   static private native String WIDGET_PROP_DESIGN_H();
   static private native String WIDGET_PROP_AUTO_SCALE_CHILDREN_X();
@@ -1147,6 +1169,7 @@ public enum TWidgetProp {
   static private native String WIDGET_PROP_MAX_W();
   static private native String WIDGET_PROP_AUTO_ADJUST_SIZE();
   static private native String WIDGET_PROP_SINGLE_INSTANCE();
+  static private native String WIDGET_PROP_STRONGLY_FOCUS();
   static private native String WIDGET_PROP_CHILDREN_LAYOUT();
   static private native String WIDGET_PROP_LAYOUT();
   static private native String WIDGET_PROP_SELF_LAYOUT();
@@ -1235,6 +1258,7 @@ public enum TWidgetProp {
   static private native String WIDGET_PROP_ENABLE_LONG_PRESS();
   static private native String WIDGET_PROP_CLICK_THROUGH();
   static private native String WIDGET_PROP_ANIMATABLE();
+  static private native String WIDGET_PROP_AUTO_HIDE();
   static private native String WIDGET_PROP_AUTO_HIDE_SCROLL_BAR();
   static private native String WIDGET_PROP_IMAGE();
   static private native String WIDGET_PROP_FORMAT();

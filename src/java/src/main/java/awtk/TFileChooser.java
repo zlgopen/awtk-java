@@ -55,6 +55,18 @@ public class TFileChooser extends TEmitter {
 
 
   /**
+   * 设置初始目录。
+   * 
+   * @param top_dir 初始目录
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setTopDir(String top_dir)  {
+   return TRet.from(file_chooser_set_top_dir(this != null ? (this.nativeObj) : 0, top_dir));
+ }
+
+
+  /**
    * 设置过滤规则。
    *> files_only 表示只列出文件，dir_only 表示只列出目录，其它表示只列出满足扩展名文件集合(如：.jpg.png.gif)。
    * 
@@ -146,6 +158,7 @@ public class TFileChooser extends TEmitter {
 
 static private native long file_chooser_create();
 static private native int file_chooser_set_init_dir(long chooser, String init_dir);
+static private native int file_chooser_set_top_dir(long chooser, String top_dir);
 static private native int file_chooser_set_filter(long chooser, String filter);
 static private native long file_chooser_cast(long chooser);
 static private native int file_chooser_choose_file_for_save(long chooser);

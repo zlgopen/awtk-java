@@ -50,10 +50,10 @@ public class TWindowBase extends TWidget {
 
 
   /**
-   * 主题资源的名称。
-   *每个窗口都可以有独立的主题文件，如果没指定，则使用系统缺省的主题文件。
-   *主题是一个XML文件，放在assets/raw/styles目录下。
-   *请参考[主题](https://github.com/zlgopen/awtk/blob/master/docs/theme.md)
+   * 窗体样式资源的名称。
+   *每个窗口都可以有独立的窗体样式文件，如果没指定，则使用系统缺省的窗体样式文件。
+   *窗体样式是一个XML文件，放在assets/raw/styles目录下。
+   *请参考[窗体样式](https://github.com/zlgopen/awtk/blob/master/docs/theme.md)
    *
    */
  public String getTheme() {
@@ -236,6 +236,15 @@ public class TWindowBase extends TWidget {
    return window_base_t_get_prop_single_instance(this.nativeObj);
  }
 
+
+  /**
+   * 点击非focusable控件时，是否让当前焦点控件失去焦点。比如点击窗口空白区域，是否让编辑器失去焦点。
+   *
+   */
+ public boolean getStronglyFocus() {
+   return window_base_t_get_prop_strongly_focus(this.nativeObj);
+ }
+
 static private native long window_base_cast(long widget);
 static private native String window_base_t_get_prop_theme(long nativeObj);
 static private native int window_base_t_get_prop_design_w(long nativeObj);
@@ -255,4 +264,5 @@ static private native String window_base_t_get_prop_move_focus_down_key(long nat
 static private native String window_base_t_get_prop_move_focus_left_key(long nativeObj);
 static private native String window_base_t_get_prop_move_focus_right_key(long nativeObj);
 static private native boolean window_base_t_get_prop_single_instance(long nativeObj);
+static private native boolean window_base_t_get_prop_strongly_focus(long nativeObj);
 };
