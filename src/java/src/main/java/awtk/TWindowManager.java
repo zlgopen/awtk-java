@@ -144,6 +144,20 @@ public class TWindowManager extends TWidget {
 
 
   /**
+   * 限制最大帧率。
+   *
+   *> TK\_MAX\_LOOP\_FPS/max\_fps最好是整数，比如TK\_MAX\_LOOP\_FPS为120，max\_fps可取60/30/20/10等。
+   * 
+   * @param max_fps 最大帧率。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setMaxFps(int max_fps)  {
+   return TRet.from(window_manager_set_max_fps(this != null ? (this.nativeObj) : 0, max_fps));
+ }
+
+
+  /**
    * 设置是否忽略用户输入事件。
    * 
    * @param ignore_input_events 是否忽略用户输入事件。
@@ -252,6 +266,7 @@ static private native int window_manager_get_pointer_y(long widget);
 static private native boolean window_manager_get_pointer_pressed(long widget);
 static private native boolean window_manager_is_animating(long widget);
 static private native int window_manager_set_show_fps(long widget, boolean show_fps);
+static private native int window_manager_set_max_fps(long widget, int max_fps);
 static private native int window_manager_set_ignore_input_events(long widget, boolean ignore_input_events);
 static private native int window_manager_set_screen_saver_time(long widget, int screen_saver_time);
 static private native int window_manager_set_cursor(long widget, String cursor);

@@ -340,6 +340,18 @@ public class TVgcanvas {
 
 
   /**
+   * 使用当前的path裁剪。
+   *>目前只有部分backend支持(如cairo)。
+   * 
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet clipPath()  {
+   return TRet.from(vgcanvas_clip_path(this != null ? (this.nativeObj) : 0));
+ }
+
+
+  /**
    * 矩形裁剪。
    * 
    * @param x x坐标。
@@ -809,6 +821,7 @@ static private native int vgcanvas_scale(long vg, double x, double y);
 static private native int vgcanvas_translate(long vg, double x, double y);
 static private native int vgcanvas_transform(long vg, double a, double b, double c, double d, double e, double f);
 static private native int vgcanvas_set_transform(long vg, double a, double b, double c, double d, double e, double f);
+static private native int vgcanvas_clip_path(long vg);
 static private native int vgcanvas_clip_rect(long vg, double x, double y, double w, double h);
 static private native int vgcanvas_intersect_clip_rect(long vg, double x, double y, double w, double h);
 static private native int vgcanvas_fill(long vg);

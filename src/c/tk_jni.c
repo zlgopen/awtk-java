@@ -13,7 +13,6 @@
 #include "base/canvas_offline.h"
 #include "base/canvas.h"
 #include "base/clip_board.h"
-#include "base/date_time_format.h"
 #include "base/dialog.h"
 #include "base/events.h"
 #include "base/font_manager.h"
@@ -223,6 +222,30 @@ JNIEXPORT jlong JNICALL Java_awtk_TEmitter_emitter_1cast(JNIEnv* env,  jclass aj
   ret = (emitter_t*)emitter_cast(emitter);
 
   return (jlong)(ret);
+}
+
+JNIEXPORT jdouble JNICALL Java_awtk_TRectf_rectf_1t_1get_1prop_1x(JNIEnv* env,  jclass ajc, jlong jobj) {/*get*/
+  rectf_t* obj = (rectf_t*)jobj;
+
+  return (jdouble)(obj->x);
+}
+
+JNIEXPORT jdouble JNICALL Java_awtk_TRectf_rectf_1t_1get_1prop_1y(JNIEnv* env,  jclass ajc, jlong jobj) {/*get*/
+  rectf_t* obj = (rectf_t*)jobj;
+
+  return (jdouble)(obj->y);
+}
+
+JNIEXPORT jdouble JNICALL Java_awtk_TRectf_rectf_1t_1get_1prop_1w(JNIEnv* env,  jclass ajc, jlong jobj) {/*get*/
+  rectf_t* obj = (rectf_t*)jobj;
+
+  return (jdouble)(obj->w);
+}
+
+JNIEXPORT jdouble JNICALL Java_awtk_TRectf_rectf_1t_1get_1prop_1h(JNIEnv* env,  jclass ajc, jlong jobj) {/*get*/
+  rectf_t* obj = (rectf_t*)jobj;
+
+  return (jdouble)(obj->h);
 }
 
 JNIEXPORT jlong JNICALL Java_awtk_TRect_rect_1create(JNIEnv* env,  jclass ajc, jint x, jint y, jint w, jint h) { /*func*/
@@ -3836,6 +3859,14 @@ JNIEXPORT jint JNICALL Java_awtk_TVgcanvas_vgcanvas_1set_1transform(JNIEnv* env,
   ret_t ret;
   vgcanvas_t* vg = (vgcanvas_t*)jvg;
   ret = (ret_t)vgcanvas_set_transform(vg, a, b, c, d, e, f);
+
+  return (jint)(ret);
+}
+
+JNIEXPORT jint JNICALL Java_awtk_TVgcanvas_vgcanvas_1clip_1path(JNIEnv* env,  jclass ajc, jlong jvg) { /*func*/
+  ret_t ret;
+  vgcanvas_t* vg = (vgcanvas_t*)jvg;
+  ret = (ret_t)vgcanvas_clip_path(vg);
 
   return (jint)(ret);
 }
@@ -8749,6 +8780,14 @@ JNIEXPORT jint JNICALL Java_awtk_TWindowManager_window_1manager_1set_1show_1fps(
   ret_t ret;
   widget_t* widget = (widget_t*)jwidget;
   ret = (ret_t)window_manager_set_show_fps(widget, show_fps);
+
+  return (jint)(ret);
+}
+
+JNIEXPORT jint JNICALL Java_awtk_TWindowManager_window_1manager_1set_1max_1fps(JNIEnv* env,  jclass ajc, jlong jwidget, jint max_fps) { /*func*/
+  ret_t ret;
+  widget_t* widget = (widget_t*)jwidget;
+  ret = (ret_t)window_manager_set_max_fps(widget, max_fps);
 
   return (jint)(ret);
 }
