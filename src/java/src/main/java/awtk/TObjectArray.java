@@ -95,6 +95,30 @@ public class TObjectArray extends TObject {
 
 
   /**
+   * 查找元素出现的第一个位置。
+   * 
+   * @param v 值。
+   *
+   * @return 如果找到返回其位置，否则返回-1。
+   */
+ public  int indexOf(TValue v)  {
+    return object_array_index_of(this != null ? (this.nativeObj) : 0, v != null ? (v.nativeObj) : 0);
+ }
+
+
+  /**
+   * 查找元素出现的最后一个位置。
+   * 
+   * @param v 值。
+   *
+   * @return 如果找到返回其位置，否则返回-1。
+   */
+ public  int lastIndexOf(TValue v)  {
+    return object_array_last_index_of(this != null ? (this.nativeObj) : 0, v != null ? (v.nativeObj) : 0);
+ }
+
+
+  /**
    * 在指定位置删除一个元素。
    * 
    * @param index 位置。
@@ -103,6 +127,19 @@ public class TObjectArray extends TObject {
    */
  public  TRet remove(int index)  {
    return TRet.from(object_array_remove(this != null ? (this.nativeObj) : 0, index));
+ }
+
+
+  /**
+   * 在指定位置删除一个元素，并返回它。
+   * 
+   * @param index 位置。
+   * @param v 用于返回值。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet getAndRemove(int index, TValue v)  {
+   return TRet.from(object_array_get_and_remove(this != null ? (this.nativeObj) : 0, index, v != null ? (v.nativeObj) : 0));
  }
 
 
@@ -119,6 +156,9 @@ static private native int object_array_unref(long obj);
 static private native int object_array_clear_props(long obj);
 static private native int object_array_insert(long obj, int index, long v);
 static private native int object_array_push(long obj, long v);
+static private native int object_array_index_of(long obj, long v);
+static private native int object_array_last_index_of(long obj, long v);
 static private native int object_array_remove(long obj, int index);
+static private native int object_array_get_and_remove(long obj, int index, long v);
 static private native int object_array_t_get_prop_size(long nativeObj);
 };

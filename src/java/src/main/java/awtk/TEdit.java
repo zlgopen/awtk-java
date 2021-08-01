@@ -433,6 +433,10 @@ public class TEdit extends TWidget {
    return edit_t_get_prop_action_text(this.nativeObj);
  }
 
+
+  /**
+   *
+   */
  public String getKeyboard() {
    return edit_t_get_prop_keyboard(this.nativeObj);
  }

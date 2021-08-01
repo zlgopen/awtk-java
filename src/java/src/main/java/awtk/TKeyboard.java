@@ -20,6 +20,7 @@ package awtk;
  *| INPUT\_HEX      | kb\_hex.xml      |
  *| INPUT\_EMAIL    | kb\_ascii.xml    |
  *| INPUT\_PASSWORD | kb\_ascii.xml    |
+ *| INPUT\_ASCII    | kb\_ascii.xml    |
  *| INPUT\_CUSTOM   | 使用自定义的键盘 |
  *| 其它            | kb\_default.xml  |
  *

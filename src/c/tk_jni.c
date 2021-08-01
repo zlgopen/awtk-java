@@ -11177,6 +11177,14 @@ JNIEXPORT jint JNICALL Java_awtk_TSlideView_slide_1view_1set_1loop(JNIEnv* env, 
   return (jint)(ret);
 }
 
+JNIEXPORT jint JNICALL Java_awtk_TSlideView_slide_1view_1remove_1index(JNIEnv* env,  jclass ajc, jlong jwidget, jint index) { /*func*/
+  ret_t ret;
+  widget_t* widget = (widget_t*)jwidget;
+  ret = (ret_t)slide_view_remove_index(widget, index);
+
+  return (jint)(ret);
+}
+
 JNIEXPORT jboolean JNICALL Java_awtk_TSlideView_slide_1view_1t_1get_1prop_1vertical(JNIEnv* env,  jclass ajc, jlong jobj) {/*get*/
   slide_view_t* obj = (slide_view_t*)jobj;
 
@@ -13482,10 +13490,37 @@ JNIEXPORT jint JNICALL Java_awtk_TObjectArray_object_1array_1push(JNIEnv* env,  
   return (jint)(ret);
 }
 
+JNIEXPORT jint JNICALL Java_awtk_TObjectArray_object_1array_1index_1of(JNIEnv* env,  jclass ajc, jlong jobj, jlong jv) { /*func*/
+  int32_t ret;
+  object_t* obj = (object_t*)jobj;
+  const value_t* v = (const value_t*)jv;
+  ret = (int32_t)object_array_index_of(obj, v);
+
+  return (jint)(ret);
+}
+
+JNIEXPORT jint JNICALL Java_awtk_TObjectArray_object_1array_1last_1index_1of(JNIEnv* env,  jclass ajc, jlong jobj, jlong jv) { /*func*/
+  int32_t ret;
+  object_t* obj = (object_t*)jobj;
+  const value_t* v = (const value_t*)jv;
+  ret = (int32_t)object_array_last_index_of(obj, v);
+
+  return (jint)(ret);
+}
+
 JNIEXPORT jint JNICALL Java_awtk_TObjectArray_object_1array_1remove(JNIEnv* env,  jclass ajc, jlong jobj, jint index) { /*func*/
   ret_t ret;
   object_t* obj = (object_t*)jobj;
   ret = (ret_t)object_array_remove(obj, index);
+
+  return (jint)(ret);
+}
+
+JNIEXPORT jint JNICALL Java_awtk_TObjectArray_object_1array_1get_1and_1remove(JNIEnv* env,  jclass ajc, jlong jobj, jint index, jlong jv) { /*func*/
+  ret_t ret;
+  object_t* obj = (object_t*)jobj;
+  value_t* v = (value_t*)jv;
+  ret = (ret_t)object_array_get_and_remove(obj, index, v);
 
   return (jint)(ret);
 }

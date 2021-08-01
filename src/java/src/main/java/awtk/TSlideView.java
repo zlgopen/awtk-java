@@ -184,6 +184,18 @@ public class TSlideView extends TWidget {
 
 
   /**
+   * 删除指定序号页面。
+   * 
+   * @param index 删除页面的序号。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet removeIndex(int index)  {
+   return TRet.from(slide_view_remove_index(this != null ? (this.nativeObj) : 0, index));
+ }
+
+
+  /**
    * 是否为上下滑动模式。
    *
    */
@@ -229,6 +241,7 @@ static private native int slide_view_set_active_ex(long widget, int index, boole
 static private native int slide_view_set_vertical(long widget, boolean vertical);
 static private native int slide_view_set_anim_hint(long widget, String anim_hint);
 static private native int slide_view_set_loop(long widget, boolean loop);
+static private native int slide_view_remove_index(long widget, int index);
 static private native boolean slide_view_t_get_prop_vertical(long nativeObj);
 static private native int slide_view_t_get_prop_auto_play(long nativeObj);
 static private native boolean slide_view_t_get_prop_loop(long nativeObj);
