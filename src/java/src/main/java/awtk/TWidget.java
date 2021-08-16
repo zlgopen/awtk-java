@@ -108,6 +108,17 @@ public class TWidget {
 
 
   /**
+   * 关闭控件所在的窗口。
+   * 
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet closeWindowForce()  {
+   return TRet.from(widget_close_window_force(this != null ? (this.nativeObj) : 0));
+ }
+
+
+  /**
    * 请求返回到前一个窗口。
    * 
    *
@@ -1598,6 +1609,7 @@ static private native long widget_get_focused_widget(long widget);
 static private native long widget_get_native_window(long widget);
 static private native int widget_index_of(long widget);
 static private native int widget_close_window(long widget);
+static private native int widget_close_window_force(long widget);
 static private native int widget_back(long widget);
 static private native int widget_back_to_home(long widget);
 static private native int widget_move(long widget, int x, int y);

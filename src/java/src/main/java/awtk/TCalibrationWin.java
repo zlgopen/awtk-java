@@ -50,6 +50,22 @@ public class TCalibrationWin extends TWindowBase {
 
 
   /**
+   * 创建calibration_win对象
+   * 
+   * @param parent 父控件
+   * @param x x坐标
+   * @param y y坐标
+   * @param w 宽度
+   * @param h 高度
+   *
+   * @return 对象。
+   */
+ public  static TWidget create(TWidget parent, int x, int y, int w, int h)  {
+    return new TCalibrationWin(calibration_win_create(parent != null ? (parent.nativeObj) : 0, x, y, w, h));
+ }
+
+
+  /**
    * 转换为calibration_win对象(供脚本语言使用)。
    * 
    * @param widget calibration_win对象。
@@ -60,5 +76,6 @@ public class TCalibrationWin extends TWindowBase {
     return new TCalibrationWin(calibration_win_cast(widget != null ? (widget.nativeObj) : 0));
  }
 
+static private native long calibration_win_create(long parent, int x, int y, int w, int h);
 static private native long calibration_win_cast(long widget);
 };

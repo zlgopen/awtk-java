@@ -257,6 +257,18 @@ public class TComboBox extends TEdit {
 
 
   /**
+   * 删除选项。
+   * 
+   * @param value 值。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet removeOption(int value)  {
+   return TRet.from(combo_box_remove_option(this != null ? (this.nativeObj) : 0, value));
+ }
+
+
+  /**
    * 设置选项。
    * 
    * @param options 选项。
@@ -344,6 +356,7 @@ static private native int combo_box_set_localize_options(long widget, boolean lo
 static private native int combo_box_set_value(long widget, int value);
 static private native int combo_box_set_item_height(long widget, int item_height);
 static private native int combo_box_append_option(long widget, int value, String text);
+static private native int combo_box_remove_option(long widget, int value);
 static private native int combo_box_set_options(long widget, String options);
 static private native int combo_box_get_value(long widget);
 static private native String combo_box_get_text(long widget);

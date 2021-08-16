@@ -38,6 +38,18 @@ public class TEvent {
 
 
   /**
+   * 将事件名转换成事件的值。
+   * 
+   * @param name 事件名。
+   *
+   * @return 返回事件的值。
+   */
+ public  static int fromName(String name)  {
+    return event_from_name(name);
+ }
+
+
+  /**
    * 转换为event对象。
    *
    *> 供脚本语言使用
@@ -115,6 +127,7 @@ public class TEvent {
    return event_t_get_prop_target(this.nativeObj);
  }
 
+static private native int event_from_name(String name);
 static private native long event_cast(long event);
 static private native int event_get_type(long event);
 static private native long event_create(int type);

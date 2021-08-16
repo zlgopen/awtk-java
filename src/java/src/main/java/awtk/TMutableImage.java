@@ -59,4 +59,21 @@ public class TMutableImage extends TImageBase {
    return new TMutableImage(nativeObj);
  }
 
+
+  /**
+   * 创建mutable_image对象
+   * 
+   * @param parent 父控件
+   * @param x x坐标
+   * @param y y坐标
+   * @param w 宽度
+   * @param h 高度
+   *
+   * @return 对象。
+   */
+ public  static TWidget create(TWidget parent, int x, int y, int w, int h)  {
+    return new TMutableImage(mutable_image_create(parent != null ? (parent.nativeObj) : 0, x, y, w, h));
+ }
+
+static private native long mutable_image_create(long parent, int x, int y, int w, int h);
 };

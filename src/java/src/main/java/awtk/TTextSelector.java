@@ -284,6 +284,18 @@ public class TTextSelector extends TWidget {
 
 
   /**
+   * 设置是否修改值时启用动画。
+   * 
+   * @param enable_value_animator 是否修改值时启用动画
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setEnableValueAnimator(boolean enable_value_animator)  {
+   return TRet.from(text_selector_set_enable_value_animator(this != null ? (this.nativeObj) : 0, enable_value_animator));
+ }
+
+
+  /**
    * 可见的选项数量(只能是1或者3或者5，缺省为5)。
    *
    */
@@ -347,6 +359,15 @@ public class TTextSelector extends TWidget {
    return text_selector_t_get_prop_loop_options(this.nativeObj);
  }
 
+
+  /**
+   * 是否修改值时启用动画。
+   *
+   */
+ public boolean getEnableValueAnimator() {
+   return text_selector_t_get_prop_enable_value_animator(this.nativeObj);
+ }
+
 static private native long text_selector_create(long parent, int x, int y, int w, int h);
 static private native long text_selector_cast(long widget);
 static private native int text_selector_reset_options(long widget);
@@ -365,6 +386,7 @@ static private native int text_selector_set_localize_options(long widget, boolea
 static private native int text_selector_set_loop_options(long widget, boolean loop_options);
 static private native int text_selector_set_yspeed_scale(long widget, double yspeed_scale);
 static private native int text_selector_set_animating_time(long widget, int animating_time);
+static private native int text_selector_set_enable_value_animator(long widget, boolean enable_value_animator);
 static private native int text_selector_t_get_prop_visible_nr(long nativeObj);
 static private native int text_selector_t_get_prop_selected_index(long nativeObj);
 static private native String text_selector_t_get_prop_options(long nativeObj);
@@ -372,4 +394,5 @@ static private native double text_selector_t_get_prop_yspeed_scale(long nativeOb
 static private native int text_selector_t_get_prop_animating_time(long nativeObj);
 static private native boolean text_selector_t_get_prop_localize_options(long nativeObj);
 static private native boolean text_selector_t_get_prop_loop_options(long nativeObj);
+static private native boolean text_selector_t_get_prop_enable_value_animator(long nativeObj);
 };

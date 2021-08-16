@@ -53,6 +53,22 @@ public class TCandidates extends TWidget {
 
 
   /**
+   * 创建candidates对象
+   * 
+   * @param parent 父控件
+   * @param x x坐标
+   * @param y y坐标
+   * @param w 宽度
+   * @param h 高度
+   *
+   * @return 对象。
+   */
+ public  static TWidget create(TWidget parent, int x, int y, int w, int h)  {
+    return new TCandidates(candidates_create(parent != null ? (parent.nativeObj) : 0, x, y, w, h));
+ }
+
+
+  /**
    * 转换为candidates对象(供脚本语言使用)。
    * 
    * @param widget candidates对象。
@@ -152,6 +168,7 @@ public class TCandidates extends TWidget {
    return candidates_t_get_prop_button_style(this.nativeObj);
  }
 
+static private native long candidates_create(long parent, int x, int y, int w, int h);
 static private native long candidates_cast(long widget);
 static private native int candidates_set_pre(long widget, boolean pre);
 static private native int candidates_set_select_by_num(long widget, boolean select_by_num);
