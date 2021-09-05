@@ -4405,6 +4405,11 @@ JNIEXPORT jstring JNICALL Java_awtk_TWidgetProp_WIDGET_1PROP_1VALUE(JNIEnv* env,
   return (*env)->NewStringUTF(env, WIDGET_PROP_VALUE);
 }
 
+JNIEXPORT jstring JNICALL Java_awtk_TWidgetProp_WIDGET_1PROP_1RADIO(JNIEnv* env,  jclass ajc) {/*const*/
+
+  return (*env)->NewStringUTF(env, WIDGET_PROP_RADIO);
+}
+
 JNIEXPORT jstring JNICALL Java_awtk_TWidgetProp_WIDGET_1PROP_1REVERSE(JNIEnv* env,  jclass ajc) {/*const*/
 
   return (*env)->NewStringUTF(env, WIDGET_PROP_REVERSE);
@@ -8226,6 +8231,12 @@ JNIEXPORT jint JNICALL Java_awtk_TOrientationEvent_orientation_1event_1t_1get_1p
   orientation_event_t* obj = (orientation_event_t*)jobj;
 
   return (jint)(obj->orientation);
+}
+
+JNIEXPORT jint JNICALL Java_awtk_TOrientationEvent_orientation_1event_1t_1get_1prop_1old_1orientation(JNIEnv* env,  jclass ajc, jlong jobj) {/*get*/
+  orientation_event_t* obj = (orientation_event_t*)jobj;
+
+  return (jint)(obj->old_orientation);
 }
 
 JNIEXPORT jlong JNICALL Java_awtk_TValueChangeEvent_value_1change_1event_1cast(JNIEnv* env,  jclass ajc, jlong jevent) { /*func*/
@@ -13265,6 +13276,14 @@ JNIEXPORT jint JNICALL Java_awtk_TNativeWindow_native_1window_1resize(JNIEnv* en
   return (jint)(ret);
 }
 
+JNIEXPORT jint JNICALL Java_awtk_TNativeWindow_native_1window_1set_1orientation(JNIEnv* env,  jclass ajc, jlong jwin, jlong old_orientation, jlong new_orientation) { /*func*/
+  ret_t ret;
+  native_window_t* win = (native_window_t*)jwin;
+  ret = (ret_t)native_window_set_orientation(win, old_orientation, new_orientation);
+
+  return (jint)(ret);
+}
+
 JNIEXPORT jint JNICALL Java_awtk_TNativeWindow_native_1window_1minimize(JNIEnv* env,  jclass ajc, jlong jwin) { /*func*/
   ret_t ret;
   native_window_t* win = (native_window_t*)jwin;
@@ -13607,12 +13626,6 @@ JNIEXPORT jint JNICALL Java_awtk_TObjectDefault_object_1default_1clear_1props(JN
   ret = (ret_t)object_default_clear_props(obj);
 
   return (jint)(ret);
-}
-
-JNIEXPORT jint JNICALL Java_awtk_TObjectDefault_object_1default_1t_1get_1prop_1props_1size(JNIEnv* env,  jclass ajc, jlong jobj) {/*get*/
-  object_default_t* obj = (object_default_t*)jobj;
-
-  return (jint)(obj->props_size);
 }
 
 JNIEXPORT jlong JNICALL Java_awtk_TTimerInfo_timer_1info_1cast(JNIEnv* env,  jclass ajc, jlong jtimer) { /*func*/

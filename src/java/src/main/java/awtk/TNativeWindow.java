@@ -60,6 +60,19 @@ public class TNativeWindow extends TObject {
 
 
   /**
+   * 调整窗口旋转。
+   * 
+   * @param old_orientation 旧的旋转角度。
+   * @param new_orientation 新的旋转角度。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setOrientation(long old_orientation, long new_orientation)  {
+   return TRet.from(native_window_set_orientation(this != null ? (this.nativeObj) : 0, old_orientation, new_orientation));
+ }
+
+
+  /**
    * 最小化窗口。
    * 
    *
@@ -141,6 +154,7 @@ public class TNativeWindow extends TObject {
 
 static private native int native_window_move(long win, int x, int y, boolean force);
 static private native int native_window_resize(long win, int w, int h, boolean force);
+static private native int native_window_set_orientation(long win, long old_orientation, long new_orientation);
 static private native int native_window_minimize(long win);
 static private native int native_window_maximize(long win);
 static private native int native_window_restore(long win);

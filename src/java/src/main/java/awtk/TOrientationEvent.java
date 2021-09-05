@@ -51,6 +51,16 @@ public class TOrientationEvent extends TEvent {
    return orientation_event_t_get_prop_orientation(this.nativeObj);
  }
 
+
+  /**
+   * 旧的屏幕方向。
+   *
+   */
+ public int getOldOrientation() {
+   return orientation_event_t_get_prop_old_orientation(this.nativeObj);
+ }
+
 static private native long orientation_event_cast(long event);
 static private native int orientation_event_t_get_prop_orientation(long nativeObj);
+static private native int orientation_event_t_get_prop_old_orientation(long nativeObj);
 };

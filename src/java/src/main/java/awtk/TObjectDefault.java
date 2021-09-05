@@ -65,17 +65,7 @@ public class TObjectDefault extends TObject {
    return TRet.from(object_default_clear_props(this != null ? (this.nativeObj) : 0));
  }
 
-
-  /**
-   * 属性个数。
-   *
-   */
- public int getPropsSize() {
-   return object_default_t_get_prop_props_size(this.nativeObj);
- }
-
 static private native long object_default_create();
 static private native int object_default_unref(long obj);
 static private native int object_default_clear_props(long obj);
-static private native int object_default_t_get_prop_props_size(long nativeObj);
 };
