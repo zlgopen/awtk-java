@@ -8141,6 +8141,11 @@ JNIEXPORT jint JNICALL Java_awtk_TValueType_VALUE_1TYPE_1TOKEN(JNIEnv* env,  jcl
   return (jint)(VALUE_TYPE_TOKEN);
 }
 
+JNIEXPORT jint JNICALL Java_awtk_TValueType_VALUE_1TYPE_1GRADIENT(JNIEnv* env,  jclass ajc) {/*const*/
+
+  return (jint)(VALUE_TYPE_GRADIENT);
+}
+
 JNIEXPORT jlong JNICALL Java_awtk_TAssetsManager_assets_1manager(JNIEnv* env,  jclass ajc) { /*func*/
   assets_manager_t* ret;
   ret = (assets_manager_t*)assets_manager();
@@ -9963,6 +9968,14 @@ JNIEXPORT jint JNICALL Java_awtk_TMledit_mledit_1set_1wrap_1word(JNIEnv* env,  j
   return (jint)(ret);
 }
 
+JNIEXPORT jint JNICALL Java_awtk_TMledit_mledit_1set_1overwrite(JNIEnv* env,  jclass ajc, jlong jwidget, jboolean overwrite) { /*func*/
+  ret_t ret;
+  widget_t* widget = (widget_t*)jwidget;
+  ret = (ret_t)mledit_set_overwrite(widget, overwrite);
+
+  return (jint)(ret);
+}
+
 JNIEXPORT jint JNICALL Java_awtk_TMledit_mledit_1set_1max_1lines(JNIEnv* env,  jclass ajc, jlong jwidget, jint max_lines) { /*func*/
   ret_t ret;
   widget_t* widget = (widget_t*)jwidget;
@@ -10073,6 +10086,16 @@ JNIEXPORT jstring JNICALL Java_awtk_TMledit_mledit_1get_1selected_1text(JNIEnv* 
   return (*env)->NewStringUTF(env, ret);
 }
 
+JNIEXPORT jint JNICALL Java_awtk_TMledit_mledit_1insert_1text(JNIEnv* env,  jclass ajc, jlong jwidget, jint offset, jstring jtext) { /*func*/
+  ret_t ret;
+  widget_t* widget = (widget_t*)jwidget;
+  const char* text = (char*)(*env)->GetStringUTFChars(env, jtext, 0);
+  ret = (ret_t)mledit_insert_text(widget, offset, text);
+  (*env)->ReleaseStringUTFChars(env, jtext, text);
+
+  return (jint)(ret);
+}
+
 JNIEXPORT jlong JNICALL Java_awtk_TMledit_mledit_1cast(JNIEnv* env,  jclass ajc, jlong jwidget) { /*func*/
   widget_t* ret;
   widget_t* widget = (widget_t*)jwidget;
@@ -10111,16 +10134,22 @@ JNIEXPORT jint JNICALL Java_awtk_TMledit_mledit_1t_1get_1prop_1max_1chars(JNIEnv
   return (jint)(obj->max_chars);
 }
 
-JNIEXPORT jboolean JNICALL Java_awtk_TMledit_mledit_1t_1get_1prop_1wrap_1word(JNIEnv* env,  jclass ajc, jlong jobj) {/*get*/
-  mledit_t* obj = (mledit_t*)jobj;
-
-  return (jboolean)(obj->wrap_word);
-}
-
 JNIEXPORT jint JNICALL Java_awtk_TMledit_mledit_1t_1get_1prop_1scroll_1line(JNIEnv* env,  jclass ajc, jlong jobj) {/*get*/
   mledit_t* obj = (mledit_t*)jobj;
 
   return (jint)(obj->scroll_line);
+}
+
+JNIEXPORT jboolean JNICALL Java_awtk_TMledit_mledit_1t_1get_1prop_1overwrite(JNIEnv* env,  jclass ajc, jlong jobj) {/*get*/
+  mledit_t* obj = (mledit_t*)jobj;
+
+  return (jboolean)(obj->overwrite);
+}
+
+JNIEXPORT jboolean JNICALL Java_awtk_TMledit_mledit_1t_1get_1prop_1wrap_1word(JNIEnv* env,  jclass ajc, jlong jobj) {/*get*/
+  mledit_t* obj = (mledit_t*)jobj;
+
+  return (jboolean)(obj->wrap_word);
 }
 
 JNIEXPORT jboolean JNICALL Java_awtk_TMledit_mledit_1t_1get_1prop_1readonly(JNIEnv* env,  jclass ajc, jlong jobj) {/*get*/
@@ -13616,6 +13645,13 @@ JNIEXPORT jint JNICALL Java_awtk_TObjectArray_object_1array_1t_1get_1prop_1size(
 JNIEXPORT jlong JNICALL Java_awtk_TObjectDefault_object_1default_1create(JNIEnv* env,  jclass ajc) { /*func*/
   object_t* ret;
   ret = (object_t*)object_default_create();
+
+  return (jlong)(ret);
+}
+
+JNIEXPORT jlong JNICALL Java_awtk_TObjectDefault_object_1default_1create_1ex(JNIEnv* env,  jclass ajc, jboolean enable_path) { /*func*/
+  object_t* ret;
+  ret = (object_t*)object_default_create_ex(enable_path);
 
   return (jlong)(ret);
 }

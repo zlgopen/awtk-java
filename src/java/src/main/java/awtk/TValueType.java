@@ -154,7 +154,14 @@ public enum TValueType {
    *
    */
  
-  TOKEN (VALUE_TYPE_TOKEN());
+  TOKEN (VALUE_TYPE_TOKEN()),
+  
+  /**
+   * 渐变颜色。
+   *
+   */
+ 
+  GRADIENT (VALUE_TYPE_GRADIENT());
  
  
   private TValueType(int value) {
@@ -210,5 +217,6 @@ public enum TValueType {
   static private native int VALUE_TYPE_BINARY();
   static private native int VALUE_TYPE_UBJSON();
   static private native int VALUE_TYPE_TOKEN();
+  static private native int VALUE_TYPE_GRADIENT();
 
 }

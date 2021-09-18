@@ -45,6 +45,18 @@ public class TObjectDefault extends TObject {
 
 
   /**
+   * 创建对象。
+   * 
+   * @param enable_path 是否支持按路径访问属性。
+   *
+   * @return 返回object对象。
+   */
+ public  static TObject createEx(boolean enable_path)  {
+    return new TObjectDefault(object_default_create_ex(enable_path));
+ }
+
+
+  /**
    * for script gc
    * 
    *
@@ -66,6 +78,7 @@ public class TObjectDefault extends TObject {
  }
 
 static private native long object_default_create();
+static private native long object_default_create_ex(boolean enable_path);
 static private native int object_default_unref(long obj);
 static private native int object_default_clear_props(long obj);
 };

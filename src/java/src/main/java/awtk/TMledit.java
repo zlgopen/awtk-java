@@ -115,6 +115,18 @@ public class TMledit extends TWidget {
 
 
   /**
+   * 设置编辑器是否启用覆盖行（在行数达到最大行数时，可继续新增行，但最早的行将会消失）。
+   * 
+   * @param overwrite 是否启用覆盖行。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setOverwrite(boolean overwrite)  {
+   return TRet.from(mledit_set_overwrite(this != null ? (this.nativeObj) : 0, overwrite));
+ }
+
+
+  /**
    * 设置编辑器的最大行数。
    * 
    * @param max_lines 最大行数。
@@ -274,6 +286,19 @@ public class TMledit extends TWidget {
 
 
   /**
+   * 插入一段文本。
+   * 
+   * @param offset 插入的偏移位置。
+   * @param text 待插入的文本。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet insertText(int offset, String text)  {
+   return TRet.from(mledit_insert_text(this != null ? (this.nativeObj) : 0, offset, text));
+ }
+
+
+  /**
    * 转换为mledit对象(供脚本语言使用)。
    * 
    * @param widget mledit对象。
@@ -331,20 +356,29 @@ public class TMledit extends TWidget {
 
 
   /**
-   * 是否自动折行。
-   *
-   */
- public boolean getWrapWord() {
-   return mledit_t_get_prop_wrap_word(this.nativeObj);
- }
-
-
-  /**
    * 鼠标一次滚动行数。
    *
    */
  public int getScrollLine() {
    return mledit_t_get_prop_scroll_line(this.nativeObj);
+ }
+
+
+  /**
+   * 是否启用覆盖行。
+   *
+   */
+ public boolean getOverwrite() {
+   return mledit_t_get_prop_overwrite(this.nativeObj);
+ }
+
+
+  /**
+   * 是否自动折行。
+   *
+   */
+ public boolean getWrapWord() {
+   return mledit_t_get_prop_wrap_word(this.nativeObj);
  }
 
 
@@ -393,6 +427,7 @@ static private native int mledit_set_readonly(long widget, boolean readonly);
 static private native int mledit_set_cancelable(long widget, boolean cancelable);
 static private native int mledit_set_focus(long widget, boolean focus);
 static private native int mledit_set_wrap_word(long widget, boolean wrap_word);
+static private native int mledit_set_overwrite(long widget, boolean overwrite);
 static private native int mledit_set_max_lines(long widget, int max_lines);
 static private native int mledit_set_max_chars(long widget, int max_chars);
 static private native int mledit_set_tips(long widget, String tips);
@@ -406,14 +441,16 @@ static private native int mledit_set_open_im_when_focused(long widget, boolean o
 static private native int mledit_set_close_im_when_blured(long widget, boolean close_im_when_blured);
 static private native int mledit_set_select(long widget, int start, int end);
 static private native String mledit_get_selected_text(long widget);
+static private native int mledit_insert_text(long widget, int offset, String text);
 static private native long mledit_cast(long widget);
 static private native String mledit_t_get_prop_tips(long nativeObj);
 static private native String mledit_t_get_prop_tr_tips(long nativeObj);
 static private native String mledit_t_get_prop_keyboard(long nativeObj);
 static private native int mledit_t_get_prop_max_lines(long nativeObj);
 static private native int mledit_t_get_prop_max_chars(long nativeObj);
-static private native boolean mledit_t_get_prop_wrap_word(long nativeObj);
 static private native int mledit_t_get_prop_scroll_line(long nativeObj);
+static private native boolean mledit_t_get_prop_overwrite(long nativeObj);
+static private native boolean mledit_t_get_prop_wrap_word(long nativeObj);
 static private native boolean mledit_t_get_prop_readonly(long nativeObj);
 static private native boolean mledit_t_get_prop_cancelable(long nativeObj);
 static private native boolean mledit_t_get_prop_open_im_when_focused(long nativeObj);
