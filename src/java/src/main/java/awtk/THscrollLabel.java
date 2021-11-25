@@ -91,6 +91,18 @@ public class THscrollLabel extends TWidget {
 
 
   /**
+   * 设置speed（设置后 duration 不生效）。
+   * 
+   * @param speed 滚动速度(px/ms)。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setSpeed(double speed)  {
+   return TRet.from(hscroll_label_set_speed(this != null ? (this.nativeObj) : 0, speed));
+ }
+
+
+  /**
    * 设置only_focus。
    * 
    * @param only_focus 是否只有处于focus时才滚动。
@@ -260,6 +272,15 @@ public class THscrollLabel extends TWidget {
 
 
   /**
+   * 滚动速度(px/ms)（设置后 duration 不生效）。
+   *
+   */
+ public double getSpeed() {
+   return hscroll_label_t_get_prop_speed(this.nativeObj);
+ }
+
+
+  /**
    * 偏移量。
    *
    */
@@ -279,6 +300,7 @@ public class THscrollLabel extends TWidget {
 static private native long hscroll_label_create(long parent, int x, int y, int w, int h);
 static private native int hscroll_label_set_lull(long widget, int lull);
 static private native int hscroll_label_set_duration(long widget, int duration);
+static private native int hscroll_label_set_speed(long widget, double speed);
 static private native int hscroll_label_set_only_focus(long widget, boolean only_focus);
 static private native int hscroll_label_set_only_parent_focus(long widget, boolean only_parent_focus);
 static private native int hscroll_label_set_loop(long widget, boolean loop);
@@ -295,6 +317,7 @@ static private native boolean hscroll_label_t_get_prop_yoyo(long nativeObj);
 static private native boolean hscroll_label_t_get_prop_ellipses(long nativeObj);
 static private native int hscroll_label_t_get_prop_lull(long nativeObj);
 static private native int hscroll_label_t_get_prop_duration(long nativeObj);
+static private native double hscroll_label_t_get_prop_speed(long nativeObj);
 static private native int hscroll_label_t_get_prop_xoffset(long nativeObj);
 static private native int hscroll_label_t_get_prop_text_w(long nativeObj);
 };

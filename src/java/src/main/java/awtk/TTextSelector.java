@@ -171,7 +171,7 @@ public class TTextSelector extends TWidget {
    *
    * @return 返回值。
    */
- public  int getValue()  {
+ public  int getValueInt()  {
     return text_selector_get_value(this != null ? (this.nativeObj) : 0);
  }
 

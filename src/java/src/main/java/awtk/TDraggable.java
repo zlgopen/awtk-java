@@ -171,6 +171,19 @@ public class TDraggable extends TWidget {
 
 
   /**
+   * 设置drag_parent。
+   *拖动窗口而不是父控件。比如放在对话框的titlebar上，拖动titlebar其实是希望拖动对话框。
+   * 
+   * @param drag_parent 0表示直系父控件，1表示父控件的父控件，依次类推。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setDragParent(int drag_parent)  {
+   return TRet.from(draggable_set_drag_parent(this != null ? (this.nativeObj) : 0, drag_parent));
+ }
+
+
+  /**
    * 拖动范围的顶部限制。缺省为父控件的顶部。
    *
    */
@@ -232,6 +245,15 @@ public class TDraggable extends TWidget {
    return draggable_t_get_prop_drag_window(this.nativeObj);
  }
 
+
+  /**
+   * 拖动父控件。0表示直系父控件，1表示父控件的父控件，依次类推。
+   *
+   */
+ public int getDragParent() {
+   return draggable_t_get_prop_drag_parent(this.nativeObj);
+ }
+
 static private native long draggable_create(long parent, int x, int y, int w, int h);
 static private native long draggable_cast(long widget);
 static private native int draggable_set_top(long widget, int top);
@@ -241,6 +263,7 @@ static private native int draggable_set_right(long widget, int right);
 static private native int draggable_set_vertical_only(long widget, boolean vertical_only);
 static private native int draggable_set_horizontal_only(long widget, boolean horizontal_only);
 static private native int draggable_set_drag_window(long widget, boolean drag_window);
+static private native int draggable_set_drag_parent(long widget, int drag_parent);
 static private native int draggable_t_get_prop_top(long nativeObj);
 static private native int draggable_t_get_prop_bottom(long nativeObj);
 static private native int draggable_t_get_prop_left(long nativeObj);
@@ -248,4 +271,5 @@ static private native int draggable_t_get_prop_right(long nativeObj);
 static private native boolean draggable_t_get_prop_vertical_only(long nativeObj);
 static private native boolean draggable_t_get_prop_horizontal_only(long nativeObj);
 static private native boolean draggable_t_get_prop_drag_window(long nativeObj);
+static private native int draggable_t_get_prop_drag_parent(long nativeObj);
 };

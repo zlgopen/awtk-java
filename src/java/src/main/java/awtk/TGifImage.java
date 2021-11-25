@@ -119,6 +119,18 @@ public class TGifImage extends TImageBase {
 
 
   /**
+   * 设置循环播放次数。
+   * 
+   * @param loop 循环播放次数。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setLoop(int loop)  {
+   return TRet.from(gif_image_set_loop(this != null ? (this.nativeObj) : 0, loop));
+ }
+
+
+  /**
    * 转换为gif_image对象(供脚本语言使用)。
    * 
    * @param widget gif_image对象。
@@ -129,9 +141,20 @@ public class TGifImage extends TImageBase {
     return new TGifImage(gif_image_cast(widget != null ? (widget.nativeObj) : 0));
  }
 
+
+  /**
+   * 循环播放的次数。
+   *
+   */
+ public int getLoop() {
+   return gif_image_t_get_prop_loop(this.nativeObj);
+ }
+
 static private native long gif_image_create(long parent, int x, int y, int w, int h);
 static private native int gif_image_play(long widget);
 static private native int gif_image_stop(long widget);
 static private native int gif_image_pause(long widget);
+static private native int gif_image_set_loop(long widget, int loop);
 static private native long gif_image_cast(long widget);
+static private native int gif_image_t_get_prop_loop(long nativeObj);
 };

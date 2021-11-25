@@ -26,6 +26,13 @@ public enum TWidgetState {
   NORMAL (WIDGET_STATE_NORMAL()),
   
   /**
+   * 3/5keys模式时，进入激活状态(此时方向键用于修改值)。
+   *
+   */
+ 
+  ACTIVATED (WIDGET_STATE_ACTIVATED()),
+  
+  /**
    * 内容被修改的状态。
    *
    */
@@ -207,6 +214,7 @@ public enum TWidgetState {
 
   static private native String WIDGET_STATE_NONE();
   static private native String WIDGET_STATE_NORMAL();
+  static private native String WIDGET_STATE_ACTIVATED();
   static private native String WIDGET_STATE_CHANGED();
   static private native String WIDGET_STATE_PRESSED();
   static private native String WIDGET_STATE_OVER();

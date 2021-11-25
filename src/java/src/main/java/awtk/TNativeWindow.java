@@ -152,6 +152,18 @@ public class TNativeWindow extends TObject {
    return TRet.from(native_window_set_cursor(this != null ? (this.nativeObj) : 0, name, img != null ? (img.nativeObj) : 0));
  }
 
+
+  /**
+   * 设置程序窗口的名称。
+   * 
+   * @param app_name 程序窗口的名称。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setTitle(String app_name)  {
+   return TRet.from(native_window_set_title(this != null ? (this.nativeObj) : 0, app_name));
+ }
+
 static private native int native_window_move(long win, int x, int y, boolean force);
 static private native int native_window_resize(long win, int w, int h, boolean force);
 static private native int native_window_set_orientation(long win, long old_orientation, long new_orientation);
@@ -162,4 +174,5 @@ static private native int native_window_center(long win);
 static private native int native_window_show_border(long win, boolean show);
 static private native int native_window_set_fullscreen(long win, boolean fullscreen);
 static private native int native_window_set_cursor(long win, String name, long img);
+static private native int native_window_set_title(long win, String app_name);
 };

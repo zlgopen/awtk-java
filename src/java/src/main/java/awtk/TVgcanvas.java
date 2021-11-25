@@ -367,6 +367,21 @@ public class TVgcanvas {
 
 
   /**
+   * 矩形区域是否在矩形裁剪中。
+   * 
+   * @param left 矩形区域左边。
+   * @param top 矩形区域上边。
+   * @param right 矩形区域右边。
+   * @param bottom 矩形区域下边。
+   *
+   * @return 返回 TURE 则在区域中，返回 FALSE 则不在区域中。
+   */
+ public  boolean isRectfIntClipRect(double left, double top, double right, double bottom)  {
+    return vgcanvas_is_rectf_int_clip_rect(this != null ? (this.nativeObj) : 0, left, top, right, bottom);
+ }
+
+
+  /**
    * 设置一个与前一个裁剪区做交集的矩形裁剪区。
    *如果下面这种情况，则不能直接调用 rect_intersect 函数来做矩形交集和 vgcanvas_clip_rect 函数设置裁剪区，而采用本函数做交集。
    *由于缩放和旋转以及平移会导致 vg 的坐标系和上一个裁剪区的坐标系不同，
@@ -522,6 +537,32 @@ public class TVgcanvas {
    */
  public  TRet drawImage(TBitmap img, double sx, double sy, double sw, double sh, double dx, double dy, double dw, double dh)  {
    return TRet.from(vgcanvas_draw_image(this != null ? (this.nativeObj) : 0, img != null ? (img.nativeObj) : 0, sx, sy, sw, sh, dx, dy, dw, dh));
+ }
+
+
+  /**
+   * 绘制图片。
+   *
+   *备注：
+   *当绘制区域大于原图区域时，多余的绘制区域会重复绘制原图区域的东西。（绘制图区按照绘制图片的宽高来绘制的）
+   *当绘制图片的宽高和原图的不同，在重复绘制的同时加入缩放。
+   * 
+   * @param img 图片。
+   * @param sx 原图区域的 x
+   * @param sy 原图区域的 y
+   * @param sw 原图区域的 w
+   * @param sh 原图区域的 h
+   * @param dx 绘制区域的 x
+   * @param dy 绘制区域的 y
+   * @param dw 绘制区域的 w
+   * @param dh 绘制区域的 h
+   * @param dst_w 绘制图片的宽
+   * @param dst_h 绘制图片的高
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet drawImageRepeat(TBitmap img, double sx, double sy, double sw, double sh, double dx, double dy, double dw, double dh, double dst_w, double dst_h)  {
+   return TRet.from(vgcanvas_draw_image_repeat(this != null ? (this.nativeObj) : 0, img != null ? (img.nativeObj) : 0, sx, sy, sw, sh, dx, dy, dw, dh, dst_w, dst_h));
  }
 
 
@@ -823,6 +864,7 @@ static private native int vgcanvas_transform(long vg, double a, double b, double
 static private native int vgcanvas_set_transform(long vg, double a, double b, double c, double d, double e, double f);
 static private native int vgcanvas_clip_path(long vg);
 static private native int vgcanvas_clip_rect(long vg, double x, double y, double w, double h);
+static private native boolean vgcanvas_is_rectf_int_clip_rect(long vg, double left, double top, double right, double bottom);
 static private native int vgcanvas_intersect_clip_rect(long vg, double x, double y, double w, double h);
 static private native int vgcanvas_fill(long vg);
 static private native int vgcanvas_stroke(long vg);
@@ -834,6 +876,7 @@ static private native int vgcanvas_set_text_baseline(long vg, String value);
 static private native int vgcanvas_fill_text(long vg, String text, double x, double y, double max_width);
 static private native double vgcanvas_measure_text(long vg, String text);
 static private native int vgcanvas_draw_image(long vg, long img, double sx, double sy, double sw, double sh, double dx, double dy, double dw, double dh);
+static private native int vgcanvas_draw_image_repeat(long vg, long img, double sx, double sy, double sw, double sh, double dx, double dy, double dw, double dh, double dst_w, double dst_h);
 static private native int vgcanvas_draw_icon(long vg, long img, double sx, double sy, double sw, double sh, double dx, double dy, double dw, double dh);
 static private native int vgcanvas_set_antialias(long vg, boolean value);
 static private native int vgcanvas_set_global_alpha(long vg, double alpha);

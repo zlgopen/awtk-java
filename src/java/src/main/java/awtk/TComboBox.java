@@ -286,7 +286,7 @@ public class TComboBox extends TEdit {
    *
    * @return 返回值。
    */
- public  int getValue()  {
+ public  int getValueInt()  {
     return combo_box_get_value(this != null ? (this.nativeObj) : 0);
  }
 

@@ -182,6 +182,17 @@ public class TWidget {
 
 
   /**
+   * 获取控件的值。只是对widget\_get\_prop的包装，值的意义由子类控件决定。
+   * 
+   *
+   * @return 返回值。
+   */
+ public  double getValue()  {
+    return widget_get_value(this != null ? (this.nativeObj) : 0);
+ }
+
+
+  /**
    * 设置控件的值。
    *只是对widget\_set\_prop的包装，值的意义由子类控件决定。
    * 
@@ -189,8 +200,58 @@ public class TWidget {
    *
    * @return 返回RET_OK表示成功，否则表示失败。
    */
- public  TRet setValue(int value)  {
+ public  TRet setValue(double value)  {
    return TRet.from(widget_set_value(this != null ? (this.nativeObj) : 0, value));
+ }
+
+
+  /**
+   * 增加控件的值。
+   *只是对widget\_set\_prop的包装，值的意义由子类控件决定。
+   * 
+   * @param delta 增量。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet addValue(double delta)  {
+   return TRet.from(widget_add_value(this != null ? (this.nativeObj) : 0, delta));
+ }
+
+
+  /**
+   * 获取控件的值。只是对widget\_get\_prop的包装，值的意义由子类控件决定。
+   * 
+   *
+   * @return 返回值。
+   */
+ public  int getValueInt()  {
+    return widget_get_value_int(this != null ? (this.nativeObj) : 0);
+ }
+
+
+  /**
+   * 设置控件的值。
+   *只是对widget\_set\_prop的包装，值的意义由子类控件决定。
+   * 
+   * @param value 值。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setValueInt(int value)  {
+   return TRet.from(widget_set_value_int(this != null ? (this.nativeObj) : 0, value));
+ }
+
+
+  /**
+   * 增加控件的值。
+   *只是对widget\_set\_prop的包装，值的意义由子类控件决定。
+   * 
+   * @param delta 增量。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet addValueInt(int delta)  {
+   return TRet.from(widget_add_value_int(this != null ? (this.nativeObj) : 0, delta));
  }
 
 
@@ -203,21 +264,8 @@ public class TWidget {
    *
    * @return 返回RET_OK表示成功，否则表示失败。
    */
- public  TRet animateValueTo(int value, int duration)  {
+ public  TRet animateValueTo(double value, int duration)  {
    return TRet.from(widget_animate_value_to(this != null ? (this.nativeObj) : 0, value, duration));
- }
-
-
-  /**
-   * 增加控件的值。
-   *只是对widget\_set\_prop的包装，值的意义由子类控件决定。
-   * 
-   * @param delta 增量。
-   *
-   * @return 返回RET_OK表示成功，否则表示失败。
-   */
- public  TRet addValue(int delta)  {
-   return TRet.from(widget_add_value(this != null ? (this.nativeObj) : 0, delta));
  }
 
 
@@ -312,17 +360,6 @@ public class TWidget {
    */
  public  TRet setTrText(String text)  {
    return TRet.from(widget_set_tr_text(this != null ? (this.nativeObj) : 0, text));
- }
-
-
-  /**
-   * 获取控件的值。只是对widget\_get\_prop的包装，值的意义由子类控件决定。
-   * 
-   *
-   * @return 返回值。
-   */
- public  int getValue()  {
-    return widget_get_value(this != null ? (this.nativeObj) : 0);
  }
 
 
@@ -444,8 +481,6 @@ public class TWidget {
 
   /**
    * 设置theme的名称，用于动态切换主题。名称与当前主题名称相同，则重新加载全部资源。
-   *
-   *> 目前只支持带有文件系统的平台。
    * 
    * @param name 主题的名称。
    *
@@ -917,6 +952,32 @@ public class TWidget {
    */
  public  long getPropPointer(String name)  {
     return widget_get_prop_pointer(this != null ? (this.nativeObj) : 0, name);
+ }
+
+
+  /**
+   * 设置浮点数格式的属性。
+   * 
+   * @param name 属性的名称。
+   * @param v 属性的值。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setPropFloat(String name, double v)  {
+   return TRet.from(widget_set_prop_float(this != null ? (this.nativeObj) : 0, name, v));
+ }
+
+
+  /**
+   * 获取浮点数格式的属性。
+   * 
+   * @param name 属性的名称。
+   * @param defval 缺省值。
+   *
+   * @return 返回属性的值。
+   */
+ public  double getPropFloat(String name, double defval)  {
+    return widget_get_prop_float(this != null ? (this.nativeObj) : 0, name, defval);
  }
 
 
@@ -1615,9 +1676,13 @@ static private native int widget_back_to_home(long widget);
 static private native int widget_move(long widget, int x, int y);
 static private native int widget_resize(long widget, int w, int h);
 static private native int widget_move_resize(long widget, int x, int y, int w, int h);
-static private native int widget_set_value(long widget, int value);
-static private native int widget_animate_value_to(long widget, int value, int duration);
-static private native int widget_add_value(long widget, int delta);
+static private native double widget_get_value(long widget);
+static private native int widget_set_value(long widget, double value);
+static private native int widget_add_value(long widget, double delta);
+static private native int widget_get_value_int(long widget);
+static private native int widget_set_value_int(long widget, int value);
+static private native int widget_add_value_int(long widget, int delta);
+static private native int widget_animate_value_to(long widget, double value, int duration);
 static private native boolean widget_is_style_exist(long widget, String style_name, String state_name);
 static private native int widget_use_style(long widget, String style);
 static private native int widget_set_text_utf8(long widget, String text);
@@ -1625,7 +1690,6 @@ static private native int widget_set_child_text_utf8(long widget, String name, S
 static private native int widget_set_child_text_with_double(long widget, String name, String format, double value);
 static private native int widget_set_child_text_with_int(long widget, String name, String format, int value);
 static private native int widget_set_tr_text(long widget, String text);
-static private native int widget_get_value(long widget);
 static private native boolean widget_get_enable(long widget);
 static private native boolean widget_get_floating(long widget);
 static private native boolean widget_get_auto_adjust_size(long widget);
@@ -1672,6 +1736,8 @@ static private native int widget_set_prop_str(long widget, String name, String v
 static private native String widget_get_prop_str(long widget, String name, String defval);
 static private native int widget_set_prop_pointer(long widget, String name, long v);
 static private native long widget_get_prop_pointer(long widget, String name);
+static private native int widget_set_prop_float(long widget, String name, double v);
+static private native double widget_get_prop_float(long widget, String name, double defval);
 static private native int widget_set_prop_int(long widget, String name, int v);
 static private native int widget_get_prop_int(long widget, String name, int defval);
 static private native int widget_set_prop_bool(long widget, String name, boolean v);

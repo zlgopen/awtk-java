@@ -225,6 +225,18 @@ public class TScrollBar extends TWidget {
 
 
   /**
+   * 设置翻页滚动动画时间。
+   * 
+   * @param animator_time 时间。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setAnimatorTime(int animator_time)  {
+   return TRet.from(scroll_bar_set_animator_time(this != null ? (this.nativeObj) : 0, animator_time));
+ }
+
+
+  /**
    * 虚拟宽度或高度。
    *
    */
@@ -239,6 +251,15 @@ public class TScrollBar extends TWidget {
    */
  public int getRow() {
    return scroll_bar_t_get_prop_row(this.nativeObj);
+ }
+
+
+  /**
+   * 翻页滚动动画时间。
+   *
+   */
+ public int getAnimatorTime() {
+   return scroll_bar_t_get_prop_animator_time(this.nativeObj);
  }
 
 
@@ -271,9 +292,11 @@ static private native int scroll_bar_scroll_delta(long widget, int delta);
 static private native int scroll_bar_set_value_only(long widget, int value);
 static private native int scroll_bar_set_auto_hide(long widget, boolean auto_hide);
 static private native boolean scroll_bar_is_mobile(long widget);
+static private native int scroll_bar_set_animator_time(long widget, int animator_time);
 static private native int scroll_bar_t_get_prop_virtual_size(long nativeObj);
 static private native int scroll_bar_t_get_prop_value(long nativeObj);
 static private native int scroll_bar_t_get_prop_row(long nativeObj);
+static private native int scroll_bar_t_get_prop_animator_time(long nativeObj);
 static private native boolean scroll_bar_t_get_prop_animatable(long nativeObj);
 static private native boolean scroll_bar_t_get_prop_auto_hide(long nativeObj);
 };

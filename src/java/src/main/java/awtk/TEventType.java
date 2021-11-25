@@ -533,6 +533,13 @@ public enum TEventType {
   REQUEST_QUIT_APP (EVT_REQUEST_QUIT_APP()),
   
   /**
+   * 即将改变主题(event_t)。
+   *
+   */
+ 
+  THEME_WILL_CHANGE (EVT_THEME_WILL_CHANGE()),
+  
+  /**
    * 主题变化(event_t)。
    *
    */
@@ -587,6 +594,13 @@ public enum TEventType {
    */
  
   PAGE_CHANGED (EVT_PAGE_CHANGED()),
+  
+  /**
+   * 页面正在改变(offset_change_event_t)。
+   *
+   */
+ 
+  PAGE_CHANGING (EVT_PAGE_CHANGING()),
   
   /**
    * 资源管理加载某个资源(assets_event_t)。
@@ -828,6 +842,7 @@ public enum TEventType {
   static private native int EVT_ORIENTATION_CHANGED();
   static private native int EVT_WIDGET_CREATED();
   static private native int EVT_REQUEST_QUIT_APP();
+  static private native int EVT_THEME_WILL_CHANGE();
   static private native int EVT_THEME_CHANGED();
   static private native int EVT_WIDGET_ADD_CHILD();
   static private native int EVT_WIDGET_REMOVE_CHILD();
@@ -836,6 +851,7 @@ public enum TEventType {
   static private native int EVT_SCROLL_END();
   static private native int EVT_MULTI_GESTURE();
   static private native int EVT_PAGE_CHANGED();
+  static private native int EVT_PAGE_CHANGING();
   static private native int EVT_ASSET_MANAGER_LOAD_ASSET();
   static private native int EVT_ASSET_MANAGER_UNLOAD_ASSET();
   static private native int EVT_ASSET_MANAGER_CLEAR_CACHE();

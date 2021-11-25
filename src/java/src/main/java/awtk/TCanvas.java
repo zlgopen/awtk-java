@@ -60,18 +60,6 @@ public class TCanvas {
 
 
   /**
-   * 获取裁剪区。
-   * 
-   * @param r rect对象。
-   *
-   * @return 返回RET_OK表示成功，否则表示失败。
-   */
- public  TRet getClipRect(TRect r)  {
-   return TRet.from(canvas_get_clip_rect(this != null ? (this.nativeObj) : 0, r != null ? (r.nativeObj) : 0));
- }
-
-
-  /**
    * 设置裁剪区。
    * 
    * @param r rect对象。
@@ -446,7 +434,6 @@ public class TCanvas {
 
 static private native int canvas_get_width(long c);
 static private native int canvas_get_height(long c);
-static private native int canvas_get_clip_rect(long c, long r);
 static private native int canvas_set_clip_rect(long c, long r);
 static private native int canvas_set_clip_rect_ex(long c, long r, boolean translate);
 static private native int canvas_set_fill_color_str(long c, String color);
