@@ -259,7 +259,7 @@ public enum TStyleId {
    *
    */
  
-  ROUND_RADIUS_TOP_LETF (STYLE_ID_ROUND_RADIUS_TOP_LETF()),
+  ROUND_RADIUS_TOP_LEFT (STYLE_ID_ROUND_RADIUS_TOP_LEFT()),
   
   /**
    * 右上角圆角半径(仅在WITH_VGCANVAS定义时生效)。
@@ -273,7 +273,7 @@ public enum TStyleId {
    *
    */
  
-  ROUND_RADIUS_BOTTOM_LETF (STYLE_ID_ROUND_RADIUS_BOTTOM_LETF()),
+  ROUND_RADIUS_BOTTOM_LEFT (STYLE_ID_ROUND_RADIUS_BOTTOM_LEFT()),
   
   /**
    * 右下角圆角半径(仅在WITH_VGCANVAS定义时生效)。
@@ -378,9 +378,9 @@ public enum TStyleId {
   static private native String STYLE_ID_SELECTED_FG_COLOR();
   static private native String STYLE_ID_SELECTED_TEXT_COLOR();
   static private native String STYLE_ID_ROUND_RADIUS();
-  static private native String STYLE_ID_ROUND_RADIUS_TOP_LETF();
+  static private native String STYLE_ID_ROUND_RADIUS_TOP_LEFT();
   static private native String STYLE_ID_ROUND_RADIUS_TOP_RIGHT();
-  static private native String STYLE_ID_ROUND_RADIUS_BOTTOM_LETF();
+  static private native String STYLE_ID_ROUND_RADIUS_BOTTOM_LEFT();
   static private native String STYLE_ID_ROUND_RADIUS_BOTTOM_RIGHT();
   static private native String STYLE_ID_CHILDREN_LAYOUT();
   static private native String STYLE_ID_SELF_LAYOUT();

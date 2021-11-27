@@ -376,8 +376,8 @@ public class TVgcanvas {
    *
    * @return 返回 TURE 则在区域中，返回 FALSE 则不在区域中。
    */
- public  boolean isRectfIntClipRect(double left, double top, double right, double bottom)  {
-    return vgcanvas_is_rectf_int_clip_rect(this != null ? (this.nativeObj) : 0, left, top, right, bottom);
+ public  boolean isRectfInClipRect(double left, double top, double right, double bottom)  {
+    return vgcanvas_is_rectf_in_clip_rect(this != null ? (this.nativeObj) : 0, left, top, right, bottom);
  }
 
 
@@ -864,7 +864,7 @@ static private native int vgcanvas_transform(long vg, double a, double b, double
 static private native int vgcanvas_set_transform(long vg, double a, double b, double c, double d, double e, double f);
 static private native int vgcanvas_clip_path(long vg);
 static private native int vgcanvas_clip_rect(long vg, double x, double y, double w, double h);
-static private native boolean vgcanvas_is_rectf_int_clip_rect(long vg, double left, double top, double right, double bottom);
+static private native boolean vgcanvas_is_rectf_in_clip_rect(long vg, double left, double top, double right, double bottom);
 static private native int vgcanvas_intersect_clip_rect(long vg, double x, double y, double w, double h);
 static private native int vgcanvas_fill(long vg);
 static private native int vgcanvas_stroke(long vg);

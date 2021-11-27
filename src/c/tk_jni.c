@@ -3384,9 +3384,9 @@ JNIEXPORT jstring JNICALL Java_awtk_TStyleId_STYLE_1ID_1ROUND_1RADIUS(JNIEnv* en
   return (*env)->NewStringUTF(env, STYLE_ID_ROUND_RADIUS);
 }
 
-JNIEXPORT jstring JNICALL Java_awtk_TStyleId_STYLE_1ID_1ROUND_1RADIUS_1TOP_1LETF(JNIEnv* env,  jclass ajc) {/*const*/
+JNIEXPORT jstring JNICALL Java_awtk_TStyleId_STYLE_1ID_1ROUND_1RADIUS_1TOP_1LEFT(JNIEnv* env,  jclass ajc) {/*const*/
 
-  return (*env)->NewStringUTF(env, STYLE_ID_ROUND_RADIUS_TOP_LETF);
+  return (*env)->NewStringUTF(env, STYLE_ID_ROUND_RADIUS_TOP_LEFT);
 }
 
 JNIEXPORT jstring JNICALL Java_awtk_TStyleId_STYLE_1ID_1ROUND_1RADIUS_1TOP_1RIGHT(JNIEnv* env,  jclass ajc) {/*const*/
@@ -3394,9 +3394,9 @@ JNIEXPORT jstring JNICALL Java_awtk_TStyleId_STYLE_1ID_1ROUND_1RADIUS_1TOP_1RIGH
   return (*env)->NewStringUTF(env, STYLE_ID_ROUND_RADIUS_TOP_RIGHT);
 }
 
-JNIEXPORT jstring JNICALL Java_awtk_TStyleId_STYLE_1ID_1ROUND_1RADIUS_1BOTTOM_1LETF(JNIEnv* env,  jclass ajc) {/*const*/
+JNIEXPORT jstring JNICALL Java_awtk_TStyleId_STYLE_1ID_1ROUND_1RADIUS_1BOTTOM_1LEFT(JNIEnv* env,  jclass ajc) {/*const*/
 
-  return (*env)->NewStringUTF(env, STYLE_ID_ROUND_RADIUS_BOTTOM_LETF);
+  return (*env)->NewStringUTF(env, STYLE_ID_ROUND_RADIUS_BOTTOM_LEFT);
 }
 
 JNIEXPORT jstring JNICALL Java_awtk_TStyleId_STYLE_1ID_1ROUND_1RADIUS_1BOTTOM_1RIGHT(JNIEnv* env,  jclass ajc) {/*const*/
@@ -3890,10 +3890,10 @@ JNIEXPORT jint JNICALL Java_awtk_TVgcanvas_vgcanvas_1clip_1rect(JNIEnv* env,  jc
   return (jint)(ret);
 }
 
-JNIEXPORT jboolean JNICALL Java_awtk_TVgcanvas_vgcanvas_1is_1rectf_1int_1clip_1rect(JNIEnv* env,  jclass ajc, jlong jvg, jdouble left, jdouble top, jdouble right, jdouble bottom) { /*func*/
+JNIEXPORT jboolean JNICALL Java_awtk_TVgcanvas_vgcanvas_1is_1rectf_1in_1clip_1rect(JNIEnv* env,  jclass ajc, jlong jvg, jdouble left, jdouble top, jdouble right, jdouble bottom) { /*func*/
   bool_t ret;
   vgcanvas_t* vg = (vgcanvas_t*)jvg;
-  ret = (bool_t)vgcanvas_is_rectf_int_clip_rect(vg, left, top, right, bottom);
+  ret = (bool_t)vgcanvas_is_rectf_in_clip_rect(vg, left, top, right, bottom);
 
   return (jboolean)(ret);
 }
