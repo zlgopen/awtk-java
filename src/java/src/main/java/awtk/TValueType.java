@@ -122,7 +122,7 @@ public enum TValueType {
   WSTRING (VALUE_TYPE_WSTRING()),
   
   /**
-   * object_t*类型。
+   * tk_object_t*类型。
    *
    */
  

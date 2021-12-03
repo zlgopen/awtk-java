@@ -1397,6 +1397,15 @@ JNIEXPORT jint JNICALL Java_awtk_TCanvas_canvas_1get_1height(JNIEnv* env,  jclas
   return (jint)(ret);
 }
 
+JNIEXPORT jint JNICALL Java_awtk_TCanvas_canvas_1get_1clip_1rect(JNIEnv* env,  jclass ajc, jlong jc, jlong jr) { /*func*/
+  ret_t ret;
+  canvas_t* c = (canvas_t*)jc;
+  rect_t* r = (rect_t*)jr;
+  ret = (ret_t)canvas_get_clip_rect(c, r);
+
+  return (jint)(ret);
+}
+
 JNIEXPORT jint JNICALL Java_awtk_TCanvas_canvas_1set_1clip_1rect(JNIEnv* env,  jclass ajc, jlong jc, jlong jr) { /*func*/
   ret_t ret;
   canvas_t* c = (canvas_t*)jc;
