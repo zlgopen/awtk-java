@@ -64,6 +64,30 @@ public class TWidget {
 
 
   /**
+   * 通过名称查找父控件。
+   * 
+   * @param name 名称。
+   *
+   * @return 父控件。
+   */
+ public  TWidget findParentByName(String name)  {
+    return new TWidget(widget_find_parent_by_name(this != null ? (this.nativeObj) : 0, name));
+ }
+
+
+  /**
+   * 通过类型查找父控件。
+   * 
+   * @param type 类型。
+   *
+   * @return 父控件。
+   */
+ public  TWidget findParentByType(String type)  {
+    return new TWidget(widget_find_parent_by_type(this != null ? (this.nativeObj) : 0, type));
+ }
+
+
+  /**
    * 获取当前窗口中的焦点控件。
    * 
    *
@@ -150,6 +174,17 @@ public class TWidget {
    */
  public  TRet move(int x, int y)  {
    return TRet.from(widget_move(this != null ? (this.nativeObj) : 0, x, y));
+ }
+
+
+  /**
+   * 移动控件到父控件中间。
+   * 
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet moveToCenter()  {
+   return TRet.from(widget_move_to_center(this != null ? (this.nativeObj) : 0));
  }
 
 
@@ -1666,6 +1701,8 @@ public class TWidget {
 
 static private native int widget_count_children(long widget);
 static private native long widget_get_child(long widget, int index);
+static private native long widget_find_parent_by_name(long widget, String name);
+static private native long widget_find_parent_by_type(long widget, String type);
 static private native long widget_get_focused_widget(long widget);
 static private native long widget_get_native_window(long widget);
 static private native int widget_index_of(long widget);
@@ -1674,6 +1711,7 @@ static private native int widget_close_window_force(long widget);
 static private native int widget_back(long widget);
 static private native int widget_back_to_home(long widget);
 static private native int widget_move(long widget, int x, int y);
+static private native int widget_move_to_center(long widget);
 static private native int widget_resize(long widget, int w, int h);
 static private native int widget_move_resize(long widget, int x, int y, int w, int h);
 static private native double widget_get_value(long widget);

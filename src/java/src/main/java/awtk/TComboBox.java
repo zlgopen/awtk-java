@@ -292,6 +292,18 @@ public class TComboBox extends TEdit {
 
 
   /**
+   * 检查选项中是否存在指定的文本。
+   * 
+   * @param text option text
+   *
+   * @return 返回TRUE表示存在，否则表示不存在。
+   */
+ public  boolean hasOptionText(String text)  {
+    return combo_box_has_option_text(this != null ? (this.nativeObj) : 0, text);
+ }
+
+
+  /**
    * 获取combo_box的文本。
    * 
    *
@@ -359,6 +371,7 @@ static private native int combo_box_append_option(long widget, int value, String
 static private native int combo_box_remove_option(long widget, int value);
 static private native int combo_box_set_options(long widget, String options);
 static private native int combo_box_get_value(long widget);
+static private native boolean combo_box_has_option_text(long widget, String text);
 static private native String combo_box_get_text(long widget);
 static private native String combo_box_t_get_prop_open_window(long nativeObj);
 static private native int combo_box_t_get_prop_selected_index(long nativeObj);

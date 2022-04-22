@@ -483,7 +483,7 @@ public enum TEventType {
   RESET (EVT_RESET()),
   
   /**
-   * 在指定的时间内(WITH_SCREEN_SAVER_TIME)，没有用户输入事件，由窗口管理器触发。
+   * 在指定的时间内，没有用户输入事件，由窗口管理器触发。
    *
    */
  

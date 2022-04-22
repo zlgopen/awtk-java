@@ -161,12 +161,24 @@ public class TDraggable extends TWidget {
    * 设置drag_window。
    *拖动窗口而不是父控件。比如放在对话框的titlebar上，拖动titlebar其实是希望拖动对话框。
    * 
-   * @param drag_window drag_window
+   * @param drag_window 是否拖动窗口。
    *
    * @return 返回RET_OK表示成功，否则表示失败。
    */
  public  TRet setDragWindow(boolean drag_window)  {
    return TRet.from(draggable_set_drag_window(this != null ? (this.nativeObj) : 0, drag_window));
+ }
+
+
+  /**
+   * 设置drag_native_window。
+   * 
+   * @param drag_native_window 是否拖动原生窗口。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setDragNativeWindow(boolean drag_native_window)  {
+   return TRet.from(draggable_set_drag_native_window(this != null ? (this.nativeObj) : 0, drag_native_window));
  }
 
 
@@ -247,6 +259,15 @@ public class TDraggable extends TWidget {
 
 
   /**
+   * 拖动原生窗口。
+   *
+   */
+ public boolean getDragNativeWindow() {
+   return draggable_t_get_prop_drag_native_window(this.nativeObj);
+ }
+
+
+  /**
    * 拖动父控件。0表示直系父控件，1表示父控件的父控件，依次类推。
    *
    */
@@ -263,6 +284,7 @@ static private native int draggable_set_right(long widget, int right);
 static private native int draggable_set_vertical_only(long widget, boolean vertical_only);
 static private native int draggable_set_horizontal_only(long widget, boolean horizontal_only);
 static private native int draggable_set_drag_window(long widget, boolean drag_window);
+static private native int draggable_set_drag_native_window(long widget, boolean drag_native_window);
 static private native int draggable_set_drag_parent(long widget, int drag_parent);
 static private native int draggable_t_get_prop_top(long nativeObj);
 static private native int draggable_t_get_prop_bottom(long nativeObj);
@@ -271,5 +293,6 @@ static private native int draggable_t_get_prop_right(long nativeObj);
 static private native boolean draggable_t_get_prop_vertical_only(long nativeObj);
 static private native boolean draggable_t_get_prop_horizontal_only(long nativeObj);
 static private native boolean draggable_t_get_prop_drag_window(long nativeObj);
+static private native boolean draggable_t_get_prop_drag_native_window(long nativeObj);
 static private native int draggable_t_get_prop_drag_parent(long nativeObj);
 };

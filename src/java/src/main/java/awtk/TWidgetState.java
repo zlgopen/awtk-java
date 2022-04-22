@@ -96,6 +96,13 @@ public enum TWidgetState {
   EMPTY_FOCUS (WIDGET_STATE_EMPTY_FOCUS()),
   
   /**
+   * 编辑器无内容同时指针悬浮的状态。
+   *
+   */
+ 
+  EMPTY_OVER (WIDGET_STATE_EMPTY_OVER()),
+  
+  /**
    * 输入错误状态。
    *
    */
@@ -224,6 +231,7 @@ public enum TWidgetState {
   static private native String WIDGET_STATE_UNCHECKED();
   static private native String WIDGET_STATE_EMPTY();
   static private native String WIDGET_STATE_EMPTY_FOCUS();
+  static private native String WIDGET_STATE_EMPTY_OVER();
   static private native String WIDGET_STATE_ERROR();
   static private native String WIDGET_STATE_SELECTED();
   static private native String WIDGET_STATE_NORMAL_OF_CHECKED();

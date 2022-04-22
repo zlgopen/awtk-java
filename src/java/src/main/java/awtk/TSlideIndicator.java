@@ -296,19 +296,19 @@ public class TSlideIndicator extends TWidget {
 
 
   /**
-   * 锚点x坐标。
+   * 锚点x坐标。(后面加上px为像素点，不加px为相对百分比坐标0.0f到1.0f)
    *
    */
- public double getAnchorX() {
+ public String getAnchorX() {
    return slide_indicator_t_get_prop_anchor_x(this.nativeObj);
  }
 
 
   /**
-   * 锚点y坐标。
+   * 锚点y坐标。(后面加上px为像素点，不加px为相对百分比坐标0.0f到1.0f)
    *
    */
- public double getAnchorY() {
+ public String getAnchorY() {
    return slide_indicator_t_get_prop_anchor_y(this.nativeObj);
  }
 
@@ -351,8 +351,8 @@ static private native int slide_indicator_t_get_prop_auto_hide(long nativeObj);
 static private native int slide_indicator_t_get_prop_margin(long nativeObj);
 static private native double slide_indicator_t_get_prop_spacing(long nativeObj);
 static private native int slide_indicator_t_get_prop_size(long nativeObj);
-static private native double slide_indicator_t_get_prop_anchor_x(long nativeObj);
-static private native double slide_indicator_t_get_prop_anchor_y(long nativeObj);
+static private native String slide_indicator_t_get_prop_anchor_x(long nativeObj);
+static private native String slide_indicator_t_get_prop_anchor_y(long nativeObj);
 static private native String slide_indicator_t_get_prop_indicated_target(long nativeObj);
 static private native boolean slide_indicator_t_get_prop_transition(long nativeObj);
 };

@@ -155,6 +155,19 @@ public class TEdit extends TWidget {
 
 
   /**
+   * 设置double类型的值。
+   * 
+   * @param format 格式(缺省为"%2.2lf")。
+   * @param value 值。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setDoubleEx(String format, double value)  {
+   return TRet.from(edit_set_double_ex(this != null ? (this.nativeObj) : 0, format, value));
+ }
+
+
+  /**
    * 设置为文本输入及其长度限制，不允许输入超过max个字符，少于min个字符时进入error状态。
    * 
    * @param min 最小长度。
@@ -434,9 +447,6 @@ public class TEdit extends TWidget {
  }
 
 
-  /**
-   *
-   */
  public String getKeyboard() {
    return edit_t_get_prop_keyboard(this.nativeObj);
  }
@@ -555,6 +565,7 @@ static private native int edit_get_int(long widget);
 static private native double edit_get_double(long widget);
 static private native int edit_set_int(long widget, int value);
 static private native int edit_set_double(long widget, double value);
+static private native int edit_set_double_ex(long widget, String format, double value);
 static private native int edit_set_text_limit(long widget, int min, int max);
 static private native int edit_set_int_limit(long widget, int min, int max, int step);
 static private native int edit_set_float_limit(long widget, double min, double max, double step);

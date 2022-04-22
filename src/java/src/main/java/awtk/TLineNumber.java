@@ -135,10 +135,61 @@ public class TLineNumber extends TWidget {
     return new TLineNumber(line_number_cast(widget != null ? (widget.nativeObj) : 0));
  }
 
+
+  /**
+   * 增加高亮行。
+   * 
+   * @param line 行号。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet addHighlightLine(int line)  {
+   return TRet.from(line_number_add_highlight_line(this != null ? (this.nativeObj) : 0, line));
+ }
+
+
+  /**
+   * 设置active行。
+   * 
+   * @param line 行号。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setActiveLine(int line)  {
+   return TRet.from(line_number_set_active_line(this != null ? (this.nativeObj) : 0, line));
+ }
+
+
+  /**
+   * 清除高亮行。
+   * 
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet clearHighlight()  {
+   return TRet.from(line_number_clear_highlight(this != null ? (this.nativeObj) : 0));
+ }
+
+
+  /**
+   * 判断指定行是否是高亮行。
+   * 
+   * @param line 行号。
+   *
+   * @return 返回TRUE表示是，否则不是。
+   */
+ public  boolean isHighlightLine(int line)  {
+    return line_number_is_highlight_line(this != null ? (this.nativeObj) : 0, line);
+ }
+
 static private native long line_number_create(long parent, int x, int y, int w, int h);
 static private native int line_number_set_top_margin(long widget, int top_margin);
 static private native int line_number_set_bottom_margin(long widget, int bottom_margin);
 static private native int line_number_set_line_height(long widget, int line_height);
 static private native int line_number_set_yoffset(long widget, int yoffset);
 static private native long line_number_cast(long widget);
+static private native int line_number_add_highlight_line(long widget, int line);
+static private native int line_number_set_active_line(long widget, int line);
+static private native int line_number_clear_highlight(long widget);
+static private native boolean line_number_is_highlight_line(long widget, int line);
 };

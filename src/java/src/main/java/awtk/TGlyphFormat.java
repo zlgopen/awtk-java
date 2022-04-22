@@ -28,7 +28,21 @@ public enum TGlyphFormat {
    *
    */
  
-  RGBA (GLYPH_FMT_RGBA());
+  RGBA (GLYPH_FMT_RGBA()),
+  
+  /**
+   * 每个像素占用2bit。
+   *
+   */
+ 
+  ALPHA2 (GLYPH_FMT_ALPHA2()),
+  
+  /**
+   * 每个像素占用4bit。
+   *
+   */
+ 
+  ALPHA4 (GLYPH_FMT_ALPHA4());
  
  
   private TGlyphFormat(int value) {
@@ -66,5 +80,7 @@ public enum TGlyphFormat {
   static private native int GLYPH_FMT_ALPHA();
   static private native int GLYPH_FMT_MONO();
   static private native int GLYPH_FMT_RGBA();
+  static private native int GLYPH_FMT_ALPHA2();
+  static private native int GLYPH_FMT_ALPHA4();
 
 }

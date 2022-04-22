@@ -49,7 +49,21 @@ public enum TBitmapFlag {
    *
    */
  
-  PREMULTI_ALPHA (BITMAP_FLAG_PREMULTI_ALPHA());
+  PREMULTI_ALPHA (BITMAP_FLAG_PREMULTI_ALPHA()),
+  
+  /**
+   * 位图数据已经处理了 lcd 旋转，同时说明 bitmap 的宽高和真实数据的宽高可能不一致
+   *
+   */
+ 
+  LCD_ORIENTATION (BITMAP_FLAG_LCD_ORIENTATION()),
+  
+  /**
+   * 该位图为 GPU 的 fbo 数据。
+   *
+   */
+ 
+  GPU_FBO_TEXTURE (BITMAP_FLAG_GPU_FBO_TEXTURE());
  
  
   private TBitmapFlag(int value) {
@@ -90,5 +104,7 @@ public enum TBitmapFlag {
   static private native int BITMAP_FLAG_TEXTURE();
   static private native int BITMAP_FLAG_CHANGED();
   static private native int BITMAP_FLAG_PREMULTI_ALPHA();
+  static private native int BITMAP_FLAG_LCD_ORIENTATION();
+  static private native int BITMAP_FLAG_GPU_FBO_TEXTURE();
 
 }

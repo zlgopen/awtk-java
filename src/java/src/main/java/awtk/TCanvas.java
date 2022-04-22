@@ -265,6 +265,17 @@ public class TCanvas {
 
 
   /**
+   * 释放canvas中字体相关的资源。
+   * 
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet resetFont()  {
+   return TRet.from(canvas_reset_font(this != null ? (this.nativeObj) : 0));
+ }
+
+
+  /**
    * 计算文本所占的宽度。
    *
    *> 供脚本语言使用。
@@ -461,6 +472,7 @@ static private native int canvas_fill_rect(long c, int x, int y, int w, int h);
 static private native int canvas_clear_rect(long c, int x, int y, int w, int h);
 static private native int canvas_stroke_rect(long c, int x, int y, int w, int h);
 static private native int canvas_set_font(long c, String name, int size);
+static private native int canvas_reset_font(long c);
 static private native double canvas_measure_utf8(long c, String str);
 static private native int canvas_draw_utf8(long c, String str, int x, int y);
 static private native int canvas_draw_utf8_in_rect(long c, String str, long r);

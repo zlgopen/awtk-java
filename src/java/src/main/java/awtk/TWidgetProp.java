@@ -262,6 +262,13 @@ public enum TWidgetProp {
   VIRTUAL_H (WIDGET_PROP_VIRTUAL_H()),
   
   /**
+   * 控件正在加载。
+   *
+   */
+ 
+  LOADING (WIDGET_PROP_LOADING()),
+  
+  /**
    * 名称。
    *
    */
@@ -1184,6 +1191,7 @@ public enum TWidgetProp {
   static private native String WIDGET_PROP_LAYOUT_H();
   static private native String WIDGET_PROP_VIRTUAL_W();
   static private native String WIDGET_PROP_VIRTUAL_H();
+  static private native String WIDGET_PROP_LOADING();
   static private native String WIDGET_PROP_NAME();
   static private native String WIDGET_PROP_TYPE();
   static private native String WIDGET_PROP_CLOSABLE();

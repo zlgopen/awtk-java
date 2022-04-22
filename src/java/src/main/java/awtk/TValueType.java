@@ -161,7 +161,28 @@ public enum TValueType {
    *
    */
  
-  GRADIENT (VALUE_TYPE_GRADIENT());
+  GRADIENT (VALUE_TYPE_GRADIENT()),
+  
+  /**
+   * id。
+   *
+   */
+ 
+  ID (VALUE_TYPE_ID()),
+  
+  /**
+   * func。
+   *
+   */
+ 
+  FUNC (VALUE_TYPE_FUNC()),
+  
+  /**
+   * func definition。
+   *
+   */
+ 
+  FUNC_DEF (VALUE_TYPE_FUNC_DEF());
  
  
   private TValueType(int value) {
@@ -218,5 +239,8 @@ public enum TValueType {
   static private native int VALUE_TYPE_UBJSON();
   static private native int VALUE_TYPE_TOKEN();
   static private native int VALUE_TYPE_GRADIENT();
+  static private native int VALUE_TYPE_ID();
+  static private native int VALUE_TYPE_FUNC();
+  static private native int VALUE_TYPE_FUNC_DEF();
 
 }
