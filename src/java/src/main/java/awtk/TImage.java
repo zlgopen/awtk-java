@@ -100,6 +100,22 @@ public class TImage extends TImageBase {
 
 
   /**
+   * 创建icon对象
+   * 
+   * @param parent 父控件
+   * @param x x坐标
+   * @param y y坐标
+   * @param w 宽度
+   * @param h 高度
+   *
+   * @return 对象。
+   */
+ public  static TWidget iconCreate(TWidget parent, int x, int y, int w, int h)  {
+    return new TImage(icon_create(parent != null ? (parent.nativeObj) : 0, x, y, w, h));
+ }
+
+
+  /**
    * 设置图片的绘制方式。
    * 
    * @param draw_type 绘制方式(仅在没有旋转和缩放时生效)。
@@ -133,6 +149,7 @@ public class TImage extends TImageBase {
  }
 
 static private native long image_create(long parent, int x, int y, int w, int h);
+static private native long icon_create(long parent, int x, int y, int w, int h);
 static private native int image_set_draw_type(long widget, int draw_type);
 static private native long image_cast(long widget);
 static private native int image_t_get_prop_draw_type(long nativeObj);

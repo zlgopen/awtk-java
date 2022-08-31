@@ -137,7 +137,7 @@ public class TVgcanvas {
    * @param cp1x 控制点1x坐标。
    * @param cp1y 控制点1y坐标。
    * @param cp2x 控制点2x坐标。
-   * @param cp2y 控制点3y坐标。
+   * @param cp2y 控制点2y坐标。
    * @param x x坐标。
    * @param y y坐标。
    *

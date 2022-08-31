@@ -108,6 +108,13 @@ public enum TEventType {
   CLICK (EVT_CLICK()),
   
   /**
+   * 双击事件名(pointer_event_t)。
+   *
+   */
+ 
+  DOUBLE_CLICK (EVT_DOUBLE_CLICK()),
+  
+  /**
    * 得到焦点事件名(event_t)。
    *
    */
@@ -631,6 +638,27 @@ public enum TEventType {
   TIMER (EVT_TIMER()),
   
   /**
+   * 数据到来(event_t)。
+   *
+   */
+ 
+  DATA (EVT_DATA()),
+  
+  /**
+   * 客户连接到来(event_t)。
+   *
+   */
+ 
+  CONNECT (EVT_CONNECT()),
+  
+  /**
+   * 模型变化。用于fscript实现窗口间通讯(model_event_t)。
+   *
+   */
+ 
+  MODEL_CHANGE (EVT_MODEL_CHANGE()),
+  
+  /**
    * event queue其它请求编号起始值。
    *
    */
@@ -782,6 +810,7 @@ public enum TEventType {
   static private native int EVT_POINTER_LEAVE();
   static private native int EVT_LONG_PRESS();
   static private native int EVT_CLICK();
+  static private native int EVT_DOUBLE_CLICK();
   static private native int EVT_FOCUS();
   static private native int EVT_BLUR();
   static private native int EVT_KEY_DOWN();
@@ -856,6 +885,9 @@ public enum TEventType {
   static private native int EVT_ASSET_MANAGER_UNLOAD_ASSET();
   static private native int EVT_ASSET_MANAGER_CLEAR_CACHE();
   static private native int EVT_TIMER();
+  static private native int EVT_DATA();
+  static private native int EVT_CONNECT();
+  static private native int EVT_MODEL_CHANGE();
   static private native int EVT_REQ_START();
   static private native int EVT_USER_START();
   static private native int EVT_NONE();

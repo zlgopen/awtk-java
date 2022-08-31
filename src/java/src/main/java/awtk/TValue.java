@@ -310,7 +310,7 @@ public class TValue {
   /**
    * 获取类型为字符串的值。
    * 
-   * @param buff 用于格式转换的缓冲区。
+   * @param buff 用于格式转换的缓冲区（如果 v 对象为 string 类型的话，不会把字符串数据拷贝到 buff 中）。
    * @param size 缓冲区大小。
    *
    * @return 值。
@@ -468,6 +468,17 @@ public class TValue {
     return value_func_def(this != null ? (this.nativeObj) : 0);
  }
 
+
+  /**
+   * 获取类型为位图对象。
+   * 
+   *
+   * @return 位图对象。
+   */
+ public  TBitmap bitmap()  {
+    return new TBitmap(value_bitmap(this != null ? (this.nativeObj) : 0));
+ }
+
 static private native long value_set_bool(long v, boolean value);
 static private native boolean value_bool(long v);
 static private native long value_set_int8(long v, int value);
@@ -505,4 +516,5 @@ static private native long value_cast(long value);
 static private native String value_id(long v);
 static private native long value_func(long v);
 static private native long value_func_def(long v);
+static private native long value_bitmap(long v);
 };

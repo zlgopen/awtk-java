@@ -111,7 +111,7 @@ public class TEvent {
 
 
   /**
-   * 事件发生的时间。
+   * 事件发生的时间点（该时间点并非真实时间）。
    *
    */
  public long getTime() {

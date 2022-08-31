@@ -182,7 +182,21 @@ public enum TValueType {
    *
    */
  
-  FUNC_DEF (VALUE_TYPE_FUNC_DEF());
+  FUNC_DEF (VALUE_TYPE_FUNC_DEF()),
+  
+  /**
+   * void*类型。
+   *
+   */
+ 
+  POINTER_REF (VALUE_TYPE_POINTER_REF()),
+  
+  /**
+   * 位图类型。
+   *
+   */
+ 
+  BITMAP (VALUE_TYPE_BITMAP());
  
  
   private TValueType(int value) {
@@ -242,5 +256,7 @@ public enum TValueType {
   static private native int VALUE_TYPE_ID();
   static private native int VALUE_TYPE_FUNC();
   static private native int VALUE_TYPE_FUNC_DEF();
+  static private native int VALUE_TYPE_POINTER_REF();
+  static private native int VALUE_TYPE_BITMAP();
 
 }

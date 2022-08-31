@@ -308,7 +308,35 @@ public enum TStyleId {
    *
    */
  
-  FEEDBACK (STYLE_ID_FEEDBACK());
+  FEEDBACK (STYLE_ID_FEEDBACK()),
+  
+  /**
+   * 是否用clear_rect代替fill_rect绘制背景。
+   *
+   */
+ 
+  CLEAR_BG (STYLE_ID_CLEAR_BG()),
+  
+  /**
+   * 网格线颜色(grid控件)
+   *
+   */
+ 
+  GRID_COLOR (STYLE_ID_GRID_COLOR()),
+  
+  /**
+   * 偶数行背景颜色(grid控件)
+   *
+   */
+ 
+  EVEN_BG_COLOR (STYLE_ID_EVEN_BG_COLOR()),
+  
+  /**
+   * 奇数行背景颜色(grid控件)
+   *
+   */
+ 
+  ODD_BG_COLOR (STYLE_ID_ODD_BG_COLOR());
  
  
   private TStyleId(String value) {
@@ -386,5 +414,9 @@ public enum TStyleId {
   static private native String STYLE_ID_SELF_LAYOUT();
   static private native String STYLE_ID_FOCUSABLE();
   static private native String STYLE_ID_FEEDBACK();
+  static private native String STYLE_ID_CLEAR_BG();
+  static private native String STYLE_ID_GRID_COLOR();
+  static private native String STYLE_ID_EVEN_BG_COLOR();
+  static private native String STYLE_ID_ODD_BG_COLOR();
 
 }

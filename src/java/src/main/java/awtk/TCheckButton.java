@@ -129,9 +129,28 @@ public class TCheckButton extends TWidget {
     return new TCheckButton(check_button_cast(widget != null ? (widget.nativeObj) : 0));
  }
 
+
+  /**
+   * 创建check button对象
+   * 
+   * @param parent 父控件
+   * @param x x坐标
+   * @param y y坐标
+   * @param w 宽度
+   * @param h 高度
+   * @param type 类型。
+   * @param radio 是否单选。
+   *
+   * @return widget对象。
+   */
+ public  static TWidget createEx(TWidget parent, int x, int y, int w, int h, String type, boolean radio)  {
+    return new TCheckButton(check_button_create_ex(parent != null ? (parent.nativeObj) : 0, x, y, w, h, type, radio));
+ }
+
 static private native long check_button_create(long parent, int x, int y, int w, int h);
 static private native long check_button_create_radio(long parent, int x, int y, int w, int h);
 static private native int check_button_set_value(long widget, boolean value);
 static private native long check_button_cast(long widget);
+static private native long check_button_create_ex(long parent, int x, int y, int w, int h, String type, boolean radio);
 static private native boolean check_button_t_get_prop_value(long nativeObj);
 };

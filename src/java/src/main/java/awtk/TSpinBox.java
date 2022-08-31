@@ -101,6 +101,48 @@ public class TSpinBox extends TEdit {
     return new TSpinBox(spin_box_cast(widget != null ? (widget.nativeObj) : 0));
  }
 
+
+  /**
+   * 设置是否启用易点击模式。
+   * 
+   * @param easy_touch_mode 易点击模式。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setEasyTouchMode(boolean easy_touch_mode)  {
+   return TRet.from(spin_box_set_easy_touch_mode(this != null ? (this.nativeObj) : 0, easy_touch_mode));
+ }
+
+
+  /**
+   * 设置连击的时间间隔。
+   *备注：时间间隔越低，速度越快。
+   * 
+   * @param repeat 连击的时间间隔。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet spinSetRepeat(int repeat)  {
+   return TRet.from(spin_set_repeat(this != null ? (this.nativeObj) : 0, repeat));
+ }
+
+
+  /**
+   * 是否启用易点击模式(在电容屏设备上建议启用)。
+   *> 在该模式下：
+   *> * 1.当高度大于font size的3倍时，inc按钮在顶部(style名为spinbox_top)，dec按钮在底部(style名为spinbox_bottom)。
+   *> * 2.当高度正常时，dec按钮在左边(style名为spinbox_left)，inc按钮在右边(style名为spinbox_right)。
+   *> 不在该模式下：
+   *> inc按钮在右上角(style名为spinbox_up)，dec按钮在右下角(style名为spinbox_down)。
+   *
+   */
+ public boolean getEasyTouchMode() {
+   return spin_box_t_get_prop_easy_touch_mode(this.nativeObj);
+ }
+
 static private native long spin_box_create(long parent, int x, int y, int w, int h);
 static private native long spin_box_cast(long widget);
+static private native int spin_box_set_easy_touch_mode(long widget, boolean easy_touch_mode);
+static private native int spin_set_repeat(long widget, int repeat);
+static private native boolean spin_box_t_get_prop_easy_touch_mode(long nativeObj);
 };

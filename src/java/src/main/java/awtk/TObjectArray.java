@@ -131,6 +131,18 @@ public class TObjectArray extends TObject {
 
 
   /**
+   * 删除指定的值。
+   * 
+   * @param v 值。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet removeValue(TValue v)  {
+   return TRet.from(object_array_remove_value(this != null ? (this.nativeObj) : 0, v != null ? (v.nativeObj) : 0));
+ }
+
+
+  /**
    * 在指定位置删除一个元素，并返回它。
    * 
    * @param index 位置。
@@ -159,6 +171,7 @@ static private native int object_array_push(long obj, long v);
 static private native int object_array_index_of(long obj, long v);
 static private native int object_array_last_index_of(long obj, long v);
 static private native int object_array_remove(long obj, int index);
+static private native int object_array_remove_value(long obj, long v);
 static private native int object_array_get_and_remove(long obj, int index, long v);
 static private native int object_array_t_get_prop_size(long nativeObj);
 };

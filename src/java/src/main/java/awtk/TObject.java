@@ -340,6 +340,19 @@ public class TObject extends TEmitter {
 
 
   /**
+   * 拷贝全部的属性。
+   * 
+   * @param src 源对象。
+   * @param overwrite 如果属性存在是否覆盖。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet copyProps(TObject src, boolean overwrite)  {
+   return TRet.from(object_copy_props(this != null ? (this.nativeObj) : 0, src != null ? (src.nativeObj) : 0, overwrite));
+ }
+
+
+  /**
    * 检查是否存在指定的属性。
    * 
    * @param name 属性的名称。
@@ -844,6 +857,7 @@ static private native int object_set_prop_bool(long obj, String name, boolean va
 static private native int object_set_prop_float(long obj, String name, double value);
 static private native int object_set_prop_double(long obj, String name, double value);
 static private native int object_copy_prop(long obj, long src, String name);
+static private native int object_copy_props(long obj, long src, boolean overwrite);
 static private native boolean object_has_prop(long obj, String name);
 static private native int object_eval(long obj, String expr, long v);
 static private native boolean object_can_exec(long obj, String name, String args);

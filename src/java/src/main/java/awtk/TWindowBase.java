@@ -229,6 +229,17 @@ public class TWindowBase extends TWidget {
 
 
   /**
+   * 小应用程序(applet)的名称。
+   *
+   *> 如果该窗口属于某个独立的小程序应用(applet)，需要指定它的名称，以便到对应的资源目录查找资源。
+   *
+   */
+ public String getAppletName() {
+   return window_base_t_get_prop_applet_name(this.nativeObj);
+ }
+
+
+  /**
    * 单例。如果窗口存在，先关闭再打开。
    *
    */
@@ -263,6 +274,7 @@ static private native String window_base_t_get_prop_move_focus_up_key(long nativ
 static private native String window_base_t_get_prop_move_focus_down_key(long nativeObj);
 static private native String window_base_t_get_prop_move_focus_left_key(long nativeObj);
 static private native String window_base_t_get_prop_move_focus_right_key(long nativeObj);
+static private native String window_base_t_get_prop_applet_name(long nativeObj);
 static private native boolean window_base_t_get_prop_single_instance(long nativeObj);
 static private native boolean window_base_t_get_prop_strongly_focus(long nativeObj);
 };

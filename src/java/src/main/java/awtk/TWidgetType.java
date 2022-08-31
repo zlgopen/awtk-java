@@ -115,6 +115,13 @@ public enum TWidgetType {
   IMAGE (WIDGET_TYPE_IMAGE()),
   
   /**
+   * 图标控件。
+   *
+   */
+ 
+  ICON (WIDGET_TYPE_ICON()),
+  
+  /**
    * 文本编辑控件。
    *
    */
@@ -176,6 +183,13 @@ public enum TWidgetType {
    */
  
   VIEW (WIDGET_TYPE_VIEW()),
+  
+  /**
+   * page控件。
+   *
+   */
+ 
+  PAGE (WIDGET_TYPE_PAGE()),
   
   /**
    * 下拉选择框控件。
@@ -442,6 +456,7 @@ public enum TWidgetType {
   static private native String WIDGET_TYPE_LABEL();
   static private native String WIDGET_TYPE_BUTTON();
   static private native String WIDGET_TYPE_IMAGE();
+  static private native String WIDGET_TYPE_ICON();
   static private native String WIDGET_TYPE_EDIT();
   static private native String WIDGET_TYPE_PROGRESS_BAR();
   static private native String WIDGET_TYPE_GROUP_BOX();
@@ -451,6 +466,7 @@ public enum TWidgetType {
   static private native String WIDGET_TYPE_DIALOG_CLIENT();
   static private native String WIDGET_TYPE_SLIDER();
   static private native String WIDGET_TYPE_VIEW();
+  static private native String WIDGET_TYPE_PAGE();
   static private native String WIDGET_TYPE_COMBO_BOX();
   static private native String WIDGET_TYPE_COMBO_BOX_ITEM();
   static private native String WIDGET_TYPE_SLIDE_VIEW();

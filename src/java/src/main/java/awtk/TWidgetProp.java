@@ -122,6 +122,13 @@ public enum TWidgetProp {
   CARET_Y (WIDGET_PROP_CARET_Y()),
   
   /**
+   * 行高。
+   *
+   */
+ 
+  LINE_HEIGHT (WIDGET_PROP_LINE_HEIGHT()),
+  
+  /**
    * 脏矩形超出控件本身大小的最大范围。
    *
    */
@@ -304,6 +311,13 @@ public enum TWidgetProp {
   VALUE (WIDGET_PROP_VALUE()),
   
   /**
+   * 容易点击模式(目前用于spinbox)。
+   *
+   */
+ 
+  EASY_TOUCH_MODE (WIDGET_PROP_EASY_TOUCH_MODE()),
+  
+  /**
    * CheckButton是否单选。
    *
    */
@@ -442,6 +456,13 @@ public enum TWidgetProp {
    */
  
   SENSITIVE (WIDGET_PROP_SENSITIVE()),
+  
+  /**
+   * 窗口所属的小应用程序(applet)名称。
+   *
+   */
+ 
+  APPLET_NAME (WIDGET_PROP_APPLET_NAME()),
   
   /**
    * 控件动画。
@@ -591,14 +612,14 @@ public enum TWidgetProp {
   SHOW_TEXT (WIDGET_PROP_SHOW_TEXT()),
   
   /**
-   * X方向的偏移。
+   * X方向的偏移。（如果控件有继承 get_offset 函数指针的话，一定要和 get_offset 返回值保持一致，否则容易出现问题）
    *
    */
  
   XOFFSET (WIDGET_PROP_XOFFSET()),
   
   /**
-   * Y方向的偏移。
+   * Y方向的偏移。（如果控件有继承 get_offset 函数指针的话，一定要和 get_offset 返回值保持一致，否则容易出现问题）
    *
    */
  
@@ -990,6 +1011,13 @@ public enum TWidgetProp {
   OPEN_WINDOW (WIDGET_PROP_OPEN_WINDOW()),
   
   /**
+   * ComboBox打开弹出窗口的主题。
+   *
+   */
+ 
+  THEME_OF_POPUP (WIDGET_PROP_THEME_OF_POPUP()),
+  
+  /**
    * 被选中项的索引。
    *
    */
@@ -1120,7 +1148,56 @@ public enum TWidgetProp {
    *
    */
  
-  MOVE_FOCUS_RIGHT_KEY (WIDGET_PROP_MOVE_FOCUS_RIGHT_KEY());
+  MOVE_FOCUS_RIGHT_KEY (WIDGET_PROP_MOVE_FOCUS_RIGHT_KEY()),
+  
+  /**
+   * 行数。
+   *
+   */
+ 
+  ROWS (WIDGET_PROP_ROWS()),
+  
+  /**
+   * 是否显示网格线。
+   *
+   */
+ 
+  SHOW_GRID (WIDGET_PROP_SHOW_GRID()),
+  
+  /**
+   * 各列的定义。
+   *
+   */
+ 
+  COLUMNS_DEFINITION (WIDGET_PROP_COLUMNS_DEFINITION()),
+  
+  /**
+   * 拖拽临界值。
+   *
+   */
+ 
+  DRAG_THRESHOLD (WIDGET_PROP_DRAG_THRESHOLD()),
+  
+  /**
+   * 动画时间。
+   *
+   */
+ 
+  ANIMATING_TIME (WIDGET_PROP_ANIMATING_TIME()),
+  
+  /**
+   * 改变控件属性时附带动画的前缀。
+   *
+   */
+ 
+  ANIMATE_PREFIX (WIDGET_PROP_ANIMATE_PREFIX()),
+  
+  /**
+   * 改变控件属性时附带动画的播放时间。
+   *
+   */
+ 
+  ANIMATE_ANIMATING_TIME (WIDGET_PROP_ANIMATE_ANIMATING_TIME());
  
  
   private TWidgetProp(String value) {
@@ -1171,6 +1248,7 @@ public enum TWidgetProp {
   static private native String WIDGET_PROP_ALWAYS_ON_TOP();
   static private native String WIDGET_PROP_CARET_X();
   static private native String WIDGET_PROP_CARET_Y();
+  static private native String WIDGET_PROP_LINE_HEIGHT();
   static private native String WIDGET_PROP_DIRTY_RECT_TOLERANCE();
   static private native String WIDGET_PROP_BIDI();
   static private native String WIDGET_PROP_CANVAS();
@@ -1197,6 +1275,7 @@ public enum TWidgetProp {
   static private native String WIDGET_PROP_CLOSABLE();
   static private native String WIDGET_PROP_POINTER_CURSOR();
   static private native String WIDGET_PROP_VALUE();
+  static private native String WIDGET_PROP_EASY_TOUCH_MODE();
   static private native String WIDGET_PROP_RADIO();
   static private native String WIDGET_PROP_REVERSE();
   static private native String WIDGET_PROP_LENGTH();
@@ -1217,6 +1296,7 @@ public enum TWidgetProp {
   static private native String WIDGET_PROP_STEP();
   static private native String WIDGET_PROP_VISIBLE();
   static private native String WIDGET_PROP_SENSITIVE();
+  static private native String WIDGET_PROP_APPLET_NAME();
   static private native String WIDGET_PROP_ANIMATION();
   static private native String WIDGET_PROP_ANIM_HINT();
   static private native String WIDGET_PROP_FULLSCREEN();
@@ -1295,6 +1375,7 @@ public enum TWidgetProp {
   static private native String WIDGET_PROP_ACTIVE_ICON();
   static private native String WIDGET_PROP_LOAD_UI();
   static private native String WIDGET_PROP_OPEN_WINDOW();
+  static private native String WIDGET_PROP_THEME_OF_POPUP();
   static private native String WIDGET_PROP_SELECTED_INDEX();
   static private native String WIDGET_PROP_CLOSE_WHEN_CLICK();
   static private native String WIDGET_PROP_CLOSE_WHEN_CLICK_OUTSIDE();
@@ -1314,5 +1395,12 @@ public enum TWidgetProp {
   static private native String WIDGET_PROP_MOVE_FOCUS_DOWN_KEY();
   static private native String WIDGET_PROP_MOVE_FOCUS_LEFT_KEY();
   static private native String WIDGET_PROP_MOVE_FOCUS_RIGHT_KEY();
+  static private native String WIDGET_PROP_ROWS();
+  static private native String WIDGET_PROP_SHOW_GRID();
+  static private native String WIDGET_PROP_COLUMNS_DEFINITION();
+  static private native String WIDGET_PROP_DRAG_THRESHOLD();
+  static private native String WIDGET_PROP_ANIMATING_TIME();
+  static private native String WIDGET_PROP_ANIMATE_PREFIX();
+  static private native String WIDGET_PROP_ANIMATE_ANIMATING_TIME();
 
 }

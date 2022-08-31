@@ -4,8 +4,6 @@ package awtk;
 /**
  * 窗体样式。
  *
- *负责管理缺省的窗体样式数据，方便实现style\_const。
- *
  */
 public class TTheme { 
 

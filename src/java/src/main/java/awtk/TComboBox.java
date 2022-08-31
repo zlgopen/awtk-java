@@ -102,6 +102,22 @@ package awtk;
  *</style>
  *</popup>
  *```
+ ** 3.combobox的下拉框中的列表项的样式，可以设置combo_box_item的style来改变。
+ *
+ *```xml
+ *<combo_box_item>
+ *<style name="default" icon_at="left" text_color="black" bg_color="#f0f0f0">
+ *<normal  icon="empty"/>
+ *<focused icon="empty" bg_color="#1296db" text_color="gold" />
+ *<pressed icon="empty" bg_color="#1296db" text_color="white" />
+ *<over    icon="empty" bg_color="#1296db" text_color="white" />
+ *<normal_of_checked  icon="check"/>
+ *<focused_of_checked  icon="check" bg_color="#1296db" text_color="gold"/>
+ *<pressed_of_checked icon="check" bg_color="#1296db" text_color="white" />
+ *<over_of_checked    icon="check" bg_color="#1296db" text_color="white" />
+ *</style>
+ *</combo_box_item>
+ *```
  *
  *> 更多用法请参考：[theme
  *default](https://github.com/zlgopen/awtk/blob/master/design/default/styles/default.xml#L422)
@@ -170,6 +186,18 @@ public class TComboBox extends TEdit {
    */
  public  TRet setOpenWindow(String open_window)  {
    return TRet.from(combo_box_set_open_window(this != null ? (this.nativeObj) : 0, open_window));
+ }
+
+
+  /**
+   * 设置弹出窗口的主题。
+   * 
+   * @param theme_of_popup 弹出的窗口主题。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setThemeOfPopup(String theme_of_popup)  {
+   return TRet.from(combo_box_set_theme_of_popup(this != null ? (this.nativeObj) : 0, theme_of_popup));
  }
 
 
@@ -324,6 +352,15 @@ public class TComboBox extends TEdit {
 
 
   /**
+   * 弹出窗口的主题(对应的style文件必须存在)，方便为不同combo box的弹出窗口指定不同的样式。
+   *
+   */
+ public String getThemeOfPopup() {
+   return combo_box_t_get_prop_theme_of_popup(this.nativeObj);
+ }
+
+
+  /**
    * 当前选中的选项。
    *
    */
@@ -343,6 +380,9 @@ public class TComboBox extends TEdit {
 
   /**
    * 设置可选项(冒号分隔值和文本，分号分隔选项，如:1:red;2:green;3:blue)。
+   *> 如果数据本身中有英文冒号(:)和英文分号(;)，请用16进制转义。
+   *> * 英文冒号(:)写为\\x3a
+   *> * 英文冒号(;)写为\\x3b
    *
    */
  public String getOptions() {
@@ -361,6 +401,7 @@ public class TComboBox extends TEdit {
 static private native long combo_box_create(long parent, int x, int y, int w, int h);
 static private native long combo_box_cast(long widget);
 static private native int combo_box_set_open_window(long widget, String open_window);
+static private native int combo_box_set_theme_of_popup(long widget, String theme_of_popup);
 static private native int combo_box_reset_options(long widget);
 static private native int combo_box_count_options(long widget);
 static private native int combo_box_set_selected_index(long widget, int index);
@@ -374,6 +415,7 @@ static private native int combo_box_get_value(long widget);
 static private native boolean combo_box_has_option_text(long widget, String text);
 static private native String combo_box_get_text(long widget);
 static private native String combo_box_t_get_prop_open_window(long nativeObj);
+static private native String combo_box_t_get_prop_theme_of_popup(long nativeObj);
 static private native int combo_box_t_get_prop_selected_index(long nativeObj);
 static private native int combo_box_t_get_prop_value(long nativeObj);
 static private native boolean combo_box_t_get_prop_localize_options(long nativeObj);

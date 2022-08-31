@@ -184,6 +184,30 @@ public class TSlideView extends TWidget {
 
 
   /**
+   * 设置拖拽临界值。
+   * 
+   * @param drag_threshold 拖动临界值。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setDragThreshold(int drag_threshold)  {
+   return TRet.from(slide_view_set_drag_threshold(this != null ? (this.nativeObj) : 0, drag_threshold));
+ }
+
+
+  /**
+   * 设置动画时间。
+   * 
+   * @param animating_time 动画时间。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setAnimatingTime(int animating_time)  {
+   return TRet.from(slide_view_set_animating_time(this != null ? (this.nativeObj) : 0, animating_time));
+ }
+
+
+  /**
    * 删除指定序号页面。
    * 
    * @param index 删除页面的序号。
@@ -233,6 +257,24 @@ public class TSlideView extends TWidget {
    return slide_view_t_get_prop_anim_hint(this.nativeObj);
  }
 
+
+  /**
+   * 拖动临界值。
+   *
+   */
+ public int getDragThreshold() {
+   return slide_view_t_get_prop_drag_threshold(this.nativeObj);
+ }
+
+
+  /**
+   * 动画时间（单位：毫秒）。
+   *
+   */
+ public int getAnimatingTime() {
+   return slide_view_t_get_prop_animating_time(this.nativeObj);
+ }
+
 static private native long slide_view_create(long parent, int x, int y, int w, int h);
 static private native long slide_view_cast(long widget);
 static private native int slide_view_set_auto_play(long widget, int auto_play);
@@ -241,9 +283,13 @@ static private native int slide_view_set_active_ex(long widget, int index, boole
 static private native int slide_view_set_vertical(long widget, boolean vertical);
 static private native int slide_view_set_anim_hint(long widget, String anim_hint);
 static private native int slide_view_set_loop(long widget, boolean loop);
+static private native int slide_view_set_drag_threshold(long widget, int drag_threshold);
+static private native int slide_view_set_animating_time(long widget, int animating_time);
 static private native int slide_view_remove_index(long widget, int index);
 static private native boolean slide_view_t_get_prop_vertical(long nativeObj);
 static private native int slide_view_t_get_prop_auto_play(long nativeObj);
 static private native boolean slide_view_t_get_prop_loop(long nativeObj);
 static private native String slide_view_t_get_prop_anim_hint(long nativeObj);
+static private native int slide_view_t_get_prop_drag_threshold(long nativeObj);
+static private native int slide_view_t_get_prop_animating_time(long nativeObj);
 };

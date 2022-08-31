@@ -164,6 +164,15 @@ public class TButton extends TWidget {
    return button_t_get_prop_long_press_time(this.nativeObj);
  }
 
+
+  /**
+   * 当前是否按下。
+   *
+   */
+ public boolean getPressed() {
+   return button_t_get_prop_pressed(this.nativeObj);
+ }
+
 static private native long button_create(long parent, int x, int y, int w, int h);
 static private native long button_cast(long widget);
 static private native int button_set_repeat(long widget, int repeat);
@@ -172,4 +181,5 @@ static private native int button_set_enable_long_press(long widget, boolean enab
 static private native int button_t_get_prop_repeat(long nativeObj);
 static private native boolean button_t_get_prop_enable_long_press(long nativeObj);
 static private native int button_t_get_prop_long_press_time(long nativeObj);
+static private native boolean button_t_get_prop_pressed(long nativeObj);
 };

@@ -8,6 +8,19 @@ package awtk;
 public class TGlobal { 
 
   /**
+   * 初始化基本功能。
+   *> 在tk_init之前，应用程序可能需要加载配置文件，
+   *> 为了保证这些功能正常工作，可以先调用tk_pre_init来初始化平台、内存和data reader等等。
+   * 
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  static TRet preInit()  {
+   return TRet.from(tk_pre_init());
+ }
+
+
+  /**
    * 初始化TK。
    * 
    * @param w LCD宽度。
@@ -77,6 +90,7 @@ public class TGlobal {
     return tk_is_pointer_pressed();
  }
 
+static private native int tk_pre_init();
 static private native int tk_init(int w, int h, int app_type, String app_name, String app_root);
 static private native int tk_run();
 static private native int tk_quit();
