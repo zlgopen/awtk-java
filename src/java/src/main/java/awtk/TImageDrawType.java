@@ -66,6 +66,13 @@ public enum TImageDrawType {
   SCALE_H (IMAGE_DRAW_SCALE_H()),
   
   /**
+   * 填充整个区域。将图片缩放至目标矩形的高度或宽度，包装填满整个目标区域，超出不部分不显示。
+   *
+   */
+ 
+  FILL (IMAGE_DRAW_FILL()),
+  
+  /**
    * 平铺显示。
    *
    */
@@ -204,6 +211,7 @@ public enum TImageDrawType {
   static private native int IMAGE_DRAW_SCALE_DOWN();
   static private native int IMAGE_DRAW_SCALE_W();
   static private native int IMAGE_DRAW_SCALE_H();
+  static private native int IMAGE_DRAW_FILL();
   static private native int IMAGE_DRAW_REPEAT();
   static private native int IMAGE_DRAW_REPEAT_X();
   static private native int IMAGE_DRAW_REPEAT_Y();

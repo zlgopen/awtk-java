@@ -158,6 +158,19 @@ public class TDraggable extends TWidget {
 
 
   /**
+   * 设置是否无范围限制拖动。
+   *备注：可以让窗口拖动到外面去。
+   * 
+   * @param allow_out_of_screen 是否无范围限制拖动。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setAllowOutOfScreen(boolean allow_out_of_screen)  {
+   return TRet.from(draggable_set_allow_out_of_screen(this != null ? (this.nativeObj) : 0, allow_out_of_screen));
+ }
+
+
+  /**
    * 设置drag_window。
    *拖动窗口而不是父控件。比如放在对话框的titlebar上，拖动titlebar其实是希望拖动对话框。
    * 
@@ -232,6 +245,15 @@ public class TDraggable extends TWidget {
 
 
   /**
+   * 支持超出原生窗口边界拖动。（无法完全移出原生窗口，同时优先受到拖动范围限制的影响）
+   *
+   */
+ public boolean getAllowOutOfScreen() {
+   return draggable_t_get_prop_allow_out_of_screen(this.nativeObj);
+ }
+
+
+  /**
    * 只允许垂直拖动。
    *
    */
@@ -283,6 +305,7 @@ static private native int draggable_set_left(long widget, int left);
 static private native int draggable_set_right(long widget, int right);
 static private native int draggable_set_vertical_only(long widget, boolean vertical_only);
 static private native int draggable_set_horizontal_only(long widget, boolean horizontal_only);
+static private native int draggable_set_allow_out_of_screen(long widget, boolean allow_out_of_screen);
 static private native int draggable_set_drag_window(long widget, boolean drag_window);
 static private native int draggable_set_drag_native_window(long widget, boolean drag_native_window);
 static private native int draggable_set_drag_parent(long widget, int drag_parent);
@@ -290,6 +313,7 @@ static private native int draggable_t_get_prop_top(long nativeObj);
 static private native int draggable_t_get_prop_bottom(long nativeObj);
 static private native int draggable_t_get_prop_left(long nativeObj);
 static private native int draggable_t_get_prop_right(long nativeObj);
+static private native boolean draggable_t_get_prop_allow_out_of_screen(long nativeObj);
 static private native boolean draggable_t_get_prop_vertical_only(long nativeObj);
 static private native boolean draggable_t_get_prop_horizontal_only(long nativeObj);
 static private native boolean draggable_t_get_prop_drag_window(long nativeObj);

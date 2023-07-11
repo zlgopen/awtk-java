@@ -6,13 +6,7 @@ package awtk;
  *(如果使用nanovg，字体由nanovg内部管理)
  *
  */
-public class TFontManager { 
-
-/**
- * 原生对象。
- */
- public long nativeObj;
-
+public class TFontManager extends TEmitter { 
 
 /**
  * 通过nativeObj构造Java对象。
@@ -22,7 +16,7 @@ public class TFontManager {
  * @return 对应的Java对象。
  */
  public TFontManager(long nativeObj) {
-   this.nativeObj = nativeObj;
+   super(nativeObj);
  }
 
 

@@ -32,7 +32,7 @@ public class TOffsetChangeEvent extends TEvent {
 
 
   /**
-   * 把event对象转offset_change_event_t对象，主要给脚本语言使用。
+   * 把event对象转offset_change_event_t对象。
    * 
    * @param event event对象。
    *

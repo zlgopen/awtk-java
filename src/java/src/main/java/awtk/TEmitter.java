@@ -84,8 +84,8 @@ public class TEmitter {
    *
    * @return 返回id，用于emitter_off。
    */
- public  int on(TEventType etype, TOnEvent handler, long ctx)  {
-    return emitter_on(this != null ? (this.nativeObj) : 0, etype.value(), handler, ctx);
+ public  int on(int etype, TOnEvent handler, long ctx)  {
+    return emitter_on(this != null ? (this.nativeObj) : 0, etype, handler, ctx);
  }
 
 

@@ -296,6 +296,30 @@ public class TTextSelector extends TWidget {
 
 
   /**
+   * 设置绘制蒙版的变化趋势。
+   * 
+   * @param mask_easing 绘制蒙版的变化趋势。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setMaskEasing(TEasingType mask_easing)  {
+   return TRet.from(text_selector_set_mask_easing(this != null ? (this.nativeObj) : 0, mask_easing.value()));
+ }
+
+
+  /**
+   * 设置绘制蒙版的区域占比（范围0~1）。
+   * 
+   * @param mask_area_scale 绘制蒙版的区域占比（范围0~1）。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setMaskAreaScale(double mask_area_scale)  {
+   return TRet.from(text_selector_set_mask_area_scale(this != null ? (this.nativeObj) : 0, mask_area_scale));
+ }
+
+
+  /**
    * 可见的选项数量(只能是1或者3或者5，缺省为5)。
    *
    */
@@ -372,6 +396,25 @@ public class TTextSelector extends TWidget {
    return text_selector_t_get_prop_enable_value_animator(this.nativeObj);
  }
 
+
+  /**
+   * 绘制蒙版的变化趋势。
+   *
+   */
+ public TEasingType getMaskEasing() {
+   return TEasingType.from(text_selector_t_get_prop_mask_easing(this.nativeObj));
+
+ }
+
+
+  /**
+   * 绘制蒙版的区域占比（范围0~1）。
+   *
+   */
+ public double getMaskAreaScale() {
+   return text_selector_t_get_prop_mask_area_scale(this.nativeObj);
+ }
+
 static private native long text_selector_create(long parent, int x, int y, int w, int h);
 static private native long text_selector_cast(long widget);
 static private native int text_selector_reset_options(long widget);
@@ -391,6 +434,8 @@ static private native int text_selector_set_loop_options(long widget, boolean lo
 static private native int text_selector_set_yspeed_scale(long widget, double yspeed_scale);
 static private native int text_selector_set_animating_time(long widget, int animating_time);
 static private native int text_selector_set_enable_value_animator(long widget, boolean enable_value_animator);
+static private native int text_selector_set_mask_easing(long widget, int mask_easing);
+static private native int text_selector_set_mask_area_scale(long widget, double mask_area_scale);
 static private native int text_selector_t_get_prop_visible_nr(long nativeObj);
 static private native int text_selector_t_get_prop_selected_index(long nativeObj);
 static private native String text_selector_t_get_prop_options(long nativeObj);
@@ -399,4 +444,6 @@ static private native int text_selector_t_get_prop_animating_time(long nativeObj
 static private native boolean text_selector_t_get_prop_localize_options(long nativeObj);
 static private native boolean text_selector_t_get_prop_loop_options(long nativeObj);
 static private native boolean text_selector_t_get_prop_enable_value_animator(long nativeObj);
+static private native int text_selector_t_get_prop_mask_easing(long nativeObj);
+static private native double text_selector_t_get_prop_mask_area_scale(long nativeObj);
 };

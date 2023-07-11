@@ -211,6 +211,18 @@ public class TScrollView extends TWidget {
 
 
   /**
+   * 设置滑动到极限时可继续滑动区域的占比。
+   * 
+   * @param slide_limit_ratio 滑动到极限时可继续滑动区域的占比。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setSlideLimitRatio(double slide_limit_ratio)  {
+   return TRet.from(scroll_view_set_slide_limit_ratio(this != null ? (this.nativeObj) : 0, slide_limit_ratio));
+ }
+
+
+  /**
    * 滚动到指定的偏移量。
    * 
    * @param xoffset_end x偏移量。
@@ -336,6 +348,15 @@ public class TScrollView extends TWidget {
    return scroll_view_t_get_prop_recursive(this.nativeObj);
  }
 
+
+  /**
+   * 滑动到极限时可继续滑动区域的占比。
+   *
+   */
+ public double getSlideLimitRatio() {
+   return scroll_view_t_get_prop_slide_limit_ratio(this.nativeObj);
+ }
+
 static private native long scroll_view_create(long parent, int x, int y, int w, int h);
 static private native long scroll_view_cast(long widget);
 static private native int scroll_view_set_virtual_w(long widget, int w);
@@ -348,6 +369,7 @@ static private native int scroll_view_set_recursive(long widget, boolean recursi
 static private native int scroll_view_set_recursive_only(long widget, boolean recursive);
 static private native int scroll_view_set_offset(long widget, int xoffset, int yoffset);
 static private native int scroll_view_set_speed_scale(long widget, double xspeed_scale, double yspeed_scale);
+static private native int scroll_view_set_slide_limit_ratio(long widget, double slide_limit_ratio);
 static private native int scroll_view_scroll_to(long widget, int xoffset_end, int yoffset_end, int duration);
 static private native int scroll_view_scroll_delta_to(long widget, int xoffset_delta, int yoffset_delta, int duration);
 static private native int scroll_view_t_get_prop_virtual_w(long nativeObj);
@@ -361,4 +383,5 @@ static private native boolean scroll_view_t_get_prop_yslidable(long nativeObj);
 static private native boolean scroll_view_t_get_prop_snap_to_page(long nativeObj);
 static private native boolean scroll_view_t_get_prop_move_to_page(long nativeObj);
 static private native boolean scroll_view_t_get_prop_recursive(long nativeObj);
+static private native double scroll_view_t_get_prop_slide_limit_ratio(long nativeObj);
 };

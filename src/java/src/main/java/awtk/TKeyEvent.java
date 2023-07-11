@@ -32,7 +32,7 @@ public class TKeyEvent extends TEvent {
 
 
   /**
-   * 把event对象转key_event_t对象，主要给脚本语言使用。
+   * 把event对象转key_event_t对象。
    * 
    * @param event event对象。
    *
@@ -161,6 +161,15 @@ public class TKeyEvent extends TEvent {
    return key_event_t_get_prop_capslock(this.nativeObj);
  }
 
+
+  /**
+   * numlock键是否按下。
+   *
+   */
+ public boolean getNumlock() {
+   return key_event_t_get_prop_numlock(this.nativeObj);
+ }
+
 static private native long key_event_cast(long event);
 static private native int key_event_t_get_prop_key(long nativeObj);
 static private native boolean key_event_t_get_prop_alt(long nativeObj);
@@ -175,4 +184,5 @@ static private native boolean key_event_t_get_prop_rshift(long nativeObj);
 static private native boolean key_event_t_get_prop_cmd(long nativeObj);
 static private native boolean key_event_t_get_prop_menu(long nativeObj);
 static private native boolean key_event_t_get_prop_capslock(long nativeObj);
+static private native boolean key_event_t_get_prop_numlock(long nativeObj);
 };

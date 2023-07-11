@@ -237,6 +237,32 @@ public class TScrollBar extends TWidget {
 
 
   /**
+   * 通过动画隐藏滚动条。
+   * 
+   * @param duration 动画持续时间。
+   * @param delay 动画执行时间。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet hideByOpacityAnimation(int duration, int delay)  {
+   return TRet.from(scroll_bar_hide_by_opacity_animation(this != null ? (this.nativeObj) : 0, duration, delay));
+ }
+
+
+  /**
+   * 通过动画显示滚动条。
+   * 
+   * @param duration 动画持续时间。
+   * @param delay 动画执行时间。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet showByOpacityAnimation(int duration, int delay)  {
+   return TRet.from(scroll_bar_show_by_opacity_animation(this != null ? (this.nativeObj) : 0, duration, delay));
+ }
+
+
+  /**
    * 虚拟宽度或高度。
    *
    */
@@ -293,6 +319,8 @@ static private native int scroll_bar_set_value_only(long widget, int value);
 static private native int scroll_bar_set_auto_hide(long widget, boolean auto_hide);
 static private native boolean scroll_bar_is_mobile(long widget);
 static private native int scroll_bar_set_animator_time(long widget, int animator_time);
+static private native int scroll_bar_hide_by_opacity_animation(long widget, int duration, int delay);
+static private native int scroll_bar_show_by_opacity_animation(long widget, int duration, int delay);
 static private native int scroll_bar_t_get_prop_virtual_size(long nativeObj);
 static private native int scroll_bar_t_get_prop_value(long nativeObj);
 static private native int scroll_bar_t_get_prop_row(long nativeObj);

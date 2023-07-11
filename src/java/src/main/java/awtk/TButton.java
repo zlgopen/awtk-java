@@ -134,6 +134,18 @@ public class TButton extends TWidget {
 
 
   /**
+   * 设置是否启用预览。
+   * 
+   * @param enable_preview 是否启用预览。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setEnablePreview(boolean enable_preview)  {
+   return TRet.from(button_set_enable_preview(this != null ? (this.nativeObj) : 0, enable_preview));
+ }
+
+
+  /**
    * 重复触发EVT\_CLICK事件的时间间隔。
    *
    *为0则不重复触发EVT\_CLICK事件。
@@ -153,6 +165,15 @@ public class TButton extends TWidget {
    */
  public boolean getEnableLongPress() {
    return button_t_get_prop_enable_long_press(this.nativeObj);
+ }
+
+
+  /**
+   * 是否启用预览(主要用于软键盘)。
+   *
+   */
+ public boolean getEnablePreview() {
+   return button_t_get_prop_enable_preview(this.nativeObj);
  }
 
 
@@ -178,8 +199,10 @@ static private native long button_cast(long widget);
 static private native int button_set_repeat(long widget, int repeat);
 static private native int button_set_long_press_time(long widget, int long_press_time);
 static private native int button_set_enable_long_press(long widget, boolean enable_long_press);
+static private native int button_set_enable_preview(long widget, boolean enable_preview);
 static private native int button_t_get_prop_repeat(long nativeObj);
 static private native boolean button_t_get_prop_enable_long_press(long nativeObj);
+static private native boolean button_t_get_prop_enable_preview(long nativeObj);
 static private native int button_t_get_prop_long_press_time(long nativeObj);
 static private native boolean button_t_get_prop_pressed(long nativeObj);
 };

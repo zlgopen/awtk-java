@@ -105,6 +105,20 @@ public class TStyle {
 
 
   /**
+   * 获取指定状态的指定属性的值。
+   * 
+   * @param state 状态。
+   * @param name 属性名。
+   * @param value 值。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet get(String state, String name, TValue value)  {
+   return TRet.from(style_get(this != null ? (this.nativeObj) : 0, state, name, value != null ? (value.nativeObj) : 0));
+ }
+
+
+  /**
    * 设置指定状态的指定属性的值(仅仅对mutable的style有效)。
    * 
    * @param state 状态。
@@ -171,6 +185,7 @@ static private native boolean style_is_valid(long s);
 static private native int style_get_int(long s, String name, int defval);
 static private native int style_get_uint(long s, String name, int defval);
 static private native String style_get_str(long s, String name, String defval);
+static private native int style_get(long s, String state, String name, long value);
 static private native int style_set(long s, String state, String name, long value);
 static private native int style_update_state(long s, long theme, String widget_type, String style_name, String widget_state);
 static private native String style_get_style_state(long s);

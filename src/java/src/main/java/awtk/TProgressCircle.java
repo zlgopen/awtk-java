@@ -222,7 +222,7 @@ public class TProgressCircle extends TWidget {
 
 
   /**
-   * 线帽类型(round:圆头，square:方头)。
+   * 线帽类型(round:圆头，square:方头，butt:平头)。
    *
    */
  public String getLineCap() {

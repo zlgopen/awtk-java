@@ -94,6 +94,32 @@ public class TSvgImage extends TImageBase {
 
 
   /**
+   * 控件设置是否开启离线缓存渲染模式。
+   *
+   *> 在确保svg图片不经常变化大小及状态的情况下，开启离线缓存渲染能够减少解析bsvg的开销，提高效率。
+   * 
+   * @param is_cache_mode 是否开启缓存模式。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setCacheMode(boolean is_cache_mode)  {
+   return TRet.from(svg_image_set_cache_mode(this != null ? (this.nativeObj) : 0, is_cache_mode));
+ }
+
+
+  /**
+   * 控件设置svg图片绘制模式。
+   * 
+   * @param draw_type 绘制模式。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setDrawType(TImageDrawType draw_type)  {
+   return TRet.from(svg_image_set_draw_type(this != null ? (this.nativeObj) : 0, draw_type.value()));
+ }
+
+
+  /**
    * 转换为svg_image对象(供脚本语言使用)。
    * 
    * @param widget svg_image对象。
@@ -104,7 +130,30 @@ public class TSvgImage extends TImageBase {
     return new TSvgImage(svg_image_cast(widget != null ? (widget.nativeObj) : 0));
  }
 
+
+  /**
+   * 离线缓存渲染模式。
+   *
+   */
+ public boolean getIsCacheMode() {
+   return svg_image_t_get_prop_is_cache_mode(this.nativeObj);
+ }
+
+
+  /**
+   * svg图片的绘制方式(支持旋转缩放, 目前仅支持scale、scale_auto模式)。
+   *
+   */
+ public TImageDrawType getDrawType() {
+   return TImageDrawType.from(svg_image_t_get_prop_draw_type(this.nativeObj));
+
+ }
+
 static private native long svg_image_create(long parent, int x, int y, int w, int h);
 static private native int svg_image_set_image(long widget, String name);
+static private native int svg_image_set_cache_mode(long widget, boolean is_cache_mode);
+static private native int svg_image_set_draw_type(long widget, int draw_type);
 static private native long svg_image_cast(long widget);
+static private native boolean svg_image_t_get_prop_is_cache_mode(long nativeObj);
+static private native int svg_image_t_get_prop_draw_type(long nativeObj);
 };

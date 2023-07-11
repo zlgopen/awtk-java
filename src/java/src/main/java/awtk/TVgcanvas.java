@@ -270,7 +270,7 @@ public class TVgcanvas {
   /**
    * 旋转。
    * 
-   * @param rad 角度
+   * @param rad 旋转角度(单位弧度)
    *
    * @return 返回RET_OK表示成功，否则表示失败。
    */
@@ -460,12 +460,12 @@ public class TVgcanvas {
   /**
    * 设置字体的大小。
    * 
-   * @param font 字体大小。
+   * @param size 字体大小。
    *
    * @return 返回RET_OK表示成功，否则表示失败。
    */
- public  TRet setFontSize(double font)  {
-   return TRet.from(vgcanvas_set_font_size(this != null ? (this.nativeObj) : 0, font));
+ public  TRet setFontSize(double size)  {
+   return TRet.from(vgcanvas_set_font_size(this != null ? (this.nativeObj) : 0, size));
  }
 
 
@@ -639,12 +639,12 @@ public class TVgcanvas {
   /**
    * 设置线条颜色。
    * 
-   * @param color 颜色。
+   * @param str 颜色。
    *
    * @return 返回RET_OK表示成功，否则表示失败。
    */
- public  TRet setStrokeColor(String color)  {
-   return TRet.from(vgcanvas_set_stroke_color_str(this != null ? (this.nativeObj) : 0, color));
+ public  TRet setStrokeColor(String str)  {
+   return TRet.from(vgcanvas_set_stroke_color_str(this != null ? (this.nativeObj) : 0, str));
  }
 
 
@@ -870,7 +870,7 @@ static private native int vgcanvas_fill(long vg);
 static private native int vgcanvas_stroke(long vg);
 static private native int vgcanvas_paint(long vg, boolean stroke, long img);
 static private native int vgcanvas_set_font(long vg, String font);
-static private native int vgcanvas_set_font_size(long vg, double font);
+static private native int vgcanvas_set_font_size(long vg, double size);
 static private native int vgcanvas_set_text_align(long vg, String value);
 static private native int vgcanvas_set_text_baseline(long vg, String value);
 static private native int vgcanvas_fill_text(long vg, String text, double x, double y, double max_width);
@@ -882,7 +882,7 @@ static private native int vgcanvas_set_antialias(long vg, boolean value);
 static private native int vgcanvas_set_global_alpha(long vg, double alpha);
 static private native int vgcanvas_set_line_width(long vg, double value);
 static private native int vgcanvas_set_fill_color_str(long vg, String color);
-static private native int vgcanvas_set_stroke_color_str(long vg, String color);
+static private native int vgcanvas_set_stroke_color_str(long vg, String str);
 static private native int vgcanvas_set_line_cap(long vg, String value);
 static private native int vgcanvas_set_line_join(long vg, String value);
 static private native int vgcanvas_set_miter_limit(long vg, double value);

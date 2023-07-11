@@ -94,6 +94,18 @@ public class TPages extends TWidget {
 
 
   /**
+   * 设置切换界面时是否自动聚焦。
+   * 
+   * @param auto_focused 切换界面时是否自动聚焦。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setAutoFocused(boolean auto_focused)  {
+   return TRet.from(pages_set_auto_focused(this != null ? (this.nativeObj) : 0, auto_focused));
+ }
+
+
+  /**
    * 通过页面的名字设置当前的Page。
    * 
    * @param name 当前Page的名字。
@@ -113,9 +125,20 @@ public class TPages extends TWidget {
    return pages_t_get_prop_active(this.nativeObj);
  }
 
+
+  /**
+   * 选择切换界面时是否自动聚焦上一次保存的焦点。（默认为TRUE）
+   *
+   */
+ public boolean getAutoFocused() {
+   return pages_t_get_prop_auto_focused(this.nativeObj);
+ }
+
 static private native long pages_create(long parent, int x, int y, int w, int h);
 static private native long pages_cast(long widget);
 static private native int pages_set_active(long widget, int index);
+static private native int pages_set_auto_focused(long widget, boolean auto_focused);
 static private native int pages_set_active_by_name(long widget, String name);
 static private native int pages_t_get_prop_active(long nativeObj);
+static private native boolean pages_t_get_prop_auto_focused(long nativeObj);
 };

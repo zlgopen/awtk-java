@@ -161,7 +161,21 @@ public enum TRet {
    *
    */
  
-  NOT_MODIFIED (RET_NOT_MODIFIED());
+  NOT_MODIFIED (RET_NOT_MODIFIED()),
+  
+  /**
+   * 没有权限。
+   *
+   */
+ 
+  NO_PERMISSION (RET_NO_PERMISSION()),
+  
+  /**
+   * 最大值。
+   *
+   */
+ 
+  MAX_NR (RET_MAX_NR());
  
  
   private TRet(int value) {
@@ -218,5 +232,7 @@ public enum TRet {
   static private native int RET_IO();
   static private native int RET_EOS();
   static private native int RET_NOT_MODIFIED();
+  static private native int RET_NO_PERMISSION();
+  static private native int RET_MAX_NR();
 
 }

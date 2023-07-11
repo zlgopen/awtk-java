@@ -217,6 +217,22 @@ public class TWidget {
 
 
   /**
+   * 移动控件并调整控件的大小。
+   * 
+   * @param x x坐标
+   * @param y y坐标
+   * @param w 宽度
+   * @param h 高度
+   * @param update_layout 是否更新布局
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet moveResizeEx(int x, int y, int w, int h, boolean update_layout)  {
+   return TRet.from(widget_move_resize_ex(this != null ? (this.nativeObj) : 0, x, y, w, h, update_layout));
+ }
+
+
+  /**
    * 获取控件的值。只是对widget\_get\_prop的包装，值的意义由子类控件决定。
    * 
    *
@@ -314,6 +330,17 @@ public class TWidget {
    */
  public  boolean isStyleExist(String style_name, String state_name)  {
     return widget_is_style_exist(this != null ? (this.nativeObj) : 0, style_name, state_name);
+ }
+
+
+  /**
+   * 判断widget是否支持高亮。
+   * 
+   *
+   * @return 支持返回 TRUE，不支持返回 FALSE。
+   */
+ public  boolean isSupportHighlighter()  {
+    return widget_is_support_highlighter(this != null ? (this.nativeObj) : 0);
  }
 
 
@@ -933,8 +960,8 @@ public class TWidget {
    *
    * @return 返回id，用于widget_off。
    */
- public  int on(TEventType type, TOnEvent on_event, long ctx)  {
-    return widget_on(this != null ? (this.nativeObj) : 0, type.value(), on_event, ctx);
+ public  int on(int type, TOnEvent on_event, long ctx)  {
+    return widget_on(this != null ? (this.nativeObj) : 0, type, on_event, ctx);
  }
 
 
@@ -1184,6 +1211,17 @@ public class TWidget {
 
 
   /**
+   * 检查控件是否是全屏窗口。
+   * 
+   *
+   * @return 返回FALSE表示不是，否则表示是。
+   */
+ public  boolean isFullscreenWindow()  {
+    return widget_is_fullscreen_window(this != null ? (this.nativeObj) : 0);
+ }
+
+
+  /**
    * 检查控件是否是对话框类型。
    * 
    *
@@ -1213,6 +1251,17 @@ public class TWidget {
    */
  public  boolean isOverlay()  {
     return widget_is_overlay(this != null ? (this.nativeObj) : 0);
+ }
+
+
+  /**
+   * 检查控件是否总在最上层。
+   * 
+   *
+   * @return 返回FALSE表示不是，否则表示是。
+   */
+ public  boolean isAlwaysOnTop()  {
+    return widget_is_always_on_top(this != null ? (this.nativeObj) : 0);
  }
 
 
@@ -1771,6 +1820,7 @@ static private native int widget_move(long widget, int x, int y);
 static private native int widget_move_to_center(long widget);
 static private native int widget_resize(long widget, int w, int h);
 static private native int widget_move_resize(long widget, int x, int y, int w, int h);
+static private native int widget_move_resize_ex(long widget, int x, int y, int w, int h, boolean update_layout);
 static private native double widget_get_value(long widget);
 static private native int widget_set_value(long widget, double value);
 static private native int widget_add_value(long widget, double delta);
@@ -1779,6 +1829,7 @@ static private native int widget_set_value_int(long widget, int value);
 static private native int widget_add_value_int(long widget, int delta);
 static private native int widget_animate_value_to(long widget, double value, int duration);
 static private native boolean widget_is_style_exist(long widget, String style_name, String state_name);
+static private native boolean widget_is_support_highlighter(long widget);
 static private native int widget_use_style(long widget, String style);
 static private native int widget_set_text_utf8(long widget, String text);
 static private native int widget_set_text_utf8_ex(long widget, String text, boolean check_diff);
@@ -1847,9 +1898,11 @@ static private native boolean widget_is_direct_parent_of(long widget, long child
 static private native boolean widget_is_window(long widget);
 static private native boolean widget_is_system_bar(long widget);
 static private native boolean widget_is_normal_window(long widget);
+static private native boolean widget_is_fullscreen_window(long widget);
 static private native boolean widget_is_dialog(long widget);
 static private native boolean widget_is_popup(long widget);
 static private native boolean widget_is_overlay(long widget);
+static private native boolean widget_is_always_on_top(long widget);
 static private native boolean widget_is_opened_dialog(long widget);
 static private native boolean widget_is_opened_popup(long widget);
 static private native boolean widget_is_keyboard(long widget);

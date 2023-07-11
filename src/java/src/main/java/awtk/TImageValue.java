@@ -104,12 +104,12 @@ public class TImageValue extends TWidget {
   /**
    * 设置点击时加上的增量。
    * 
-   * @param delta 增量。
+   * @param click_add_delta 增量。
    *
    * @return 返回RET_OK表示成功，否则表示失败。
    */
- public  TRet setClickAddDelta(double delta)  {
-   return TRet.from(image_value_set_click_add_delta(this != null ? (this.nativeObj) : 0, delta));
+ public  TRet setClickAddDelta(double click_add_delta)  {
+   return TRet.from(image_value_set_click_add_delta(this != null ? (this.nativeObj) : 0, click_add_delta));
  }
 
 
@@ -208,7 +208,7 @@ public class TImageValue extends TWidget {
 static private native long image_value_create(long parent, int x, int y, int w, int h);
 static private native int image_value_set_image(long widget, String image);
 static private native int image_value_set_format(long widget, String format);
-static private native int image_value_set_click_add_delta(long widget, double delta);
+static private native int image_value_set_click_add_delta(long widget, double click_add_delta);
 static private native int image_value_set_value(long widget, double value);
 static private native int image_value_set_min(long widget, double min);
 static private native int image_value_set_max(long widget, double max);

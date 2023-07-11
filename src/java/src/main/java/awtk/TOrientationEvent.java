@@ -32,7 +32,7 @@ public class TOrientationEvent extends TEvent {
 
 
   /**
-   * 把event对象转orientation_event_t对象，主要给脚本语言使用。
+   * 把event对象转orientation_event_t对象。
    * 
    * @param event event对象。
    *
@@ -47,7 +47,7 @@ public class TOrientationEvent extends TEvent {
    * 屏幕方向。
    *
    */
- public int getOrientation() {
+ public long getOrientation() {
    return orientation_event_t_get_prop_orientation(this.nativeObj);
  }
 
@@ -56,11 +56,11 @@ public class TOrientationEvent extends TEvent {
    * 旧的屏幕方向。
    *
    */
- public int getOldOrientation() {
+ public long getOldOrientation() {
    return orientation_event_t_get_prop_old_orientation(this.nativeObj);
  }
 
 static private native long orientation_event_cast(long event);
-static private native int orientation_event_t_get_prop_orientation(long nativeObj);
-static private native int orientation_event_t_get_prop_old_orientation(long nativeObj);
+static private native long orientation_event_t_get_prop_orientation(long nativeObj);
+static private native long orientation_event_t_get_prop_old_orientation(long nativeObj);
 };

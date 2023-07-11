@@ -43,14 +43,14 @@ public class TColor {
    *> 主要供脚本语言使用。
    * 
    * @param r 红色通道。
-   * @param b 蓝色通道。
    * @param g 绿色通道。
+   * @param b 蓝色通道。
    * @param a alpha通道。
    *
    * @return color对象。
    */
- public  static TColor create(int r, int b, int g, int a)  {
-    return new TColor(color_create(r, b, g, a));
+ public  static TColor create(int r, int g, int b, int a)  {
+    return new TColor(color_create(r, g, b, a));
  }
 
 
@@ -158,7 +158,7 @@ public class TColor {
    return TRet.from(color_destroy(this != null ? (this.nativeObj) : 0));
  }
 
-static private native long color_create(int r, int b, int g, int a);
+static private native long color_create(int r, int g, int b, int a);
 static private native long color_from_str(long c, String str);
 static private native int color_r(long c);
 static private native int color_g(long c);

@@ -196,7 +196,14 @@ public enum TValueType {
    *
    */
  
-  BITMAP (VALUE_TYPE_BITMAP());
+  BITMAP (VALUE_TYPE_BITMAP()),
+  
+  /**
+   * 矩形类型。
+   *
+   */
+ 
+  RECT (VALUE_TYPE_RECT());
  
  
   private TValueType(int value) {
@@ -258,5 +265,6 @@ public enum TValueType {
   static private native int VALUE_TYPE_FUNC_DEF();
   static private native int VALUE_TYPE_POINTER_REF();
   static private native int VALUE_TYPE_BITMAP();
+  static private native int VALUE_TYPE_RECT();
 
 }

@@ -190,6 +190,30 @@ public class TFileBrowserView extends TWidget {
 
 
   /**
+   * 设置 奇数项样式。
+   * 
+   * @param odd_item_style 奇数项样式。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setOddItemStyle(String odd_item_style)  {
+   return TRet.from(file_browser_view_set_odd_item_style(this != null ? (this.nativeObj) : 0, odd_item_style));
+ }
+
+
+  /**
+   * 设置 偶数项样式。
+   * 
+   * @param even_item_style 奇数项样式。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setEvenItemStyle(String even_item_style)  {
+   return TRet.from(file_browser_view_set_even_item_style(this != null ? (this.nativeObj) : 0, even_item_style));
+ }
+
+
+  /**
    * 获取当前路径。
    * 
    *
@@ -288,6 +312,24 @@ public class TFileBrowserView extends TWidget {
    return file_browser_view_t_get_prop_sort_by(this.nativeObj);
  }
 
+
+  /**
+   * 奇数项样式。
+   *
+   */
+ public String getOddItemStyle() {
+   return file_browser_view_t_get_prop_odd_item_style(this.nativeObj);
+ }
+
+
+  /**
+   * 偶数项样式。
+   *
+   */
+ public String getEvenItemStyle() {
+   return file_browser_view_t_get_prop_even_item_style(this.nativeObj);
+ }
+
 static private native long file_browser_view_create(long parent, int x, int y, int w, int h);
 static private native long file_browser_view_cast(long widget);
 static private native int file_browser_view_set_init_dir(long widget, String init_dir);
@@ -298,6 +340,8 @@ static private native int file_browser_view_set_ignore_hidden_files(long widget,
 static private native int file_browser_view_set_sort_ascending(long widget, boolean sort_ascending);
 static private native int file_browser_view_set_show_check_button(long widget, boolean show_check_button);
 static private native int file_browser_view_set_sort_by(long widget, String sort_by);
+static private native int file_browser_view_set_odd_item_style(long widget, String odd_item_style);
+static private native int file_browser_view_set_even_item_style(long widget, String even_item_style);
 static private native String file_browser_view_get_cwd(long widget);
 static private native int file_browser_view_create_dir(long widget, String name);
 static private native int file_browser_view_create_file(long widget, String name, String data, int size);
@@ -308,4 +352,6 @@ static private native boolean file_browser_view_t_get_prop_ignore_hidden_files(l
 static private native boolean file_browser_view_t_get_prop_sort_ascending(long nativeObj);
 static private native boolean file_browser_view_t_get_prop_show_check_button(long nativeObj);
 static private native String file_browser_view_t_get_prop_sort_by(long nativeObj);
+static private native String file_browser_view_t_get_prop_odd_item_style(long nativeObj);
+static private native String file_browser_view_t_get_prop_even_item_style(long nativeObj);
 };

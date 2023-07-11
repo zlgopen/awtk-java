@@ -106,6 +106,18 @@ public class TOverlay extends TWindowBase {
 
 
   /**
+   * 设置是否非模态窗口模式。
+   * 
+   * @param modeless 是否非模态窗口模式。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setModeless(boolean modeless)  {
+   return TRet.from(overlay_set_modeless(this != null ? (this.nativeObj) : 0, modeless));
+ }
+
+
+  /**
    * 转换为overlay对象(供脚本语言使用)。
    * 
    * @param widget overlay对象。
@@ -138,10 +150,23 @@ public class TOverlay extends TWindowBase {
    return overlay_t_get_prop_always_on_top(this.nativeObj);
  }
 
+
+  /**
+   * 非模态窗口。
+   *
+   *缺省不启用。
+   *
+   */
+ public boolean getModeless() {
+   return overlay_t_get_prop_modeless(this.nativeObj);
+ }
+
 static private native long overlay_create(long parent, int x, int y, int w, int h);
 static private native int overlay_set_click_through(long widget, boolean click_through);
 static private native int overlay_set_always_on_top(long widget, boolean always_on_top);
+static private native int overlay_set_modeless(long widget, boolean modeless);
 static private native long overlay_cast(long widget);
 static private native boolean overlay_t_get_prop_click_through(long nativeObj);
 static private native boolean overlay_t_get_prop_always_on_top(long nativeObj);
+static private native boolean overlay_t_get_prop_modeless(long nativeObj);
 };

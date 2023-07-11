@@ -138,6 +138,64 @@ public class TSlideMenu extends TWidget {
 
 
   /**
+   * 设置菜单项之间的间距。
+   * 
+   * @param spacer 菜单项之间的间距。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setSpacer(int spacer)  {
+   return TRet.from(slide_menu_set_spacer(this != null ? (this.nativeObj) : 0, spacer));
+ }
+
+
+  /**
+   * 设置菜单项的宽度。
+   * 
+   * @param menu_w 菜单项的宽度。(后面加上px为像素点，不加px为相对百分比坐标0.0f到1.0f)(空字符串则使用控件高度)
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setMenuW(String menu_w)  {
+   return TRet.from(slide_menu_set_menu_w(this != null ? (this.nativeObj) : 0, menu_w));
+ }
+
+
+  /**
+   * 设置是否动态裁剪菜单项。
+   * 
+   * @param clip 是否动态裁剪菜单项。(关闭后，如果显示偶数项，左边会多一项)
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setClip(boolean clip)  {
+   return TRet.from(slide_menu_set_clip(this != null ? (this.nativeObj) : 0, clip));
+ }
+
+
+  /**
+   * 切换至上一项。
+   * 
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet scrollToPrev()  {
+   return TRet.from(slide_menu_scroll_to_prev(this != null ? (this.nativeObj) : 0));
+ }
+
+
+  /**
+   * 切换至下一项。
+   * 
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet scrollToNext()  {
+   return TRet.from(slide_menu_scroll_to_next(this != null ? (this.nativeObj) : 0));
+ }
+
+
+  /**
    * 垂直对齐方式。
    *
    */
@@ -155,12 +213,47 @@ public class TSlideMenu extends TWidget {
    return slide_menu_t_get_prop_min_scale(this.nativeObj);
  }
 
+
+  /**
+   * 菜单项之间的间距。
+   *
+   */
+ public int getSpacer() {
+   return slide_menu_t_get_prop_spacer(this.nativeObj);
+ }
+
+
+  /**
+   * 菜单项的宽度(后面加上px为像素点，不加px为相对百分比坐标0.0f到1.0f)(空字符串则使用控件高度)。
+   *
+   */
+ public String getMenuW() {
+   return slide_menu_t_get_prop_menu_w(this.nativeObj);
+ }
+
+
+  /**
+   * 是否动态裁剪菜单项(默认裁剪，不裁剪时，如果显示偶数项，左边会多一项)。
+   *
+   */
+ public boolean getClip() {
+   return slide_menu_t_get_prop_clip(this.nativeObj);
+ }
+
 static private native long slide_menu_create(long parent, int x, int y, int w, int h);
 static private native long slide_menu_cast(long widget);
 static private native int slide_menu_set_value(long widget, int value);
 static private native int slide_menu_set_align_v(long widget, int align_v);
 static private native int slide_menu_set_min_scale(long widget, double min_scale);
+static private native int slide_menu_set_spacer(long widget, int spacer);
+static private native int slide_menu_set_menu_w(long widget, String menu_w);
+static private native int slide_menu_set_clip(long widget, boolean clip);
+static private native int slide_menu_scroll_to_prev(long widget);
+static private native int slide_menu_scroll_to_next(long widget);
 static private native int slide_menu_t_get_prop_value(long nativeObj);
 static private native int slide_menu_t_get_prop_align_v(long nativeObj);
 static private native double slide_menu_t_get_prop_min_scale(long nativeObj);
+static private native int slide_menu_t_get_prop_spacer(long nativeObj);
+static private native String slide_menu_t_get_prop_menu_w(long nativeObj);
+static private native boolean slide_menu_t_get_prop_clip(long nativeObj);
 };

@@ -104,12 +104,12 @@ public class TInputMethod {
   /**
    * 提交按键。
    * 
-   * @param key 键值。
+   * @param keys 键值。
    *
    * @return 返回RET_OK表示成功，否则表示失败。
    */
- public  TRet dispatchKeys(String key)  {
-   return TRet.from(input_method_dispatch_keys(this != null ? (this.nativeObj) : 0, key));
+ public  TRet dispatchKeys(String keys)  {
+   return TRet.from(input_method_dispatch_keys(this != null ? (this.nativeObj) : 0, keys));
  }
 
 
@@ -160,7 +160,7 @@ static private native int input_method_commit_text(long im, String text);
 static private native int input_method_set_lang(long im, String lang);
 static private native String input_method_get_lang(long im);
 static private native int input_method_dispatch_key(long im, int key);
-static private native int input_method_dispatch_keys(long im, String key);
+static private native int input_method_dispatch_keys(long im, String keys);
 static private native int input_method_dispatch_preedit(long im);
 static private native int input_method_dispatch_preedit_confirm(long im);
 static private native int input_method_dispatch_preedit_abort(long im);

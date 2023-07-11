@@ -115,6 +115,18 @@ public class TSpinBox extends TEdit {
 
 
   /**
+   * 设置按钮位置样式。
+   * 
+   * @param button_position 按钮位置样式。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setButtonPosition(String button_position)  {
+   return TRet.from(spin_box_set_button_position(this != null ? (this.nativeObj) : 0, button_position));
+ }
+
+
+  /**
    * 设置连击的时间间隔。
    *备注：时间间隔越低，速度越快。
    * 
@@ -140,9 +152,24 @@ public class TSpinBox extends TEdit {
    return spin_box_t_get_prop_easy_touch_mode(this.nativeObj);
  }
 
+
+  /**
+   * 按钮位置样式选择，优先级高于easy_touch_mode，各模式对应样式如下,默认为none。
+   *none：按照easy_touch_mode选择样式
+   *default：inc按钮在右上角，dec按钮在右下角。
+   *left_right：dec按钮在左边，inc按钮在右边。
+   *top_bottom：inc按钮在顶部，dec按钮在底部。
+   *
+   */
+ public String getButtonPosition() {
+   return spin_box_t_get_prop_button_position(this.nativeObj);
+ }
+
 static private native long spin_box_create(long parent, int x, int y, int w, int h);
 static private native long spin_box_cast(long widget);
 static private native int spin_box_set_easy_touch_mode(long widget, boolean easy_touch_mode);
+static private native int spin_box_set_button_position(long widget, String button_position);
 static private native int spin_set_repeat(long widget, int repeat);
 static private native boolean spin_box_t_get_prop_easy_touch_mode(long nativeObj);
+static private native String spin_box_t_get_prop_button_position(long nativeObj);
 };

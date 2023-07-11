@@ -28,7 +28,14 @@ public enum TAppType {
    *
    */
  
-  DESKTOP (APP_DESKTOP());
+  DESKTOP (APP_DESKTOP()),
+  
+  /**
+   * 控制台（没有界面）。
+   *
+   */
+ 
+  CONSOLE (APP_CONSOLE());
  
  
   private TAppType(int value) {
@@ -66,5 +73,6 @@ public enum TAppType {
   static private native int APP_MOBILE();
   static private native int APP_SIMULATOR();
   static private native int APP_DESKTOP();
+  static private native int APP_CONSOLE();
 
 }

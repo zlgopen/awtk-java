@@ -927,6 +927,125 @@ public enum TKeyCode {
   KEY_CANCEL (TK_KEY_CANCEL()),
   
   /**
+   * TK_KEY_KP_DIVIDE
+   *
+   */
+ 
+  KEY_KP_DIVIDE (TK_KEY_KP_DIVIDE()),
+  
+  /**
+   * TK_KEY_KP_MULTIPLY
+   *
+   */
+ 
+  KEY_KP_MULTIPLY (TK_KEY_KP_MULTIPLY()),
+  
+  /**
+   * TK_KEY_KP_MINUS
+   *
+   */
+ 
+  KEY_KP_MINUS (TK_KEY_KP_MINUS()),
+  
+  /**
+   * TK_KEY_KP_PLUS
+   *
+   */
+ 
+  KEY_KP_PLUS (TK_KEY_KP_PLUS()),
+  
+  /**
+   * TK_KEY_KP_ENTER
+   *
+   */
+ 
+  KEY_KP_ENTER (TK_KEY_KP_ENTER()),
+  
+  /**
+   * TK_KEY_KP_1
+   *
+   */
+ 
+  KEY_KP_1 (TK_KEY_KP_1()),
+  
+  /**
+   * TK_KEY_KP_2
+   *
+   */
+ 
+  KEY_KP_2 (TK_KEY_KP_2()),
+  
+  /**
+   * TK_KEY_KP_3
+   *
+   */
+ 
+  KEY_KP_3 (TK_KEY_KP_3()),
+  
+  /**
+   * TK_KEY_KP_4
+   *
+   */
+ 
+  KEY_KP_4 (TK_KEY_KP_4()),
+  
+  /**
+   * TK_KEY_KP_5
+   *
+   */
+ 
+  KEY_KP_5 (TK_KEY_KP_5()),
+  
+  /**
+   * TK_KEY_KP_6
+   *
+   */
+ 
+  KEY_KP_6 (TK_KEY_KP_6()),
+  
+  /**
+   * TK_KEY_KP_7
+   *
+   */
+ 
+  KEY_KP_7 (TK_KEY_KP_7()),
+  
+  /**
+   * TK_KEY_KP_8
+   *
+   */
+ 
+  KEY_KP_8 (TK_KEY_KP_8()),
+  
+  /**
+   * TK_KEY_KP_9
+   *
+   */
+ 
+  KEY_KP_9 (TK_KEY_KP_9()),
+  
+  /**
+   * TK_KEY_KP_0
+   *
+   */
+ 
+  KEY_KP_0 (TK_KEY_KP_0()),
+  
+  /**
+   * TK_KEY_KP_PERIOD
+   *
+   */
+ 
+  KEY_KP_PERIOD (TK_KEY_KP_PERIOD()),
+  
+  /**
+   * TK_KEY_NUMLOCKCLEAR
+   *
+   */
+ 
+  KEY_NUMLOCKCLEAR (TK_KEY_NUMLOCKCLEAR()),
+  
+  /**
    * TK_KEY_WHEEL
    *
    */
@@ -1097,6 +1216,23 @@ public enum TKeyCode {
   static private native int TK_KEY_COMMAND();
   static private native int TK_KEY_BACK();
   static private native int TK_KEY_CANCEL();
+  static private native int TK_KEY_KP_DIVIDE();
+  static private native int TK_KEY_KP_MULTIPLY();
+  static private native int TK_KEY_KP_MINUS();
+  static private native int TK_KEY_KP_PLUS();
+  static private native int TK_KEY_KP_ENTER();
+  static private native int TK_KEY_KP_1();
+  static private native int TK_KEY_KP_2();
+  static private native int TK_KEY_KP_3();
+  static private native int TK_KEY_KP_4();
+  static private native int TK_KEY_KP_5();
+  static private native int TK_KEY_KP_6();
+  static private native int TK_KEY_KP_7();
+  static private native int TK_KEY_KP_8();
+  static private native int TK_KEY_KP_9();
+  static private native int TK_KEY_KP_0();
+  static private native int TK_KEY_KP_PERIOD();
+  static private native int TK_KEY_NUMLOCKCLEAR();
   static private native int TK_KEY_WHEEL();
 
 }

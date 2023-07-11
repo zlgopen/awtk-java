@@ -168,6 +168,15 @@ public class TCandidates extends TWidget {
    return candidates_t_get_prop_button_style(this.nativeObj);
  }
 
+
+  /**
+   * 是否启用候选字预览。
+   *
+   */
+ public boolean getEnablePreview() {
+   return candidates_t_get_prop_enable_preview(this.nativeObj);
+ }
+
 static private native long candidates_create(long parent, int x, int y, int w, int h);
 static private native long candidates_cast(long widget);
 static private native int candidates_set_pre(long widget, boolean pre);
@@ -178,4 +187,5 @@ static private native boolean candidates_t_get_prop_pre(long nativeObj);
 static private native boolean candidates_t_get_prop_select_by_num(long nativeObj);
 static private native boolean candidates_t_get_prop_auto_hide(long nativeObj);
 static private native String candidates_t_get_prop_button_style(long nativeObj);
+static private native boolean candidates_t_get_prop_enable_preview(long nativeObj);
 };

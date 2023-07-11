@@ -163,6 +163,18 @@ public class THscrollLabel extends TWidget {
 
 
   /**
+   * 设置stop_at_begin。
+   * 
+   * @param stop_at_begin 是否在滚动完毕后停在文本结尾。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setStopAtBegin(boolean stop_at_begin)  {
+   return TRet.from(hscroll_label_set_stop_at_begin(this != null ? (this.nativeObj) : 0, stop_at_begin));
+ }
+
+
+  /**
    * 设置x偏移(一般无需用户调用)。。
    * 
    * @param xoffset x偏移。
@@ -297,6 +309,16 @@ public class THscrollLabel extends TWidget {
    return hscroll_label_t_get_prop_text_w(this.nativeObj);
  }
 
+
+  /**
+   * 滚动完毕后停在文本开头(缺省FALSE)。
+   *> 注：loop为FALSE时才可用。
+   *
+   */
+ public boolean getStopAtBegin() {
+   return hscroll_label_t_get_prop_stop_at_begin(this.nativeObj);
+ }
+
 static private native long hscroll_label_create(long parent, int x, int y, int w, int h);
 static private native int hscroll_label_set_lull(long widget, int lull);
 static private native int hscroll_label_set_duration(long widget, int duration);
@@ -306,6 +328,7 @@ static private native int hscroll_label_set_only_parent_focus(long widget, boole
 static private native int hscroll_label_set_loop(long widget, boolean loop);
 static private native int hscroll_label_set_yoyo(long widget, boolean yoyo);
 static private native int hscroll_label_set_ellipses(long widget, boolean ellipses);
+static private native int hscroll_label_set_stop_at_begin(long widget, boolean stop_at_begin);
 static private native int hscroll_label_set_xoffset(long widget, int xoffset);
 static private native int hscroll_label_start(long widget);
 static private native int hscroll_label_stop(long widget);
@@ -320,4 +343,5 @@ static private native int hscroll_label_t_get_prop_duration(long nativeObj);
 static private native double hscroll_label_t_get_prop_speed(long nativeObj);
 static private native int hscroll_label_t_get_prop_xoffset(long nativeObj);
 static private native int hscroll_label_t_get_prop_text_w(long nativeObj);
+static private native boolean hscroll_label_t_get_prop_stop_at_begin(long nativeObj);
 };

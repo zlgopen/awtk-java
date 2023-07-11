@@ -194,9 +194,10 @@ public class TDialog extends TWindowBase {
    * 模态显示对话框。
    *dialog_modal返回后，dialog对象将在下一个idle函数中回收。
    *也就是在dialog_modal调用完成后仍然可以访问dialog中控件，直到本次事件结束。
+   *调用该函数会使线程进入阻塞状态，需要调用dialog_quit来解除阻塞。
    * 
    *
-   * @return 返回退出码。
+   * @return 返回退出码，值为dialog_quit函数中传入的参数。
    */
  public  TDialogQuitCode modal()  {
    return TDialogQuitCode.from(dialog_modal(this != null ? (this.nativeObj) : 0));

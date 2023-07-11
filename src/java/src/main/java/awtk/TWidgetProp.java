@@ -613,6 +613,7 @@ public enum TWidgetProp {
   
   /**
    * X方向的偏移。（如果控件有继承 get_offset 函数指针的话，一定要和 get_offset 返回值保持一致，否则容易出现问题）
+   *详情请看 docs/how_to_use_offset_in_custom_widget.md
    *
    */
  
@@ -620,6 +621,7 @@ public enum TWidgetProp {
   
   /**
    * Y方向的偏移。（如果控件有继承 get_offset 函数指针的话，一定要和 get_offset 返回值保持一致，否则容易出现问题）
+   *详情请看 docs/how_to_use_offset_in_custom_widget.md
    *
    */
  
@@ -652,6 +654,13 @@ public enum TWidgetProp {
    */
  
   LOOP (WIDGET_PROP_LOOP()),
+  
+  /**
+   * 是否正在运行(播放)。
+   *
+   */
+ 
+  RUNNING (WIDGET_PROP_RUNNING()),
   
   /**
    * 是否启用自动更正功能。
@@ -848,6 +857,13 @@ public enum TWidgetProp {
    */
  
   ENABLE_LONG_PRESS (WIDGET_PROP_ENABLE_LONG_PRESS()),
+  
+  /**
+   * 是否启用预览。
+   *
+   */
+ 
+  ENABLE_PREVIEW (WIDGET_PROP_ENABLE_PREVIEW()),
   
   /**
    * 是否启用点击穿透。
@@ -1197,7 +1213,14 @@ public enum TWidgetProp {
    *
    */
  
-  ANIMATE_ANIMATING_TIME (WIDGET_PROP_ANIMATE_ANIMATING_TIME());
+  ANIMATE_ANIMATING_TIME (WIDGET_PROP_ANIMATE_ANIMATING_TIME()),
+  
+  /**
+   * 控件脏矩形区域。
+   *
+   */
+ 
+  DIRTY_RECT (WIDGET_PROP_DIRTY_RECT());
  
  
   private TWidgetProp(String value) {
@@ -1324,6 +1347,7 @@ public enum TWidgetProp {
   static private native String WIDGET_PROP_ALIGN_H();
   static private native String WIDGET_PROP_AUTO_PLAY();
   static private native String WIDGET_PROP_LOOP();
+  static private native String WIDGET_PROP_RUNNING();
   static private native String WIDGET_PROP_AUTO_FIX();
   static private native String WIDGET_PROP_SELECT_NONE_WHEN_FOCUSED();
   static private native String WIDGET_PROP_OPEN_IM_WHEN_FOCUSED();
@@ -1352,6 +1376,7 @@ public enum TWidgetProp {
   static private native String WIDGET_PROP_REPEAT();
   static private native String WIDGET_PROP_LONG_PRESS_TIME();
   static private native String WIDGET_PROP_ENABLE_LONG_PRESS();
+  static private native String WIDGET_PROP_ENABLE_PREVIEW();
   static private native String WIDGET_PROP_CLICK_THROUGH();
   static private native String WIDGET_PROP_ANIMATABLE();
   static private native String WIDGET_PROP_AUTO_HIDE();
@@ -1402,5 +1427,6 @@ public enum TWidgetProp {
   static private native String WIDGET_PROP_ANIMATING_TIME();
   static private native String WIDGET_PROP_ANIMATE_PREFIX();
   static private native String WIDGET_PROP_ANIMATE_ANIMATING_TIME();
+  static private native String WIDGET_PROP_DIRTY_RECT();
 
 }

@@ -97,7 +97,7 @@ public class TGifImage extends TImageBase {
 
 
   /**
-   * 停止(并重置index为-1)。
+   * 停止(并重置index为0)。
    * 
    *
    * @return 返回RET_OK表示成功，否则表示失败。
