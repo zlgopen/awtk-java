@@ -2482,7 +2482,7 @@ JNIEXPORT jint JNICALL Java_awtk_TIdle_idle_1remove(JNIEnv* env,  jclass ajc, ji
 
 JNIEXPORT jint JNICALL Java_awtk_TIdle_idle_1remove_1all_1by_1ctx(JNIEnv* env,  jclass ajc, jlong ctx) { /*func*/
   ret_t ret;
-  ret = (ret_t)idle_remove_all_by_ctx(ctx);
+  ret = (ret_t)idle_remove_all_by_ctx((void*)ctx);
 
   return (jint)(ret);
 }
@@ -3876,7 +3876,7 @@ JNIEXPORT jint JNICALL Java_awtk_TTimer_timer_1remove(JNIEnv* env,  jclass ajc, 
 
 JNIEXPORT jint JNICALL Java_awtk_TTimer_timer_1remove_1all_1by_1ctx(JNIEnv* env,  jclass ajc, jlong ctx) { /*func*/
   ret_t ret;
-  ret = (ret_t)timer_remove_all_by_ctx(ctx);
+  ret = (ret_t)timer_remove_all_by_ctx((void*)ctx);
 
   return (jint)(ret);
 }
@@ -6729,7 +6729,7 @@ JNIEXPORT jint JNICALL Java_awtk_TWidget_widget_1set_1prop_1pointer(JNIEnv* env,
   ret_t ret;
   widget_t* widget = (widget_t*)jwidget;
   const char* name = (char*)(*env)->GetStringUTFChars(env, jname, 0);
-  ret = (ret_t)widget_set_prop_pointer(widget, name, v);
+  ret = (ret_t)widget_set_prop_pointer(widget, name, (void*)v);
   (*env)->ReleaseStringUTFChars(env, jname, name);
 
   return (jint)(ret);
