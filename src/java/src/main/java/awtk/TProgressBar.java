@@ -21,6 +21,7 @@ package awtk;
  *在c代码中使用函数progress\_bar\_create创建进度条控件。如：
  *
  *
+ *
  *> 完整示例请参考：
  *[progress_bar demo](https://github.com/zlgopen/awtk-c-demos/blob/master/demos/progress_bar.c)
  *

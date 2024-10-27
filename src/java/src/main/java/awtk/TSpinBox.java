@@ -23,6 +23,7 @@ package awtk;
  *在c代码中使用函数spin_box\_create创建spinbox控件。如：
  *
  *
+ *
  *> 创建之后:
  *>
  *> 可以用edit相关函数去设置它的各种属性。

@@ -150,7 +150,7 @@ public class TSerialWidget extends TWidget {
 
 
   /**
-   * 设置 轮询时间。
+   * 设置 轮询时间(毫秒)。
    * 
    * @param check_interval 轮询时间（单位：ms）。
    *

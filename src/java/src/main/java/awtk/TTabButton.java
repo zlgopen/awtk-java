@@ -153,6 +153,30 @@ public class TTabButton extends TWidget {
 
 
   /**
+   * 设置控件的最大宽度。
+   * 
+   * @param max_w 最大宽度。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setMaxW(int max_w)  {
+   return TRet.from(tab_button_set_max_w(this != null ? (this.nativeObj) : 0, max_w));
+ }
+
+
+  /**
+   * 调整控件在父控件中的位置序数。
+   * 
+   * @param index 位置序数(大于等于总个数，则放到最后)。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet restack(int index)  {
+   return TRet.from(tab_button_restack(this != null ? (this.nativeObj) : 0, index));
+ }
+
+
+  /**
    * 设置控件动态加载显示UI。
    * 
    * @param name 动态加载UI的资源名称。
@@ -190,14 +214,26 @@ public class TTabButton extends TWidget {
    return tab_button_t_get_prop_icon(this.nativeObj);
  }
 
+
+  /**
+   * 最大宽度。（缺省值为-1，小于 0 则最大宽度无效）
+   *
+   */
+ public int getMaxW() {
+   return tab_button_t_get_prop_max_w(this.nativeObj);
+ }
+
 static private native long tab_button_create(long parent, int x, int y, int w, int h);
 static private native long tab_button_cast(long widget);
 static private native int tab_button_set_value(long widget, boolean value);
 static private native int tab_button_set_icon(long widget, String name);
 static private native int tab_button_set_active_icon(long widget, String name);
+static private native int tab_button_set_max_w(long widget, int max_w);
+static private native int tab_button_restack(long widget, int index);
 static private native int tab_button_set_load_ui(long widget, String name);
 static private native boolean tab_button_t_get_prop_value(long nativeObj);
 static private native String tab_button_t_get_prop_load_ui(long nativeObj);
 static private native String tab_button_t_get_prop_active_icon(long nativeObj);
 static private native String tab_button_t_get_prop_icon(long nativeObj);
+static private native int tab_button_t_get_prop_max_w(long nativeObj);
 };

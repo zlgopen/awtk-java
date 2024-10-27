@@ -28,6 +28,7 @@ package awtk;
  *在c代码中使用函数popup\_create创建弹出窗口。如：
  *
  *
+ *
  *> 创建之后，和使用普通窗口是一样的。
  *
  *> 完整示例请参考：[combo_box.c](https://github.com/zlgopen/awtk-c-demos/blob/master/demos/combo_box.c)
@@ -125,9 +126,9 @@ public class TPopup extends TWindowBase {
 
 
   /**
-   * 设置超时关闭时间(ms)。
+   * 设置超时关闭时间(毫秒)。
    * 
-   * @param close_when_timeout 大于0时，为定时器时间(ms)，超时关闭窗口。
+   * @param close_when_timeout 大于0时，为定时器时间(毫秒)，超时关闭窗口。
    *
    * @return 返回RET_OK表示成功，否则表示失败。
    */
@@ -155,7 +156,7 @@ public class TPopup extends TWindowBase {
 
 
   /**
-   * 超时后自动关闭窗口(ms)。
+   * 超时后自动关闭窗口(毫秒)。
    *
    */
  public int getCloseWhenTimeout() {

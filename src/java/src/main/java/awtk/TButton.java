@@ -22,6 +22,7 @@ package awtk;
  *在c代码中使用函数button\_create创建按钮控件。如：
  *
  *
+ *
  *> 创建之后，需要用widget\_set\_text或widget\_set\_text\_utf8设置文本内容。
  *
  *> 完整示例请参考：
@@ -110,7 +111,7 @@ public class TButton extends TWidget {
 
 
   /**
-   * 设置触发长按事件的时间。
+   * 设置触发长按事件的时间(毫秒)。
    * 
    * @param long_press_time 触发长按事件的时间(毫秒)。
    *
@@ -178,7 +179,7 @@ public class TButton extends TWidget {
 
 
   /**
-   * 触发长按事件的时间(ms)
+   * 触发长按事件的时间(毫秒)
    *
    */
  public int getLongPressTime() {

@@ -43,10 +43,9 @@ public class TRlog {
 
 
   /**
-   * rlog_t* log = rlog_create("./logs/%d.log", 1020*1024, 256);
-   *rlog_write(log, "hello\n");
-   *rlog_destroy(log);
-   *```
+   * 创建rlog对象。
+   *
+   *
    * 
    * @param filename_pattern 用来确定文件名的路径和文件名。
    * @param max_size log文件占用最大磁盘空间(字节)。

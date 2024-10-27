@@ -22,6 +22,7 @@ package awtk;
  *在c代码中使用函数label\_create创建文本控件。如：
  *
  *
+ *
  *> 创建之后，需要用widget\_set\_text或widget\_set\_text\_utf8设置文本内容。
  *
  *> 完整示例请参考：[label demo](
@@ -83,7 +84,7 @@ public class TLabel extends TWidget {
 
 
   /**
-   * 设置显示字符的个数(小余0时全部显示)。
+   * 设置显示字符的个数(小于0时全部显示)。
    * 
    * @param length 最大可显示字符个数。
    *
@@ -131,6 +132,18 @@ public class TLabel extends TWidget {
 
 
   /**
+   * 是否开启缩写，开启后，当文字长度操作控件长度后，自动变为...
+   * 
+   * @param ellipses 是否开启缩写。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setEllipses(boolean ellipses)  {
+   return TRet.from(label_set_ellipses(this != null ? (this.nativeObj) : 0, ellipses));
+ }
+
+
+  /**
    * 根据文本内容调节控件大小。
    * 
    * @param min_w 最小宽度。
@@ -158,7 +171,7 @@ public class TLabel extends TWidget {
 
 
   /**
-   * 显示字符的个数(小余0时全部显示)。
+   * 显示字符的个数(小于0时全部显示)。
    *主要用于动态改变显示字符的个数，来实现类似[拨号中...]的动画效果。
    *
    */
@@ -187,6 +200,16 @@ public class TLabel extends TWidget {
 
 
   /**
+   * 是否开启缩写，开启后，当文字长度操作控件长度后，自动变为...
+   *> 和换行是冲突的，换行后，该属性不生效
+   *
+   */
+ public boolean getEllipses() {
+   return label_t_get_prop_ellipses(this.nativeObj);
+ }
+
+
+  /**
    * 当auto_adjust_size为TRUE时，用于控制控件的最大宽度，超出该宽度后才自动换行。
    *>为0表示忽略该参数。小于0时取父控件宽度加上max_w。
    *
@@ -200,10 +223,12 @@ static private native int label_set_length(long widget, int length);
 static private native int label_set_max_w(long widget, int max_w);
 static private native int label_set_line_wrap(long widget, boolean line_wrap);
 static private native int label_set_word_wrap(long widget, boolean word_wrap);
+static private native int label_set_ellipses(long widget, boolean ellipses);
 static private native int label_resize_to_content(long widget, int min_w, int max_w, int min_h, int max_h);
 static private native long label_cast(long widget);
 static private native int label_t_get_prop_length(long nativeObj);
 static private native boolean label_t_get_prop_line_wrap(long nativeObj);
 static private native boolean label_t_get_prop_word_wrap(long nativeObj);
+static private native boolean label_t_get_prop_ellipses(long nativeObj);
 static private native int label_t_get_prop_max_w(long nativeObj);
 };

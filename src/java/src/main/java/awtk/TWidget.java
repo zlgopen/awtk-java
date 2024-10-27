@@ -2,10 +2,42 @@ package awtk;
 
 
 /**
- * widget_t* button = button_create(win, 10, 10, 128, 30);
- *widget_set_text(button, L"OK");
- *widget_on(button, EVT_CLICK, on_click, NULL);
+ * **widget_t** 是所有控件、窗口和窗口管理器的基类。
+ ***widget_t**也是一个容器，可放其它**widget_t**到它的内部，形成一个树形结构。
+ *
+ *
+ *
+ *通常**widget_t**通过一个矩形区域向用户呈现一些信息，接受用户的输入，并据此做出适当的反应。
+ *它负责控件的生命周期、通用状态、事件分发和Style的管理。
+ *本类提供的接口(函数和属性)除非特别说明，一般都适用于子类控件。
+ *
+ *为了便于解释，这里特别说明一下几个术语：
+ *
+ ** **父控件与子控件**：父控件与子控件指的两个控件的组合关系(这是在运行时决定的)。
+ *比如：在窗口中放一个按钮，此时，我们称按钮是窗口的子控件，窗口是按钮的父控件。
+ *
+ *
+ *
+ ** **子类控件与父类控件**：子类控件与父类控件指的两类控件的继承关系(这是在设计时决定的)。
+ *比如：我们称**button_t**是**widget_t**的子类控件，**widget_t**是**button_t**的父类控件。
+ *
+ *
+ *
+ *widget相关的函数都只能在GUI线程中执行，如果需在非GUI线程中想调用widget相关函数，
+ *请用idle\_queue或timer\_queue进行串行化。
+ *请参考[demo thread](https://github.com/zlgopen/awtk/blob/master/demos/demo_thread_app.c)
+ *
+ ***widget\_t**是抽象类，不要直接创建**widget\_t**的实例。控件支持两种创建方式：
+ *
+ ** 通过XML创建。如：
+ *
+ *```xml
+ *<button x="c" y="m" w="80" h="30" text="OK"/>
  *```
+ *
+ ** 通过代码创建。如：
+ *
+ *
  *
  */
 public class TWidget { 
@@ -345,6 +377,17 @@ public class TWidget {
 
 
   /**
+   * 判断widget拥有高亮属性。
+   * 
+   *
+   * @return 拥有返回 TRUE，没有返回 FALSE。
+   */
+ public  boolean hasHighlighter()  {
+    return widget_has_highlighter(this != null ? (this.nativeObj) : 0);
+ }
+
+
+  /**
    * 启用指定的style。
    * 
    * @param style style的名称。
@@ -526,12 +569,12 @@ public class TWidget {
 
 
   /**
-   * str_t str;
-   *str_init(&str, 0);
-   *str_from_wstr(&str, widget_get_text(target));
-   *log_debug("%s: %s\n", target->name, str.str);
-   *str_reset(&str);
-   *```
+   * 获取控件的文本。
+   *只是对widget\_get\_prop的包装，文本的意义由子类控件决定。
+   *
+   *如果希望获取UTF8格式的文本，可以参考下面的代码：
+   *
+   *
    * 
    *
    * @return 返回文本。
@@ -779,7 +822,7 @@ public class TWidget {
   /**
    * 设置控件的状态。
    * 
-   * @param state 状态(必须为真正的常量字符串，在widget的整个生命周期有效)。
+   * @param state 状态。
    *
    * @return 返回RET_OK表示成功，否则表示失败。
    */
@@ -949,10 +992,10 @@ public class TWidget {
 
 
   /**
-   * widget_t* ok = button_create(win, 10, 10, 80, 30);
-   *widget_on(ok, EVT_CLICK, on_click, NULL);
+   * 注册指定事件的处理函数。
+   *使用示例：
    *
-   *```
+   *
    * 
    * @param type 事件类型。
    * @param on_event 事件处理函数。
@@ -986,6 +1029,32 @@ public class TWidget {
    */
  public  TRet invalidateForce(TRect r)  {
    return TRet.from(widget_invalidate_force(this != null ? (this.nativeObj) : 0, r != null ? (r.nativeObj) : 0));
+ }
+
+
+  /**
+   * 获取控件指定属性的值。
+   * 
+   * @param name 属性的名称。
+   * @param v 返回属性的值。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet getProp(String name, TValue v)  {
+   return TRet.from(widget_get_prop(this != null ? (this.nativeObj) : 0, name, v != null ? (v.nativeObj) : 0));
+ }
+
+
+  /**
+   * 设置控件指定属性的值。
+   * 
+   * @param name 属性的名称。
+   * @param v 属性的值。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setProp(String name, TValue v)  {
+   return TRet.from(widget_set_prop(this != null ? (this.nativeObj) : 0, name, v != null ? (v.nativeObj) : 0));
  }
 
 
@@ -1288,8 +1357,13 @@ public class TWidget {
 
 
   /**
-   * widget_set_prop_bool(group, WIDGET_PROP_IS_KEYBOARD, TRUE);
-   *```
+   * 判断当前控件是否是keyboard。
+   *
+   *> keyboard收到pointer事件时，不会让当前控件失去焦点。
+   *
+   *在自定义软键盘时，将所有按钮放到一个容器当中，并设置为is_keyboard。
+   *
+   *
    * 
    *
    * @return 返回FALSE表示不是，否则表示是。
@@ -1601,6 +1675,7 @@ public class TWidget {
 
   /**
    * 设置控件自己的布局参数。
+   *备注：下一帧才会生效数据
    * 
    * @param params 布局参数。
    *
@@ -1613,6 +1688,7 @@ public class TWidget {
 
   /**
    * 设置子控件的布局参数。
+   *备注：下一帧才会生效数据
    * 
    * @param params 布局参数。
    *
@@ -1625,6 +1701,7 @@ public class TWidget {
 
   /**
    * 设置控件自己的布局(缺省布局器)参数(过时，请用widget\_set\_self\_layout)。
+   *备注：下一帧才会生效数据
    * 
    * @param x x参数。
    * @param y y参数。
@@ -1671,8 +1748,15 @@ public class TWidget {
 
 
   /**
-   * widget_set_style_color(label, "normal:bg_color", 0xFF332211);
-   *```
+   * 设置颜色类型的style。
+   *
+   *> * [state 的取值](https://github.com/zlgopen/awtk/blob/master/docs/manual/widget_state_t.md)
+   *> * [name 的取值](https://github.com/zlgopen/awtk/blob/master/docs/theme.md)
+   *
+   *
+   *在下面这个例子中，R=0x11 G=0x22 B=0x33 A=0xFF
+   *
+   *
    * 
    * @param state_and_name 状态和名字，用英文的冒号分隔。
    * @param value 值。颜色值一般用十六进制表示，每两个数字表示一个颜色通道，从高位到低位，依次是ABGR。
@@ -1830,6 +1914,7 @@ static private native int widget_add_value_int(long widget, int delta);
 static private native int widget_animate_value_to(long widget, double value, int duration);
 static private native boolean widget_is_style_exist(long widget, String style_name, String state_name);
 static private native boolean widget_is_support_highlighter(long widget);
+static private native boolean widget_has_highlighter(long widget);
 static private native int widget_use_style(long widget, String style);
 static private native int widget_set_text_utf8(long widget, String text);
 static private native int widget_set_text_utf8_ex(long widget, String text, boolean check_diff);
@@ -1880,6 +1965,8 @@ static private native int widget_set_sensitive(long widget, boolean sensitive);
 static private native int widget_on(long widget, int type, TOnEvent on_event, long ctx);
 static private native int widget_off(long widget, int id);
 static private native int widget_invalidate_force(long widget, long r);
+static private native int widget_get_prop(long widget, String name, long v);
+static private native int widget_set_prop(long widget, String name, long v);
 static private native int widget_set_props(long widget, String params);
 static private native int widget_set_prop_str(long widget, String name, String v);
 static private native String widget_get_prop_str(long widget, String name, String defval);

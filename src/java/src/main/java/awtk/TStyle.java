@@ -7,6 +7,7 @@ package awtk;
  *widget从style对象中，获取诸如字体、颜色和图片相关的参数，根据这些参数来绘制界面。
  *
  *
+ *
  *属性名称的请参考[style\_id](style_id_t.md)
  *
  */

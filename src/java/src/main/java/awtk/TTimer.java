@@ -8,6 +8,7 @@ package awtk;
  *
  *示例：
  *
+ *
  *> 在非GUI线程请用timer\_queue。
  *
  */
@@ -18,7 +19,7 @@ public class TTimer {
    * 
    * @param on_timer timer回调函数。
    * @param ctx timer回调函数的上下文。
-   * @param duration 时间。
+   * @param duration 时间(毫秒)。
    *
    * @return 返回timer的ID，TK_INVALID_ID表示失败。
    */
@@ -91,7 +92,7 @@ public class TTimer {
    * 修改指定的timer的duration，修改之后定时器重新开始计时。
    * 
    * @param timer_id timerID。
-   * @param duration 新的时间。
+   * @param duration 新的时间(毫秒)。
    *
    * @return 返回RET_OK表示成功，否则表示失败。
    */

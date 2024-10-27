@@ -79,9 +79,9 @@ public class TTimerWidget extends TWidget {
 
 
   /**
-   * 设置 时长(ms)。
+   * 设置 时长(毫秒)。
    * 
-   * @param duration 时长(ms)。
+   * @param duration 时长(毫秒)。
    *
    * @return 返回RET_OK表示成功，否则表示失败。
    */
@@ -91,7 +91,7 @@ public class TTimerWidget extends TWidget {
 
 
   /**
-   * 时长(ms)。
+   * 时长(毫秒)。
    *
    */
  public int getDuration() {

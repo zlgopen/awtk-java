@@ -21,7 +21,14 @@ public enum TObjectProp {
    *
    */
  
-  CHECKED (OBJECT_PROP_CHECKED());
+  CHECKED (OBJECT_PROP_CHECKED()),
+  
+  /**
+   * 选中的索引。
+   *
+   */
+ 
+  SELECTED_INDEX (OBJECT_PROP_SELECTED_INDEX());
  
  
   private TObjectProp(String value) {
@@ -58,5 +65,6 @@ public enum TObjectProp {
 
   static private native String OBJECT_PROP_SIZE();
   static private native String OBJECT_PROP_CHECKED();
+  static private native String OBJECT_PROP_SELECTED_INDEX();
 
 }

@@ -20,6 +20,7 @@ package awtk;
  *在c代码中使用函数text\_selector\_create创建文本选择器控件。如：
  *
  *
+ *
  *> 完整示例请参考：[text\_selector demo](
  *https://github.com/zlgopen/awtk-c-demos/blob/master/demos/text_selector.c)
  *
@@ -320,6 +321,18 @@ public class TTextSelector extends TWidget {
 
 
   /**
+   * 是否开启缩写，开启后，当文字长度操作控件长度后，自动变为...
+   * 
+   * @param ellipses 是否开启缩写。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setEllipses(boolean ellipses)  {
+   return TRet.from(text_selector_set_ellipses(this != null ? (this.nativeObj) : 0, ellipses));
+ }
+
+
+  /**
    * 可见的选项数量(只能是1或者3或者5，缺省为5)。
    *
    */
@@ -398,6 +411,15 @@ public class TTextSelector extends TWidget {
 
 
   /**
+   * 是否开启缩写，开启后，当文字长度操作控件长度后，自动变为...
+   *
+   */
+ public boolean getEllipses() {
+   return text_selector_t_get_prop_ellipses(this.nativeObj);
+ }
+
+
+  /**
    * 绘制蒙版的变化趋势。
    *
    */
@@ -436,6 +458,7 @@ static private native int text_selector_set_animating_time(long widget, int anim
 static private native int text_selector_set_enable_value_animator(long widget, boolean enable_value_animator);
 static private native int text_selector_set_mask_easing(long widget, int mask_easing);
 static private native int text_selector_set_mask_area_scale(long widget, double mask_area_scale);
+static private native int text_selector_set_ellipses(long widget, boolean ellipses);
 static private native int text_selector_t_get_prop_visible_nr(long nativeObj);
 static private native int text_selector_t_get_prop_selected_index(long nativeObj);
 static private native String text_selector_t_get_prop_options(long nativeObj);
@@ -444,6 +467,7 @@ static private native int text_selector_t_get_prop_animating_time(long nativeObj
 static private native boolean text_selector_t_get_prop_localize_options(long nativeObj);
 static private native boolean text_selector_t_get_prop_loop_options(long nativeObj);
 static private native boolean text_selector_t_get_prop_enable_value_animator(long nativeObj);
+static private native boolean text_selector_t_get_prop_ellipses(long nativeObj);
 static private native int text_selector_t_get_prop_mask_easing(long nativeObj);
 static private native double text_selector_t_get_prop_mask_area_scale(long nativeObj);
 };

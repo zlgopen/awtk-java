@@ -23,6 +23,7 @@ package awtk;
  *在c代码中使用函数slide\_indicator\_create创建指示器控件。如：
  *
  *
+ *
  *```xml
  *<style name="default">
  *<normal fg_color="#FFFFFF80" selected_fg_color="#FFFFFF"/>

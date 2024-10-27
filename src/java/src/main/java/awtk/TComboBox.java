@@ -61,6 +61,7 @@ package awtk;
  *在c代码中使用函数combo\_box\_create创建下拉列表控件。如：
  *
  *
+ *
  *创建之后：
  *
  ** 用combo\_box\_set\_options设置可选项目。

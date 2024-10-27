@@ -46,7 +46,7 @@ public class DemoBasic extends App {
       public TRet onWidget(TWidget widget) {
         if(widget.getName() != null) {
           System.out.println(widget.getName());
-          widget.on(TEventType.CLICK, new OnClicked(), 0);
+          widget.on(TEventType.CLICK.value(), new OnClicked(), 0);
         }
 
         return TRet.OK;

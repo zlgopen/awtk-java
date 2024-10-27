@@ -74,6 +74,18 @@ public class TGroupBox extends TWidget {
 
 
   /**
+   * 设置选中的单选按钮的索引。
+   * 
+   * @param value 选中的单选按钮的索引。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setValue(int value)  {
+   return TRet.from(group_box_set_value(this != null ? (this.nativeObj) : 0, value));
+ }
+
+
+  /**
    * 转换为group_box对象(供脚本语言使用)。
    * 
    * @param widget group_box对象。
@@ -85,5 +97,7 @@ public class TGroupBox extends TWidget {
  }
 
 static private native long group_box_create(long parent, int x, int y, int w, int h);
+static private native int group_box_set_value(long widget, int value);
 static private native long group_box_cast(long widget);
+static private native int group_box_t_get_prop_value(long nativeObj);
 };

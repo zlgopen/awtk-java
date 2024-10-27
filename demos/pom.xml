@@ -33,15 +33,15 @@
                             <goal>run</goal>        
                         </goals>             
                         <configuration>       
-                            <tasks>
+                            <target>
                                 <!--  copy to binary lib dir -->
-                                <mkdir dir="../bin"/>        
-                                <copy todir="../bin/" overwrite="true" > 
+                                <mkdir dir="../bin"/>
+                                <copy todir="../bin/" overwrite="true">
                                     <fileset dir="${project.build.directory}" erroronmissingdir="false">
                                         <include name="${project.artifactId}.jar"/>
                                     </fileset>
-                                </copy>        
-                            </tasks>        
+                                </copy>
+                            </target>
                         </configuration>        
                     </execution>    
                 </executions>  

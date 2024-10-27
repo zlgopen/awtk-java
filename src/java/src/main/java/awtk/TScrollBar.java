@@ -25,6 +25,7 @@ package awtk;
  *在c代码中使用函数scroll\_bar\_create创建列表项控件。如：
  *
  *
+ *
  *```xml
  *<style name="default">
  *<normal bg_color="#c0c0c0" fg_color="#808080"/>
@@ -142,7 +143,7 @@ public class TScrollBar extends TWidget {
    * 滚动到指定的值。
    * 
    * @param value 值。
-   * @param duration 动画持续时间。
+   * @param duration 动画持续时间(毫秒)。
    *
    * @return 返回RET_OK表示成功，否则表示失败。
    */
@@ -172,18 +173,6 @@ public class TScrollBar extends TWidget {
    */
  public  TRet addDelta(int delta)  {
    return TRet.from(scroll_bar_add_delta(this != null ? (this.nativeObj) : 0, delta));
- }
-
-
-  /**
-   * 在当前的值上增加一个值，并滚动到新的值，并触发EVT_VALUE_CHANGED事件。
-   * 
-   * @param delta 值。
-   *
-   * @return 返回RET_OK表示成功，否则表示失败。
-   */
- public  TRet scrollDelta(int delta)  {
-   return TRet.from(scroll_bar_scroll_delta(this != null ? (this.nativeObj) : 0, delta));
  }
 
 
@@ -225,9 +214,9 @@ public class TScrollBar extends TWidget {
 
 
   /**
-   * 设置翻页滚动动画时间。
+   * 设置翻页滚动动画时间(毫秒)。
    * 
-   * @param animator_time 时间。
+   * @param animator_time 时间(毫秒)。
    *
    * @return 返回RET_OK表示成功，否则表示失败。
    */
@@ -239,8 +228,8 @@ public class TScrollBar extends TWidget {
   /**
    * 通过动画隐藏滚动条。
    * 
-   * @param duration 动画持续时间。
-   * @param delay 动画执行时间。
+   * @param duration 动画持续时间(毫秒)。
+   * @param delay 动画执行时间(毫秒)。
    *
    * @return 返回RET_OK表示成功，否则表示失败。
    */
@@ -252,13 +241,37 @@ public class TScrollBar extends TWidget {
   /**
    * 通过动画显示滚动条。
    * 
-   * @param duration 动画持续时间。
-   * @param delay 动画执行时间。
+   * @param duration 动画持续时间(毫秒)。
+   * @param delay 动画执行时间(毫秒)。
    *
    * @return 返回RET_OK表示成功，否则表示失败。
    */
  public  TRet showByOpacityAnimation(int duration, int delay)  {
    return TRet.from(scroll_bar_show_by_opacity_animation(this != null ? (this.nativeObj) : 0, duration, delay));
+ }
+
+
+  /**
+   * 设置鼠标滚轮是否滚动(仅对desktop风格的滚动条有效)。
+   * 
+   * @param scroll 是否设置该功能。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setWheelScroll(boolean scroll)  {
+   return TRet.from(scroll_bar_set_wheel_scroll(this != null ? (this.nativeObj) : 0, scroll));
+ }
+
+
+  /**
+   * 设置鼠标滚轮幅度(仅对desktop风格的滚动条有效)。
+   * 
+   * @param scroll_delta 滚动幅度。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setScrollDelta(int scroll_delta)  {
+   return TRet.from(scroll_bar_set_scroll_delta(this != null ? (this.nativeObj) : 0, scroll_delta));
  }
 
 
@@ -281,11 +294,20 @@ public class TScrollBar extends TWidget {
 
 
   /**
-   * 翻页滚动动画时间。
+   * 翻页滚动动画时间(毫秒)。
    *
    */
  public int getAnimatorTime() {
    return scroll_bar_t_get_prop_animator_time(this.nativeObj);
+ }
+
+
+  /**
+   * 每次鼠标滚动值。（缺省值为0，0 则使用鼠标滚动默认值）
+   *
+   */
+ public int getScrollDelta() {
+   return scroll_bar_t_get_prop_scroll_delta(this.nativeObj);
  }
 
 
@@ -306,6 +328,15 @@ public class TScrollBar extends TWidget {
    return scroll_bar_t_get_prop_auto_hide(this.nativeObj);
  }
 
+
+  /**
+   * 设置鼠标滚轮是否滚动(仅对desktop风格的滚动条有效)（垂直滚动条缺省值为TRUE，水平滚动条缺省值为FALSE）。
+   *
+   */
+ public boolean getWheelScroll() {
+   return scroll_bar_t_get_prop_wheel_scroll(this.nativeObj);
+ }
+
 static private native long scroll_bar_create(long parent, int x, int y, int w, int h);
 static private native long scroll_bar_cast(long widget);
 static private native long scroll_bar_create_mobile(long parent, int x, int y, int w, int h);
@@ -314,17 +345,20 @@ static private native int scroll_bar_set_params(long widget, int virtual_size, i
 static private native int scroll_bar_scroll_to(long widget, int value, int duration);
 static private native int scroll_bar_set_value(long widget, int value);
 static private native int scroll_bar_add_delta(long widget, int delta);
-static private native int scroll_bar_scroll_delta(long widget, int delta);
 static private native int scroll_bar_set_value_only(long widget, int value);
 static private native int scroll_bar_set_auto_hide(long widget, boolean auto_hide);
 static private native boolean scroll_bar_is_mobile(long widget);
 static private native int scroll_bar_set_animator_time(long widget, int animator_time);
 static private native int scroll_bar_hide_by_opacity_animation(long widget, int duration, int delay);
 static private native int scroll_bar_show_by_opacity_animation(long widget, int duration, int delay);
+static private native int scroll_bar_set_wheel_scroll(long widget, boolean scroll);
+static private native int scroll_bar_set_scroll_delta(long widget, int scroll_delta);
 static private native int scroll_bar_t_get_prop_virtual_size(long nativeObj);
 static private native int scroll_bar_t_get_prop_value(long nativeObj);
 static private native int scroll_bar_t_get_prop_row(long nativeObj);
 static private native int scroll_bar_t_get_prop_animator_time(long nativeObj);
+static private native int scroll_bar_t_get_prop_scroll_delta(long nativeObj);
 static private native boolean scroll_bar_t_get_prop_animatable(long nativeObj);
 static private native boolean scroll_bar_t_get_prop_auto_hide(long nativeObj);
+static private native boolean scroll_bar_t_get_prop_wheel_scroll(long nativeObj);
 };

@@ -80,8 +80,7 @@ public class TKeyEvent extends TEvent {
 
 
   /**
-   * right alt键是否按下。
-   *ctrl键是否按下。
+   * ctrl键是否按下。
    *
    */
  public boolean getCtrl() {
@@ -135,8 +134,7 @@ public class TKeyEvent extends TEvent {
 
 
   /**
-   * left shift键是否按下。
-   *cmd/win键是否按下。
+   * cmd/win键是否按下。
    *
    */
  public boolean getCmd() {

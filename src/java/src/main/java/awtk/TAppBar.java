@@ -23,6 +23,7 @@ package awtk;
  *在c代码中使用函数app\_bar\_create创建app\_bar。如：
  *
  *
+ *
  *可用通过style来设置控件的显示风格，如背景颜色等。如：
  *
  *```xml

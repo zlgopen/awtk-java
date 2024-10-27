@@ -18,6 +18,7 @@ package awtk;
  *在c代码中使用函数switch\_create创建开关控件。如：
  *
  *
+ *
  *> 完整示例请参考：[switch demo](
  *https://github.com/zlgopen/awtk-c-demos/blob/master/demos/switch.c)
  *

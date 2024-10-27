@@ -18,6 +18,7 @@ package awtk;
  *在c代码中使用函数mledit\_create创建多行编辑器控件。如：
  *
  *
+ *
  *> 完整示例请参考：[mledit demo](
  *https://github.com/zlgopen/awtk-c-demos/blob/master/demos/mledit.c)
  *
@@ -286,6 +287,28 @@ public class TMledit extends TWidget {
 
 
   /**
+   * 获取光标所在视觉行号(一行文本可能分多行显示)。
+   * 
+   *
+   * @return 返回光标所在行号。
+   */
+ public  int getCurrentLineIndex()  {
+    return mledit_get_current_line_index(this != null ? (this.nativeObj) : 0);
+ }
+
+
+  /**
+   * 获取光标所在物理行号。
+   * 
+   *
+   * @return 返回光标所在行号。
+   */
+ public  int getCurrentRowIndex()  {
+    return mledit_get_current_row_index(this != null ? (this.nativeObj) : 0);
+ }
+
+
+  /**
    * 插入一段文本。
    * 
    * @param offset 插入的偏移位置。
@@ -441,6 +464,8 @@ static private native int mledit_set_open_im_when_focused(long widget, boolean o
 static private native int mledit_set_close_im_when_blured(long widget, boolean close_im_when_blured);
 static private native int mledit_set_select(long widget, int start, int end);
 static private native String mledit_get_selected_text(long widget);
+static private native int mledit_get_current_line_index(long widget);
+static private native int mledit_get_current_row_index(long widget);
 static private native int mledit_insert_text(long widget, int offset, String text);
 static private native long mledit_cast(long widget);
 static private native String mledit_t_get_prop_tips(long nativeObj);

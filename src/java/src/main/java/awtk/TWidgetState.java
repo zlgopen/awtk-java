@@ -184,7 +184,42 @@ public enum TWidgetState {
    *
    */
  
-  FOCUSED_OF_ACTIVE (WIDGET_STATE_FOCUSED_OF_ACTIVE());
+  FOCUSED_OF_ACTIVE (WIDGET_STATE_FOCUSED_OF_ACTIVE()),
+  
+  /**
+   * 正常状态(选项不确定)。
+   *
+   */
+ 
+  NORMAL_OF_INDETERMINATE (WIDGET_STATE_NORMAL_OF_INDETERMINATE()),
+  
+  /**
+   * 指针按下状态(选项不确定)。
+   *
+   */
+ 
+  PRESSED_OF_INDETERMINATE (WIDGET_STATE_PRESSED_OF_INDETERMINATE()),
+  
+  /**
+   * 指针悬浮状态(选项不确定)。
+   *
+   */
+ 
+  OVER_OF_INDETERMINATE (WIDGET_STATE_OVER_OF_INDETERMINATE()),
+  
+  /**
+   * 禁用状态(选项不确定)。
+   *
+   */
+ 
+  DISABLE_OF_INDETERMINATE (WIDGET_STATE_DISABLE_OF_INDETERMINATE()),
+  
+  /**
+   * 焦点状态(选项不确定)。
+   *
+   */
+ 
+  FOCUSED_OF_INDETERMINATE (WIDGET_STATE_FOCUSED_OF_INDETERMINATE());
  
  
   private TWidgetState(String value) {
@@ -244,5 +279,10 @@ public enum TWidgetState {
   static private native String WIDGET_STATE_OVER_OF_ACTIVE();
   static private native String WIDGET_STATE_DISABLE_OF_ACTIVE();
   static private native String WIDGET_STATE_FOCUSED_OF_ACTIVE();
+  static private native String WIDGET_STATE_NORMAL_OF_INDETERMINATE();
+  static private native String WIDGET_STATE_PRESSED_OF_INDETERMINATE();
+  static private native String WIDGET_STATE_OVER_OF_INDETERMINATE();
+  static private native String WIDGET_STATE_DISABLE_OF_INDETERMINATE();
+  static private native String WIDGET_STATE_FOCUSED_OF_INDETERMINATE();
 
 }

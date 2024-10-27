@@ -2,7 +2,7 @@ package awtk;
 
 
 /**
- * 值变化事件。
+ * offset变化事件。
  *
  */
 public class TOffsetChangeEvent extends TEvent { 

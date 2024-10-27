@@ -24,6 +24,13 @@ public enum TStyleId {
   FG_COLOR (STYLE_ID_FG_COLOR()),
   
   /**
+   * dragger颜色。
+   *
+   */
+ 
+  DRAGGER_COLOR (STYLE_ID_DRAGGER_COLOR()),
+  
+  /**
    * 蒙版颜色。
    *
    */
@@ -373,6 +380,7 @@ public enum TStyleId {
 
   static private native String STYLE_ID_BG_COLOR();
   static private native String STYLE_ID_FG_COLOR();
+  static private native String STYLE_ID_DRAGGER_COLOR();
   static private native String STYLE_ID_MASK_COLOR();
   static private native String STYLE_ID_FONT_NAME();
   static private native String STYLE_ID_FONT_SIZE();

@@ -59,6 +59,18 @@ public class TGlobal {
 
 
   /**
+   * 退出TK事件主循环。
+   * 
+   * @param delay 延迟退出的时间(毫秒)。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  static TRet quitEx(int delay)  {
+   return TRet.from(tk_quit_ex(delay));
+ }
+
+
+  /**
    * 获取全局指针的X坐标。
    * 
    *
@@ -94,6 +106,7 @@ static private native int tk_pre_init();
 static private native int tk_init(int w, int h, int app_type, String app_name, String app_root);
 static private native int tk_run();
 static private native int tk_quit();
+static private native int tk_quit_ex(int delay);
 static private native int tk_get_pointer_x();
 static private native int tk_get_pointer_y();
 static private native boolean tk_is_pointer_pressed();

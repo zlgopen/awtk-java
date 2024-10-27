@@ -27,6 +27,7 @@ package awtk;
  *在c代码中使用函数slide\_view\_create创建滑动视图控件。如：
  *
  *
+ *
  *> 完整示例请参考：
  *[slide_view demo](
  *https://github.com/zlgopen/awtk-c-demos/blob/master/demos/slide_view.c)
@@ -102,7 +103,7 @@ public class TSlideView extends TWidget {
   /**
    * 设置为自动播放模式。
    * 
-   * @param auto_play 0表示禁止自动播放，非0表示自动播放时每一页播放的时间。
+   * @param auto_play 0表示禁止自动播放，非0表示自动播放时每一页播放的时间(毫秒)。
    *
    * @return 返回RET_OK表示成功，否则表示失败。
    */
@@ -196,9 +197,9 @@ public class TSlideView extends TWidget {
 
 
   /**
-   * 设置动画时间。
+   * 设置动画时间(毫秒)。
    * 
-   * @param animating_time 动画时间。
+   * @param animating_time 动画时间(毫秒)。
    *
    * @return 返回RET_OK表示成功，否则表示失败。
    */
@@ -229,7 +230,7 @@ public class TSlideView extends TWidget {
 
 
   /**
-   * 自动播放。0表示禁止自动播放，非0表示自动播放时每一页播放的时间。
+   * 自动播放。0表示禁止自动播放，非0表示自动播放时每一页播放的时间(毫秒)。
    *
    */
  public int getAutoPlay() {

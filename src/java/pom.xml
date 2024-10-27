@@ -24,7 +24,7 @@
                             <goal>run</goal>        
                         </goals>             
                         <configuration>       
-                            <tasks>
+                            <target>
                                 <!--  copy to binary lib dir -->
                                 <mkdir dir="../../bin"/>        
                                 <copy todir="../../bin/" overwrite="true" > 
@@ -32,7 +32,7 @@
                                         <include name="${project.artifactId}.jar"/>
                                     </fileset>
                                 </copy>        
-                            </tasks>        
+                            </target>        
                         </configuration>        
                     </execution>    
                 </executions>  

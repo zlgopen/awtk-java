@@ -32,6 +32,7 @@ package awtk;
  *在c代码中使用函数edit\_create创建编辑器控件。如：
  *
  *
+ *
  *> 创建之后，可以用widget\_set\_text或widget\_set\_text\_utf8设置文本内容。
  *
  *> 完整示例请参考：
@@ -416,6 +417,18 @@ public class TEdit extends TWidget {
 
 
   /**
+   * 设置输入回车后是否跳到下一个控件中。
+   * 
+   * @param focus_next_when_enter 是否跳入下一个控件中。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setFocusNextWhenEnter(boolean focus_next_when_enter)  {
+   return TRet.from(edit_set_focus_next_when_enter(this != null ? (this.nativeObj) : 0, focus_next_when_enter));
+ }
+
+
+  /**
    * 输入提示。
    *
    */
@@ -444,6 +457,17 @@ public class TEdit extends TWidget {
    */
  public String getActionText() {
    return edit_t_get_prop_action_text(this.nativeObj);
+ }
+
+
+  /**
+   * fscript脚本，用输入校验，如：(len(text) 3) && (len(text) < 10)。
+   *
+   *> 用于校验输入的文本是否合法。
+   *
+   */
+ public String getValidator() {
+   return edit_t_get_prop_validator(this.nativeObj);
  }
 
 
@@ -559,6 +583,15 @@ public class TEdit extends TWidget {
    return edit_t_get_prop_cancelable(this.nativeObj);
  }
 
+
+  /**
+   * 输入回车后是否跳到下一个控件中。
+   *
+   */
+ public boolean getFocusNextWhenEnter() {
+   return edit_t_get_prop_focus_next_when_enter(this.nativeObj);
+ }
+
 static private native long edit_create(long parent, int x, int y, int w, int h);
 static private native long edit_cast(long widget);
 static private native int edit_get_int(long widget);
@@ -586,9 +619,11 @@ static private native int edit_set_cursor(long widget, int cursor);
 static private native int edit_get_cursor(long widget);
 static private native int edit_set_select(long widget, int start, int end);
 static private native String edit_get_selected_text(long widget);
+static private native int edit_set_focus_next_when_enter(long widget, boolean focus_next_when_enter);
 static private native String edit_t_get_prop_tips(long nativeObj);
 static private native String edit_t_get_prop_tr_tips(long nativeObj);
 static private native String edit_t_get_prop_action_text(long nativeObj);
+static private native String edit_t_get_prop_validator(long nativeObj);
 static private native String edit_t_get_prop_keyboard(long nativeObj);
 static private native double edit_t_get_prop_min(long nativeObj);
 static private native double edit_t_get_prop_max(long nativeObj);
@@ -601,4 +636,5 @@ static private native boolean edit_t_get_prop_select_none_when_focused(long nati
 static private native boolean edit_t_get_prop_open_im_when_focused(long nativeObj);
 static private native boolean edit_t_get_prop_close_im_when_blured(long nativeObj);
 static private native boolean edit_t_get_prop_cancelable(long nativeObj);
+static private native boolean edit_t_get_prop_focus_next_when_enter(long nativeObj);
 };

@@ -18,6 +18,7 @@ package awtk;
  *在c代码中使用函数progress\_circle\_create创建进度圆环控件。如：
  *
  *
+ *
  *> 完整示例请参考：
  *[progress_circle
  *demo](https://github.com/zlgopen/awtk-c-demos/blob/master/demos/progress_circle.c)
@@ -213,7 +214,7 @@ public class TProgressCircle extends TWidget {
 
 
   /**
-   * 环线的厚度(缺省为8)。
+   * 环线的厚度(缺省为8)，line_width r/2时，使用扇形绘制。
    *
    */
  public int getLineWidth() {

@@ -19,6 +19,7 @@ package awtk;
  *在c代码中使用函数time\_clock\_create创建模拟时钟控件。如：
  *
  *
+ *
  *> 完整示例请参考：[time_clock demo](
  *https://github.com/zlgopen/awtk-c-demos/blob/master/demos/time_clock.c)
  *

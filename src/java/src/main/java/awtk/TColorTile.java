@@ -21,6 +21,7 @@ package awtk;
  *
  *在c代码中使用函数color_tile\_create创建色块控件。如：
  *
+ *
  *> 创建之后，用color\_tile\_set\_bg\_color设置背景颜色。
  *
  */

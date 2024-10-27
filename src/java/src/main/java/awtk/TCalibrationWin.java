@@ -20,6 +20,7 @@ package awtk;
  *在c代码中使用函数calibration\_win\_create创建窗口。如：
  *
  *
+ *
  *通过calibration\_win\_set\_on\_done注册回调函数，用于保存校准数据。
  *
  */

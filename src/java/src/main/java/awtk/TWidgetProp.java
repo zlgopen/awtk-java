@@ -353,6 +353,20 @@ public enum TWidgetProp {
   WORD_WRAP (WIDGET_PROP_WORD_WRAP()),
   
   /**
+   * 是否省略。
+   *
+   */
+ 
+  ELLIPSES (WIDGET_PROP_ELLIPSES()),
+  
+  /**
+   * 可见控件在滚动控件中的可见处理方案。（影响 widget_ensure_visible_in_viewport 函数）
+   *
+   */
+ 
+  VISIBLE_REVEAL_IN_SCROLL (WIDGET_PROP_VISIBLE_REVEAL_IN_SCROLL()),
+  
+  /**
    * 文本。
    *
    */
@@ -372,6 +386,13 @@ public enum TWidgetProp {
    */
  
   STYLE (WIDGET_PROP_STYLE()),
+  
+  /**
+   * 状态。
+   *
+   */
+ 
+  STATE (WIDGET_PROP_STATE()),
   
   /**
    * 是否启用。
@@ -642,7 +663,7 @@ public enum TWidgetProp {
   ALIGN_H (WIDGET_PROP_ALIGN_H()),
   
   /**
-   * 是否自动播放或指定播放的时间。
+   * 是否自动播放或指定播放的时间(毫秒)。
    *
    */
  
@@ -845,7 +866,7 @@ public enum TWidgetProp {
   REPEAT (WIDGET_PROP_REPEAT()),
   
   /**
-   * 触发长按事件的时间(ms)。
+   * 触发长按事件的时间(毫秒)。
    *
    */
  
@@ -1195,7 +1216,7 @@ public enum TWidgetProp {
   DRAG_THRESHOLD (WIDGET_PROP_DRAG_THRESHOLD()),
   
   /**
-   * 动画时间。
+   * 动画时间(毫秒)。
    *
    */
  
@@ -1209,7 +1230,7 @@ public enum TWidgetProp {
   ANIMATE_PREFIX (WIDGET_PROP_ANIMATE_PREFIX()),
   
   /**
-   * 改变控件属性时附带动画的播放时间。
+   * 改变控件属性时附带动画的播放时间(毫秒)。
    *
    */
  
@@ -1220,7 +1241,35 @@ public enum TWidgetProp {
    *
    */
  
-  DIRTY_RECT (WIDGET_PROP_DIRTY_RECT());
+  DIRTY_RECT (WIDGET_PROP_DIRTY_RECT()),
+  
+  /**
+   * 屏幕保护时间(毫秒)。
+   *
+   */
+ 
+  SCREEN_SAVER_TIME (WIDGET_PROP_SCREEN_SAVER_TIME()),
+  
+  /**
+   * 是否显示FPS。
+   *
+   */
+ 
+  SHOW_FPS (WIDGET_PROP_SHOW_FPS()),
+  
+  /**
+   * 最大FPS。
+   *
+   */
+ 
+  MAX_FPS (WIDGET_PROP_MAX_FPS()),
+  
+  /**
+   * 数据校验脚本。
+   *
+   */
+ 
+  VALIDATOR (WIDGET_PROP_VALIDATOR());
  
  
   private TWidgetProp(String value) {
@@ -1304,9 +1353,12 @@ public enum TWidgetProp {
   static private native String WIDGET_PROP_LENGTH();
   static private native String WIDGET_PROP_LINE_WRAP();
   static private native String WIDGET_PROP_WORD_WRAP();
+  static private native String WIDGET_PROP_ELLIPSES();
+  static private native String WIDGET_PROP_VISIBLE_REVEAL_IN_SCROLL();
   static private native String WIDGET_PROP_TEXT();
   static private native String WIDGET_PROP_TR_TEXT();
   static private native String WIDGET_PROP_STYLE();
+  static private native String WIDGET_PROP_STATE();
   static private native String WIDGET_PROP_ENABLE();
   static private native String WIDGET_PROP_FEEDBACK();
   static private native String WIDGET_PROP_FLOATING();
@@ -1428,5 +1480,9 @@ public enum TWidgetProp {
   static private native String WIDGET_PROP_ANIMATE_PREFIX();
   static private native String WIDGET_PROP_ANIMATE_ANIMATING_TIME();
   static private native String WIDGET_PROP_DIRTY_RECT();
+  static private native String WIDGET_PROP_SCREEN_SAVER_TIME();
+  static private native String WIDGET_PROP_SHOW_FPS();
+  static private native String WIDGET_PROP_MAX_FPS();
+  static private native String WIDGET_PROP_VALIDATOR();
 
 }

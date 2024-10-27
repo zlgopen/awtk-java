@@ -34,6 +34,7 @@ package awtk;
  *在c代码中使用函数system\_bar\_create创建system\_bar窗口。如：
  *
  *
+ *
  *> 创建之后，和使用普通窗口是一样的。
  *
  *可用通过style来设置控件的显示风格，如背景颜色等等。如：

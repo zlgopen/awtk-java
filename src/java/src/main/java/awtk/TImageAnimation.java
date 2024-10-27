@@ -21,6 +21,7 @@ package awtk;
  *在c代码中使用函数image\_animation\_create创建图片动画控件。如：
  *
  *
+ *
  *> 完整示例请参考：
  *[image_animation
  *demo](https://github.com/zlgopen/awtk-c-demos/blob/master/demos/image_animation.c)
@@ -95,7 +96,7 @@ public class TImageAnimation extends TWidget {
 
 
   /**
-   * 设置播放间隔时间。
+   * 设置播放间隔时间(毫秒)。
    * 
    * @param interval 间隔时间(毫秒)。
    *

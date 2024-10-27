@@ -171,6 +171,20 @@ public enum TRet {
   NO_PERMISSION (RET_NO_PERMISSION()),
   
   /**
+   * 无效地址。
+   *
+   */
+ 
+  INVALID_ADDR (RET_INVALID_ADDR()),
+  
+  /**
+   * 超出范围。
+   *
+   */
+ 
+  EXCEED_RANGE (RET_EXCEED_RANGE()),
+  
+  /**
    * 最大值。
    *
    */
@@ -233,6 +247,8 @@ public enum TRet {
   static private native int RET_EOS();
   static private native int RET_NOT_MODIFIED();
   static private native int RET_NO_PERMISSION();
+  static private native int RET_INVALID_ADDR();
+  static private native int RET_EXCEED_RANGE();
   static private native int RET_MAX_NR();
 
 }

@@ -20,6 +20,7 @@ package awtk;
  *在c代码中使用函数rich\_text\_create创建图文混排控件。如：
  *
  *
+ *
  *> 完整示例请参考：
  *[rich_text demo](https://github.com/zlgopen/awtk-c-demos/blob/master/demos/rich_text.c)
  *

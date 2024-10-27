@@ -44,6 +44,24 @@ public class TWheelEvent extends TEvent {
 
 
   /**
+   * x坐标。
+   *
+   */
+ public int getX() {
+   return wheel_event_t_get_prop_x(this.nativeObj);
+ }
+
+
+  /**
+   * y坐标。
+   *
+   */
+ public int getY() {
+   return wheel_event_t_get_prop_y(this.nativeObj);
+ }
+
+
+  /**
    * 滚轮的y值。
    *
    */
@@ -79,6 +97,8 @@ public class TWheelEvent extends TEvent {
  }
 
 static private native long wheel_event_cast(long event);
+static private native int wheel_event_t_get_prop_x(long nativeObj);
+static private native int wheel_event_t_get_prop_y(long nativeObj);
 static private native int wheel_event_t_get_prop_dy(long nativeObj);
 static private native boolean wheel_event_t_get_prop_alt(long nativeObj);
 static private native boolean wheel_event_t_get_prop_ctrl(long nativeObj);

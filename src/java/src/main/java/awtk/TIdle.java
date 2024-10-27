@@ -9,6 +9,7 @@ package awtk;
  *示例：
  *
  *
+ *
  *> 在非GUI线程请用idle\_queue。
  *
  */

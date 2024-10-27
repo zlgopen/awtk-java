@@ -213,27 +213,6 @@ public enum TEventType {
   MOVE_RESIZE (EVT_MOVE_RESIZE()),
   
   /**
-   * 控件的值即将改变的事件名(value_change_event_t)。
-   *
-   */
- 
-  VALUE_WILL_CHANGE (EVT_VALUE_WILL_CHANGE()),
-  
-  /**
-   * 控件的值改变的事件名(value_change_event_t)。
-   *
-   */
- 
-  VALUE_CHANGED (EVT_VALUE_CHANGED()),
-  
-  /**
-   * 控件的值持续改变(如编辑器正在编辑)的事件名(value_change_event_t)。
-   *
-   */
- 
-  VALUE_CHANGING (EVT_VALUE_CHANGING()),
-  
-  /**
    * 绘制的事件名(paint_event_t)。
    *
    */
@@ -554,6 +533,20 @@ public enum TEventType {
   THEME_CHANGED (EVT_THEME_CHANGED()),
   
   /**
+   * 控件根据自己当前状态即将更新style(event_t)。
+   *
+   */
+ 
+  WIDGET_WILL_UPDATE_STYLE (EVT_WIDGET_WILL_UPDATE_STYLE()),
+  
+  /**
+   * 控件根据自己当前状态更新style(event_t)。
+   *
+   */
+ 
+  WIDGET_UPDATE_STYLE (EVT_WIDGET_UPDATE_STYLE()),
+  
+  /**
    * 控件加载新的子控件(event_t)。
    *
    */
@@ -596,14 +589,14 @@ public enum TEventType {
   MULTI_GESTURE (EVT_MULTI_GESTURE()),
   
   /**
-   * 页面改变了(event_t)。
+   * 当前看到的页面改变了(event_t)。
    *
    */
  
   PAGE_CHANGED (EVT_PAGE_CHANGED()),
   
   /**
-   * 页面正在改变(offset_change_event_t)。
+   * 当前看到的页面正在改变(offset_change_event_t)。
    *
    */
  
@@ -685,6 +678,27 @@ public enum TEventType {
    */
  
   LOCALE_INFOS_UNLOAD_INFO (EVT_LOCALE_INFOS_UNLOAD_INFO()),
+  
+  /**
+   * 控件进入激活状态(event_t)。
+   *
+   */
+ 
+  ACTIVATED (EVT_ACTIVATED()),
+  
+  /**
+   * 控件退出激活状态(event_t)。
+   *
+   */
+ 
+  UNACTIVATED (EVT_UNACTIVATED()),
+  
+  /**
+   * UI加载完成事件(event_t)。
+   *
+   */
+ 
+  UI_LOAD (EVT_UI_LOAD()),
   
   /**
    * event queue其它请求编号起始值。
@@ -789,7 +803,35 @@ public enum TEventType {
    *
    */
  
-  DESTROY (EVT_DESTROY());
+  DESTROY (EVT_DESTROY()),
+  
+  /**
+   * 值即将改变的事件名(value_change_event_t)。
+   *
+   */
+ 
+  VALUE_WILL_CHANGE (EVT_VALUE_WILL_CHANGE()),
+  
+  /**
+   * 值改变的事件名(value_change_event_t)。
+   *
+   */
+ 
+  VALUE_CHANGED (EVT_VALUE_CHANGED()),
+  
+  /**
+   * 值持续改变(如编辑器正在编辑)的事件名(value_change_event_t)。
+   *
+   */
+ 
+  VALUE_CHANGING (EVT_VALUE_CHANGING()),
+  
+  /**
+   * 日志信息。
+   *
+   */
+ 
+  LOG_MESSAGE (EVT_LOG_MESSAGE());
  
  
   private TEventType(int value) {
@@ -853,9 +895,6 @@ public enum TEventType {
   static private native int EVT_RESIZE();
   static private native int EVT_WILL_MOVE_RESIZE();
   static private native int EVT_MOVE_RESIZE();
-  static private native int EVT_VALUE_WILL_CHANGE();
-  static private native int EVT_VALUE_CHANGED();
-  static private native int EVT_VALUE_CHANGING();
   static private native int EVT_PAINT();
   static private native int EVT_BEFORE_PAINT();
   static private native int EVT_AFTER_PAINT();
@@ -901,6 +940,8 @@ public enum TEventType {
   static private native int EVT_REQUEST_QUIT_APP();
   static private native int EVT_THEME_WILL_CHANGE();
   static private native int EVT_THEME_CHANGED();
+  static private native int EVT_WIDGET_WILL_UPDATE_STYLE();
+  static private native int EVT_WIDGET_UPDATE_STYLE();
   static private native int EVT_WIDGET_ADD_CHILD();
   static private native int EVT_WIDGET_REMOVE_CHILD();
   static private native int EVT_SCROLL_START();
@@ -920,6 +961,9 @@ public enum TEventType {
   static private native int EVT_DROP_FILE();
   static private native int EVT_LOCALE_INFOS_LOAD_INFO();
   static private native int EVT_LOCALE_INFOS_UNLOAD_INFO();
+  static private native int EVT_ACTIVATED();
+  static private native int EVT_UNACTIVATED();
+  static private native int EVT_UI_LOAD();
   static private native int EVT_REQ_START();
   static private native int EVT_USER_START();
   static private native int EVT_NONE();
@@ -935,5 +979,9 @@ public enum TEventType {
   static private native int EVT_DONE();
   static private native int EVT_ERROR();
   static private native int EVT_DESTROY();
+  static private native int EVT_VALUE_WILL_CHANGE();
+  static private native int EVT_VALUE_CHANGED();
+  static private native int EVT_VALUE_CHANGING();
+  static private native int EVT_LOG_MESSAGE();
 
 }

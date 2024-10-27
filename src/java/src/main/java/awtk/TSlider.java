@@ -20,6 +20,7 @@ package awtk;
  *在c代码中使用函数slider\_create创建滑块控件。如：
  *
  *
+ *
  *> 完整示例请参考：
  *[slider demo](https://github.com/zlgopen/awtk-c-demos/blob/master/demos/slider.c)
  *
@@ -177,6 +178,18 @@ public class TSlider extends TWidget {
 
 
   /**
+   * 设置拖拽临界值。
+   * 
+   * @param drag_threshold 拖拽临界值。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setDragThreshold(int drag_threshold)  {
+   return TRet.from(slider_set_drag_threshold(this != null ? (this.nativeObj) : 0, drag_threshold));
+ }
+
+
+  /**
    * 最小值。
    *
    */
@@ -256,6 +269,15 @@ public class TSlider extends TWidget {
    return slider_t_get_prop_slide_with_bar(this.nativeObj);
  }
 
+
+  /**
+   * 拖动临界值。
+   *
+   */
+ public int getDragThreshold() {
+   return slider_t_get_prop_drag_threshold(this.nativeObj);
+ }
+
 static private native long slider_create(long parent, int x, int y, int w, int h);
 static private native long slider_cast(long widget);
 static private native int slider_set_value(long widget, double value);
@@ -265,6 +287,7 @@ static private native int slider_set_line_cap(long widget, String line_cap);
 static private native int slider_set_step(long widget, double step);
 static private native int slider_set_bar_size(long widget, int bar_size);
 static private native int slider_set_vertical(long widget, boolean vertical);
+static private native int slider_set_drag_threshold(long widget, int drag_threshold);
 static private native double slider_t_get_prop_value(long nativeObj);
 static private native double slider_t_get_prop_min(long nativeObj);
 static private native double slider_t_get_prop_max(long nativeObj);
@@ -275,4 +298,5 @@ static private native String slider_t_get_prop_line_cap(long nativeObj);
 static private native boolean slider_t_get_prop_vertical(long nativeObj);
 static private native boolean slider_t_get_prop_dragger_adapt_to_icon(long nativeObj);
 static private native boolean slider_t_get_prop_slide_with_bar(long nativeObj);
+static private native int slider_t_get_prop_drag_threshold(long nativeObj);
 };

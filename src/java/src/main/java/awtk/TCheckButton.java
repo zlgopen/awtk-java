@@ -24,7 +24,9 @@ package awtk;
  *在c代码中使用函数check\_button\_create创建多选按钮控件。如：
  *
  *
+ *
  *在c代码中使用函数check\_button\_create\_radio创建单选按钮控件。如：
+ *
  *
  *
  *> 完整示例请参考：
@@ -119,6 +121,29 @@ public class TCheckButton extends TWidget {
 
 
   /**
+   * 设置控件的不确定状态。
+   * 
+   * @param indeterminate 不确定状态。（该值为TRUE的话，value 值存于不确定状态，该值为FALSE的话，value 值存于确定状态）
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setIndeterminate(boolean indeterminate)  {
+   return TRet.from(check_button_set_indeterminate(this != null ? (this.nativeObj) : 0, indeterminate));
+ }
+
+
+  /**
+   * 获取控件的是否存于不确定状态。
+   * 
+   *
+   * @return 返回控件的是否存于不确定状态。
+   */
+ public  boolean getIndeterminate()  {
+    return check_button_get_indeterminate(this != null ? (this.nativeObj) : 0);
+ }
+
+
+  /**
    * 转换check_button对象(供脚本语言使用)。
    * 
    * @param widget check_button对象。
@@ -150,6 +175,8 @@ public class TCheckButton extends TWidget {
 static private native long check_button_create(long parent, int x, int y, int w, int h);
 static private native long check_button_create_radio(long parent, int x, int y, int w, int h);
 static private native int check_button_set_value(long widget, boolean value);
+static private native int check_button_set_indeterminate(long widget, boolean indeterminate);
+static private native boolean check_button_get_indeterminate(long widget);
 static private native long check_button_cast(long widget);
 static private native long check_button_create_ex(long parent, int x, int y, int w, int h, String type, boolean radio);
 static private native boolean check_button_t_get_prop_value(long nativeObj);

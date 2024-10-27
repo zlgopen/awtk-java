@@ -69,7 +69,7 @@ public class THscrollLabel extends TWidget {
   /**
    * 设置lull。
    * 
-   * @param lull 间歇时间(ms)。
+   * @param lull 间歇时间(毫秒)。
    *
    * @return 返回RET_OK表示成功，否则表示失败。
    */
@@ -81,7 +81,7 @@ public class THscrollLabel extends TWidget {
   /**
    * 设置duration。
    * 
-   * @param duration 滚动时间(ms)。
+   * @param duration 滚动时间(毫秒)。
    *
    * @return 返回RET_OK表示成功，否则表示失败。
    */
@@ -171,6 +171,30 @@ public class THscrollLabel extends TWidget {
    */
  public  TRet setStopAtBegin(boolean stop_at_begin)  {
    return TRet.from(hscroll_label_set_stop_at_begin(this != null ? (this.nativeObj) : 0, stop_at_begin));
+ }
+
+
+  /**
+   * 设置开始延迟时间。
+   * 
+   * @param delay 开始延迟时间。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setDelay(int delay)  {
+   return TRet.from(hscroll_label_set_delay(this != null ? (this.nativeObj) : 0, delay));
+ }
+
+
+  /**
+   * 设置滚动文本结尾和文本开头间隔距离
+   * 
+   * @param loop_interval_distance 间隔距离。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setLoopIntervalDistance(int loop_interval_distance)  {
+   return TRet.from(hscroll_label_set_loop_interval_distance(this != null ? (this.nativeObj) : 0, loop_interval_distance));
  }
 
 
@@ -266,7 +290,7 @@ public class THscrollLabel extends TWidget {
 
 
   /**
-   * 滚动之间的间歇时间(ms)，缺省3000ms。
+   * 滚动之间的间歇时间(毫秒)，缺省3000ms。
    *
    */
  public int getLull() {
@@ -275,11 +299,20 @@ public class THscrollLabel extends TWidget {
 
 
   /**
-   * 完整的滚动一次需要的时间(ms)，缺省5000ms。
+   * 滚动一次需要的时间(毫秒)，缺省5000ms。
    *
    */
  public int getDuration() {
    return hscroll_label_t_get_prop_duration(this.nativeObj);
+ }
+
+
+  /**
+   * 延迟多久才开始滚动，缺省0ms。
+   *
+   */
+ public int getDelay() {
+   return hscroll_label_t_get_prop_delay(this.nativeObj);
  }
 
 
@@ -312,11 +345,20 @@ public class THscrollLabel extends TWidget {
 
   /**
    * 滚动完毕后停在文本开头(缺省FALSE)。
-   *> 注：loop为FALSE时才可用。
+   *> 注：yoyo 为 TRUE 时，该功能失效。
    *
    */
  public boolean getStopAtBegin() {
    return hscroll_label_t_get_prop_stop_at_begin(this.nativeObj);
+ }
+
+
+  /**
+   * 滚动文本结尾和文本开头间隔距离(缺省值为 -1，小于 0 视为使用控件宽度作为间隔距离)。
+   *
+   */
+ public int getLoopIntervalDistance() {
+   return hscroll_label_t_get_prop_loop_interval_distance(this.nativeObj);
  }
 
 static private native long hscroll_label_create(long parent, int x, int y, int w, int h);
@@ -329,6 +371,8 @@ static private native int hscroll_label_set_loop(long widget, boolean loop);
 static private native int hscroll_label_set_yoyo(long widget, boolean yoyo);
 static private native int hscroll_label_set_ellipses(long widget, boolean ellipses);
 static private native int hscroll_label_set_stop_at_begin(long widget, boolean stop_at_begin);
+static private native int hscroll_label_set_delay(long widget, int delay);
+static private native int hscroll_label_set_loop_interval_distance(long widget, int loop_interval_distance);
 static private native int hscroll_label_set_xoffset(long widget, int xoffset);
 static private native int hscroll_label_start(long widget);
 static private native int hscroll_label_stop(long widget);
@@ -340,8 +384,10 @@ static private native boolean hscroll_label_t_get_prop_yoyo(long nativeObj);
 static private native boolean hscroll_label_t_get_prop_ellipses(long nativeObj);
 static private native int hscroll_label_t_get_prop_lull(long nativeObj);
 static private native int hscroll_label_t_get_prop_duration(long nativeObj);
+static private native int hscroll_label_t_get_prop_delay(long nativeObj);
 static private native double hscroll_label_t_get_prop_speed(long nativeObj);
 static private native int hscroll_label_t_get_prop_xoffset(long nativeObj);
 static private native int hscroll_label_t_get_prop_text_w(long nativeObj);
 static private native boolean hscroll_label_t_get_prop_stop_at_begin(long nativeObj);
+static private native int hscroll_label_t_get_prop_loop_interval_distance(long nativeObj);
 };

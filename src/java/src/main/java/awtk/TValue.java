@@ -7,6 +7,7 @@ package awtk;
  *在C/C++中，一般不需动态创建对象，直接声明并初始化即可。如：
  *
  *
+ *
  *> 在脚本语言中，需要动态创建对象。
  *
  */
@@ -332,6 +333,18 @@ public class TValue {
 
 
   /**
+   * 判断两个value是否相同。
+   * 
+   * @param other value对象。
+   *
+   * @return 为空值返回TRUE，否则返回FALSE。
+   */
+ public  boolean equal(TValue other)  {
+    return value_equal(this != null ? (this.nativeObj) : 0, other != null ? (other.nativeObj) : 0);
+ }
+
+
+  /**
    * 设置类型为int的值。
    * 
    * @param value 待设置的值。
@@ -515,6 +528,7 @@ static private native long value_dup_str(long v, String value);
 static private native String value_str(long v);
 static private native String value_str_ex(long v, String buff, int size);
 static private native boolean value_is_null(long value);
+static private native boolean value_equal(long value, long other);
 static private native long value_set_int(long v, int value);
 static private native long value_set_object(long v, long value);
 static private native long value_object(long v);

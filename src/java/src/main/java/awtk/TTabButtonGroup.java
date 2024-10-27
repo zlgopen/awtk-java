@@ -100,6 +100,18 @@ public class TTabButtonGroup extends TWidget {
 
 
   /**
+   * 设置拖拽 tab_button 控件位置。
+   * 
+   * @param drag_child 是否拖拽(缺省FALSE)。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setDragChild(boolean drag_child)  {
+   return TRet.from(tab_button_group_set_drag_child(this != null ? (this.nativeObj) : 0, drag_child));
+ }
+
+
+  /**
    * 转换tab_button_group对象(供脚本语言使用)。
    * 
    * @param widget tab_button_group对象。
@@ -130,10 +142,23 @@ public class TTabButtonGroup extends TWidget {
    return tab_button_group_t_get_prop_scrollable(this.nativeObj);
  }
 
+
+  /**
+   * 是否支持拖拽并且修改 tab_button 控件的位置(缺省FALSE)。
+   *
+   *> 紧凑型排版子控件时才支持滚动，开启该功能后，就不能拖拽滚动了，只能鼠标滚轮滚动了。
+   *
+   */
+ public boolean getDragChild() {
+   return tab_button_group_t_get_prop_drag_child(this.nativeObj);
+ }
+
 static private native long tab_button_group_create(long parent, int x, int y, int w, int h);
 static private native int tab_button_group_set_compact(long widget, boolean compact);
 static private native int tab_button_group_set_scrollable(long widget, boolean scrollable);
+static private native int tab_button_group_set_drag_child(long widget, boolean drag_child);
 static private native long tab_button_group_cast(long widget);
 static private native boolean tab_button_group_t_get_prop_compact(long nativeObj);
 static private native boolean tab_button_group_t_get_prop_scrollable(long nativeObj);
+static private native boolean tab_button_group_t_get_prop_drag_child(long nativeObj);
 };

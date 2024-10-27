@@ -30,6 +30,7 @@ package awtk;
  *在c代码中使用函数scroll\_view\_create创建列表视图控件。如：
  *
  *
+ *
  *可用通过style来设置控件的显示风格，如背景颜色和边框颜色等(一般情况不需要)。
  *
  */
@@ -227,7 +228,7 @@ public class TScrollView extends TWidget {
    * 
    * @param xoffset_end x偏移量。
    * @param yoffset_end y偏移量。
-   * @param duration 时间。
+   * @param duration 时间(毫秒)。
    *
    * @return 返回RET_OK表示成功，否则表示失败。
    */
@@ -241,7 +242,7 @@ public class TScrollView extends TWidget {
    * 
    * @param xoffset_delta x偏移量。
    * @param yoffset_delta y偏移量。
-   * @param duration 时间。
+   * @param duration 时间(毫秒)。
    *
    * @return 返回RET_OK表示成功，否则表示失败。
    */

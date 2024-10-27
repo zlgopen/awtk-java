@@ -26,6 +26,7 @@ package awtk;
  *在c代码中使用函数list\_view\_h\_create创建水平列表视图控件。如：
  *
  *
+ *
  *用代码构造列表视图是比较繁琐的事情，最好用XML来构造。
  *如果需要动态修改，可以使用widget\_clone来增加列表项，使用widget\_remove\_child来移出列表项。
  *

@@ -18,6 +18,7 @@ package awtk;
  *在c代码中使用函数svg\_image\_create创建SVG图片控件。如：
  *
  *
+ *
  *> 创建之后: 需要用widget\_set\_image设置图片名称。
  *
  *> 完整示例请参考：[svg image demo](
