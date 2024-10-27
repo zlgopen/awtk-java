@@ -25,6 +25,13 @@
                         </goals>             
                         <configuration>       
                             <target>
+                                <!-- 设置Ant的详细输出 -->
+                                <property name="ant.verbose" value="true" />
+
+                                <!-- 打印调试信息 -->
+                                <echo message="Starting copy task..." />
+                                <echo message="Copying ${project.artifactId}.jar from ${project.build.directory} to ../../bin/" />
+                                <!--  copy to binary lib dir -->
                                 <!--  copy to binary lib dir -->
                                 <mkdir dir="../../bin"/>        
                                 <copy todir="../../bin/" overwrite="true" > 
