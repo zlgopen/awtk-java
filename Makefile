@@ -1,7 +1,9 @@
 all:
 	scons -j2
-	cd src/java && mvn package && mvn install:install-file -Dfile=../../bin/awtk.jar -DgroupId=org.awtk -DartifactId=awtk -Dversion=1.0 -Dpackaging=jar
+	cd src/java && mvn package
+	cp -f src/java/target/awtk.jar bin
 	cd demos && mvn package
+	cp -f demos/target/awtk_demos.jar bin
 
 clean:
 	scons -c
