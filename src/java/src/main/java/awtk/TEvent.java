@@ -38,14 +38,39 @@ public class TEvent {
 
 
   /**
-   * 将事件名转换成事件的值。
+   * 将事件名转换成事件的类型。
    * 
    * @param name 事件名。
    *
-   * @return 返回事件的值。
+   * @return 返回事件的类型。
    */
  public  static int fromName(String name)  {
     return event_from_name(name);
+ }
+
+
+  /**
+   * 给事件注册名称。
+   * 
+   * @param event_type 事件类型。
+   * @param name 事件名。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  static TRet registerCustomName(int event_type, String name)  {
+   return TRet.from(event_register_custom_name(event_type, name));
+ }
+
+
+  /**
+   * 注销事件名称。
+   * 
+   * @param name 事件名。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  static TRet unregisterCustomName(String name)  {
+   return TRet.from(event_unregister_custom_name(name));
  }
 
 
@@ -128,6 +153,8 @@ public class TEvent {
  }
 
 static private native int event_from_name(String name);
+static private native int event_register_custom_name(int event_type, String name);
+static private native int event_unregister_custom_name(String name);
 static private native long event_cast(long event);
 static private native int event_get_type(long event);
 static private native long event_create(int type);

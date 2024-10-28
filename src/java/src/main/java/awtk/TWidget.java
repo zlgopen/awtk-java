@@ -1003,8 +1003,8 @@ public class TWidget {
    *
    * @return 返回id，用于widget_off。
    */
- public  int on(int type, TOnEvent on_event, long ctx)  {
-    return widget_on(this != null ? (this.nativeObj) : 0, type, on_event, ctx);
+ public  int on(TEventType type, TOnEvent on_event, long ctx)  {
+    return widget_on(this != null ? (this.nativeObj) : 0, type.value(), on_event, ctx);
  }
 
 

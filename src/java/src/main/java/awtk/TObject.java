@@ -816,6 +816,17 @@ public class TObject extends TEmitter {
 
 
   /**
+   * 清除全部属性。
+   * 
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet clearProps()  {
+   return TRet.from(object_clear_props(this != null ? (this.nativeObj) : 0));
+ }
+
+
+  /**
    * 引用计数。
    *
    */
@@ -894,6 +905,7 @@ static private native long object_get_prop_int64(long obj, String name, long def
 static private native int object_set_prop_int64(long obj, String name, long value);
 static private native long object_get_prop_uint64(long obj, String name, long defval);
 static private native int object_set_prop_uint64(long obj, String name, long value);
+static private native int object_clear_props(long obj);
 static private native int object_t_get_prop_ref_count(long nativeObj);
 static private native String object_t_get_prop_name(long nativeObj);
 };

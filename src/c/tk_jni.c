@@ -80,6 +80,7 @@
 #include "time_clock/time_clock.h"
 #include "timer_widget/timer_widget.h"
 #include "tkc/event.h"
+#include "tkc/named_value_hash.h"
 #include "widgets/app_bar.h"
 #include "widgets/button_group.h"
 #include "widgets/button.h"
@@ -115,6 +116,7 @@
 #include "tkc/idle_info.h"
 #include "tkc/object_array.h"
 #include "tkc/object_default.h"
+#include "tkc/object_hash.h"
 #include "tkc/timer_info.h"
 #include "widgets/calibration_win.h"
 #include "widgets/combo_box.h"
@@ -929,6 +931,14 @@ JNIEXPORT jint JNICALL Java_awtk_TObject_object_1set_1prop_1uint64(JNIEnv* env, 
   const char* name = (char*)(*env)->GetStringUTFChars(env, jname, 0);
   ret = (ret_t)object_set_prop_uint64(obj, name, value);
   (*env)->ReleaseStringUTFChars(env, jname, name);
+
+  return (jint)(ret);
+}
+
+JNIEXPORT jint JNICALL Java_awtk_TObject_object_1clear_1props(JNIEnv* env,  jclass ajc, jlong jobj) { /*func*/
+  ret_t ret;
+  object_t* obj = (object_t*)jobj;
+  ret = (ret_t)object_clear_props(obj);
 
   return (jint)(ret);
 }
@@ -2396,6 +2406,24 @@ JNIEXPORT jint JNICALL Java_awtk_TEvent_event_1from_1name(JNIEnv* env,  jclass a
   int32_t ret;
   const char* name = (char*)(*env)->GetStringUTFChars(env, jname, 0);
   ret = (int32_t)event_from_name(name);
+  (*env)->ReleaseStringUTFChars(env, jname, name);
+
+  return (jint)(ret);
+}
+
+JNIEXPORT jint JNICALL Java_awtk_TEvent_event_1register_1custom_1name(JNIEnv* env,  jclass ajc, jint event_type, jstring jname) { /*func*/
+  ret_t ret;
+  const char* name = (char*)(*env)->GetStringUTFChars(env, jname, 0);
+  ret = (ret_t)event_register_custom_name(event_type, name);
+  (*env)->ReleaseStringUTFChars(env, jname, name);
+
+  return (jint)(ret);
+}
+
+JNIEXPORT jint JNICALL Java_awtk_TEvent_event_1unregister_1custom_1name(JNIEnv* env,  jclass ajc, jstring jname) { /*func*/
+  ret_t ret;
+  const char* name = (char*)(*env)->GetStringUTFChars(env, jname, 0);
+  ret = (ret_t)event_unregister_custom_name(name);
   (*env)->ReleaseStringUTFChars(env, jname, name);
 
   return (jint)(ret);
@@ -9351,6 +9379,22 @@ JNIEXPORT jstring JNICALL Java_awtk_TUiLoadEvent_ui_1load_1event_1t_1get_1prop_1
   return (*env)->NewStringUTF(env, obj->name);
 }
 
+JNIEXPORT jint JNICALL Java_awtk_TFontManager_font_1manager_1set_1standard_1font_1size(JNIEnv* env,  jclass ajc, jlong jfm, jboolean is_standard) { /*func*/
+  ret_t ret;
+  font_manager_t* fm = (font_manager_t*)jfm;
+  ret = (ret_t)font_manager_set_standard_font_size(fm, is_standard);
+
+  return (jint)(ret);
+}
+
+JNIEXPORT jboolean JNICALL Java_awtk_TFontManager_font_1manager_1get_1standard_1font_1size(JNIEnv* env,  jclass ajc, jlong jfm) { /*func*/
+  bool_t ret;
+  font_manager_t* fm = (font_manager_t*)jfm;
+  ret = (bool_t)font_manager_get_standard_font_size(fm);
+
+  return (jboolean)(ret);
+}
+
 JNIEXPORT jint JNICALL Java_awtk_TFontManager_font_1manager_1unload_1font(JNIEnv* env,  jclass ajc, jlong jfm, jstring jname, jint size) { /*func*/
   ret_t ret;
   font_manager_t* fm = (font_manager_t*)jfm;
@@ -13393,6 +13437,40 @@ JNIEXPORT jlong JNICALL Java_awtk_TLogMessageEvent_log_1message_1event_1cast(JNI
   return (jlong)(ret);
 }
 
+JNIEXPORT jlong JNICALL Java_awtk_TNamedValueHash_named_1value_1hash_1create(JNIEnv* env,  jclass ajc) { /*func*/
+  named_value_hash_t* ret;
+  ret = (named_value_hash_t*)named_value_hash_create();
+
+  return (jlong)(ret);
+}
+
+JNIEXPORT jint JNICALL Java_awtk_TNamedValueHash_named_1value_1hash_1set_1name(JNIEnv* env,  jclass ajc, jlong jnvh, jstring jname) { /*func*/
+  ret_t ret;
+  named_value_hash_t* nvh = (named_value_hash_t*)jnvh;
+  const char* name = (char*)(*env)->GetStringUTFChars(env, jname, 0);
+  ret = (ret_t)named_value_hash_set_name(nvh, name);
+  (*env)->ReleaseStringUTFChars(env, jname, name);
+
+  return (jint)(ret);
+}
+
+JNIEXPORT jlong JNICALL Java_awtk_TNamedValueHash_named_1value_1hash_1clone(JNIEnv* env,  jclass ajc, jlong jnvh) { /*func*/
+  named_value_hash_t* ret;
+  named_value_hash_t* nvh = (named_value_hash_t*)jnvh;
+  ret = (named_value_hash_t*)named_value_hash_clone(nvh);
+
+  return (jlong)(ret);
+}
+
+JNIEXPORT jlong JNICALL Java_awtk_TNamedValueHash_named_1value_1hash_1get_1hash_1from_1str(JNIEnv* env,  jclass ajc, jstring jstr) { /*func*/
+  uint64_t ret;
+  const char* str = (char*)(*env)->GetStringUTFChars(env, jstr, 0);
+  ret = (uint64_t)named_value_hash_get_hash_from_str(str);
+  (*env)->ReleaseStringUTFChars(env, jstr, str);
+
+  return (jlong)(ret);
+}
+
 JNIEXPORT jlong JNICALL Java_awtk_TAppBar_app_1bar_1create(JNIEnv* env,  jclass ajc, jlong jparent, jint x, jint y, jint w, jint h) { /*func*/
   widget_t* ret;
   widget_t* parent = (widget_t*)jparent;
@@ -15482,6 +15560,28 @@ JNIEXPORT jint JNICALL Java_awtk_TObjectDefault_object_1default_1set_1name_1case
   ret_t ret;
   object_t* obj = (object_t*)jobj;
   ret = (ret_t)object_default_set_name_case_insensitive(obj, name_case_insensitive);
+
+  return (jint)(ret);
+}
+
+JNIEXPORT jlong JNICALL Java_awtk_TObjectHash_object_1hash_1create(JNIEnv* env,  jclass ajc) { /*func*/
+  object_t* ret;
+  ret = (object_t*)object_hash_create();
+
+  return (jlong)(ret);
+}
+
+JNIEXPORT jlong JNICALL Java_awtk_TObjectHash_object_1hash_1create_1ex(JNIEnv* env,  jclass ajc, jboolean enable_path) { /*func*/
+  object_t* ret;
+  ret = (object_t*)object_hash_create_ex(enable_path);
+
+  return (jlong)(ret);
+}
+
+JNIEXPORT jint JNICALL Java_awtk_TObjectHash_object_1hash_1set_1keep_1prop_1type(JNIEnv* env,  jclass ajc, jlong jobj, jboolean keep_prop_type) { /*func*/
+  ret_t ret;
+  object_t* obj = (object_t*)jobj;
+  ret = (ret_t)object_hash_set_keep_prop_type(obj, keep_prop_type);
 
   return (jint)(ret);
 }

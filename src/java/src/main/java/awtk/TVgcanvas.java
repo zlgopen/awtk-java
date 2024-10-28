@@ -171,8 +171,8 @@ public class TVgcanvas {
    * @param x 原点x坐标。
    * @param y 原点y坐标。
    * @param r 半径。
-   * @param start_angle 起始角度。
-   * @param end_angle 结束角度。
+   * @param start_angle 起始角度（单位：弧度）。
+   * @param end_angle 结束角度（单位：弧度）。
    * @param ccw 是否逆时针。
    *
    * @return 返回RET_OK表示成功，否则表示失败。
@@ -271,7 +271,7 @@ public class TVgcanvas {
   /**
    * 旋转。
    * 
-   * @param rad 旋转角度(单位弧度)
+   * @param rad 旋转角度(单位：弧度)
    *
    * @return 返回RET_OK表示成功，否则表示失败。
    */
