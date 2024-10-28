@@ -20,6 +20,7 @@ JAVA 运行环境体积很大，而且自己有强大的 GUI 系统。AWTK 为�
 git clone https://github.com/zlgopen/awtk.git
 cd awtk; scons; cd -
 ```
+
 > AWTK 的编译环境请参考 AWTK 的文档。
 
 2. 获取 awtk-java 并编译
@@ -31,27 +32,22 @@ git clone https://github.com/zlgopen/awtk-java.git
 cd awtk-java
 ```
 
-* 安装最新版本的 JDK 和 JRE。
+* 安装 [JDK](https://www.oracle.com/java/technologies/downloads/)。
 
+* 安装 [Maven](https://maven.apache.org/)。
 
 * 根据平台修改 env_xxx.sh，设置 JAVA_HOME 等环境变量。
 
-* 编译 JNI
+* 编译 
 
 ```
-scons
+make
 ```
 
-* 编译 AWTK-JAVA
+> 如果系统中没有 make 命令，可以手工执行 make.sh 中的命令。
 
 ```
-	cd src/java && mvn package
-```
-
-* 编译 AWTK-DEMO
-
-```
-	cd demos && mvn package
+./make.sh
 ```
 
 ## 运行
@@ -100,5 +96,5 @@ scons
 
 [JAVA 绑定笔记](docs/tech_notes.md)
 
-[在C++中嵌入JAVA](docs/embedd_java_in_cpp.md)
+[在 C++中嵌入 JAVA](docs/embedd_java_in_cpp.md)
 > 本文以 Linux/MacOS 为例，Windows 可能会微妙差异，请酌情处理。
