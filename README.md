@@ -62,6 +62,12 @@ make
 ./bin/awtkRun bin/awtk.jar:bin/awtk_demos.jar DemoBasic
 ```
 
+> Linux平台可以直接用java命令运行。如：
+
+```
+java -Djava.library.path=./lib -cp "bin/awtk_demos.jar:bin/awtk.jar" DemoButton 800 600
+```
+
 ## 更新绑定（由本项目的维护人员完成）
 
 ```
