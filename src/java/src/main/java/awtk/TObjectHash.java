@@ -71,7 +71,20 @@ public class TObjectHash extends TObject {
    return TRet.from(object_hash_set_keep_prop_type(this != null ? (this.nativeObj) : 0, keep_prop_type));
  }
 
+
+  /**
+   * 设置是否保持属性间的顺序。
+   * 
+   * @param keep_props_order 保持属性间的顺序。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setKeepPropsOrder(boolean keep_props_order)  {
+   return TRet.from(object_hash_set_keep_props_order(this != null ? (this.nativeObj) : 0, keep_props_order));
+ }
+
 static private native long object_hash_create();
 static private native long object_hash_create_ex(boolean enable_path);
 static private native int object_hash_set_keep_prop_type(long obj, boolean keep_prop_type);
+static private native int object_hash_set_keep_props_order(long obj, boolean keep_props_order);
 };

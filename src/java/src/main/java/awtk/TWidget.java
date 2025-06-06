@@ -832,6 +832,30 @@ public class TWidget {
 
 
   /**
+   * 标识是否将当前控件状态同步到子控件中。
+   * 
+   * @param sync_state_to_children 是否将当前控件状态同步到子控件中。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setSyncStateToChildren(boolean sync_state_to_children)  {
+   return TRet.from(widget_set_sync_state_to_children(this != null ? (this.nativeObj) : 0, sync_state_to_children));
+ }
+
+
+  /**
+   * 标识是否接收父控件的状态同步。
+   * 
+   * @param state_from_parent_sync 是否接收父控件的状态同步。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setStateFromParentSync(boolean state_from_parent_sync)  {
+   return TRet.from(widget_set_state_from_parent_sync(this != null ? (this.nativeObj) : 0, state_from_parent_sync));
+ }
+
+
+  /**
    * 设置控件的不透明度。
    *
    *>在嵌入式平台，半透明效果会使性能大幅下降，请谨慎使用。
@@ -1003,8 +1027,8 @@ public class TWidget {
    *
    * @return 返回id，用于widget_off。
    */
- public  int on(TEventType type, TOnEvent on_event, long ctx)  {
-    return widget_on(this != null ? (this.nativeObj) : 0, type.value(), on_event, ctx);
+ public  int on(int type, TOnEvent on_event, long ctx)  {
+    return widget_on(this != null ? (this.nativeObj) : 0, type, on_event, ctx);
  }
 
 
@@ -1094,19 +1118,6 @@ public class TWidget {
    */
  public  String getPropStr(String name, String defval)  {
     return widget_get_prop_str(this != null ? (this.nativeObj) : 0, name, defval);
- }
-
-
-  /**
-   * 设置指针格式的属性。
-   * 
-   * @param name 属性的名称。
-   * @param v 属性的值。
-   *
-   * @return 返回RET_OK表示成功，否则表示失败。
-   */
- public  TRet setPropPointer(String name, long v)  {
-   return TRet.from(widget_set_prop_pointer(this != null ? (this.nativeObj) : 0, name, v));
  }
 
 
@@ -1700,7 +1711,7 @@ public class TWidget {
 
 
   /**
-   * 设置控件自己的布局(缺省布局器)参数(过时，请用widget\_set\_self\_layout)。
+   * 设置控件自己的布局(缺省布局器)参数(建议用widget\_set\_self\_layout)。
    *备注：下一帧才会生效数据
    * 
    * @param x x参数。
@@ -1862,6 +1873,24 @@ public class TWidget {
 
 
   /**
+   * 标识是否将当前控件状态同步到子控件中。
+   *
+   */
+ public boolean getSyncStateToChildren() {
+   return widget_t_get_prop_sync_state_to_children(this.nativeObj);
+ }
+
+
+  /**
+   * 标识是否接收父控件的状态同步。
+   *
+   */
+ public boolean getStateFromParentSync() {
+   return widget_t_get_prop_state_from_parent_sync(this.nativeObj);
+ }
+
+
+  /**
    * 不透明度(0-255)，0完全透明，255完全不透明。
    *
    */
@@ -1949,6 +1978,8 @@ static private native int widget_set_floating(long widget, boolean floating);
 static private native int widget_set_focused(long widget, boolean focused);
 static private native int widget_set_focusable(long widget, boolean focusable);
 static private native int widget_set_state(long widget, String state);
+static private native int widget_set_sync_state_to_children(long widget, boolean sync_state_to_children);
+static private native int widget_set_state_from_parent_sync(long widget, boolean state_from_parent_sync);
 static private native int widget_set_opacity(long widget, int opacity);
 static private native int widget_set_dirty_rect_tolerance(long widget, int dirty_rect_tolerance);
 static private native int widget_destroy_children(long widget);
@@ -1970,7 +2001,6 @@ static private native int widget_set_prop(long widget, String name, long v);
 static private native int widget_set_props(long widget, String params);
 static private native int widget_set_prop_str(long widget, String name, String v);
 static private native String widget_get_prop_str(long widget, String name, String defval);
-static private native int widget_set_prop_pointer(long widget, String name, long v);
 static private native long widget_get_prop_pointer(long widget, String name);
 static private native int widget_set_prop_float(long widget, String name, double v);
 static private native double widget_get_prop_float(long widget, String name, double defval);
@@ -2042,6 +2072,8 @@ static private native boolean widget_t_get_prop_focusable(long nativeObj);
 static private native boolean widget_t_get_prop_with_focus_state(long nativeObj);
 static private native boolean widget_t_get_prop_auto_adjust_size(long nativeObj);
 static private native boolean widget_t_get_prop_floating(long nativeObj);
+static private native boolean widget_t_get_prop_sync_state_to_children(long nativeObj);
+static private native boolean widget_t_get_prop_state_from_parent_sync(long nativeObj);
 static private native int widget_t_get_prop_opacity(long nativeObj);
 static private native int widget_t_get_prop_dirty_rect_tolerance(long nativeObj);
 static private native long widget_t_get_prop_parent(long nativeObj);

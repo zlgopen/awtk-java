@@ -119,6 +119,18 @@ public class TCandidates extends TWidget {
 
 
   /**
+   * 设置可见候选词个数。
+   * 
+   * @param visible_num 可见个数。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setVisibleNum(int visible_num)  {
+   return TRet.from(candidates_set_visible_num(this != null ? (this.nativeObj) : 0, visible_num));
+ }
+
+
+  /**
    * 设置按钮的style名称。
    * 
    * @param button_style 按钮的style名称。
@@ -143,7 +155,7 @@ public class TCandidates extends TWidget {
 
 
   /**
-   * 是否启用用数字选择候选字。比如按下1选择第1个候选字，按下2选择第2个候选字。
+   * 是否启用用数字选择候选字。比如按下1选择第1个候选字，按下2选择第2个候选字。(需在keyboard中设置grab_keys="true"方可生效)
    *
    */
  public boolean getSelectByNum() {
@@ -177,15 +189,26 @@ public class TCandidates extends TWidget {
    return candidates_t_get_prop_enable_preview(this.nativeObj);
  }
 
+
+  /**
+   * 候选字可见个数。
+   *
+   */
+ public int getVisibleNum() {
+   return candidates_t_get_prop_visible_num(this.nativeObj);
+ }
+
 static private native long candidates_create(long parent, int x, int y, int w, int h);
 static private native long candidates_cast(long widget);
 static private native int candidates_set_pre(long widget, boolean pre);
 static private native int candidates_set_select_by_num(long widget, boolean select_by_num);
 static private native int candidates_set_auto_hide(long widget, boolean auto_hide);
+static private native int candidates_set_visible_num(long widget, int visible_num);
 static private native int candidates_set_button_style(long widget, String button_style);
 static private native boolean candidates_t_get_prop_pre(long nativeObj);
 static private native boolean candidates_t_get_prop_select_by_num(long nativeObj);
 static private native boolean candidates_t_get_prop_auto_hide(long nativeObj);
 static private native String candidates_t_get_prop_button_style(long nativeObj);
 static private native boolean candidates_t_get_prop_enable_preview(long nativeObj);
+static private native int candidates_t_get_prop_visible_num(long nativeObj);
 };

@@ -86,7 +86,7 @@ java -Djava.library.path=./lib -cp "bin/awtk_demos.jar:bin/awtk.jar" DemoButton 
     button.setText("Quit");
     button.setSelfLayout("default(x=c,y=m,w=200,h=40)");
 
-    button.on(TEventType.CLICK, new TOnEvent() {
+    button.on(TEventType.CLICK.value(), new TOnEvent() {
       @Override
       public TRet onEvent(TEvent evt) {
         System.out.println("OnClick");

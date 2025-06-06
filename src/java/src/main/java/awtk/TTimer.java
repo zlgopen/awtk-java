@@ -41,18 +41,6 @@ public class TTimer {
 
 
   /**
-   * 根据上下文删除所有对应的timer。
-   * 
-   * @param ctx timer回调函数的上下文。
-   *
-   * @return 返回RET_OK表示成功，否则表示失败。
-   */
- public  static TRet removeAllByCtx(long ctx)  {
-   return TRet.from(timer_remove_all_by_ctx(ctx));
- }
-
-
-  /**
    * 重置指定的timer，重置之后定时器重新开始计时。
    * 
    * @param timer_id timerID。
@@ -102,7 +90,6 @@ public class TTimer {
 
 static private native int timer_add(TOnTimer on_timer, long ctx, int duration);
 static private native int timer_remove(int timer_id);
-static private native int timer_remove_all_by_ctx(long ctx);
 static private native int timer_reset(int timer_id);
 static private native int timer_suspend(int timer_id);
 static private native int timer_resume(int timer_id);

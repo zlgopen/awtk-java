@@ -887,6 +887,13 @@ public enum TWidgetProp {
   ENABLE_PREVIEW (WIDGET_PROP_ENABLE_PREVIEW()),
   
   /**
+   * 是否为 accept 状态
+   *
+   */
+ 
+  IS_ACCEPT_STATUS (WIDGET_PROP_IS_ACCEPT_STATUS()),
+  
+  /**
    * 是否启用点击穿透。
    *
    */
@@ -1188,6 +1195,35 @@ public enum TWidgetProp {
   MOVE_FOCUS_RIGHT_KEY (WIDGET_PROP_MOVE_FOCUS_RIGHT_KEY()),
   
   /**
+   * 窗口中按下 Enter 默认触发单击 button 控件名字。
+   *备注：如果控件接管了 Enter 的话，accept_button 控件是不会进入 focused 风格，例如：设置 accept_return 为 true 或者 widget->vt->return_key_to_activate 为 true
+   *
+   */
+ 
+  ACCEPT_BUTTON (WIDGET_PROP_ACCEPT_BUTTON()),
+  
+  /**
+   * 窗口中按下 Esc 默认触发单击 button 控件名字。
+   *
+   */
+ 
+  CANCEL_BUTTON (WIDGET_PROP_CANCEL_BUTTON()),
+  
+  /**
+   * 控件中是否支持 Enter 按钮输入。
+   *
+   */
+ 
+  ACCEPT_RETRUN (WIDGET_PROP_ACCEPT_RETRUN()),
+  
+  /**
+   * 控件中是否支持 Tab 按钮输入。
+   *
+   */
+ 
+  ACCEPT_TAB (WIDGET_PROP_ACCEPT_TAB()),
+  
+  /**
    * 行数。
    *
    */
@@ -1269,7 +1305,21 @@ public enum TWidgetProp {
    *
    */
  
-  VALIDATOR (WIDGET_PROP_VALIDATOR());
+  VALIDATOR (WIDGET_PROP_VALIDATOR()),
+  
+  /**
+   * 标识是否将当前控件状态同步到子控件中。
+   *
+   */
+ 
+  SYNC_STATE_TO_CHILDREN (WIDGET_PROP_SYNC_STATE_TO_CHILDREN()),
+  
+  /**
+   * 标识是否接收父控件的状态同步。
+   *
+   */
+ 
+  STATE_FROM_PARENT_SYNC (WIDGET_PROP_STATE_FROM_PARENT_SYNC());
  
  
   private TWidgetProp(String value) {
@@ -1429,6 +1479,7 @@ public enum TWidgetProp {
   static private native String WIDGET_PROP_LONG_PRESS_TIME();
   static private native String WIDGET_PROP_ENABLE_LONG_PRESS();
   static private native String WIDGET_PROP_ENABLE_PREVIEW();
+  static private native String WIDGET_PROP_IS_ACCEPT_STATUS();
   static private native String WIDGET_PROP_CLICK_THROUGH();
   static private native String WIDGET_PROP_ANIMATABLE();
   static private native String WIDGET_PROP_AUTO_HIDE();
@@ -1472,6 +1523,10 @@ public enum TWidgetProp {
   static private native String WIDGET_PROP_MOVE_FOCUS_DOWN_KEY();
   static private native String WIDGET_PROP_MOVE_FOCUS_LEFT_KEY();
   static private native String WIDGET_PROP_MOVE_FOCUS_RIGHT_KEY();
+  static private native String WIDGET_PROP_ACCEPT_BUTTON();
+  static private native String WIDGET_PROP_CANCEL_BUTTON();
+  static private native String WIDGET_PROP_ACCEPT_RETRUN();
+  static private native String WIDGET_PROP_ACCEPT_TAB();
   static private native String WIDGET_PROP_ROWS();
   static private native String WIDGET_PROP_SHOW_GRID();
   static private native String WIDGET_PROP_COLUMNS_DEFINITION();
@@ -1484,5 +1539,7 @@ public enum TWidgetProp {
   static private native String WIDGET_PROP_SHOW_FPS();
   static private native String WIDGET_PROP_MAX_FPS();
   static private native String WIDGET_PROP_VALIDATOR();
+  static private native String WIDGET_PROP_SYNC_STATE_TO_CHILDREN();
+  static private native String WIDGET_PROP_STATE_FROM_PARENT_SYNC();
 
 }

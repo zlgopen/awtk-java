@@ -129,6 +129,21 @@ public class TNativeWindow extends TObject {
 
 
   /**
+   * 设置hitTest。
+   * 
+   * @param x x坐标。
+   * @param y y坐标。
+   * @param w w宽度。
+   * @param h h高度。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet setWindowHitTest(int x, int y, int w, int h)  {
+   return TRet.from(native_window_set_window_hit_test(this != null ? (this.nativeObj) : 0, x, y, w, h));
+ }
+
+
+  /**
    * 是否全屏。
    * 
    * @param fullscreen 是否全屏。
@@ -172,6 +187,7 @@ static private native int native_window_maximize(long win);
 static private native int native_window_restore(long win);
 static private native int native_window_center(long win);
 static private native int native_window_show_border(long win, boolean show);
+static private native int native_window_set_window_hit_test(long win, int x, int y, int w, int h);
 static private native int native_window_set_fullscreen(long win, boolean fullscreen);
 static private native int native_window_set_cursor(long win, String name, long img);
 static private native int native_window_set_title(long win, String app_name);

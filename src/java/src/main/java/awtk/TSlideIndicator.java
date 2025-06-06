@@ -242,7 +242,7 @@ public class TSlideIndicator extends TWidget {
 
 
   /**
-   * 最大值(缺省为100)。
+   * 最大值(缺省为3)。
    *
    */
  public int getMax() {
@@ -297,7 +297,7 @@ public class TSlideIndicator extends TWidget {
 
 
   /**
-   * 锚点x坐标。(后面加上px为像素点，不加px为相对百分比坐标0.0f到1.0f)
+   * 锚点x坐标。(后面加上px为像素点，不加px为相对百分取值范围为0.0f到1.0f)
    *
    */
  public String getAnchorX() {
@@ -306,7 +306,7 @@ public class TSlideIndicator extends TWidget {
 
 
   /**
-   * 锚点y坐标。(后面加上px为像素点，不加px为相对百分比坐标0.0f到1.0f)
+   * 锚点y坐标。(后面加上px为像素点，不加px为相对百分取值范围为0.0f到1.0f)
    *
    */
  public String getAnchorY() {

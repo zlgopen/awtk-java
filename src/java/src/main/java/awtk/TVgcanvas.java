@@ -257,7 +257,7 @@ public class TVgcanvas {
   /**
    * 设置路径填充实心与否。
    *
-   *>CCW(1)为实心，CW(2)为镂空，设置其他则默认根据非零环绕规则判断(nonzero)。
+   *>设置为FALSE为实心，TRUE为镂空。
    * 
    * @param dir 填充方法。
    *
@@ -354,6 +354,18 @@ public class TVgcanvas {
 
   /**
    * 矩形裁剪。
+   *备注：
+   *1. 在绘图的时候脏矩形和裁剪区是一样的。
+   *2. 该函数是不合并裁剪区的，所有可能出现裁剪区被扩大导致绘图在脏矩形以外的情况，导致残影的情况。
+   *3. 该函数不支持旋转后调用，会导致裁剪区异常。
+   *........
+   *rect_t r;
+   *rect_t r_save;
+   *r = rectf_init(c->ox, c->oy, widget->w, widget->h);
+   *r_save = *vgcanvas_get_clip_rect(vg);
+   *r = rectf_intersect(&r, &r_save);
+   *vgcanvas_clip_rect(vg, (float_t)r.x, (float_t)r.y, (float_t)r.w, (float_t)r.h);
+   *........
    * 
    * @param x x坐标。
    * @param y y坐标。
@@ -384,9 +396,11 @@ public class TVgcanvas {
 
   /**
    * 设置一个与前一个裁剪区做交集的矩形裁剪区。
-   *如果下面这种情况，则不能直接调用 rect_intersect 函数来做矩形交集和 vgcanvas_clip_rect 函数设置裁剪区，而采用本函数做交集。
+   *备注：
+   *1. 如果下面这种情况，则不能直接调用 rect_intersect 函数来做矩形交集和 vgcanvas_clip_rect 函数设置裁剪区，而采用本函数做交集。
    *由于缩放和旋转以及平移会导致 vg 的坐标系和上一个裁剪区的坐标系不同，
    *导致直接使用做交集的话，裁剪区会出错。
+   *2. 该函数不支持旋转后调用，会导致裁剪区异常。
    *
    *```
    *vgcanvas_clip_rect(vg, old_r.x, old_r.y, old_r.w, old_r.h);
@@ -525,14 +539,14 @@ public class TVgcanvas {
    * 绘制图片。
    * 
    * @param img 图片。
-   * @param sx sx
-   * @param sy sy
-   * @param sw sw
-   * @param sh sh
-   * @param dx dx
-   * @param dy dy
-   * @param dw dw
-   * @param dh dh
+   * @param sx 原图区域的 x
+   * @param sy 原图区域的 y
+   * @param sw 原图区域的 w
+   * @param sh 原图区域的 h
+   * @param dx 绘制区域的 x
+   * @param dy 绘制区域的 y
+   * @param dw 绘制区域的 w
+   * @param dh 绘制区域的 h
    *
    * @return 返回RET_OK表示成功，否则表示失败。
    */
@@ -573,14 +587,14 @@ public class TVgcanvas {
    *绘制图标时会根据屏幕密度进行自动缩放，而绘制普通图片时不会。
    * 
    * @param img 图片。
-   * @param sx sx
-   * @param sy sy
-   * @param sw sw
-   * @param sh sh
-   * @param dx dx
-   * @param dy dy
-   * @param dw dw
-   * @param dh dh
+   * @param sx 原图区域的 x
+   * @param sy 原图区域的 y
+   * @param sw 原图区域的 w
+   * @param sh 原图区域的 h
+   * @param dx 绘制区域的 x
+   * @param dy 绘制区域的 y
+   * @param dw 绘制区域的 w
+   * @param dh 绘制区域的 h
    *
    * @return 返回RET_OK表示成功，否则表示失败。
    */

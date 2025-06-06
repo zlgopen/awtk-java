@@ -342,7 +342,7 @@ public class TScrollView extends TWidget {
 
 
   /**
-   * 是否递归查找全部子控件。
+   * 是否递归查找全部子控件。(当scroll_view的父控件是list_view_h或list_view时无效)
    *
    */
  public boolean getRecursive() {

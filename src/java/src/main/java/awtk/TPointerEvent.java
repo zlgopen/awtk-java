@@ -126,6 +126,15 @@ public class TPointerEvent extends TEvent {
    return pointer_event_t_get_prop_shift(this.nativeObj);
  }
 
+
+  /**
+   * 触摸ID。
+   *
+   */
+ public int getFingerId() {
+   return pointer_event_t_get_prop_finger_id(this.nativeObj);
+ }
+
 static private native long pointer_event_cast(long event);
 static private native int pointer_event_t_get_prop_x(long nativeObj);
 static private native int pointer_event_t_get_prop_y(long nativeObj);
@@ -136,4 +145,5 @@ static private native boolean pointer_event_t_get_prop_ctrl(long nativeObj);
 static private native boolean pointer_event_t_get_prop_cmd(long nativeObj);
 static private native boolean pointer_event_t_get_prop_menu(long nativeObj);
 static private native boolean pointer_event_t_get_prop_shift(long nativeObj);
+static private native int pointer_event_t_get_prop_finger_id(long nativeObj);
 };

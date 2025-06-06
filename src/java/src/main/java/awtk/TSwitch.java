@@ -101,7 +101,7 @@ public class TSwitch extends TWidget {
 
 
   /**
-   * 当开关处于关闭时，图片偏移相对于图片宽度的比例(缺省为1/3)。
+   * 主要用于当开关处于关闭时，图片偏移相对于图片宽度的比例(缺省为1/3)。
    *
    */
  public double getMaxXoffsetRatio() {

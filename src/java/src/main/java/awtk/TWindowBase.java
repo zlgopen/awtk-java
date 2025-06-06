@@ -229,6 +229,24 @@ public class TWindowBase extends TWidget {
 
 
   /**
+   * 窗口中按下 Enter 按钮默认触发单击 button 控件名字
+   *
+   */
+ public String getAcceptButton() {
+   return window_base_t_get_prop_accept_button(this.nativeObj);
+ }
+
+
+  /**
+   * 窗口中按下 Esc 按钮默认触发单击 button 控件名字
+   *
+   */
+ public String getCancelButton() {
+   return window_base_t_get_prop_cancel_button(this.nativeObj);
+ }
+
+
+  /**
    * 小应用程序(applet)的名称。
    *
    *> 如果该窗口属于某个独立的小程序应用(applet)，需要指定它的名称，以便到对应的资源目录查找资源。
@@ -274,6 +292,8 @@ static private native String window_base_t_get_prop_move_focus_up_key(long nativ
 static private native String window_base_t_get_prop_move_focus_down_key(long nativeObj);
 static private native String window_base_t_get_prop_move_focus_left_key(long nativeObj);
 static private native String window_base_t_get_prop_move_focus_right_key(long nativeObj);
+static private native String window_base_t_get_prop_accept_button(long nativeObj);
+static private native String window_base_t_get_prop_cancel_button(long nativeObj);
 static private native String window_base_t_get_prop_applet_name(long nativeObj);
 static private native boolean window_base_t_get_prop_single_instance(long nativeObj);
 static private native boolean window_base_t_get_prop_strongly_focus(long nativeObj);

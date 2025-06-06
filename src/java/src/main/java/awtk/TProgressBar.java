@@ -187,7 +187,7 @@ public class TProgressBar extends TWidget {
 
 
   /**
-   * 数值到字符串转换时的格式，缺省为"%d"。
+   * 数值到字符串转换时的格式，缺省为"%d%%"。
    *
    */
  public String getFormat() {

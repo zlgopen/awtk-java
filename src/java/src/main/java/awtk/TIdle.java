@@ -39,19 +39,6 @@ public class TIdle {
    return TRet.from(idle_remove(idle_id));
  }
 
-
-  /**
-   * 根据上下文删除所有对应的idle。
-   * 
-   * @param ctx idle回调函数的上下文
-   *
-   * @return 返回RET_OK表示成功，否则表示失败。
-   */
- public  static TRet removeAllByCtx(long ctx)  {
-   return TRet.from(idle_remove_all_by_ctx(ctx));
- }
-
 static private native int idle_add(TOnIdle on_idle, long ctx);
 static private native int idle_remove(int idle_id);
-static private native int idle_remove_all_by_ctx(long ctx);
 };

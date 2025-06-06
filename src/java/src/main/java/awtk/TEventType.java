@@ -701,6 +701,27 @@ public enum TEventType {
   UI_LOAD (EVT_UI_LOAD()),
   
   /**
+   * 触摸按下事件名(touch_event_t)。
+   *
+   */
+ 
+  TOUCH_DOWN (EVT_TOUCH_DOWN()),
+  
+  /**
+   * 触摸移动事件名(touch_event_t)。
+   *
+   */
+ 
+  TOUCH_MOVE (EVT_TOUCH_MOVE()),
+  
+  /**
+   * 触摸抬起事件名(touch_event_t)。
+   *
+   */
+ 
+  TOUCH_UP (EVT_TOUCH_UP()),
+  
+  /**
    * event queue其它请求编号起始值。
    *
    */
@@ -964,6 +985,9 @@ public enum TEventType {
   static private native int EVT_ACTIVATED();
   static private native int EVT_UNACTIVATED();
   static private native int EVT_UI_LOAD();
+  static private native int EVT_TOUCH_DOWN();
+  static private native int EVT_TOUCH_MOVE();
+  static private native int EVT_TOUCH_UP();
   static private native int EVT_REQ_START();
   static private native int EVT_USER_START();
   static private native int EVT_NONE();

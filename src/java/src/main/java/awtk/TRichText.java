@@ -130,7 +130,7 @@ public class TRichText extends TWidget {
 
 
   /**
-   * 标识控件是否允许上下拖动。
+   * 标识控件是否允许上下拖动。(需满足文字的高度大于控件的高度)
    *
    */
  public boolean getYslidable() {

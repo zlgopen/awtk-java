@@ -179,11 +179,11 @@ public class TButton extends TWidget {
 
 
   /**
-   * 触发长按事件的时间(毫秒)
+   * 是否为 accept 状态
    *
    */
- public int getLongPressTime() {
-   return button_t_get_prop_long_press_time(this.nativeObj);
+ public boolean getIsAcceptStatus() {
+   return button_t_get_prop_is_accept_status(this.nativeObj);
  }
 
 
@@ -195,6 +195,15 @@ public class TButton extends TWidget {
    return button_t_get_prop_pressed(this.nativeObj);
  }
 
+
+  /**
+   * 触发长按事件的时间(毫秒)
+   *
+   */
+ public int getLongPressTime() {
+   return button_t_get_prop_long_press_time(this.nativeObj);
+ }
+
 static private native long button_create(long parent, int x, int y, int w, int h);
 static private native long button_cast(long widget);
 static private native int button_set_repeat(long widget, int repeat);
@@ -204,6 +213,7 @@ static private native int button_set_enable_preview(long widget, boolean enable_
 static private native int button_t_get_prop_repeat(long nativeObj);
 static private native boolean button_t_get_prop_enable_long_press(long nativeObj);
 static private native boolean button_t_get_prop_enable_preview(long nativeObj);
-static private native int button_t_get_prop_long_press_time(long nativeObj);
+static private native boolean button_t_get_prop_is_accept_status(long nativeObj);
 static private native boolean button_t_get_prop_pressed(long nativeObj);
+static private native int button_t_get_prop_long_press_time(long nativeObj);
 };

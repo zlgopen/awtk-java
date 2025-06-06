@@ -5,13 +5,7 @@ package awtk;
  * 命名的值。
  *
  */
-public class TNamedValue { 
-
-/**
- * 原生对象。
- */
- public long nativeObj;
-
+public class TNamedValue extends TValue { 
 
 /**
  * 通过nativeObj构造Java对象。
@@ -21,7 +15,7 @@ public class TNamedValue {
  * @return 对应的Java对象。
  */
  public TNamedValue(long nativeObj) {
-   this.nativeObj = nativeObj;
+   super(nativeObj);
  }
 
 

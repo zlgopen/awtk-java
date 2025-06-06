@@ -204,6 +204,15 @@ public class TListView extends TWidget {
    return list_view_t_get_prop_floating_scroll_bar(this.nativeObj);
  }
 
+
+  /**
+   * 列表项的宽度。如果 item_width 0，所有列表项使用该宽度，否则使用让列表项的宽度等于scroll_view的宽度。
+   *
+   */
+ public int getItemWidth() {
+   return list_view_t_get_prop_item_width(this.nativeObj);
+ }
+
 static private native long list_view_create(long parent, int x, int y, int w, int h);
 static private native int list_view_set_item_height(long widget, int item_height);
 static private native int list_view_set_default_item_height(long widget, int default_item_height);
@@ -215,4 +224,5 @@ static private native int list_view_t_get_prop_item_height(long nativeObj);
 static private native int list_view_t_get_prop_default_item_height(long nativeObj);
 static private native boolean list_view_t_get_prop_auto_hide_scroll_bar(long nativeObj);
 static private native boolean list_view_t_get_prop_floating_scroll_bar(long nativeObj);
+static private native int list_view_t_get_prop_item_width(long nativeObj);
 };

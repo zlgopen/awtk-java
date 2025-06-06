@@ -112,6 +112,18 @@ public class TTabButtonGroup extends TWidget {
 
 
   /**
+   * 设置删除 tab_button_group 控件中的 tab_button 控件和对应页。
+   * 
+   * @param index tab_button 的序号。
+   *
+   * @return 返回RET_OK表示成功，否则表示失败。
+   */
+ public  TRet removeIndex(int index)  {
+   return TRet.from(tab_button_group_remove_index(this != null ? (this.nativeObj) : 0, index));
+ }
+
+
+  /**
    * 转换tab_button_group对象(供脚本语言使用)。
    * 
    * @param widget tab_button_group对象。
@@ -157,6 +169,7 @@ static private native long tab_button_group_create(long parent, int x, int y, in
 static private native int tab_button_group_set_compact(long widget, boolean compact);
 static private native int tab_button_group_set_scrollable(long widget, boolean scrollable);
 static private native int tab_button_group_set_drag_child(long widget, boolean drag_child);
+static private native int tab_button_group_remove_index(long widget, int index);
 static private native long tab_button_group_cast(long widget);
 static private native boolean tab_button_group_t_get_prop_compact(long nativeObj);
 static private native boolean tab_button_group_t_get_prop_scrollable(long nativeObj);

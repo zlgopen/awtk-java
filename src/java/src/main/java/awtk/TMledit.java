@@ -211,18 +211,6 @@ public class TMledit extends TWidget {
 
 
   /**
-   * 设置编辑器滚动速度。
-   * 
-   * @param scroll_line 滚动行数。
-   *
-   * @return 返回RET_OK表示成功，否则表示失败。
-   */
- public  TRet setScrollLine(int scroll_line)  {
-   return TRet.from(mledit_set_scroll_line(this != null ? (this.nativeObj) : 0, scroll_line));
- }
-
-
-  /**
    * 设置编辑器滚动到指定偏移位置。
    * 
    * @param offset 偏移位置。
@@ -379,15 +367,6 @@ public class TMledit extends TWidget {
 
 
   /**
-   * 鼠标一次滚动行数。
-   *
-   */
- public int getScrollLine() {
-   return mledit_t_get_prop_scroll_line(this.nativeObj);
- }
-
-
-  /**
    * 是否启用覆盖行。
    *
    */
@@ -445,6 +424,24 @@ public class TMledit extends TWidget {
    return mledit_t_get_prop_close_im_when_blured(this.nativeObj);
  }
 
+
+  /**
+   * 是否支持 Enter 按钮输入。
+   *
+   */
+ public boolean getAcceptReturn() {
+   return mledit_t_get_prop_accept_return(this.nativeObj);
+ }
+
+
+  /**
+   * 是否支持 Tab 按钮输入。
+   *
+   */
+ public boolean getAcceptTab() {
+   return mledit_t_get_prop_accept_tab(this.nativeObj);
+ }
+
 static private native long mledit_create(long parent, int x, int y, int w, int h);
 static private native int mledit_set_readonly(long widget, boolean readonly);
 static private native int mledit_set_cancelable(long widget, boolean cancelable);
@@ -458,7 +455,6 @@ static private native int mledit_set_tr_tips(long widget, String tr_tips);
 static private native int mledit_set_keyboard(long widget, String keyboard);
 static private native int mledit_set_cursor(long widget, int cursor);
 static private native int mledit_get_cursor(long widget);
-static private native int mledit_set_scroll_line(long widget, int scroll_line);
 static private native int mledit_scroll_to_offset(long widget, int offset);
 static private native int mledit_set_open_im_when_focused(long widget, boolean open_im_when_focused);
 static private native int mledit_set_close_im_when_blured(long widget, boolean close_im_when_blured);
@@ -473,11 +469,12 @@ static private native String mledit_t_get_prop_tr_tips(long nativeObj);
 static private native String mledit_t_get_prop_keyboard(long nativeObj);
 static private native int mledit_t_get_prop_max_lines(long nativeObj);
 static private native int mledit_t_get_prop_max_chars(long nativeObj);
-static private native int mledit_t_get_prop_scroll_line(long nativeObj);
 static private native boolean mledit_t_get_prop_overwrite(long nativeObj);
 static private native boolean mledit_t_get_prop_wrap_word(long nativeObj);
 static private native boolean mledit_t_get_prop_readonly(long nativeObj);
 static private native boolean mledit_t_get_prop_cancelable(long nativeObj);
 static private native boolean mledit_t_get_prop_open_im_when_focused(long nativeObj);
 static private native boolean mledit_t_get_prop_close_im_when_blured(long nativeObj);
+static private native boolean mledit_t_get_prop_accept_return(long nativeObj);
+static private native boolean mledit_t_get_prop_accept_tab(long nativeObj);
 };
